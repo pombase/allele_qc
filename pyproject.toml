@@ -1,0 +1,15 @@
+[tool.poetry]
+authors = ["Manuel Lera Ramirez <manulera14@gmail.com>"]
+description = ""
+name = "allele_qc"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+ipykernel = "^6.15.2"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
