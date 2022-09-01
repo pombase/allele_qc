@@ -16,6 +16,8 @@
 #%%
 
 import re
+from refinement_functions import replace_allele_features
+
 aa = 'GPAVLIMCFYWHKRQNEDST'
 aa = aa + aa.lower()
 aa = f'[{aa}]'
