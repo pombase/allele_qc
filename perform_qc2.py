@@ -31,8 +31,8 @@ modifications = [
     },
     {
         'type': 'amino_acid_mutation',
-        'regex': f'({aa})(\d+)\*',
-        'apply_syntax': lambda g: ''.join(g).upper()+'*',
+        'regex': f'({aa})(\d+)(\*|stop)',
+        'apply_syntax': lambda g: ''.join(g[:2]).upper()+'*',
         'check_invalid': lambda g: False
     },
     {
