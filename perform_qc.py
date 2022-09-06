@@ -102,7 +102,7 @@ def allele_is_invalid(allele_type, allele_description):
 with open('data/alleles.tsv') as ins:
     ins.readline()
     for line in ins:
-        systematic_id, allele_description, gene_name, allele_name, allele_synonym, allele_type = line.strip().split('\t')
+        systematic_id, allele_description, gene_name, allele_name, allele_synonym, allele_type, pmid = line.strip().split('\t')
         if allele_type != 'amino_acid_mutation':
             continue
         reason = allele_is_invalid(allele_type, allele_description)

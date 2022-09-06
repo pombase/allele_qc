@@ -2,3 +2,5 @@
 *.pyc
 /data
 /results
+.DS_Store
+
