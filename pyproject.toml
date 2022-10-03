@@ -6,6 +6,7 @@ version = "0.1.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+biopython = "^1.79"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^6.15.2"

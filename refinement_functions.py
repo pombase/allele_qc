@@ -52,11 +52,12 @@ def allele_is_invalid(allele_description,regex2modification, allele_type, allowe
     matches, unmatched = sort_result(result)
 
     if len(unmatched):
-        return 'pattern not matched\t' + ','.join(unmatched)
+        return 'pattern not matched\t' + ','.join(unmatched) + '\t'
 
     expected_list = list()
     invalid_list = list()
     encountered_types = set()
+    applied_rules = list()
     for match in matches:
 
         modification = regex2modification[match.re.pattern]
@@ -66,9 +67,10 @@ def allele_is_invalid(allele_description,regex2modification, allele_type, allowe
             invalid_list.append(invalid_string)
         else:
             expected_list.append(modification['apply_syntax'](match.groups()))
+            applied_rules.append(f'{modification["type"]}:{modification["rule_name"]}')
 
     if len(invalid_list):
-        return 'invalid\t' + ','.join(invalid_list)
+        return 'invalid\t' + ','.join(invalid_list) + '\t'
 
     encountered_types = frozenset(encountered_types)
     correct_type = allowed_types[encountered_types]
@@ -80,9 +82,10 @@ def allele_is_invalid(allele_description,regex2modification, allele_type, allowe
 
     expected = ','.join(expected_list)
     if expected != allele_description:
-        corrections[0].append(f'typo')
+        corrections[0].append(f'typo:')
         corrections[1].append(f'fix to: {expected}')
 
+    corrections.append(applied_rules)
     if len(corrections[0]):
         return '\t'.join([','.join(c) for c in corrections])
 

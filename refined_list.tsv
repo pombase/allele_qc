@@ -1,0 +1,30 @@
+
+
+reading data/chromosome3.contig
+SPCC18B5.02c CDS length not multiple of 3
+SPCC663.07c CDS length not multiple of 3
+SPCC417.03 CDS length not multiple of 3
+SPCC576.16c CDS length not multiple of 3
+reading data/chromosome2.contig
+SPBPB10D8.03 CDS length not multiple of 3
+SPBC1706.02c CDS length not multiple of 3
+SPBC1E8.04 does not end with STOP codon
+SPBC18E5.15 does not end with STOP codon
+SPBC3B8.10 CDS length not multiple of 3
+SPBCPT2R1.07c CDS length not multiple of 3
+reading data/telomeric.contig
+reading data/mating_type_region.contig
+
+
+reading data/chromosome1.contig
+SPAC212.11 CDS length not multiple of 3	config_edge
+SPAC977.01 CDS length not multiple of 3	NNs
+SPAC9G1.15c CDS length not multiple of 3	mzt1 CDS seems messed up
+SPAC2E12.05 CDS length not multiple of 3	wtf1 is different in pombe-embl and the ftp server
+reading data/pMIT.contig
+SPMIT.04 does not end with STOP codon	STOP codon not included
+reading data/chromosome2.contig
+SPBC1E8.04 does not end with STOP codon	STOP codon not included
+SPBC3B8.10 CDS length not multiple of 3
+reading data/telomeric.contig
+reading data/mating_type_region.contig
