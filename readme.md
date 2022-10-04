@@ -31,7 +31,7 @@ Next, we need to download the data from PomBase, for that run (this script uses 
 ```
 bash get_data.sh
 ```
-> **NOTE**: This calls a python script, so remember to also run `poetry sell` before this script.
+> **NOTE**: This calls a python script, so remember to also run `poetry shell` before this script.
 
 This creates the folder `data` and:
 
@@ -47,23 +47,7 @@ TODO, mention also chained mutations, comma-separated.
 
 ### Defining syntax rules
 
-We define "syntax rules" representing the syntax of a type of mutation as dictionaries in a python list that we call a "grammar" (see `grammar.py`). Below an example of a rule to represent single aminoacid mutations, in the form of `VP-120-AA` (Valine and Proline in position 120 and 121 replaced by Alanines). The keys in the dictionary represent:
-
-* `type`: the type of mutation (see below)
-* `rule_name`: `type` + `rule_name` should be unique, it identifies the rule matching a particular mutation.
-* `regex`: a regular expression with a pattern that represents a permisive syntax pattern for this type of mutation.
-  * Note the use of `{aa}` inside the python f string to represent any aminoacid.
-  * The pattern is permissive, because it will match the right syntax `VP-120-AA`, but also `VP120AA`)
-* `apply_syntax`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns the correctly-formatted mutation.
-  * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP-120-AA`.
-  * The function can be defined inline using `lambda`, or outside of the dictionary.
-* `check_invalid`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns a string describing an error, if a formatting error exists.
-  * In the example of `amino_acid_mutation:multiple_aa` an error is returned if the number of aminoacids before and after the number does not match, e.g. `CP120AAA`.
-* `check_sequence`: a function that takes two arguments:
-  * A tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`
-  * A "gene dictionary", see `load_genome.py`
-
-  The function verifies that the proposed mutation is compatible with gene DNA or peptide sequence, and returns an error string otherwise (see examples in `grammar.py`).
+We define "syntax rules" representing the syntax of a type of mutation as dictionaries in a python list that we call a "grammar" (see `grammar.py`). Below an example of a rule to represent single aminoacid mutations, in the form of `VP-120-AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
 
 ```python
 aa = 'GPAVLIMCFYWHKRQNEDST'
@@ -81,6 +65,22 @@ aa = f'[{aa}]'
         'check_sequence': check_sequence_multiple_aa
 }
 ```
+
+* `type`: the type of mutation (see below)
+* `rule_name`: `type` + `rule_name` should be unique, it identifies the rule matching a particular mutation.
+* `regex`: a regular expression with a pattern that represents a permisive syntax pattern for this type of mutation.
+  * Note the use of `{aa}` inside the python f string to represent any aminoacid.
+  * The pattern is permissive, because it will match the right syntax `VP-120-AA`, but also `VP120AA`)
+* `apply_syntax`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns the correctly-formatted mutation.
+  * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP-120-AA`.
+  * The function can be defined inline using `lambda`, or outside of the dictionary.
+* `check_invalid`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns a string describing an error, if a formatting error exists.
+  * In the example of `amino_acid_mutation:multiple_aa` an error is returned if the number of aminoacids before and after the number does not match, e.g. `CP120AAA`.
+* `check_sequence`: a function that takes two arguments:
+  * A tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`
+  * A "gene dictionary", see `load_genome.py`
+
+  The function verifies that the proposed mutation is compatible with gene DNA or peptide sequence, and returns an error string otherwise (see examples in `grammar.py`).
 
 ### Defining allele categories
 
