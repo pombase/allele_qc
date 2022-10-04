@@ -1,18 +1,17 @@
 # %%
 
 from Bio import SeqIO
-from Bio.SeqRecord import SeqRecord
-from Bio.SeqFeature import SeqFeature, CompoundLocation
+from Bio.SeqFeature import SeqFeature
 import glob
 # The genome contains a dictionary in which the key is the systematic ID,
 # and the value is a dictionary of features with the feature_type as key.
-
+import pickle
 genome : dict[str, dict[str,SeqFeature]] = dict()
 
 contig_files = glob.glob('data/*.contig')
-
-for f in contig_files[0:1]:
-    print('reading',f)
+out = open('dummy.tsv','w')
+for f in contig_files:
+    out.write('reading: ' + f +'\n')
     iterator = SeqIO.parse(f,'embl')
     contig = next(iterator)
     if next(iterator,None) is not None:
@@ -31,16 +30,25 @@ for f in contig_files[0:1]:
             raise ValueError(f'several features of {feature_type} for {gene_id}')
 
         genome[gene_id][feature_type] = feature
-        if feature_type == 'CDS' and not any([('pseudogene' in prod or 'dubious' in prod) for prod in feature.qualifiers['product']]):
+        # if feature_type == 'CDS' and not any([('pseudogene' in prod or 'dubious' in prod) for prod in feature.qualifiers['product']]):
+        if feature_type == 'CDS':
             cds_seq = feature.extract(contig).seq
             genome[gene_id]['translation'] = cds_seq.translate()
+            errors = list()
             if len(cds_seq) % 3 != 0:
-                print(gene_id,'CDS length not multiple of 3')
-            elif genome[gene_id]['translation'][-1] != '*':
-                print(cds_seq)
-                print(genome[gene_id]['translation'])
-                print(gene_id,'does not end with STOP codon')
+                errors.append('CDS length not multiple of 3')
+            if genome[gene_id]['translation'][-1] != '*':
+                errors.append('does not end with STOP codon')
+            if genome[gene_id]['translation'].find('*') != len(genome[gene_id]['translation'])-1:
+                errors.append('internal stop codons')
+            if len(errors):
+                out.write(gene_id +'\t'+ ','.join(errors) +'\t'+ str(feature.qualifiers['product']) +'\n')
+
         genome['contig'] = contig
+out.close()
+
+with open('data/genome.pickle','wb') as out:
+    pickle.dump(genome, out, pickle.HIGHEST_PROTOCOL)
 
 # %%
 

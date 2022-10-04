@@ -6,7 +6,8 @@ curl -k https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype
 gzip -d data/phenotype_annotations.phaf.gz
 
 # Get unique lines with allele types, and remove deletion and wild-type alleles
-cut -d $'\t' -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles.tsv
+cut -d $'\t' -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format.tsv
+python format_alleles.py data/alleles_pre_format.tsv > data/alleles.tsv
 
 # Get peptide sequences from PomBase
 curl -k https://www.pombase.org/data/genome_sequence_and_features/artemis_files/chromosome1.contig --output  data/chromosome1.contig

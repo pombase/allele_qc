@@ -45,7 +45,7 @@ def sort_result(result):
             unmatched.append(r)
     return matches, unmatched
 
-def allele_is_invalid(allele_description,regex2modification, allele_type, allowed_types):
+def allele_is_invalid(allele_description,regex2modification, allele_type, allowed_types, gene):
 
     result = replace_allele_features(regex2modification, [allele_description], [])
     # Filter out the non-digit non-letter characters
@@ -56,6 +56,7 @@ def allele_is_invalid(allele_description,regex2modification, allele_type, allowe
 
     expected_list = list()
     invalid_list = list()
+    sequence_error_list = list()
     encountered_types = set()
     applied_rules = list()
     for match in matches:
@@ -65,12 +66,22 @@ def allele_is_invalid(allele_description,regex2modification, allele_type, allowe
         invalid_string = modification['check_invalid'](match.groups())
         if invalid_string:
             invalid_list.append(invalid_string)
-        else:
-            expected_list.append(modification['apply_syntax'](match.groups()))
-            applied_rules.append(f'{modification["type"]}:{modification["rule_name"]}')
+            continue
 
+        sequence_error = modification['check_sequence'](match.groups(), gene)
+        if sequence_error:
+            sequence_error_list.append(sequence_error)
+
+        expected_list.append(modification['apply_syntax'](match.groups()))
+        applied_rules.append(f'{modification["type"]}:{modification["rule_name"]}')
+
+    error_list = list()
     if len(invalid_list):
-        return 'invalid\t' + ','.join(invalid_list) + '\t'
+        error_list.append(','.join(invalid_list))
+    if len(sequence_error_list):
+        error_list.append(','.join(sequence_error_list))
+    if len(error_list):
+        return 'invalid\t' + '|'.join(error_list)
 
     encountered_types = frozenset(encountered_types)
     correct_type = allowed_types[encountered_types]
