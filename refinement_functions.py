@@ -1,15 +1,15 @@
 #%%
 import re
 
-def replace_allele_features(regex2syntax_rule, pattern_list, matches):
+def replace_allele_features(syntax_rules, pattern_list, matches):
     out_list = list()
     for i in range(len(pattern_list)):
         if type(pattern_list[i]) != str:
             out_list.append(pattern_list[i])
             continue
         if len(matches) == 0:
-            for regex_pattern in regex2syntax_rule:
-                matches += [*re.finditer(regex_pattern, pattern_list[i])]
+            for syntax_rule in syntax_rules:
+                matches += [*re.finditer(syntax_rule['regex'], pattern_list[i])]
             matches.sort(key=lambda match : len(match.group()), reverse=True)
         allele_substring = pattern_list[i]
         this_list = [allele_substring]
@@ -21,7 +21,7 @@ def replace_allele_features(regex2syntax_rule, pattern_list, matches):
                 # Remove empty strings
                 this_list = list(filter(lambda x: x != '', this_list))
                 this_list = replace_allele_features(
-                    regex2syntax_rule, this_list, matches)
+                    syntax_rules, this_list, matches)
                 break
         out_list += this_list
 
@@ -29,7 +29,7 @@ def replace_allele_features(regex2syntax_rule, pattern_list, matches):
 
 def build_regex2syntax_rule(syntax_rules):
     """
-    A dictionary that 
+    A dictionary in which the
     """
     out_dict = dict()
     for syntax_rule in syntax_rules:
@@ -48,15 +48,16 @@ def sort_result(result):
             unmatched.append(r)
     return matches, unmatched
 
-def allele_is_invalid(allele_description,regex2syntax_rule, allele_type, allowed_types, gene):
+def allele_is_invalid(allele_description,syntax_rules, allele_type, allowed_types, gene):
 
-    result = replace_allele_features(regex2syntax_rule, [allele_description], [])
+    result = replace_allele_features(syntax_rules, [allele_description], [])
     # Filter out the non-digit non-letter characters
     matches, unmatched = sort_result(result)
 
     if len(unmatched):
         return 'pattern not matched\t' + ','.join(unmatched) + '\t'
 
+    regex2syntax_rule = build_regex2syntax_rule(syntax_rules)
     expected_list = list()
     invalid_list = list()
     sequence_error_list = list()

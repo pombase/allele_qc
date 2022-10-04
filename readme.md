@@ -10,7 +10,7 @@ A series of scripts for quality control of alleles in PomBase. It checks that:
 
 To install the dependencies, we used poetry (see [poetry installation instructions](https://python-poetry.org/docs/)).
 
-To install the dependencies, in the source directory run:
+In the source directory run:
 
 ```
 poetry install

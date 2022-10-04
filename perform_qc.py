@@ -10,8 +10,6 @@ with open('data/pubs_and_session_ids.csv') as ins:
         pmid, curs = line.strip().split(',')
         pmid2curs_dict[pmid] = curs
 
-regex2syntax_rule = build_regex2syntax_rule(syntax_rules)
-
 with open('data/genome.pickle','rb') as ins:
     genome = pickle.load(ins)
 
@@ -24,7 +22,7 @@ with open('data/alleles.tsv') as ins:
         if systematic_id not in genome or 'translation' not in genome[systematic_id]:
             reason = 'several transcripts or CDS missing'
         else:
-            reason = allele_is_invalid(allele_description, regex2syntax_rule, allele_type, allowed_types, genome[systematic_id])
+            reason = allele_is_invalid(allele_description, syntax_rules, allele_type, allowed_types, genome[systematic_id])
 
         # curs = '??????'
         # if pmid in pmid2curs_dict:
