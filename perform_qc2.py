@@ -23,11 +23,10 @@ with open('data/alleles.tsv') as ins:
         if systematic_id not in genome or 'translation' not in genome[systematic_id]:
             reason = 'several transcripts or CDS missing'
         else:
-            print(systematic_id)
             reason = allele_is_invalid(allele_description, regex2modification, allele_type, allowed_types, genome[systematic_id])
 
-        curs = '??????'
-        if pmid in pmid2curs_dict:
-            curs = 'https://curation.pombase.org/pombe/curs/' + pmid2curs_dict[pmid]
+        # curs = '??????'
+        # if pmid in pmid2curs_dict:
+        #     curs = 'https://curation.pombase.org/pombe/curs/' + pmid2curs_dict[pmid]
         if reason:
-            print(allele_name, allele_description,reason, sep='\t')
+            print(allele_name, allele_description, allele_type, reason, sep='\t')
