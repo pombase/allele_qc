@@ -1,14 +1,14 @@
 #%%
 import re
 
-def replace_allele_features(regex2modification, pattern_list, matches):
+def replace_allele_features(regex2syntax_rule, pattern_list, matches):
     out_list = list()
     for i in range(len(pattern_list)):
         if type(pattern_list[i]) != str:
             out_list.append(pattern_list[i])
             continue
         if len(matches) == 0:
-            for regex_pattern in regex2modification:
+            for regex_pattern in regex2syntax_rule:
                 matches += [*re.finditer(regex_pattern, pattern_list[i])]
             matches.sort(key=lambda match : len(match.group()), reverse=True)
         allele_substring = pattern_list[i]
@@ -21,16 +21,19 @@ def replace_allele_features(regex2modification, pattern_list, matches):
                 # Remove empty strings
                 this_list = list(filter(lambda x: x != '', this_list))
                 this_list = replace_allele_features(
-                    regex2modification, this_list, matches)
+                    regex2syntax_rule, this_list, matches)
                 break
         out_list += this_list
 
     return out_list
 
-def build_regex2modification(modifications):
+def build_regex2syntax_rule(syntax_rules):
+    """
+    A dictionary that 
+    """
     out_dict = dict()
-    for modification in modifications:
-        out_dict[modification['regex']] = modification
+    for syntax_rule in syntax_rules:
+        out_dict[syntax_rule['regex']] = syntax_rule
     return out_dict
 
 def sort_result(result):
@@ -45,9 +48,9 @@ def sort_result(result):
             unmatched.append(r)
     return matches, unmatched
 
-def allele_is_invalid(allele_description,regex2modification, allele_type, allowed_types, gene):
+def allele_is_invalid(allele_description,regex2syntax_rule, allele_type, allowed_types, gene):
 
-    result = replace_allele_features(regex2modification, [allele_description], [])
+    result = replace_allele_features(regex2syntax_rule, [allele_description], [])
     # Filter out the non-digit non-letter characters
     matches, unmatched = sort_result(result)
 
@@ -61,19 +64,19 @@ def allele_is_invalid(allele_description,regex2modification, allele_type, allowe
     applied_rules = list()
     for match in matches:
 
-        modification = regex2modification[match.re.pattern]
-        encountered_types.add(modification['type'])
-        invalid_string = modification['check_invalid'](match.groups())
+        syntax_rule = regex2syntax_rule[match.re.pattern]
+        encountered_types.add(syntax_rule['type'])
+        invalid_string = syntax_rule['check_invalid'](match.groups())
         if invalid_string:
             invalid_list.append(invalid_string)
             continue
 
-        sequence_error = modification['check_sequence'](match.groups(), gene)
+        sequence_error = syntax_rule['check_sequence'](match.groups(), gene)
         if sequence_error:
             sequence_error_list.append(sequence_error)
 
-        expected_list.append(modification['apply_syntax'](match.groups()))
-        applied_rules.append(f'{modification["type"]}:{modification["rule_name"]}')
+        expected_list.append(syntax_rule['apply_syntax'](match.groups()))
+        applied_rules.append(f'{syntax_rule["type"]}:{syntax_rule["rule_name"]}')
 
     error_list = list()
     if len(invalid_list):

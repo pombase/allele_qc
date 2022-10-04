@@ -5,13 +5,13 @@ aa = f'[{aa}]'
 allowed_types = {
     frozenset({'amino_acid_mutation'}): 'amino_acid_mutation',
     frozenset({'partial_amino_acid_deletion'}): 'partial_amino_acid_deletion',
-    frozenset({'amino_acid_mutation','partial_amino_acid_deletion'}): 'partial_amino_acid_deletion',
+    frozenset({'amino_acid_mutation','partial_amino_acid_deletion'}): 'amino_acid_deletion_and_mutation',
     frozenset({'amino_acid_insertion'}): 'amino_acid_insertion',
     frozenset({'amino_acid_insertion','partial_amino_acid_deletion'}): 'amino_acid_insertion_and_deletion',
     frozenset({'amino_acid_insertion','amino_acid_mutation'}): 'amino_acid_insertion_and_mutation',
     frozenset({'disruption'}): 'disruption',
     frozenset({'nonsense_mutation'}): 'nonsense_mutation',
-    frozenset({'amino_acid_mutation','nonsense_mutation'}): 'amino_acid_deletion_and_mutation',
+    frozenset({'amino_acid_mutation','nonsense_mutation'}): 'other',
     frozenset({'unknown'}): 'unknown',
 }
 
@@ -73,7 +73,7 @@ def check_multiple_positions(groups, gene):
     else:
         return False
 
-modifications = [
+syntax_rules = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'single_aa',

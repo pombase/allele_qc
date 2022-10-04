@@ -16,3 +16,6 @@ curl -k https://www.pombase.org/releases/latest/pombe-embl/chromosome3.contig --
 curl -k https://www.pombase.org/releases/latest/pombe-embl/mating_type_region.contig --output  data/mating_type_region.contig
 curl -k https://www.pombase.org/releases/latest/pombe-embl/pMIT.contig --output  data/pMIT.contig
 curl -k https://www.pombase.org/releases/latest/pombe-embl/telomeric.contig --output  data/telomeric.contig
+
+# Store the genome as a dictionary using pickle
+python load_genome.py
