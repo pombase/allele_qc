@@ -1,4 +1,3 @@
-from grammar import grammar
 from models import SyntaxRule
 from grammar import grammar, allowed_types
 from refinement_functions import find_allele_parts
