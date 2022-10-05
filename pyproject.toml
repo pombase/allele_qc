@@ -7,9 +7,12 @@ version = "0.1.0"
 [tool.poetry.dependencies]
 python = "^3.9"
 biopython = "^1.79"
+pydantic = "^1.10.2"
 
 [tool.poetry.dev-dependencies]
 ipykernel = "^6.15.2"
+flake8 = "^5.0.4"
+autopep8 = "^1.7.0"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"

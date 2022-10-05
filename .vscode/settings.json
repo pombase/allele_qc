@@ -9,4 +9,9 @@
         "**/__pycache__": true,
     },
     "python.defaultInterpreterPath": ".venv/bin/python",
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": ".venv/bin/flake8",
+    "python.linting.flake8Args": ["--ignore", "E501"],
+    "python.formatting.provider": "autopep8"
 }

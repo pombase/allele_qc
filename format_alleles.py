@@ -1,5 +1,5 @@
 """
-format the alleles to have unique lines for each allele, with the PMIDs as a list in the last column:
+format the allele list to have unique lines for each allele, with the PMIDs as a list in the last column:
 
 > Input file
 SPAC1006.08	unknown	etd1	etd1-1		unknown	PMID:15933715

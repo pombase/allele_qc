@@ -1,4 +1,4 @@
-from refinement_functions import build_regex2syntax_rule, allele_is_invalid
+from refinement_functions import allele_is_invalid
 from grammar import allowed_types, syntax_rules
 import pickle
 
@@ -10,7 +10,7 @@ with open('data/pubs_and_session_ids.csv') as ins:
         pmid, curs = line.strip().split(',')
         pmid2curs_dict[pmid] = curs
 
-with open('data/genome.pickle','rb') as ins:
+with open('data/genome.pickle', 'rb') as ins:
     genome = pickle.load(ins)
 
 with open('data/alleles.tsv') as ins:
