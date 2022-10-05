@@ -1,6 +1,8 @@
 # %%
 import re
 
+from grammar_models import SyntaxRule
+
 
 def replace_substring_by_match(input_str: str, match: re.Match) -> list[str, re.Match]:
     """
@@ -37,11 +39,10 @@ def replace_allele_features(regex_patterns: list[str], input_list: list[str, re.
     """
     # The output, that will be identical to input_list if no pattern is found.
     out_list = list()
-
     for allele_substring in input_list:
 
         # If the element is a re.Match, we include it as is.
-        if allele_substring != str:
+        if type(allele_substring) == re.Match:
             out_list.append(allele_substring)
             continue
 
@@ -69,14 +70,14 @@ def replace_allele_features(regex_patterns: list[str], input_list: list[str, re.
     return out_list
 
 
-def build_regex2syntax_rule(syntax_rules):
+def build_regex2syntax_rule(syntax_rules: list[SyntaxRule]) -> dict[str, SyntaxRule]:
     """
     A dictionary in which the keys are the regex patterns and the values are the syntax_rules passed
     as arguments.
     """
     out_dict = dict()
     for syntax_rule in syntax_rules:
-        out_dict[syntax_rule['regex']] = syntax_rule
+        out_dict[syntax_rule.regex] = syntax_rule
     return out_dict
 
 
@@ -106,64 +107,71 @@ def sort_result(input_list: list[str, re.Match]) -> tuple[list[re.Match], list[s
     return matches, unmatched
 
 
-def allele_is_invalid(allele_description, syntax_rules, allele_type, allowed_types, gene):
+def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_types, gene):
 
     regex2syntax_rule = build_regex2syntax_rule(syntax_rules)
 
-    result = replace_allele_features(
-        list(regex2syntax_rule.keys()), [allele_description], [])
+    result = replace_allele_features(list(regex2syntax_rule.keys()), [allele_description], [])
+
+    # The result parts, separated by |
+    result_parts = '|'.join(r if type(r) == str else r.group() for r in result)
 
     # Filter out the non-digit non-letter characters
     matches, unmatched = sort_result(result)
 
-    if len(unmatched):
-        return 'pattern not matched\t' + ','.join(unmatched) + '\t'
+    output_dict = {
+        'allele_parts': result_parts,
+        'needs_fixing': True,
+        'rename_to': '',
+        'rules_applied': '',
+        'pattern_error': '',
+        'invalid_error': '',
+        'sequence_error': '',
+        'change_type_to': ''
+    }
 
-    expected_list = list()
-    invalid_list = list()
-    sequence_error_list = list()
-    encountered_types = set()
-    applied_rules = list()
-    for match in matches:
+    if len(unmatched):
+        output_dict['pattern_error'] = ','.join(unmatched)
+        return output_dict
+
+    # By default empty strings
+    allele_part_types = ['' for m in matches]
+    expected_list = ['' for m in matches]
+    invalid_error_list = ['' for m in matches]
+    sequence_error_list = ['' for m in matches]
+    rules_applied = ['' for m in matches]
+
+    for i, match in enumerate(matches):
 
         syntax_rule = regex2syntax_rule[match.re.pattern]
-        encountered_types.add(syntax_rule['type'])
-        invalid_string = syntax_rule['check_invalid'](match.groups())
-        if invalid_string:
-            invalid_list.append(invalid_string)
+        allele_part_types[i] = syntax_rule.type
+
+        invalid_error_list[i] = syntax_rule.check_invalid(match.groups())
+        if invalid_error_list[i]:
             continue
 
-        sequence_error = syntax_rule['check_sequence'](match.groups(), gene)
-        if sequence_error:
-            sequence_error_list.append(sequence_error)
+        sequence_error_list[i] = syntax_rule.check_sequence(match.groups(), gene)
+        if sequence_error_list[i]:
+            continue
 
-        expected_list.append(syntax_rule['apply_syntax'](match.groups()))
-        applied_rules.append(
-            f'{syntax_rule["type"]}:{syntax_rule["rule_name"]}')
+        expected_list[i] = syntax_rule.apply_syntax(match.groups())
+        rules_applied[i] = f'{syntax_rule.type}:{syntax_rule.rule_name}'
 
-    error_list = list()
-    if len(invalid_list):
-        error_list.append(','.join(invalid_list))
-    if len(sequence_error_list):
-        error_list.append(','.join(sequence_error_list))
-    if len(error_list):
-        return 'invalid\t' + '|'.join(error_list)
-
-    encountered_types = frozenset(encountered_types)
+    encountered_types = frozenset(allele_part_types)
     correct_type = allowed_types[encountered_types]
 
-    corrections = [[], []]
     if correct_type != allele_type:
-        corrections[0].append('wrong type')
-        corrections[1].append(f'change type to: {correct_type}')
+        output_dict['change_type_to'] = correct_type
 
     expected = ','.join(expected_list)
     if expected != allele_description:
-        corrections[0].append('typo:')
-        corrections[1].append(f'fix to: {expected}')
+        output_dict['rename_to'] = expected
 
-    corrections.append(applied_rules)
-    if len(corrections[0]):
-        return '\t'.join([','.join(c) for c in corrections])
+    output_dict['rules_applied'] = '|'.join(rules_applied)
+    output_dict['invalid_error'] = '|'.join(invalid_error_list)
+    output_dict['sequence_error'] = '|'.join(sequence_error_list)
 
-    return False
+    must_be_empty = ['pattern_error', 'invalid_error', 'sequence_error', 'rename_to', 'change_type_to']
+    output_dict['needs_fixing'] = any(output_dict[key] for key in must_be_empty)
+
+    return output_dict

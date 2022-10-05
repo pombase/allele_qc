@@ -20,7 +20,7 @@ def check_position_exists(aa_pos, gene):
     peptide_seq = gene['translation']
     if aa_pos > len(peptide_seq):
         return f'position {aa_pos} does not exist, peptide length is {len(peptide_seq)}'
-    return False
+    return ''
 
 
 def check_aminoacid_at_pos(aa, aa_pos, gene):
@@ -35,7 +35,7 @@ def check_aminoacid_at_pos(aa, aa_pos, gene):
     zero_based_pos = aa_pos - 1
     peptide_seq = gene['translation']
     if peptide_seq[zero_based_pos] == aa:
-        return False
+        return ''
 
     out_str = f'no {aa} at position {aa_pos}'
     if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == aa:
@@ -63,7 +63,7 @@ def check_sequence_multiple_aa(groups, gene):
     if len(output):
         return output
     else:
-        return False
+        return ''
 
 
 def check_multiple_positions(groups, gene):
@@ -76,16 +76,16 @@ def check_multiple_positions(groups, gene):
     if len(output):
         return output
     else:
-        return False
+        return ''
 
 
-syntax_rules = [
+grammar = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'single_aa',
         'regex': f'(?<!{aa})({aa})(\d+)({aa})(?!{aa})',
         'apply_syntax': lambda g: ''.join(g).upper(),
-        'check_invalid': lambda g: False,
+        'check_invalid': lambda g: '',
         'check_sequence': check_sequence_single_aa
     },
     {
@@ -95,7 +95,7 @@ syntax_rules = [
         'regex': f'({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
         # We fix the case in which dashes are used for a single aa substitution: K-90-R
         'apply_syntax': lambda g: '-'.join(g).upper() if len(g[0]) != 1 else ''.join(g).upper(),
-        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else False,
+        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': check_sequence_multiple_aa
     },
     {
@@ -103,7 +103,7 @@ syntax_rules = [
         'rule_name': 'stop_codon_text',
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
-        'check_invalid': lambda g: False,
+        'check_invalid': lambda g: '',
         'check_sequence': check_sequence_single_aa
     },
     {
@@ -111,7 +111,7 @@ syntax_rules = [
         'rule_name': 'stop_codon_star',
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
-        'check_invalid': lambda g: False,
+        'check_invalid': lambda g: '',
         'check_sequence': check_sequence_single_aa
     },
     # {
@@ -119,14 +119,14 @@ syntax_rules = [
     #     'rule_name': 'stop_codon_aa_missing',
     #     'regex': f'({aa})(\d+)(\*)',
     #     'apply_syntax': lambda g: ''.join(g[:2]).upper()+'*',
-    #     'check_invalid': lambda g: False
+    #     'check_invalid': lambda g: ''
     # },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'multiple_aa',
-        'regex': f'(?<!{aa})(\d+)[-–](\d+)(?!{aa})(\s+Δaa)?',
+        'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(g[:2]).upper(),
-        'check_invalid': lambda g: False,
+        'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene)
     },
     {
@@ -134,7 +134,7 @@ syntax_rules = [
         'rule_name': 'single_aa',
         'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
-        'check_invalid': lambda g: False,
+        'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions(groups[:1], gene)
     },
     {
@@ -142,7 +142,7 @@ syntax_rules = [
         'rule_name': 'usual',
         'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
-        'check_invalid': lambda g: False,
+        'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions(groups[1:2], gene) if not groups[0] else check_sequence_single_aa(groups, gene)
     },
     {
@@ -150,15 +150,15 @@ syntax_rules = [
         'rule_name': 'empty',
         'regex': '^$',
         'apply_syntax': lambda g: 'unknown',
-        'check_invalid': lambda g: False,
-        'check_sequence': lambda g, gg: False
+        'check_invalid': lambda g: '',
+        'check_sequence': lambda g, gg: ''
     },
     {
         'type': 'unknown',
         'rule_name': 'unknown',
         'regex': '^unknown$',
         'apply_syntax': lambda g: 'unknown',
-        'check_invalid': lambda g: False,
-        'check_sequence': lambda g, gg: False
+        'check_invalid': lambda g: '',
+        'check_sequence': lambda g, gg: ''
     }
 ]

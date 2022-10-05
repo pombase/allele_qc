@@ -44,13 +44,10 @@ for f in contig_files:
             if genome[gene_id]['translation'].count('*') > 1:
                 errors.append('multiple stop codons')
             if len(errors):
-                out.write(gene_id + '\t' + ','.join(errors) + '\t' +
-                          str(feature.qualifiers['product']) + '\n')
+                out.write(gene_id + '\t' + ','.join(errors) + '\t' + str(feature.qualifiers['product']) + '\n')
 
         genome['contig'] = contig
 out.close()
 
 with open('data/genome.pickle', 'wb') as out:
     pickle.dump(genome, out, pickle.HIGHEST_PROTOCOL)
-
-# %%

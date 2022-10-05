@@ -1,6 +1,9 @@
-from refinement_functions import allele_is_invalid
-from grammar import allowed_types, syntax_rules
+from grammar_models import SyntaxRule
+from refinement_functions import find_allele_parts
+from grammar import allowed_types, grammar
 import pickle
+import sys
+import pandas
 
 # TODO needs fixing
 # Build a dictionary PMID - curs
@@ -13,19 +16,40 @@ with open('data/pubs_and_session_ids.csv') as ins:
 with open('data/genome.pickle', 'rb') as ins:
     genome = pickle.load(ins)
 
-with open('data/alleles.tsv') as ins:
-    ins.readline()
-    for line in ins:
-        systematic_id, allele_description, gene_name, allele_name, allele_synonym, allele_type, pmid = line.strip().split('\t')
-        if 'nucleotide' in allele_type:
-            continue
-        if systematic_id not in genome or 'translation' not in genome[systematic_id]:
-            reason = 'several transcripts or CDS missing'
-        else:
-            reason = allele_is_invalid(allele_description, syntax_rules, allele_type, allowed_types, genome[systematic_id])
 
-        # curs = '??????'
-        # if pmid in pmid2curs_dict:
-        #     curs = 'https://curation.pombase.org/pombe/curs/' + pmid2curs_dict[pmid]
-        if reason:
-            print(allele_name, allele_description, allele_type, reason, sep='\t')
+def main(input_file: str):
+    dict_list = list()
+    with open(input_file) as ins:
+        ins.readline()
+        for line in ins:
+            systematic_id, allele_description, gene_name, allele_name, allele_synonym, allele_type, pmid = line.strip().split('\t')
+            base_dict = {
+                'systematic_id': systematic_id,
+                'gene_name': gene_name,
+                'allele_type': allele_type,
+                'allele_name': allele_name
+            }
+            if 'nucleotide' in allele_type:
+                continue
+            if systematic_id not in genome or 'translation' not in genome[systematic_id]:
+                dict_list.append(
+                    {
+                        'allele_parts': '',
+                        'needs_fixing': True,
+                        'rename_to': '',
+                        'rules_applied': '',
+                        'pattern_error': '',
+                        'invalid_error': 'several transcript or CDS missing',
+                        'sequence_error': '',
+                        'change_type_to': ''
+                    } | base_dict
+                )
+            else:
+                syntax_rules = [SyntaxRule.parse_obj(r) for r in grammar]
+                dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules, allele_type, allowed_types, genome[systematic_id]))
+
+    pandas.DataFrame.from_records(dict_list).to_csv('results/allele_results.tsv', sep='\t')
+
+
+if __name__ == "__main__":
+    main(sys.argv[1])
