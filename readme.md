@@ -47,7 +47,7 @@ TODO, mention also chained mutations, comma-separated.
 
 ### Defining syntax rules
 
-We define "syntax rules" representing the syntax of a type of mutation as dictionaries in a python list that we call a "grammar" (see `grammar.py`). Below an example of a rule to represent single aminoacid mutations, in the form of `VP-120-AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
+We define "syntax rules" representing the syntax of a type of mutation as dictionaries in a python list that we call a "grammar" (see `grammar.py` and `models.py`). Below an example of a rule to represent single aminoacid mutations, in the form of `VP-120-AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
 
 ```python
 aa = 'GPAVLIMCFYWHKRQNEDST'
@@ -59,11 +59,10 @@ aa = f'[{aa}]'
         'rule_name': 'multiple_aa',
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
         'regex': f'({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
-        # We fix the case in which dashes are used for a single aa substitution: K-90-R
-        'apply_syntax': lambda g: '-'.join(g).upper() if len(g[0])!=1 else ''.join(g).upper(),
-        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else False,
+        'apply_syntax': lambda g: '-'.join(g).upper() if len(g[0]) != 1 else ''.join(g).upper(),
+        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': check_sequence_multiple_aa
-}
+},
 ```
 
 * `type`: the type of mutation (see below)

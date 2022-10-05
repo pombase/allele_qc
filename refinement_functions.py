@@ -1,7 +1,7 @@
 # %%
 import re
 
-from grammar_models import SyntaxRule
+from models import SyntaxRule
 
 
 def replace_substring_by_match(input_str: str, match: re.Match) -> list[str, re.Match]:
@@ -108,7 +108,11 @@ def sort_result(input_list: list[str, re.Match]) -> tuple[list[re.Match], list[s
 
 
 def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_types, gene):
-
+    """
+    Use replace_allele_features to identify patterns based on syntax rules, then validate
+    the content of those patterns based on the grammar rules, and return output. See the
+    example from test_data/allele_expected_results.tsv
+    """
     regex2syntax_rule = build_regex2syntax_rule(syntax_rules)
 
     result = replace_allele_features(list(regex2syntax_rule.keys()), [allele_description], [])
@@ -136,7 +140,7 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
 
     # By default empty strings
     allele_part_types = ['' for m in matches]
-    expected_list = ['' for m in matches]
+    correct_name_list = ['' for m in matches]
     invalid_error_list = ['' for m in matches]
     sequence_error_list = ['' for m in matches]
     rules_applied = ['' for m in matches]
@@ -154,7 +158,7 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
         if sequence_error_list[i]:
             continue
 
-        expected_list[i] = syntax_rule.apply_syntax(match.groups())
+        correct_name_list[i] = syntax_rule.apply_syntax(match.groups())
         rules_applied[i] = f'{syntax_rule.type}:{syntax_rule.rule_name}'
 
     encountered_types = frozenset(allele_part_types)
@@ -163,9 +167,9 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
     if correct_type != allele_type:
         output_dict['change_type_to'] = correct_type
 
-    expected = ','.join(expected_list)
-    if expected != allele_description:
-        output_dict['rename_to'] = expected
+    correct_name = ','.join(correct_name_list)
+    if correct_name != allele_description:
+        output_dict['rename_to'] = correct_name
 
     output_dict['rules_applied'] = '|'.join(rules_applied)
     output_dict['invalid_error'] = '|'.join(invalid_error_list)

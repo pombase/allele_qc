@@ -1,4 +1,4 @@
-from grammar_models import SyntaxRule
+from models import SyntaxRule
 from refinement_functions import find_allele_parts
 from grammar import allowed_types, grammar
 import pickle
@@ -19,6 +19,7 @@ with open('data/genome.pickle', 'rb') as ins:
 
 def main(input_file: str):
     dict_list = list()
+    syntax_rules = [SyntaxRule.parse_obj(r) for r in grammar]
     with open(input_file) as ins:
         ins.readline()
         for line in ins:
@@ -26,8 +27,9 @@ def main(input_file: str):
             base_dict = {
                 'systematic_id': systematic_id,
                 'gene_name': gene_name,
+                'allele_name': allele_name,
                 'allele_type': allele_type,
-                'allele_name': allele_name
+                'allele_description': allele_description
             }
             if 'nucleotide' in allele_type:
                 continue
@@ -45,7 +47,6 @@ def main(input_file: str):
                     } | base_dict
                 )
             else:
-                syntax_rules = [SyntaxRule.parse_obj(r) for r in grammar]
                 dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules, allele_type, allowed_types, genome[systematic_id]))
 
     pandas.DataFrame.from_records(dict_list).to_csv('results/allele_results.tsv', sep='\t')

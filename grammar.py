@@ -17,6 +17,9 @@ allowed_types = {
 
 
 def check_position_exists(aa_pos, gene):
+    """
+    Return error string if the position is beyond the end of the protein.
+    """
     peptide_seq = gene['translation']
     if aa_pos > len(peptide_seq):
         return f'position {aa_pos} does not exist, peptide length is {len(peptide_seq)}'
@@ -24,7 +27,10 @@ def check_position_exists(aa_pos, gene):
 
 
 def check_aminoacid_at_pos(aa, aa_pos, gene):
-
+    """
+    Return error string if the position is beyond the end of the protein or the indicated
+    aminoacid is not at that position.
+    """
     # Check if the position is valid
     check_pos = check_position_exists(aa_pos, gene)
     if check_pos:
@@ -59,7 +65,7 @@ def check_sequence_multiple_aa(groups, gene):
     for i, aa in enumerate(groups[0]):
         results_list.append(check_aminoacid_at_pos(aa, pos_first_aa + i, gene))
 
-    output = '|'.join([r for r in results_list if r])
+    output = '/'.join([r for r in results_list if r])
     if len(output):
         return output
     else:
@@ -72,7 +78,7 @@ def check_multiple_positions(groups, gene):
     for pos in groups:
         results_list.append(check_position_exists(int(pos), gene))
 
-    output = '|'.join([r for r in results_list if r])
+    output = '/'.join([r for r in results_list if r])
     if len(output):
         return output
     else:
@@ -93,7 +99,6 @@ grammar = [
         'rule_name': 'multiple_aa',
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
         'regex': f'({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
-        # We fix the case in which dashes are used for a single aa substitution: K-90-R
         'apply_syntax': lambda g: '-'.join(g).upper() if len(g[0]) != 1 else ''.join(g).upper(),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': check_sequence_multiple_aa

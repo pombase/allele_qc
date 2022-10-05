@@ -1,0 +1,35 @@
+allele_type	allele_description	rename_to	change_type_to	invalid_error
+
+## amino_acid_mutation:single_aa
+
+amino_acid_mutation	A23V
+
+partial_amino_acid_deletion	A23V		amino_acid_mutation
+
+
+## amino_acid_mutation:multiple_aa
+
+amino_acid_mutation	AA-23-VV
+amino_acid_mutation	AA23VV	AA-23-VV
+amino_acid_mutation	AA-23VV	AA-23-VV
+amino_acid_mutation	AA23-VV	AA-23-VV
+
+# error is return when there are syntax inconsistencies as well
+amino_acid_mutation	AA-23-VVV			lengths don't match: AA-VVV
+amino_acid_mutation	AA23VVV			lengths don't match: AA-VVV
+amino_acid_mutation	AAA-23-VV			lengths don't match: AAA-VV
+amino_acid_mutation	AAA23VV			lengths don't match: AAA-VV
+
+# It can fix both the syntax and the type
+partial_amino_acid_deletion	AA23VV	AA-23-VV	amino_acid_mutation
+
+
+
+
+
+
+
+## partial_amino_acid_deletion:multiple_aa
+
+partial_amino_acid_deletion	196-245
+partial_amino_acid_deletion	196 -245	196-245
