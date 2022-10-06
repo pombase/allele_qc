@@ -1,7 +1,7 @@
 from models import SyntaxRule
 from refinement_functions import find_allele_parts
 from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar
-# import pickle
+import pickle
 from load_sequences import genome
 import sys
 import pandas
@@ -14,8 +14,8 @@ with open('data/pubs_and_session_ids.csv') as ins:
         pmid, curs = line.strip().split(',')
         pmid2curs_dict[pmid] = curs
 
-# with open('data/genome.pickle', 'rb') as ins:
-#     genome = pickle.load(ins)
+with open('data/genome.pickle', 'rb') as ins:
+    contig_genome = pickle.load(ins)
 
 
 def get_invalid_CDS_dict():
@@ -49,7 +49,7 @@ def main(input_file: str):
                 else:
                     dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, genome[systematic_id]))
             else:
-                dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules_nucleotides, allele_type, allowed_types, genome[systematic_id]))
+                dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules_nucleotides, allele_type, allowed_types, contig_genome[systematic_id]))
     data = pandas.DataFrame.from_records(dict_list)
     data.to_csv('results/allele_results.tsv', sep='\t', index=False)
     data[data['needs_fixing'] == True].to_csv('results/allele_errors.tsv', sep='\t', index=False)

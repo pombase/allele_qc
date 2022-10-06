@@ -24,7 +24,7 @@ allowed_types = {
 }
 
 
-def check_position_exists(aa_pos, gene):
+def check_position_exists(aa_pos, gene, seq_type):
     """
     Return error string if the position is beyond the end of the protein.
     """
@@ -34,44 +34,44 @@ def check_position_exists(aa_pos, gene):
     return ''
 
 
-def check_aminoacid_at_pos(aa, aa_pos, gene):
+def check_value_at_pos(value, pos, gene, seq_type):
     """
     Return error string if the position is beyond the end of the protein or the indicated
-    aminoacid is not at that position.
+    value is not at that position.
     """
     # Check if the position is valid
-    check_pos = check_position_exists(aa_pos, gene)
+    check_pos = check_position_exists(pos, gene, seq_type)
     if check_pos:
         return check_pos
 
-    # Check if the aminoacid in that position is correct
+    # Check if the value in that position is correct
     # 1-based index
-    zero_based_pos = aa_pos - 1
+    zero_based_pos = pos - 1
     peptide_seq = gene['peptide']
-    if peptide_seq[zero_based_pos] == aa:
+    if peptide_seq[zero_based_pos] == value:
         return ''
 
-    out_str = f'no {aa} at position {aa_pos}'
-    if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == aa:
-        out_str += f', but found at {aa_pos + 1}'
-    if peptide_seq[zero_based_pos - 1] == aa:
-        out_str += f', but found at {aa_pos - 1}'
+    out_str = f'no {value} at position {pos}'
+    if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == value:
+        out_str += f', but found at {pos + 1}'
+    if peptide_seq[zero_based_pos - 1] == value:
+        out_str += f', but found at {pos - 1}'
 
     return out_str
 
 
-def check_sequence_single_pos(groups, gene):
-    aa = groups[0]
-    aa_pos = int(groups[1])
-    return check_aminoacid_at_pos(aa, aa_pos, gene)
+def check_sequence_single_pos(groups, gene, seq_type):
+    value = groups[0]
+    pos = int(groups[1])
+    return check_value_at_pos(value, pos, gene, seq_type)
 
 
-def check_sequence_multiple_pos(groups, gene):
+def check_sequence_multiple_pos(groups, gene, seq_type):
 
-    pos_first_aa = int(groups[1])
+    pos_first = int(groups[1])
     results_list = list()
-    for i, aa in enumerate(groups[0]):
-        results_list.append(check_aminoacid_at_pos(aa, pos_first_aa + i, gene))
+    for i, value in enumerate(groups[0]):
+        results_list.append(check_value_at_pos(value, pos_first + i, gene, seq_type))
 
     output = '/'.join([r for r in results_list if r])
     if len(output):
@@ -80,11 +80,11 @@ def check_sequence_multiple_pos(groups, gene):
         return ''
 
 
-def check_multiple_positions(groups, gene):
+def check_multiple_positions(groups, gene, seq_type):
 
     results_list = list()
     for pos in groups:
-        results_list.append(check_position_exists(int(pos), gene))
+        results_list.append(check_position_exists(int(pos), gene, seq_type))
 
     output = '/'.join([r for r in results_list if r])
     if len(output):
@@ -100,7 +100,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})({aa})(\d+)({aa})(?!{aa})',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_invalid': lambda g: '',
-        'check_sequence': check_sequence_single_pos
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
     },
     {
         'type': 'amino_acid_mutation',
@@ -109,7 +109,7 @@ aminoacid_grammar = [
         'regex': f'({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g).upper() if len(g[0]) != 1 else ''.join(g).upper(),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
-        'check_sequence': check_sequence_multiple_pos
+        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
     },
     {
         'type': 'nonsense_mutation',
@@ -117,7 +117,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
         'check_invalid': lambda g: '',
-        'check_sequence': check_sequence_single_pos
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
     },
     {
         'type': 'nonsense_mutation',
@@ -125,7 +125,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
         'check_invalid': lambda g: '',
-        'check_sequence': check_sequence_single_pos
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
     },
     # {
     #     'type': 'nonsense_mutation',
@@ -140,7 +140,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(g[:2]).upper(),
         'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene)
+        'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene, 'peptide')
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -148,7 +148,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[:1], gene)
+        'check_sequence': lambda groups, gene: check_multiple_positions(groups[:1], gene, 'peptide')
     },
     {
         'type': 'amino_acid_insertion',
@@ -156,7 +156,7 @@ aminoacid_grammar = [
         'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
         'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[1:2], gene) if not groups[0] else check_sequence_single_pos(groups, gene)
+        'check_sequence': lambda groups, gene: check_multiple_positions(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, seq_type)
     },
     {
         'type': 'unknown',
@@ -184,7 +184,7 @@ nucleotide_grammar = [
         'regex': f'(?<!{nt})({nt})(-?\d+)({nt})(?!{nt})',
         'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
         'check_invalid': lambda g: '',
-        # 'check_sequence': check_sequence_single_aa
+        'check_sequence': check_sequence_single_pos
     },
     {
         'type': 'nucleotide_mutation',
@@ -202,7 +202,7 @@ nucleotide_grammar = [
         'regex': f'(?<!{nt})(-?\d+)\s*[-–]\s*(-?\d+)(?!{nt})',
         'apply_syntax': lambda g: '-'.join(format_negatives(g, [0, 1])).upper(),
         'check_invalid': lambda g: '',
-        # 'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene)
+        # 'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene, seq_type)
     },
 
 ]
