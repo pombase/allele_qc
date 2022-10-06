@@ -35,13 +35,13 @@ for f in contig_files:
         # if feature_type == 'CDS' and not any([('pseudogene' in prod or 'dubious' in prod) for prod in feature.qualifiers['product']]):
         if feature_type == 'CDS':
             cds_seq = feature.extract(contig).seq
-            genome[gene_id]['translation'] = cds_seq.translate()
+            genome[gene_id]['peptide'] = cds_seq.translate()
             errors = list()
             if len(cds_seq) % 3 != 0:
                 errors.append('CDS length not multiple of 3')
-            if genome[gene_id]['translation'][-1] != '*':
+            if genome[gene_id]['peptide'][-1] != '*':
                 errors.append('does not end with STOP codon')
-            if genome[gene_id]['translation'].count('*') > 1:
+            if genome[gene_id]['peptide'].count('*') > 1:
                 errors.append('multiple stop codons')
             if len(errors):
                 out.write(gene_id + '\t' + ','.join(errors) + '\t' + str(feature.qualifiers['product']) + '\n')

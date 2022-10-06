@@ -17,5 +17,15 @@ curl -k https://www.pombase.org/releases/latest/pombe-embl/mating_type_region.co
 curl -k https://www.pombase.org/releases/latest/pombe-embl/pMIT.contig --output  data/pMIT.contig
 curl -k https://www.pombase.org/releases/latest/pombe-embl/telomeric.contig --output  data/telomeric.contig
 
+# Get individual sequences in fasta format
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/cds+introns+utrs.fa.gz --output data/cds+introns+utrs.fa.gz
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/cds+introns.fa.gz --output data/cds+introns.fa.gz
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/cds.fa.gz --output data/cds.fa.gz
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/five_prime_utrs.fa.gz --output data/five_prime_utrs.fa.gz
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/three_prime_utrs.fa.gz --output data/three_prime_utrs.fa.gz
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/introns_within_cds.fa.gz --output data/introns_within_cds.fa.gz
+curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/peptide.fa.gz --output data/peptide.fa.gz
+gzip -d data/*.fa.gz
+
 # Store the genome as a dictionary using pickle
 python load_genome.py

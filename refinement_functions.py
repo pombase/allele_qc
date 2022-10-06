@@ -168,12 +168,12 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
         output_dict['change_type_to'] = correct_type
 
     correct_name = ','.join(correct_name_list)
-    if correct_name != allele_description:
+    if correct_name != allele_description and all(correct_name_list):
         output_dict['rename_to'] = correct_name
 
-    output_dict['rules_applied'] = '|'.join(rules_applied)
-    output_dict['invalid_error'] = '|'.join(invalid_error_list)
-    output_dict['sequence_error'] = '|'.join(sequence_error_list)
+    output_dict['rules_applied'] = '|'.join(rules_applied) if any(rules_applied) else ''
+    output_dict['invalid_error'] = '|'.join(invalid_error_list) if any(invalid_error_list) else ''
+    output_dict['sequence_error'] = '|'.join(sequence_error_list) if any(sequence_error_list) else ''
 
     must_be_empty = ['pattern_error', 'invalid_error', 'sequence_error', 'rename_to', 'change_type_to']
     output_dict['needs_fixing'] = any(output_dict[key] for key in must_be_empty)

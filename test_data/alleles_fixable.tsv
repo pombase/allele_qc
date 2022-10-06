@@ -14,7 +14,7 @@ amino_acid_mutation	AA23VV	AA-23-VV
 amino_acid_mutation	AA-23VV	AA-23-VV
 amino_acid_mutation	AA23-VV	AA-23-VV
 
-# error is return when there are syntax inconsistencies as well
+# error is returned when there are syntax inconsistencies as well
 amino_acid_mutation	AA-23-VVV			lengths don't match: AA-VVV
 amino_acid_mutation	AA23VVV			lengths don't match: AA-VVV
 amino_acid_mutation	AAA-23-VV			lengths don't match: AAA-VV
@@ -23,13 +23,39 @@ amino_acid_mutation	AAA23VV			lengths don't match: AAA-VV
 # It can fix both the syntax and the type
 partial_amino_acid_deletion	AA23VV	AA-23-VV	amino_acid_mutation
 
+## nonsense_mutation
 
-
-
-
-
+nonsense_mutation	A123stop	A123*
+nonsense_mutation	A123ochre	A123*
+nonsense_mutation	A123amber	A123*
+nonsense_mutation	A123opal	A123*
+nonsense_mutation	A123-opal	A123*
+nonsense_mutation	A123->opal	A123*
+nonsense_mutation	A123*
 
 ## partial_amino_acid_deletion:multiple_aa
 
 partial_amino_acid_deletion	196-245
 partial_amino_acid_deletion	196 -245	196-245
+# fix the weird dash character
+partial_amino_acid_deletion	196–245	196-245
+
+## partial_amino_acid_deletion:single_aa
+partial_amino_acid_deletion	196
+
+## amino_acid_insertion
+amino_acid_insertion	A123VVVV	123-VVVV
+amino_acid_insertion	A123-VVVV	123-VVVV
+amino_acid_insertion	123-VVVV
+
+## combined types
+amino_acid_deletion_and_mutation	196-245,A123V
+amino_acid_deletion_and_mutation	196-245 A123V	196-245,A123V
+amino_acid_deletion_and_mutation	196-245, A123V	196-245,A123V
+
+amino_acid_insertion_and_deletion	123-VVVV,196-245
+
+amino_acid_insertion_and_mutation	123-VVVV,A421V
+
+unknown		unknown
+unknown	unknown
