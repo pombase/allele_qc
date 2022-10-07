@@ -1,4 +1,4 @@
-from genome_functions import get_nt_at_genome_position
+from genome_functions import get_nt_at_genome_position, gene_coords2genome_coords
 
 
 aa = 'GPAVLIMCFYWHKRQNEDST'
@@ -27,10 +27,13 @@ allowed_types = {
 }
 
 
-def check_position_exists(pos, gene, seq_type):
+def check_position_doesnt_exist(pos, gene, seq_type):
     """
     Return error string if the position is beyond the end of the sequence.
     """
+    # position zero is not allowed for 1-based indexing of peptides
+    if pos == 0:
+        return 'position 0 is not allowed when 1-based indexing'
     if seq_type == 'peptide':
         peptide_seq = gene['peptide']
         if pos > len(peptide_seq):
@@ -38,9 +41,11 @@ def check_position_exists(pos, gene, seq_type):
         return ''
 
     try:
-        genome_value = get_nt_at_genome_position(pos, gene, gene['contig'])
+        gene_coords2genome_coords(pos, gene)
     except IndexError:
         return f'cannot access genome position {pos}'
+    except ValueError as e:
+        return e.args[0]
 
 
 def check_value_at_pos(value, pos, gene, seq_type):
@@ -49,40 +54,25 @@ def check_value_at_pos(value, pos, gene, seq_type):
     value is not at that position.
     """
     # Check if the position is valid
-    check_pos = check_position_exists(pos, gene, seq_type)
+    check_pos = check_position_doesnt_exist(pos, gene, seq_type)
     if check_pos:
         return check_pos
 
     # Check if the value in that position is correct
-    # 1-based index
-    zero_based_pos = pos - 1
     if seq_type == 'peptide':
-        peptide_seq = gene['peptide']
-        if peptide_seq[zero_based_pos] == value:
-            return ''
+        def get_value_at_pos(p):
+            return gene['peptide'][p - 1]
+    else:
+        def get_value_at_pos(p):
+            return get_nt_at_genome_position(p, gene, gene['contig'])
 
-        out_str = f'no {value} at position {pos}'
-        if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == value:
-            out_str += f', but found at {pos + 1}'
-        if peptide_seq[zero_based_pos - 1] == value:
-            out_str += f', but found at {pos - 1}'
-
-    try:
-        genome_value = get_nt_at_genome_position(pos, gene, gene['contig'])
-    except IndexError:
-        return f'cannot access genome position {pos}'
-
-    if genome_value == value:
+    if get_value_at_pos(pos) == value:
         return ''
 
     out_str = f'no {value} at position {pos}'
-    if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == value:
-        out_str += f', but found at {pos + 1}'
-    if peptide_seq[zero_based_pos - 1] == value:
-        out_str += f', but found at {pos - 1}'
-
-    except ValueError as e:
-        return e
+    for i in [1, -1]:
+        if not check_position_doesnt_exist(pos + i, gene, seq_type) and (get_value_at_pos(pos + i) == value):
+            out_str += f', but found at {pos + i}'
 
     return out_str
 
@@ -107,11 +97,11 @@ def check_sequence_multiple_pos(groups, gene, seq_type):
         return ''
 
 
-def check_multiple_positions(groups, gene, seq_type):
+def check_multiple_positions_dont_exist(groups, gene, seq_type):
 
     results_list = list()
     for pos in groups:
-        results_list.append(check_position_exists(int(pos), gene, seq_type))
+        results_list.append(check_position_doesnt_exist(int(pos), gene, seq_type))
 
     output = '/'.join([r for r in results_list if r])
     if len(output):
@@ -151,7 +141,6 @@ aminoacid_grammar = [
         'rule_name': 'stop_codon_star',
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
     },
     # {
@@ -166,32 +155,27 @@ aminoacid_grammar = [
         'rule_name': 'multiple_aa',
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(g[:2]).upper(),
-        'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene, 'peptide')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide')
     },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'single_aa',
         'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
-        'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[:1], gene, 'peptide')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide')
     },
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'usual',
         'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
-        'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide')
     },
     {
         'type': 'unknown',
         'rule_name': 'empty',
         'regex': '^$',
         'apply_syntax': lambda g: 'unknown',
-        'check_invalid': lambda g: '',
-        'check_sequence': lambda g, gg: ''
     }
 ]
 
@@ -211,7 +195,7 @@ nucleotide_grammar = [
         'regex': f'(?<!{nt})({nt})(-?\d+)({nt})(?!{nt})',
         'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
         'check_invalid': lambda g: '',
-        'check_sequence': check_sequence_single_pos
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna')
     },
     {
         'type': 'nucleotide_mutation',
@@ -221,7 +205,7 @@ nucleotide_grammar = [
         'regex': f'({nt}{nt}+)-??(-?\d+)-??({nt}+)(?!\d)',
         'apply_syntax': lambda g: ('-'.join(format_negatives(g, [1])) if len(g[0]) != 1 else ''.join(g)).upper().replace('U', 'T'),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
-        # 'check_sequence': check_sequence_multiple_aa
+        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
     },
     {
         'type': 'partial_nucleotide_deletion',
@@ -229,7 +213,7 @@ nucleotide_grammar = [
         'regex': f'(?<!{nt})(-?\d+)\s*[-–]\s*(-?\d+)(?!{nt})',
         'apply_syntax': lambda g: '-'.join(format_negatives(g, [0, 1])).upper(),
         'check_invalid': lambda g: '',
-        # 'check_sequence': lambda groups, gene: check_multiple_positions(groups[:2], gene, seq_type)
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
     },
 
 ]

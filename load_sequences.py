@@ -5,7 +5,7 @@ import glob
 
 fasta_files = glob.glob('data/*.fa')
 
-genome = dict()
+fasta_genome = dict()
 
 for f in fasta_files:
     feature_type = f[5:].split('.')[0]
@@ -18,7 +18,7 @@ for f in fasta_files:
         else:
             systematic_id = seq.id
 
-        if systematic_id not in genome:
-            genome[systematic_id] = dict()
+        if systematic_id not in fasta_genome:
+            fasta_genome[systematic_id] = dict()
 
-        genome[systematic_id][feature_type] = seq.seq
+        fasta_genome[systematic_id][feature_type] = seq.seq
