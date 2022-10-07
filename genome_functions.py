@@ -1,7 +1,7 @@
 from Bio.SeqFeature import FeatureLocation
 
 
-def get_genome_value(pos: int, gene: dict, contig):
+def get_nt_at_genome_position(pos: int, gene: dict, contig):
     return contig[get_genome_pos(pos, gene)]
 
 
@@ -12,7 +12,7 @@ def get_genome_pos(pos: int, gene: dict) -> str:
     else:
         if len(gene) != 2:
             # Error, we cannot read this position
-            raise ValueError('cannot read sequence positions, alternative splicing?')
+            raise ValueError('cannot read sequence, alternative splicing?')
         # The key is the one that is not 'contig'
         key = next(k for k in gene if k != 'contig')
         loc = gene[key].location

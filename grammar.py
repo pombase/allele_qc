@@ -1,4 +1,4 @@
-from genome_functions import get_genome_pos
+from genome_functions import get_nt_at_genome_position
 
 
 aa = 'GPAVLIMCFYWHKRQNEDST'
@@ -37,8 +37,10 @@ def check_position_exists(pos, gene, seq_type):
             return f'position {pos} does not exist, peptide length is {len(peptide_seq)}'
         return ''
 
-    # TODO: There may be some problems for sequences of the edge
-    return ''
+    try:
+        genome_value = get_nt_at_genome_position(pos, gene, gene['contig'])
+    except IndexError:
+        return f'cannot access genome position {pos}'
 
 
 def check_value_at_pos(value, pos, gene, seq_type):
@@ -66,9 +68,18 @@ def check_value_at_pos(value, pos, gene, seq_type):
             out_str += f', but found at {pos - 1}'
 
     try:
-        contig = gene['contig']
-        genome_pos = get_genome_pos(pos, gene)
-        contig[genome_pos]
+        genome_value = get_nt_at_genome_position(pos, gene, gene['contig'])
+    except IndexError:
+        return f'cannot access genome position {pos}'
+
+    if genome_value == value:
+        return ''
+
+    out_str = f'no {value} at position {pos}'
+    if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == value:
+        out_str += f', but found at {pos + 1}'
+    if peptide_seq[zero_based_pos - 1] == value:
+        out_str += f', but found at {pos - 1}'
 
     except ValueError as e:
         return e
