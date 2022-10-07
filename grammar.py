@@ -1,3 +1,6 @@
+from genome_functions import get_genome_pos
+
+
 aa = 'GPAVLIMCFYWHKRQNEDST'
 aa = aa + aa.lower()
 aa = f'[{aa}]'
@@ -24,19 +27,23 @@ allowed_types = {
 }
 
 
-def check_position_exists(aa_pos, gene, seq_type):
+def check_position_exists(pos, gene, seq_type):
     """
-    Return error string if the position is beyond the end of the protein.
+    Return error string if the position is beyond the end of the sequence.
     """
-    peptide_seq = gene['peptide']
-    if aa_pos > len(peptide_seq):
-        return f'position {aa_pos} does not exist, peptide length is {len(peptide_seq)}'
+    if seq_type == 'peptide':
+        peptide_seq = gene['peptide']
+        if pos > len(peptide_seq):
+            return f'position {pos} does not exist, peptide length is {len(peptide_seq)}'
+        return ''
+
+    # TODO: There may be some problems for sequences of the edge
     return ''
 
 
 def check_value_at_pos(value, pos, gene, seq_type):
     """
-    Return error string if the position is beyond the end of the protein or the indicated
+    Return error string if the position is beyond the end of the sequence or the indicated
     value is not at that position.
     """
     # Check if the position is valid
@@ -47,15 +54,24 @@ def check_value_at_pos(value, pos, gene, seq_type):
     # Check if the value in that position is correct
     # 1-based index
     zero_based_pos = pos - 1
-    peptide_seq = gene['peptide']
-    if peptide_seq[zero_based_pos] == value:
-        return ''
+    if seq_type == 'peptide':
+        peptide_seq = gene['peptide']
+        if peptide_seq[zero_based_pos] == value:
+            return ''
 
-    out_str = f'no {value} at position {pos}'
-    if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == value:
-        out_str += f', but found at {pos + 1}'
-    if peptide_seq[zero_based_pos - 1] == value:
-        out_str += f', but found at {pos - 1}'
+        out_str = f'no {value} at position {pos}'
+        if zero_based_pos + 1 < len(peptide_seq) and peptide_seq[zero_based_pos + 1] == value:
+            out_str += f', but found at {pos + 1}'
+        if peptide_seq[zero_based_pos - 1] == value:
+            out_str += f', but found at {pos - 1}'
+
+    try:
+        contig = gene['contig']
+        genome_pos = get_genome_pos(pos, gene)
+        contig[genome_pos]
+
+    except ValueError as e:
+        return e
 
     return out_str
 
@@ -156,7 +172,7 @@ aminoacid_grammar = [
         'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
         'check_invalid': lambda g: '',
-        'check_sequence': lambda groups, gene: check_multiple_positions(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, seq_type)
+        'check_sequence': lambda groups, gene: check_multiple_positions(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide')
     },
     {
         'type': 'unknown',

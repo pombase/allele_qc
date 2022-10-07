@@ -46,7 +46,6 @@ for f in contig_files:
             if len(errors):
                 out.write(gene_id + '\t' + ','.join(errors) + '\t' + str(feature.qualifiers['product']) + '\n')
 
-        genome['contig'] = contig
 out.close()
 
 with open('data/genome.pickle', 'wb') as out:
