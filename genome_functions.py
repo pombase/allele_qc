@@ -1,5 +1,6 @@
 from Bio.SeqFeature import FeatureLocation
 from Bio.Seq import reverse_complement
+from Bio.GenBank import _FeatureConsumer
 
 
 def get_nt_at_genome_position(pos: int, gene: dict, contig):
@@ -29,3 +30,12 @@ def gene_coords2genome_coords(pos: int, gene: dict) -> str:
         pos = loc.end - pos
 
     return pos, loc.strand
+
+
+def get_sequence_from_location_string(genome, location_str):
+    fc = _FeatureConsumer(use_fuzziness=False)
+    # We need to initialize a dummy feature
+    fc._cur_feature = FeatureLocation(1, 2, 1)
+    fc.location(location_str)
+
+    return fc._cur_feature.location.extract(genome)

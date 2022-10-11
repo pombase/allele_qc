@@ -154,7 +154,7 @@ aminoacid_grammar = [
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'multiple_aa',
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
-        'apply_syntax': lambda g: '-'.join(g[:2]).upper(),
+        'apply_syntax': lambda g: '-'.join(sorted(g[:2], key=int)).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide')
     },
     {
@@ -211,7 +211,7 @@ nucleotide_grammar = [
         'type': 'partial_nucleotide_deletion',
         'rule_name': 'usual',
         'regex': f'(?<!{nt})(-?\d+)\s*[-–]\s*(-?\d+)(?!{nt})',
-        'apply_syntax': lambda g: '-'.join(format_negatives(g, [0, 1])).upper(),
+        'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=int), [0, 1])).upper(),
         'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
     },
