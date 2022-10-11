@@ -32,10 +32,14 @@ def gene_coords2genome_coords(pos: int, gene: dict) -> str:
     return pos, loc.strand
 
 
-def get_sequence_from_location_string(genome, location_str):
+def get_feature_location_from_string(location_str: str) -> FeatureLocation:
     fc = _FeatureConsumer(use_fuzziness=False)
     # We need to initialize a dummy feature
     fc._cur_feature = FeatureLocation(1, 2, 1)
     fc.location(location_str)
+    return fc._cur_feature.location
 
-    return fc._cur_feature.location.extract(genome)
+
+def get_sequence_from_location_string(genome, location_str):
+    loc = get_feature_location_from_string(location_str)
+    return loc.extract(genome)

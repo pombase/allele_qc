@@ -29,3 +29,8 @@ gzip -d data/*.fa.gz
 
 # Store the genome as a dictionary using pickle
 python load_genome.py
+
+# Get updates to genome coordinates from PomBase, these can be used to update alleles that used
+# previous gene feature coordinates.
+
+curl -k https://raw.githubusercontent.com/pombase/curation/master/data_files/gene-coordinate-change-data.tsv --output data/gene-coordinate-change-data.tsv
