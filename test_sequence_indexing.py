@@ -2,6 +2,7 @@ import unittest
 import pickle
 from load_sequences import fasta_genome
 from grammar import get_nt_at_genome_position
+from Bio.SeqIO import parse
 
 with open('data/genome.pickle', 'rb') as ins:
     contig_genome = pickle.load(ins)
@@ -9,7 +10,7 @@ with open('data/genome.pickle', 'rb') as ins:
 
 class SequenceIndexingTest(unittest.TestCase):
 
-    def test_amino_acids(self):
+    def test_nts(self):
         # Coding and non-coding examples, from the +1 and -1 strands
         test_genes = [
             {
@@ -44,3 +45,8 @@ class SequenceIndexingTest(unittest.TestCase):
             # Check that 5'UTR matches
             for i, value in enumerate(g['upstream'][::-1]):
                 self.assertEqual(get_nt_at_genome_position(-i, gene, gene['contig']), value)
+
+    def test_aas(self):
+        for seq in parse('test_data/test_peptides.fasta', 'fasta'):
+            self.assertEqual(fasta_genome[seq.id]['peptide'], seq.seq)
+            self.assertEqual(contig_genome[seq.id]['peptide'], seq.seq)
