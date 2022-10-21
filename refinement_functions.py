@@ -150,16 +150,14 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
         syntax_rule = regex2syntax_rule[match.re.pattern]
         allele_part_types[i] = syntax_rule.type
 
+        rules_applied[i] = f'{syntax_rule.type}:{syntax_rule.rule_name}'
+
         invalid_error_list[i] = syntax_rule.check_invalid(match.groups())
         if invalid_error_list[i]:
             continue
 
         sequence_error_list[i] = syntax_rule.check_sequence(match.groups(), gene)
-        if sequence_error_list[i]:
-            continue
-
         correct_name_list[i] = syntax_rule.apply_syntax(match.groups())
-        rules_applied[i] = f'{syntax_rule.type}:{syntax_rule.rule_name}'
 
     encountered_types = frozenset(allele_part_types)
     correct_type = allowed_types[encountered_types]
