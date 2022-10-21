@@ -117,14 +117,20 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
 
     result = replace_allele_features(list(regex2syntax_rule.keys()), [allele_description], [])
 
-    # The result parts, separated by |
-    result_parts = '|'.join(r if type(r) == str else r.group() for r in result)
+    # The result parts, excluding non-digit non-letter characters
+    allele_parts = list()
+    for r in result:
+        if type(r) == str:
+            if not re.match('^[^a-zA-Z\d]+$', r):
+                allele_parts.append(r)
+        else:
+            allele_parts.append(r.group())
 
-    # Filter out the non-digit non-letter characters
+    # Extract the matched and unmatched elements
     matches, unmatched = sort_result(result)
 
     output_dict = {
-        'allele_parts': result_parts,
+        'allele_parts': '',
         'needs_fixing': True,
         'rename_to': '',
         'rules_applied': '',
@@ -172,8 +178,13 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
     output_dict['rules_applied'] = '|'.join(rules_applied) if any(rules_applied) else ''
     output_dict['invalid_error'] = '|'.join(invalid_error_list) if any(invalid_error_list) else ''
     output_dict['sequence_error'] = '|'.join(sequence_error_list) if any(sequence_error_list) else ''
+    output_dict['allele_parts'] = '|'.join(allele_parts) if any(allele_parts) else ''
 
     must_be_empty = ['pattern_error', 'invalid_error', 'sequence_error', 'rename_to', 'change_type_to']
     output_dict['needs_fixing'] = any(output_dict[key] for key in must_be_empty)
 
     return output_dict
+
+
+def apply_coordinate_change(new_alignment, old_alignment, new_coordinate):
+    

@@ -1,19 +1,33 @@
-#%%
-import pickle
-from genome_functions import get_feature_location_from_string
-
-get_feature_location_from_string('3236617-3237051')
-
-#%%
-
-from Bio import SeqIO
-
-for seq in SeqIO.parse('data/dummy_contig.contig','embl'):
-    pass
-
 # %%
 
-with open('data/genome.pickle', 'rb') as ins:
-    contig_genome = pickle.load(ins)
+old_alignment = "VAQCIKVTVIFLAQCVKVTVIFL"
+new_alignment = "VAQCIKVT----AQCVKVTVIFL"
 
-contig_genome['']
+new_seq = new_alignment.replace('-', '')
+old_seq = old_alignment.replace('-', '')
+
+# old 151 -> new 162
+
+
+def get_other_index(this_alignment, other_alignment, this_index):
+
+    count_other = -1
+    count_this = -1
+
+    for i in range(len(this_alignment)):
+        count_this += this_alignment[i] != '-'
+        count_other += other_alignment[i] != '-'
+        if count_this == this_index:
+            if other_alignment[i] == '-':
+                return None
+            return count_other
+    # The coordinate does not exist in old one (new one is longer)
+    return None
+
+
+for i in range(len(new_alignment)):
+    old_i = get_other_index(new_alignment, old_alignment, i)
+    print(i, old_i)
+    if old_i is None:
+        continue
+    # print(new_seq[i], old_seq[old_i])
