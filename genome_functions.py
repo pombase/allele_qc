@@ -43,3 +43,38 @@ def get_feature_location_from_string(location_str: str) -> FeatureLocation:
 def get_sequence_from_location_string(genome, location_str):
     loc = get_feature_location_from_string(location_str)
     return loc.extract(genome)
+
+
+def get_other_index_from_alignment(this_alignment, other_alignment, this_index):
+    """
+    From an alignment of two sequences (this, other), convert the index in
+    this to the index in other. Get None if that does not exist. E.g.:
+
+    this_alignment  = "VAQCIKVTVIFLAQCVKVTVIFLAAA"
+    other_alignment = "VAQCIKVT----AQCVKVTVIFL"
+
+    this_index == 0  -> returns 0
+    this_index == 8  -> returns None (the V does not exist in other_alignment)
+    this_index == 12 -> returns 8
+    this_index == 19 -> returns None (the A does not exist in other_alignment)
+
+    this_alignment  = "VAQCIKVT----AQCVKVTVIFL"
+    other_alignment = "VAQCIKVTVIFLAQCVKVTVIFL"
+
+    this_index == 0  -> returns 0
+    this_index == 8  -> returns 12
+    """
+    count_other = -1
+    count_this = -1
+
+    for i in range(len(this_alignment)):
+        count_this += this_alignment[i] != '-'
+        if i >= len(other_alignment):
+            return None
+        count_other += other_alignment[i] != '-'
+        if count_this == this_index:
+            if other_alignment[i] == '-':
+                return None
+            return count_other
+    # The coordinate does not exist in old one (new one is longer)
+    return None

@@ -8,4 +8,12 @@ class SyntaxRule(BaseModel):
     regex: str
     apply_syntax: Callable[[list[str]], str] = lambda g: ''
     check_invalid: Callable[[list[str]], str] = lambda g: ''
-    check_sequence: Callable[[list[str, dict]], str] = lambda g, gg: ''
+    check_sequence: Callable[[list[str], dict], str] = lambda g, gg: ''
+    coordinate_indexes: tuple[int, ...] = ()
+
+
+def find_rule(grammar: list[SyntaxRule], rule_type, rule_name) -> SyntaxRule:
+    for rule in grammar:
+        if rule.type == rule_type and rule.rule_name == rule_name:
+            return rule
+    return None

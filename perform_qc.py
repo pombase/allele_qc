@@ -1,5 +1,5 @@
 from models import SyntaxRule
-from refinement_functions import find_allele_parts
+from refinement_functions import check_allele_description
 from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar
 import pickle
 from load_sequences import fasta_genome
@@ -63,12 +63,12 @@ def main(input_file: str):
                 if systematic_id not in fasta_genome or 'peptide' not in fasta_genome[systematic_id]:
                     dict_list.append(base_dict | get_invalid_CDS_dict())
                 else:
-                    dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, fasta_genome[systematic_id]))
+                    dict_list.append(base_dict | check_allele_description(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, fasta_genome[systematic_id]))
             else:
                 if systematic_id not in contig_genome:
                     dict_list.append(base_dict | get_invalid_dnaseq_dict())
                 else:
-                    dict_list.append(base_dict | find_allele_parts(allele_description, syntax_rules_nucleotides, allele_type, allowed_types, contig_genome[systematic_id]))
+                    dict_list.append(base_dict | check_allele_description(allele_description, syntax_rules_nucleotides, allele_type, allowed_types, contig_genome[systematic_id]))
 
     data = pandas.DataFrame.from_records(dict_list)
     data.to_csv('results/allele_results.tsv', sep='\t', index=False)

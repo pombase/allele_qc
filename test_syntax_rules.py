@@ -1,6 +1,6 @@
 from models import SyntaxRule
 from grammar import aminoacid_grammar, allowed_types
-from refinement_functions import find_allele_parts
+from refinement_functions import check_allele_description
 
 import unittest
 
@@ -27,8 +27,7 @@ class SyntaxRulesTest(unittest.TestCase):
                     change_type_to = ls[3]
                 if len(ls) > 4:
                     invalid_error = ls[4]
-                print(line.strip())
-                output = find_allele_parts(allele_description, syntax_rules, allele_type, allowed_types, None)
+                output = check_allele_description(allele_description, syntax_rules, allele_type, allowed_types, None)
                 self.assertEqual(output['rename_to'], rename_to)
                 self.assertEqual(output['change_type_to'], change_type_to)
                 self.assertEqual(output['invalid_error'], invalid_error)

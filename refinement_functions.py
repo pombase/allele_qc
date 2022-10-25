@@ -107,7 +107,20 @@ def sort_result(input_list: list[str, re.Match]) -> tuple[list[re.Match], list[s
     return matches, unmatched
 
 
-def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_types, gene):
+def get_allele_parts_from_result(result):
+    """The result parts, excluding non-digit non-letter characters."""
+    allele_parts = list()
+    for r in result:
+        if type(r) == str:
+            if not re.match('^[^a-zA-Z\d]+$', r):
+                allele_parts.append(r)
+        else:
+            allele_parts.append(r.group())
+
+    return allele_parts
+
+
+def check_allele_description(allele_description, syntax_rules, allele_type, allowed_types, gene):
     """
     Use replace_allele_features to identify patterns based on syntax rules, then validate
     the content of those patterns based on the grammar rules, and return output. See the
@@ -117,14 +130,7 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
 
     result = replace_allele_features(list(regex2syntax_rule.keys()), [allele_description], [])
 
-    # The result parts, excluding non-digit non-letter characters
-    allele_parts = list()
-    for r in result:
-        if type(r) == str:
-            if not re.match('^[^a-zA-Z\d]+$', r):
-                allele_parts.append(r)
-        else:
-            allele_parts.append(r.group())
+    allele_parts = get_allele_parts_from_result(result)
 
     # Extract the matched and unmatched elements
     matches, unmatched = sort_result(result)
@@ -184,7 +190,3 @@ def find_allele_parts(allele_description, syntax_rules, allele_type, allowed_typ
     output_dict['needs_fixing'] = any(output_dict[key] for key in must_be_empty)
 
     return output_dict
-
-
-def apply_coordinate_change(new_alignment, old_alignment, new_coordinate):
-    

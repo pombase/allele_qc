@@ -11,6 +11,7 @@ genome: dict[str, dict[str, SeqFeature]] = dict()
 contig_files = glob.glob('data/*.contig')
 out = open('data/genome_qc.tsv', 'w')
 for f in contig_files:
+    print('reading: ' + f + '\n')
     out.write('reading: ' + f + '\n')
     iterator = SeqIO.parse(f, 'embl')
     contig = next(iterator)

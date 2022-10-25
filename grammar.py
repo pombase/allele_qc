@@ -117,16 +117,18 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})({aa})(\d+)({aa})(?!{aa})',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_invalid': lambda g: '',
-        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'coordinate_indexes': (1,)
     },
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'multiple_aa',
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
-        'regex': f'({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
-        'apply_syntax': lambda g: '-'.join(g).upper() if len(g[0]) != 1 else ''.join(g).upper(),
+        'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
+        'apply_syntax': lambda g: '-'.join(g).upper(),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
-        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
+        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
+        'coordinate_indexes': (1,)
     },
     {
         'type': 'nonsense_mutation',
@@ -134,14 +136,16 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
         'check_invalid': lambda g: '',
-        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'coordinate_indexes': (1,)
     },
     {
         'type': 'nonsense_mutation',
         'rule_name': 'stop_codon_star',
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
-        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide')
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'coordinate_indexes': (1,)
     },
     # {
     #     'type': 'nonsense_mutation',
@@ -155,21 +159,24 @@ aminoacid_grammar = [
         'rule_name': 'multiple_aa',
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(sorted(g[:2], key=int)).upper(),
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide'),
+        'coordinate_indexes': (0, 1)
     },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'single_aa',
         'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide'),
+        'coordinate_indexes': (0,)
     },
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'usual',
         'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide'),
+        'coordinate_indexes': (1,)
     },
     {
         'type': 'unknown',

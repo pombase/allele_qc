@@ -15,6 +15,8 @@ import sys
 
 def main(input_file):
     with open(input_file, 'r') as ins:
+        # Rename columns
+        print('\t'.join(['systematic_id', 'allele_description', 'gene_name', 'allele_name', 'allele_synonym', 'allele_type', 'reference']))
         line = ins.readline()
         next_line = ins.readline()
         pmids = list()
