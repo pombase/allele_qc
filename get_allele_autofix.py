@@ -15,7 +15,6 @@ From the output file of 'fix_coordinates' or 'perform_qc' generate two output fi
 """
 import pandas
 import argparse
-import re
 
 parser = argparse.ArgumentParser(description='Format alleles for auto-fix')
 parser.add_argument('--input', default='results/allele_results_after_coordinates.tsv')
