@@ -6,15 +6,21 @@ from load_sequences import fasta_genome
 import sys
 import pandas
 
-# TODO needs fixing
-# Build a dictionary PMID - curs
-# pmid2curs_dict = dict()
-# with open('data/pubs_and_session_ids.csv') as ins:
-#     for line in ins:
-#         pmid, curs = line.strip().split(',')
-#         pmid2curs_dict[pmid] = curs
+import argparse
 
-with open('data/genome.pickle', 'rb') as ins:
+
+class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+    pass
+
+
+parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
+parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
+parser.add_argument('--alleles', default='data/alleles.tsv')
+parser.add_argument('--output', default='results/allele_results.tsv')
+args = parser.parse_args()
+
+
+with open(args.genome, 'rb') as ins:
     contig_genome = pickle.load(ins)
 
 

@@ -1,3 +1,29 @@
+"""
+Build a dictionary of alignments based on the updated coordinates of genes, and store it as json.
+
+The dictionary structure, where keys are the systematic_id of genes:
+
+"SPAC23E2.02": {
+        "new_coord": "join(446770..449241,449295..450530)",
+        "old_coord": "join(446491..446513,446679..449241,449295..450530)",
+        "new_alignment": "--------------------------------------MNTSENDP ... GYNGTRY*",
+        "old_alignment": "MPLGRSSWICCAKYFVNTKSRFNEILPPRFTLIVSFYSMNTSENDP ... SGYNGTRY*"
+},
+
+In the alignment gaps have the maximum penalty, to avoid scattered matches.
+
+-----CAV
+MAACATAV
+
+And not
+
+---C--AV
+MAACATAV
+
+The reason for this is that the alignment is based on changing / removing introns or changing the start of ending
+coordinate of the start or end of the CDS, so you want maximal identity with minimum number of gaps.
+"""
+
 import argparse
 import pandas
 import pickle
@@ -5,7 +31,12 @@ from Bio import pairwise2
 from genome_functions import get_feature_location_from_string
 import json
 
-parser = argparse.ArgumentParser(description='Build a dictionary of alignments based on the updated coordinates of genes')
+
+class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+    pass
+
+
+parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--genome', default='data/genome.pickle')
 parser.add_argument('--alleles', default='results/allele_errors.tsv')
 parser.add_argument('--coords', default='data/all_coordinate_changes_file.tsv')

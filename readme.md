@@ -1,10 +1,28 @@
 # Allele QC for PomBase
 
-A series of scripts for quality control of alleles in PomBase. It checks that:
+A series of scripts for quality control of alleles. Currently used for PomBase, but could be adapted.
+
+It checks that:
 
 * Allele descriptions adhere to the allele nomenclature.
 * Coordinates used in the allele descriptions are within the sequence length (E.g. we can't say a protein is missing aminoacids 120-150 if the protein length is 140).
 * Aminoacids or nucleotides mentioned in allele descriptions occur at the indicated positions (E.g. if we say alanin 120 is mutated to glycine, check that the aminoacid at position 120 is indeed alanine).
+
+## TL;DR;
+
+```bash
+# Install dependencies
+poetry install
+
+# Activate python environment
+poetry shell
+
+# Download data from PomBase and load the genome (last step takes a while)
+bash get_data.sh
+
+# Find errors in alleles and propose fixes (see output in results/)
+python perform_qc.py
+```
 
 ## Installing
 
@@ -26,17 +44,18 @@ Now when you call `python`, it will be the one from the `.venv`.
 
 ## Getting the data
 
-Next, we need to download the data from PomBase, for that run (this script uses curl, so if using windows you might have to adapt):
+To download the data from PomBase, run:
 
 ```
 bash get_data.sh
 ```
-> **NOTE**: This calls a python script, so remember to also run `poetry shell` before this script.
+> **NOTE**: This calls a python script, so remember to also run `poetry shell` before this script. The script uses curl, so if using windows you might have to adapt
 
 This creates the folder `data` and:
 
 * Downloads alleles from PomBase to `data/alleles.tsv` (columns are self-explaining).
 * Downloads `.contig` files from latest PomBase release.
+* Downloads the `fasta` sequence files from the latest PomBase release.
 * Creates a "genome dictionary" (see `load_genome.py`) and stores it in the file `data/genome.pickle`.
 
 ## Allele syntax
