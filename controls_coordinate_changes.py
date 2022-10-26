@@ -1,7 +1,6 @@
 """
 Some controls run on the coordinate change log prior to using it for the analysis
 """
-# %%
 import pickle
 from load_sequences import fasta_genome
 import pandas
