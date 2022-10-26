@@ -49,7 +49,7 @@ for id in set(sorted_data['systematic_id']):
 
 all_alleles = pandas.read_csv('data/alleles.tsv', delimiter='\t', na_filter=False)
 
-concerned_alleles = all_alleles[all_alleles['systematic_id'].isin(set(coordinate_data['systematic_id']))]
+concerned_alleles = all_alleles[~all_alleles['allele_type'].str.contains('nucl') & all_alleles['systematic_id'].isin(set(coordinate_modifications['systematic_id']))].copy()
 
 
 all_pmids = set()
@@ -65,10 +65,13 @@ for i, row in concerned_alleles.iterrows():
 
 ambiguous = all_pmids - pmids_with_mutations
 
-ambiguous_data = list()
+alleles_to_be_fixed = list()
+concerned_alleles['uncertain_coordinate_change'] = False
 for i, row in concerned_alleles.iterrows():
     for pmid in row['reference'].split(','):
         if pmid in ambiguous:
-            ambiguous_data.append(row)
+            concerned_alleles.at[i, 'uncertain_coordinate_change'] = True
+            break
 
-pandas.DataFrame(ambiguous_data).to_csv('results/ambiguous_coordinate_changes.tsv', sep='\t', index=False)
+
+concerned_alleles.to_csv('results/alleles_coordinate_change.tsv', sep='\t', index=False)
