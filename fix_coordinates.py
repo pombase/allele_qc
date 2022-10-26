@@ -1,3 +1,15 @@
+"""
+Extra analysis that takes the output file from 'perform_qc' (--alleles).
+
+The analysis is applied to all alleles with references where sequence errors were found (--alleles_affected)
+for genes where the coordinates have changed (--coordinate_changes). The output file contains two extra columns
+when compared to --alleles:
+
+    - 'after_coords_sequence_error': same meaning as 'sequence_error' column, but once the allele coordinates have been updated.
+    - 'after_coords_rename_to': same meaning as 'rename_to' column, but once the allele coordinates have been updated.
+
+"""
+
 from models import SyntaxRule, find_rule
 import argparse
 import pandas
@@ -6,15 +18,23 @@ from refinement_functions import build_regex2syntax_rule
 import re
 import json
 from grammar import aminoacid_grammar
-from load_sequences import fasta_genome
+import pickle
 
-parser = argparse.ArgumentParser(description='Build a dictionary of alignments based on the updated coordinates of genes')
+
+class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+    pass
+
+
+parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--alleles', default='results/allele_results.tsv')
 parser.add_argument('--coordinate_changes', default='results/coordinate_changes_dict.json')
 parser.add_argument('--alleles_affected', default='results/alleles_coordinate_change.tsv')
 parser.add_argument('--output', default='results/allele_results_after_coordinates.tsv')
+parser.add_argument('--genome', default='data/fasta_genome.pickle')
 args = parser.parse_args()
 
+with open(args.genome, 'rb') as ins:
+    fasta_genome = pickle.load(ins)
 
 with open(args.coordinate_changes, 'r') as ins:
     changes_dict = json.load(ins)

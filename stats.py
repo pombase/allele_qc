@@ -14,7 +14,7 @@ print('needs_fixing:', sum(fixable_data['needs_fixing']), sum(fixable_data['need
 
 autofix_cols = (fixable_data['rename_to'] != '') | (fixable_data['change_type_to'] != '')
 seqerror_cols = fixable_data['sequence_error'] != ''
-seqerror_fix_cols = fixable_data['sequence_error'].str.contains(', but') & ~fixable_data['systematic_id'].isin(changed_coords_ids)
+seqerror_fix_cols = fixable_data['sequence_error'].str.contains('>') & ~fixable_data['systematic_id'].isin(changed_coords_ids)
 seqerror_change_coords = seqerror_cols & fixable_data['systematic_id'].isin(changed_coords_ids)
 seqerror_left = sum(seqerror_cols) - sum(seqerror_change_coords) - sum(seqerror_fix_cols)
 
@@ -33,7 +33,7 @@ print('needs_fixing:', sum(fixable_data['needs_fixing']), sum(fixable_data['need
 
 autofix_cols = (fixable_data['rename_to'] != '') | (fixable_data['change_type_to'] != '')
 seqerror_cols = fixable_data['sequence_error'] != ''
-seqerror_fix_cols = fixable_data['sequence_error'].str.contains(', but')
+seqerror_fix_cols = fixable_data['sequence_error'].str.contains('>')
 print('syntax_fixing:', sum(autofix_cols), sum(autofix_cols) / len(fixable_data))
 print('sequence_error:', sum(seqerror_cols), sum(seqerror_cols) / len(fixable_data))
 print('sequence_error_auto_fix:', sum(seqerror_fix_cols), sum(seqerror_fix_cols) / len(fixable_data))

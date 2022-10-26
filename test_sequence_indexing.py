@@ -1,11 +1,16 @@
+"""
+These tests only work with PomBase data.
+"""
 import unittest
 import pickle
-from load_sequences import fasta_genome
 from grammar import get_nt_at_genome_position
 from Bio.SeqIO import parse
 
 with open('data/genome.pickle', 'rb') as ins:
     contig_genome = pickle.load(ins)
+
+with open('data/fasta_genome.pickle', 'rb') as ins:
+    fasta_genome = pickle.load(ins)
 
 
 class SequenceIndexingTest(unittest.TestCase):

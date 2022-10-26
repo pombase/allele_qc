@@ -1,18 +1,24 @@
 """
-Some controls run on the coordinate change log prior to using it for the analysis
+Produces an output file is results/alleles_coordinate_change.tsv, which has a column named 'uncertain_coordinate_change'.
+This column is True if the allele should not be used when fixing from old to new coordinates, because it is uncertain to
+which version of the genome the coordinate refers to.
+
+Runs some additional controls as well. It is quite pombase-specific so it uses the default paths, can be adapted if needed.
 """
 import pickle
-from load_sequences import fasta_genome
 import pandas
 
 with open('data/genome.pickle', 'rb') as ins:
     contig_genome = pickle.load(ins)
 
+with open('data/fasta_genome.pickle', 'rb') as ins:
+    fasta_genome = pickle.load(ins)
+
 
 # %% See if some of the alleles with sequence errors have multiple revisions where their coordinates changed.
 
 # Load alleles with errors
-allele_data = pandas.read_csv('results/allele_errors.tsv', delimiter='\t', na_filter=False)
+allele_data = pandas.read_csv('results/allele_results_errors.tsv', delimiter='\t', na_filter=False)
 alleles_with_sequence_errors = allele_data[allele_data['sequence_error'] != '']
 ids_sequence_errors = set(alleles_with_sequence_errors['systematic_id'])
 

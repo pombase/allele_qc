@@ -1,6 +1,8 @@
 """
 Build a dictionary of alignments based on the updated coordinates of genes, and store it as json.
 
+The input is a coordinate changes file generated with https://github.com/pombase/genome_changelog
+
 The dictionary structure, where keys are the systematic_id of genes:
 
 "SPAC23E2.02": {
@@ -38,7 +40,7 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--genome', default='data/genome.pickle')
-parser.add_argument('--alleles', default='results/allele_errors.tsv')
+parser.add_argument('--alleles', default='results/allele_results_errors.tsv')
 parser.add_argument('--coords', default='data/all_coordinate_changes_file.tsv')
 parser.add_argument('--output', default='results/coordinate_changes_dict.json')
 args = parser.parse_args()

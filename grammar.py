@@ -69,10 +69,10 @@ def check_value_at_pos(value, pos, gene, seq_type):
     if get_value_at_pos(pos) == value:
         return ''
 
-    out_str = f'no {value} at position {pos}'
+    out_str = f'{value}{pos}'
     for i in [1, -1]:
         if not check_position_doesnt_exist(pos + i, gene, seq_type) and (get_value_at_pos(pos + i) == value):
-            out_str += f', but found at {pos + i}'
+            out_str += f'>{value}{pos + i}'
 
     return out_str
 
