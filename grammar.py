@@ -183,6 +183,12 @@ aminoacid_grammar = [
         'rule_name': 'empty',
         'regex': '^$',
         'apply_syntax': lambda g: 'unknown',
+    },
+    {
+        'type': 'unknown',
+        'rule_name': 'unknown',
+        'regex': '^unknown$',
+        'apply_syntax': lambda g: 'unknown',
     }
 ]
 

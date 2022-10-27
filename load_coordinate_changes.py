@@ -1,5 +1,5 @@
 """
-Produces an output file is results/alleles_coordinate_change.tsv, which has a column named 'uncertain_coordinate_change'.
+Produces an output file results/alleles_coordinate_change.tsv, with all alleles which has a column named 'uncertain_coordinate_change'.
 This column is True if the allele should not be used when fixing from old to new coordinates, because it is uncertain to
 which version of the genome the coordinate refers to.
 

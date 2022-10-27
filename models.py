@@ -1,3 +1,8 @@
+"""
+Pydantic models to define syntax rules. This is useful for type-hinting. An example grammar can be found in grammar.py.
+
+We define a grammar as a list of SyntaxRule objects, see the readme.
+"""
 from typing import Callable
 from pydantic import BaseModel
 
