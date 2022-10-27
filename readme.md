@@ -163,6 +163,26 @@ python load_coordinate_changes.py
 
 See also the script itself. We consider that alleles of genes for which coordinates were changed can be affected if they are found in publications where sequence errors were found for alleles of the same gene. E.g. for a given gene, a partial deletion allele `30-50` may not give a sequence error by itself. However, if it is in a session with an allele `A58V`, which does give an error, then it will be considered. Then, there are some publications in which only partial deletions exist, in which it may be not possible to tell whether sequence errors exist. For those we cannot know and they are labelled as ambiguous by the script.
 
-Based on this changes, and using the genome sequence loaded by `load_genome.py`, we can generate a new and old sequence.
+In order to convert from old coordinates to new coordinates, we build a sequence alignment of both sequences (see docstring). Run:
+
+```
+python build_alignment_dict.py
+```
+
+Finally, run and see docstring:
+
+```
+python fix_coordinates.py
+```
+
+### Summarising results
+
+Finally, you can generate two files, one with alleles with errors that can be auto-corrected, and one that may require human input to make the decission.
+
+Run and see docstring:
+
+```
+python get_allele_autofix.py
+```
 
 
