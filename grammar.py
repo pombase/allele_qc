@@ -20,7 +20,6 @@ allowed_types = {
     frozenset({'disruption'}): 'disruption',
     frozenset({'nonsense_mutation'}): 'nonsense_mutation',
     frozenset({'amino_acid_mutation', 'nonsense_mutation'}): 'other',
-    frozenset({'unknown'}): 'unknown',
     frozenset({'nucleotide_mutation'}): 'nucleotide_mutation',
     frozenset({'nucleotide_insertion'}): 'nucleotide_insertion',
     frozenset({'partial_nucleotide_deletion'}): 'partial_nucleotide_deletion',
@@ -147,13 +146,6 @@ aminoacid_grammar = [
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
         'coordinate_indexes': (1,)
     },
-    # {
-    #     'type': 'nonsense_mutation',
-    #     'rule_name': 'stop_codon_aa_missing',
-    #     'regex': f'({aa})(\d+)(\*)',
-    #     'apply_syntax': lambda g: ''.join(g[:2]).upper()+'*',
-    #     'check_invalid': lambda g: ''
-    # },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'multiple_aa',
@@ -177,18 +169,6 @@ aminoacid_grammar = [
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide'),
         'coordinate_indexes': (1,)
-    },
-    {
-        'type': 'unknown',
-        'rule_name': 'empty',
-        'regex': '^$',
-        'apply_syntax': lambda g: 'unknown',
-    },
-    {
-        'type': 'unknown',
-        'rule_name': 'unknown',
-        'regex': '^unknown$',
-        'apply_syntax': lambda g: 'unknown',
     }
 ]
 
@@ -229,4 +209,13 @@ nucleotide_grammar = [
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
     },
 
+]
+
+disruption_grammar = [
+    {
+        'type': 'disruption',
+        'rule_name': 'usual',
+        'regex': '([a-zA-Z]{3}\d+|SP[A-Z0-9]+\.[A-Za-z0-9]+)::(.+?)\+?\s*$',
+        'apply_syntax': lambda g: f'{g[0]}::{g[1]}',
+    }
 ]

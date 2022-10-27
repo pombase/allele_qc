@@ -1,6 +1,4 @@
-# %%
 import re
-
 from models import SyntaxRule
 
 
@@ -190,3 +188,27 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
     output_dict['needs_fixing'] = any(output_dict[key] for key in must_be_empty)
 
     return output_dict
+
+
+def seq_error_rename_to(allele_name, sequence_error):
+    """
+    Apply the proposed coordinate change in sequence_error:
+
+    allele_name: 'K35A,P90T', sequence_error: 'K35A>K36A|' ==> returns K36A,P90T
+
+    If no `>` in sequence_error or there are more than 1 ==> returns ''
+    """
+    new_allele_parts = list()
+    for allele_part, error_message in zip(allele_name.split(','), sequence_error.split('|')):
+        if '>' not in error_message:
+            new_allele_parts.append(allele_part)
+        elif error_message.count('>') == 1:
+            old_val, new_val = error_message.split('>')
+            new_allele_part = allele_part.replace(old_val, new_val)
+            if new_allele_part == allele_part:
+                return ''
+            new_allele_parts.append(new_allele_part)
+        else:
+            return ''
+
+    return ','.join(new_allele_parts)
