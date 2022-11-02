@@ -40,4 +40,4 @@ python load_genome.py data/*.contig
 # Get updates to genome coordinates from PomBase, these can be used to update alleles that used
 # previous gene feature coordinates.
 echo -e "${GREEN}Getting coordinate changes${NC}"
-curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/all_coordinate_changes_file.tsv --output data/all_coordinate_changes_file.tsv
+curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/only_modified_coordinates.tsv --output data/only_modified_coordinates.tsv

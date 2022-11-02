@@ -10,6 +10,10 @@ alignments = pairwise2.align.globalms(new_seq, old_seq, match=2, mismatch=-1, op
 new_alignment = alignments[0].seqA
 old_alignment = alignments[0].seqB
 
+print(old_alignment)
+print(new_alignment)
+
+
 targets = ['S204stop',
            'Y227stop',
            'K106A',

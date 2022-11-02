@@ -23,23 +23,19 @@ alleles_with_sequence_errors = allele_data[allele_data['sequence_error'] != '']
 ids_sequence_errors = set(alleles_with_sequence_errors['systematic_id'])
 
 # Load coordinate changes
-coordinate_data = pandas.read_csv('data/all_coordinate_changes_file.tsv', delimiter='\t', na_filter=False)
+coordinate_modifications = pandas.read_csv('data/only_modified_coordinates.tsv', delimiter='\t', na_filter=False)
 
 # We only consider CDS features in genes that have alleles with sequence errors
-coordinate_data = coordinate_data[(coordinate_data['feature_type'] == 'CDS') & (coordinate_data['systematic_id'].isin(ids_sequence_errors))]
-
-# See the columns that only differ in value and added_removed > coordinates were modified
-d = coordinate_data.drop(columns=['value', 'added_or_removed'])
-logi = d.duplicated(keep=False)
-coordinate_modifications = coordinate_data[logi]
+coordinate_modifications = coordinate_modifications[(coordinate_modifications['feature_type'] == 'CDS') & (coordinate_modifications['systematic_id'].isin(ids_sequence_errors))].copy()
 
 # Sort the columns to see which ids have been modified more than once
 data2sort = coordinate_modifications.copy()
 data2sort['count'] = data2sort.groupby('systematic_id')['systematic_id'].transform('count')
 sorted_data = data2sort.sort_values(['count', 'systematic_id', 'revision', 'added_or_removed'], ascending=[False, False, False, True])
 
-# Print the data to csv, inspect and see that only nup189 alleles are affected by this problem, and already fixed, by the 1-index fix
-sorted_data.to_csv('results/sorted_changes.tsv', sep='\t', index=False)
+# Save the systematic ids that should be excluded because they have been changed more than once
+with open('results/systematic_ids_excluded_coordinate_changes.txt', 'w') as out:
+    out.write('\n'.join(set(sorted_data['systematic_id'][sorted_data['count'] > 2])))
 
 # %% See if some of the concerned sequences are different in the contigs and the fasta files from pombase
 # When I first ran this, the only error was in SPCC162.04c, because it had multiple transcripts

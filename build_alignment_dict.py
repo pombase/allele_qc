@@ -41,8 +41,10 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--genome', default='data/genome.pickle')
 parser.add_argument('--alleles', default='results/allele_results_errors.tsv')
-parser.add_argument('--coords', default='data/all_coordinate_changes_file.tsv')
+parser.add_argument('--coords', default='data/only_modified_coordinates.tsv')
 parser.add_argument('--output', default='results/coordinate_changes_dict.json')
+parser.add_argument('--exclude_ids', default='results/systematic_ids_excluded_coordinate_changes.txt', help='file containing a single column with no header with systematic_ids of genes to be excluded from the dictionary.')
+
 args = parser.parse_args()
 
 
@@ -53,20 +55,20 @@ with open(args.genome, 'rb') as ins:
 # Load alleles with errors
 allele_data = pandas.read_csv(args.alleles, delimiter='\t', na_filter=False)
 alleles_with_sequence_errors = allele_data[allele_data['sequence_error'] != '']
+
+# Exclude ids from this list
+if args.exclude_ids:
+    with open(args.exclude_ids) as ins:
+        ids2exclude = set(id.strip() for id in ins)
+    alleles_with_sequence_errors = alleles_with_sequence_errors[~alleles_with_sequence_errors.isin(ids2exclude)]
+
 ids_sequence_errors = set(alleles_with_sequence_errors['systematic_id'])
 
 # Load coordinate changes
 coordinate_data = pandas.read_csv(args.coords, delimiter='\t', na_filter=False)
 
 # We only consider CDS features in genes that have alleles with sequence errors
-coordinate_data = coordinate_data[(coordinate_data['feature_type'] == 'CDS') & (coordinate_data['systematic_id'].isin(ids_sequence_errors))]
-
-# See the columns that only differ in value and added_removed > coordinates were modified
-d = coordinate_data.drop(columns=['value', 'added_or_removed'])
-logi = d.duplicated(keep=False)
-
-# We remove here nup189, which had multiple changes
-coordinate_modifications = coordinate_data[logi & (coordinate_data['primary_name'] != 'nup189')]
+coordinate_modifications = coordinate_data[(coordinate_data['feature_type'] == 'CDS') & (coordinate_data['systematic_id'].isin(ids_sequence_errors))]
 
 changes_dict = dict()
 
