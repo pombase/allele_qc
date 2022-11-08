@@ -66,7 +66,7 @@ if 'after_coords_rename_to' in allele_error_data:
 allele_error_data = allele_error_data.sort_values(['fix_type', 'systematic_id', 'allele_name'])
 auto_fix = (allele_error_data['fix_type'] != '') & ~coordinate_change_no_mutation & ~coordinate_change_creates_error
 auto_fix_data = allele_error_data[auto_fix]
-auto_fix_data[['fix_type', 'systematic_id', 'allele_name', 'allele_type', 'allele_description', 'change_type_to', 'rename_to']].to_csv(args.output_auto_fix, sep='\t', index=False)
+auto_fix_data[['fix_type', 'systematic_id', 'allele_name', 'reference', 'allele_type', 'allele_description', 'change_type_to', 'rename_to']].to_csv(args.output_auto_fix, sep='\t', index=False)
 
 if 'after_coords_rename_to' not in allele_error_data:
     allele_error_data[~auto_fix].to_csv(args.output_cannot_fix, sep='\t', index=False)
@@ -99,6 +99,6 @@ coordinate_no_mutation_data['proposed_fix'] = ''
 coordinate_no_mutation_data['after_coords_proposed_fix'] = ''
 
 needs_supervision_data = pandas.concat([coordinate_no_mutation_data, coordinate_change_creates_error_data, shift_coordinates_data])
-needs_supervision_data[['fix_type', 'systematic_id', 'allele_name', 'allele_type', 'allele_description', 'change_type_to', 'rename_to', 'after_coords_rename_to', 'sequence_error', 'after_coords_sequence_error', 'proposed_fix', 'after_coords_proposed_fix']].to_csv(args.output_needs_supervision, sep='\t', index=False)
+needs_supervision_data[['fix_type', 'systematic_id', 'allele_name', 'reference', 'allele_type', 'allele_description', 'change_type_to', 'rename_to', 'after_coords_rename_to', 'sequence_error', 'after_coords_sequence_error', 'proposed_fix', 'after_coords_proposed_fix']].to_csv(args.output_needs_supervision, sep='\t', index=False)
 
 allele_error_data[~auto_fix & ~shift_coordinates_fix & ~coordinate_change_no_mutation & ~coordinate_change_creates_error].to_csv(args.output_cannot_fix, sep='\t', index=False)

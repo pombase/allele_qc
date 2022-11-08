@@ -91,8 +91,13 @@ for row_index, row in allele_data.iterrows():
         new_sequence_errors.append(rule.check_sequence(groups, fasta_genome[row['systematic_id']]))
         new_allele_parts.append(rule.apply_syntax(groups))
 
+    # If the change in coordinates does not change the allele name, skip
+    new_allele_description = ','.join(new_allele_parts)
+    if new_allele_description and ((new_allele_description == row['allele_description']) or (new_allele_description == row['rename_to'])):
+        continue
+
     allele_data.at[row_index, 'after_coords_sequence_error'] = '|'.join(new_sequence_errors) if any(new_sequence_errors) else ''
-    allele_data.at[row_index, 'after_coords_rename_to'] = ','.join(new_allele_parts)
+    allele_data.at[row_index, 'after_coords_rename_to'] = new_allele_description
     allele_data.at[row_index, 'needs_fixing'] = True
 
 allele_data.to_csv(args.output, sep='\t', index=False)
