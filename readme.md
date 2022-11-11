@@ -141,7 +141,7 @@ Takes the allele file as input (by default `data/alleles.tsv`), and generates a 
 
 * `allele_parts`: the substrings of the `allele_description` that match regex patterns in the grammar, separated by `|` characters. For example `E325A G338D` would result in `L916H|W1048C`.
 * `needs_fixing`: `True` or `False` depending on whether the allele needs fixing.
-* `rename_to`: if the correct nomenclature differs from `allele_description`, `rename_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
+* `change_description_to`: if the correct nomenclature differs from `allele_description`, `change_description_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
 * `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP-120-AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
 * `pattern_error`: contains the parts of the allele that are not picked up by any regular expression in the grammar.
 * `invalid_error`: output of the function `check_invalid` of each of the rules applied. E.g. for `KKRKK-71-NEHG` contains `lengths don't match: KKRKK-NEHG`.

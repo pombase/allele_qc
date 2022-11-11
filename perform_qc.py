@@ -5,7 +5,7 @@ in --output, in addition, two extra output files are created, for the default ou
 Only the subset of alleles that needs fixing.
 results/allele_results_errors.tsv
 
-Only the subset of alleles that needs fixing, only the columns 'allele_description' and 'rename_to'.
+Only the subset of alleles that needs fixing, only the columns 'allele_description' and 'change_description_to'.
 results/allele_results_errors_summarised.tsv
 """
 
@@ -43,7 +43,7 @@ def empty_dict():
     return {
         'allele_parts': '',
         'needs_fixing': False,
-        'rename_to': '',
+        'change_description_to': '',
         'rules_applied': '',
         'pattern_error': '',
         'invalid_error': '',
@@ -76,7 +76,7 @@ for i, row in allele_data.iterrows():
         else:
             out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, contig_genome[row.systematic_id])
             # The name matches the pattern
-            if out_dict['rename_to'] != '':
+            if out_dict['change_description_to'] != '':
                 output_data_list.append(dict(row) | out_dict)
             else:
                 output_data_list.append(dict(row) | empty_dict())
@@ -89,4 +89,4 @@ output_data.to_csv(args.output, sep='\t', index=False)
 root_output_name = args.output.split('.')[0]
 
 output_data[output_data['needs_fixing'] == True].to_csv(f'{root_output_name}_errors.tsv', sep='\t', index=False)
-output_data[output_data['needs_fixing'] == True][['allele_description', 'rename_to']].to_csv(f'{root_output_name}_errors_summarised.tsv', sep='\t', index=False)
+output_data[output_data['needs_fixing'] == True][['allele_description', 'change_description_to']].to_csv(f'{root_output_name}_errors_summarised.tsv', sep='\t', index=False)

@@ -136,7 +136,7 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
     output_dict = {
         'allele_parts': '',
         'needs_fixing': True,
-        'rename_to': '',
+        'change_description_to': '',
         'rules_applied': '',
         'pattern_error': '',
         'invalid_error': '',
@@ -177,20 +177,20 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
 
     correct_name = ','.join(correct_name_list)
     if correct_name != allele_description and all(correct_name_list):
-        output_dict['rename_to'] = correct_name
+        output_dict['change_description_to'] = correct_name
 
     output_dict['rules_applied'] = '|'.join(rules_applied) if any(rules_applied) else ''
     output_dict['invalid_error'] = '|'.join(invalid_error_list) if any(invalid_error_list) else ''
     output_dict['sequence_error'] = '|'.join(sequence_error_list) if any(sequence_error_list) else ''
     output_dict['allele_parts'] = '|'.join(allele_parts) if any(allele_parts) else ''
 
-    must_be_empty = ['pattern_error', 'invalid_error', 'sequence_error', 'rename_to', 'change_type_to']
+    must_be_empty = ['pattern_error', 'invalid_error', 'sequence_error', 'change_description_to', 'change_type_to']
     output_dict['needs_fixing'] = any(output_dict[key] for key in must_be_empty)
 
     return output_dict
 
 
-def seq_error_rename_to(allele_name, sequence_error):
+def seq_error_change_description_to(allele_name, sequence_error):
     """
     Apply the proposed coordinate change in sequence_error:
 
