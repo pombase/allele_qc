@@ -44,7 +44,7 @@ allele_data = pandas.read_csv(args.alleles, delimiter='\t', na_filter=False)
 
 # Exclude ambiguous
 alleles_affected = pandas.read_csv(args.alleles_affected, delimiter='\t', na_filter=False)
-allele_names_affected = set(alleles_affected['allele_name'][alleles_affected['uncertain_coordinate_change'] == False])
+allele_names_affected = set(alleles_affected['allele_name'])
 
 syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 regex2syntax_rule = build_regex2syntax_rule(syntax_rules)
@@ -68,7 +68,7 @@ for row_index, row in allele_data.iterrows():
 
     for rule, allele_part in zip(rules_in_this_row, row['allele_parts'].split('|')):
         if rule is None:
-            print(row)
+            continue
         match = re.match(rule.regex, allele_part)
         groups = list(match.groups())
 

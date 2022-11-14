@@ -75,4 +75,4 @@ for i, row in concerned_alleles.iterrows():
             break
 
 
-concerned_alleles.to_csv('results/alleles_coordinate_change.tsv', sep='\t', index=False)
+concerned_alleles[concerned_alleles['uncertain_coordinate_change'] == False].to_csv('results/alleles_coordinate_change.tsv', sep='\t', index=False)

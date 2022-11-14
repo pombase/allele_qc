@@ -23,6 +23,7 @@ allowed_types = {
     frozenset({'nucleotide_mutation'}): 'nucleotide_mutation',
     frozenset({'nucleotide_insertion'}): 'nucleotide_insertion',
     frozenset({'partial_nucleotide_deletion'}): 'partial_nucleotide_deletion',
+    frozenset({'nonsense_mutation', 'amino_acid_insertion'}): 'other'
 }
 
 
