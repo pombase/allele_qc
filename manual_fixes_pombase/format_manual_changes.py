@@ -8,12 +8,14 @@ Also create a file with the ones that need to be deleted
 """
 
 import pandas
-from numpy import NaN
+
 input_alleles = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
 
 identified_alleles = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name='identified', na_filter=False)
 
-identified_alleles['fix_type'] = 'manual_fix'
+identified_alleles['fix_type'] = 'manual_fix_other'
+identified_alleles.loc[identified_alleles['invalid_error'] != '', 'fix_type'] = 'manual_fix_invalid_error'
+identified_alleles.loc[identified_alleles['sequence_error'] != '', 'fix_type'] = 'manual_fix_sequence_error'
 
 # Drop old fixes that still resulted in errors
 identified_alleles = identified_alleles.drop(columns=['change_description_to', 'change_type_to'])
@@ -21,11 +23,16 @@ identified_alleles = identified_alleles.drop(columns=['change_description_to', '
 unidentified_alleles = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name='not identified')
 
 # Fill columns from the original alleles
-for col_name in ['systematic_id', 'reference', 'allele_type', 'allele_description']:
-    unidentified_alleles[col_name] = NaN
-unidentified_alleles = unidentified_alleles.fillna(input_alleles)
+cols = ['systematic_id', 'reference', 'allele_type', 'allele_description']
+for col in cols:
+    unidentified_alleles[col] = ''
+
+for i, row in unidentified_alleles.iterrows():
+    for col in cols:
+        unidentified_alleles.at[i, col] = list(input_alleles[input_alleles.allele_name == row.allele_name][col])[0]
 
 unidentified_alleles['fix_type'] = 'unnoticed'
+
 
 manual_data = pandas.concat([identified_alleles, unidentified_alleles])
 

@@ -4,3 +4,4 @@
 /results
 .DS_Store
 manual_fixes_pombase/~*
+manual_fixes_pombase/*.tsv
