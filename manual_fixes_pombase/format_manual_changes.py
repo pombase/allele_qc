@@ -17,9 +17,6 @@ identified_alleles['fix_type'] = 'manual_fix_other'
 identified_alleles.loc[identified_alleles['invalid_error'] != '', 'fix_type'] = 'manual_fix_invalid_error'
 identified_alleles.loc[identified_alleles['sequence_error'] != '', 'fix_type'] = 'manual_fix_sequence_error'
 
-# Drop old fixes that still resulted in errors
-identified_alleles = identified_alleles.drop(columns=['change_description_to', 'change_type_to'])
-
 unidentified_alleles = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name='not identified')
 
 # Fill columns from the original alleles
@@ -33,8 +30,16 @@ for i, row in unidentified_alleles.iterrows():
 
 unidentified_alleles['fix_type'] = 'unnoticed'
 
+# Formatting here is required
+need_supervision = pandas.read_excel('allele_needs_supervision.xlsx', na_filter=False)
 
-manual_data = pandas.concat([identified_alleles, unidentified_alleles])
+# Remove the ones that were either fixed in canto or can't be fixed
+need_supervision = need_supervision[~need_supervision.manual_fix_allele_description.isin(['skip', 'asked'])]
+
+manual_data = pandas.concat([identified_alleles, unidentified_alleles, need_supervision])
+
+# Drop old fixes that still resulted in errors
+manual_data = manual_data.drop(columns=['change_description_to', 'change_type_to'])
 
 manual_data.rename(columns={
     'manual_fix_allele_description': 'change_description_to',
