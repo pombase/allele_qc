@@ -56,8 +56,10 @@ manual_data.to_csv('manual_changes_formatted.tsv', sep='\t', index=False)
 changes_applied = manual_data.copy()
 
 changes_applied['allele_type'][changes_applied['change_type_to'] != ''] = changes_applied['change_type_to']
-changes_applied['allele_name'][changes_applied['change_name_to'] != ''] = changes_applied['change_name_to']
 changes_applied['allele_description'][changes_applied['change_description_to'] != ''] = changes_applied['change_description_to']
+
+# I don't do this, because we want to preserve the original names to see which one gave errors.
+# changes_applied['allele_name'][changes_applied['change_name_to'] != ''] = changes_applied['change_name_to']
 
 changes_applied = changes_applied.drop(columns=['change_type_to', 'change_description_to', 'change_name_to'])
 changes_applied.to_csv('manual_changes_applied.tsv', sep='\t', index=False)

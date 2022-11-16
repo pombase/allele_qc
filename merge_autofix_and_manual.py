@@ -26,8 +26,8 @@ if any(new_names):
 autofix_data['comment'] = ''
 autofix_data = autofix_data[['fix_type', 'systematic_id', 'allele_name', 'reference', 'allele_type', 'allele_description', 'change_type_to', 'change_description_to', 'change_name_to', 'comment']].copy()
 
-# The manual fixes that passe the qc and therefore can be used in batch-fix
-manual_data_correct = manual_data[manual_data.allele_name.isin(manual_data_qc.allele_name)].copy()
+# The manual fixes that pass the qc and therefore can be used in batch-fix
+manual_data_correct = manual_data[manual_data.allele_name.isin(manual_data_qc.allele_name[manual_data_qc.needs_fixing == False])].copy()
 
 # remove the rows that have a manual fix from the autofix (some are overwritten)
 manually_fixed = autofix_data['allele_name'].isin(manual_data_correct['allele_name'])

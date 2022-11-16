@@ -1,15 +1,6 @@
 from genome_functions import get_nt_at_genome_position, gene_coords2genome_coords
 
 
-aa = 'GPAVLIMCFYWHKRQNEDST'
-aa = aa + aa.lower()
-aa = f'[{aa}]'
-
-# We allow the U, but we will replace it by T
-nt = 'ACGUT'
-nt = nt + nt.lower()
-nt = f'[{nt}]'
-
 allowed_types = {
     frozenset({'amino_acid_mutation'}): 'amino_acid_mutation',
     frozenset({'partial_amino_acid_deletion'}): 'partial_amino_acid_deletion',
@@ -19,11 +10,11 @@ allowed_types = {
     frozenset({'amino_acid_insertion', 'amino_acid_mutation'}): 'amino_acid_insertion_and_mutation',
     frozenset({'disruption'}): 'disruption',
     frozenset({'nonsense_mutation'}): 'nonsense_mutation',
-    frozenset({'amino_acid_mutation', 'nonsense_mutation'}): 'other',
+    frozenset({'amino_acid_mutation', 'nonsense_mutation'}): 'amino_acid_other',
     frozenset({'nucleotide_mutation'}): 'nucleotide_mutation',
     frozenset({'nucleotide_insertion'}): 'nucleotide_insertion',
     frozenset({'partial_nucleotide_deletion'}): 'partial_nucleotide_deletion',
-    frozenset({'nonsense_mutation', 'amino_acid_insertion'}): 'other'
+    frozenset({'nonsense_mutation', 'amino_acid_insertion'}): 'amino_acid_other'
 }
 
 
@@ -79,15 +70,26 @@ def check_value_at_pos(value, pos, gene, seq_type):
 
 
 def check_sequence_single_pos(groups, gene, seq_type):
+    """
+    Check that a single position in the sequence exists, defined in regex capture groups. In `groups` the first
+    element is the aminoacid / nucleotide and the second is the number, e.g. in V123A, groups are ['V', '123','A']
+    """
     value = groups[0]
     pos = int(groups[1])
     return check_value_at_pos(value, pos, gene, seq_type)
 
 
 def check_sequence_multiple_pos(groups, gene, seq_type):
+    """
+    Check multiple positions in the sequence from the capture groups of the regex.
+    This is called for example in 'VPL-234-AAA'.
+    The capture groups from the grammar VPL and 234 in the above example. If several errors are found, they are returned as `\` separated
+    strings. E.g. `V234/P235/L236`.
+    """
 
     pos_first = int(groups[1])
     results_list = list()
+    # Iterate over chars of string
     for i, value in enumerate(groups[0]):
         results_list.append(check_value_at_pos(value, pos_first + i, gene, seq_type))
 
@@ -110,6 +112,11 @@ def check_multiple_positions_dont_exist(groups, gene, seq_type):
     else:
         return ''
 
+
+# Variable with all aminoacids, to be used in the regex
+aa = 'GPAVLIMCFYWHKRQNEDST'
+aa = aa + aa.lower()
+aa = f'[{aa}]'
 
 aminoacid_grammar = [
     {
@@ -181,6 +188,12 @@ def format_negatives(input_list, indexes):
         output_list[index] = output_list[index] if int(output_list[index]) > 0 else f'({output_list[index]})'
     return output_list
 
+
+# Variable with all the nucleotides, to be used in the regex
+# We allow the U, but we will replace it by T
+nt = 'ACGUT'
+nt = nt + nt.lower()
+nt = f'[{nt}]'
 
 nucleotide_grammar = [
     {

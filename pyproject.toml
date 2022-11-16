@@ -10,6 +10,8 @@ biopython = "^1.79"
 pydantic = "^1.10.2"
 pandas = "^1.5.0"
 openpyxl = "^3.0.10"
+fastapi = "^0.87.0"
+uvicorn = {extras = ["standard"], version = "^0.19.0"}
 
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"
