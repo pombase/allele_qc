@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
+        
     <style>
 
         pre code {
@@ -52,8 +53,8 @@
                     <label for="systematic-id">Gene systematic ID</label>
                     <input type="text" class="form-control" id="systematic-id" placeholder="SPBC359.03c">
 
-                    <label for="proposed-mutations">Proposed mutations (comma-separated)</label>
-                    <input type="text" class="form-control" id="proposed-mutations" placeholder="V123A,PLR-140-AAA,150-600">
+                    <label for="allele-description">Allele description (comma-separated)</label>
+                    <input type="text" class="form-control" id="allele-description" placeholder="V123A,PLR-140-AAA,150-600">
 
                     <label for="allele-type">Allele type</label>
                     <select class="form-select" id="allele-type">
@@ -79,7 +80,7 @@
                     <label for="primer-max-mismatch">Maximal number of allowed mismatches (if providing a primer)</label>
                     <input type="text" class="form-control" id="primer-max-mismatch" value="3">
 
-                    <input id='submit-button' type="submit" class="btn btn-primary m-2" onclick="main()"/>
+                    <input id='submit-button' type="submit" class="btn btn-primary m-2"/>
                 </div>
             </div>
         </form>
@@ -111,5 +112,22 @@
     <div class="mermaid" id="mermaid">
 </body>
 
-
+<footer>
+<script>
+    document.getElementById('submit-button').addEventListener('click', async function(e){
+        e.preventDefault();
+        const data = new FormData(document.getElementById('main-form'))
+        console.log(document.getElementById('main-form'))
+        const requestData = {
+            systematic_id: document.getElementById('systematic-id').value,
+            allele_description: document.getElementById('allele-description').value,
+            allele_type: document.getElementById('allele-type').value,
+            primer: document.getElementById('primer').value,
+            max_mismatch: document.getElementById('primer-max-mismatch').value,
+        }
+        const resp = await fetch('/check_allele',{method: 'POST', body: JSON.stringify(requestData)});
+        console.log(requestData)
+   });
+</script>
+</footer>
 </html>

@@ -33,4 +33,4 @@ async def check_allele(request: MainRequest):
     with open('data/genome.pickle', 'rb') as ins:
         contig_genome = pickle.load(ins)
 
-    check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, contig_genome[request.systematic_id])
+    return check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, contig_genome[request.systematic_id])
