@@ -8,30 +8,30 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
-        
-    <style>
 
+    <style>
         pre code {
-        margin: 0;
-        padding: 0;
-        white-space: pre;
-        border: none;
-        background: transparent;
+            margin: 0;
+            padding: 0;
+            white-space: pre;
+            border: none;
+            background: transparent;
         }
 
         pre {
-        background-color: #f8f8f8;
-        border: 1px solid #cccccc;
-        font-size: 13px;
-        line-height: 19px;
-        overflow: auto;
-        padding: 6px 10px;
-        border-radius: 3px;
+            background-color: #f8f8f8;
+            border: 1px solid #cccccc;
+            font-size: 13px;
+            line-height: 19px;
+            overflow: auto;
+            padding: 6px 10px;
+            border-radius: 3px;
         }
 
-        pre code, pre tt {
-        background-color: transparent;
-        border: none;
+        pre code,
+        pre tt {
+            background-color: transparent;
+            border: none;
         }
 
         .container {
@@ -51,36 +51,30 @@
             <div class="row align-items-center mb-3">
                 <div class="col-auto">
                     <label for="systematic-id">Gene systematic ID</label>
-                    <input type="text" class="form-control" id="systematic-id" placeholder="SPBC359.03c">
+                    <input type="text" class="form-control" id="systematic-id" value="SPBC359.03c">
 
                     <label for="allele-description">Allele description (comma-separated)</label>
-                    <input type="text" class="form-control" id="allele-description" placeholder="V123A,PLR-140-AAA,150-600">
+                    <input type="text" class="form-control" id="allele-description" value="V123A,PLR-140-AAA,150-600">
 
                     <label for="allele-type">Allele type</label>
                     <select class="form-select" id="allele-type">
-                        <option value="amino_acid_deletion_and_mutation">amino_acid_deletion_and_mutation</option>
-                        <option value="amino_acid_insertion">amino_acid_insertion</option>
-                        <option value="amino_acid_insertion_and_deletion">amino_acid_insertion_and_deletion</option>
-                        <option value="amino_acid_insertion_and_mutation">amino_acid_insertion_and_mutation</option>
-                        <option value="amino_acid_mutation">amino_acid_mutation</option>
-                        <option value="amino_acid_mutation">amino_acid_other</option>
-                        <!-- <option value="disruption">disruption</option> -->
-                        <option value="nonsense_mutation">nonsense_mutation</option>
-                        <option value="nucleotide_insertion">nucleotide_insertion</option>
-                        <option value="nucleotide_mutation">nucleotide_mutation</option>
-                        <!-- <option value="other">other</option> -->
-                        <option value="partial_amino_acid_deletion">partial_amino_acid_deletion</option>
-                        <option value="partial_nucleotide_deletion">partial_nucleotide_deletion</option>
+                        amino_acid_deletion_and_mutation">amino_acid_deletion_and_mutation</option>
+                        amino_acid_insertion">amino_acid_insertion</option>
+                        amino_acid_insertion_and_deletion">amino_acid_insertion_and_deletion</option>
+                        amino_acid_insertion_and_mutation">amino_acid_insertion_and_mutation</option>
+                        amino_acid_mutation">amino_acid_mutation</option>
+                        amino_acid_mutation">amino_acid_other</option>
+                        disruption</option> -->
+                        nonsense_mutation">nonsense_mutation</option>
+                        nucleotide_insertion">nucleotide_insertion</option>
+                        nucleotide_mutation">nucleotide_mutation</option>
+                        other</option> -->
+                        partial_amino_acid_deletion">partial_amino_acid_deletion</option>
+                        partial_nucleotide_deletion">partial_nucleotide_deletion</option>
                         <!-- <option value="unknown">unknown</option> -->
                     </select>
 
-                    <label for="primer">Mutagenesis primer (optional)</label>
-                    <input type="text" class="form-control" id="primer" placeholder="ACGTACGT">
-
-                    <label for="primer-max-mismatch">Maximal number of allowed mismatches (if providing a primer)</label>
-                    <input type="text" class="form-control" id="primer-max-mismatch" value="3">
-
-                    <input id='submit-button' type="submit" class="btn btn-primary m-2"/>
+                    <input id='submit-button' type="submit" class="btn btn-primary m-2" />
                 </div>
             </div>
         </form>
@@ -90,44 +84,43 @@
         </code></pre>
         <h2>Possible fixes</h2>
         <h3>Multi-shift</h3>
-        <p>Sometimes by shifting all indicated coordinates by a fixed amount, they all match the gene sequence. This is only attempted if the number of mutations is more than 1.</p>
+        <p>Sometimes by shifting all indicated coordinates by a fixed amount, they all match the gene sequence. This is
+            only attempted if the number of mutations is more than 1.</p>
         <pre><code id="multishit-result">
             N/A
         </code></pre>
 
         <h3>Old coordinates</h3>
-        <p>Sometimes the coordinates provided refer to an old gene structure, this tries to use previous gene coordinates and see if those match the coordinates provided.</p>
+        <p>Sometimes the coordinates provided refer to an old gene structure, this tries to use previous gene
+            coordinates and see if those match the coordinates provided.</p>
         <pre><code id="old-coordinates-result">
             N/A
         </code></pre>
-
-        <h3>Primer mutagenesis</h3>
-        <p>If primers are provided, it returns the mutations created. Only works for subsitutions (no deletions or insertions)</p>
-        <pre><code id="primers-result">
-            N/A
-        </code></pre>
-
     </div>
     </div>
     <div class="mermaid" id="mermaid">
 </body>
 
 <footer>
-<script>
-    document.getElementById('submit-button').addEventListener('click', async function(e){
-        e.preventDefault();
-        const data = new FormData(document.getElementById('main-form'))
-        console.log(document.getElementById('main-form'))
-        const requestData = {
-            systematic_id: document.getElementById('systematic-id').value,
-            allele_description: document.getElementById('allele-description').value,
-            allele_type: document.getElementById('allele-type').value,
-            primer: document.getElementById('primer').value,
-            max_mismatch: document.getElementById('primer-max-mismatch').value,
-        }
-        const resp = await fetch('/check_allele',{method: 'POST', body: JSON.stringify(requestData)});
-        console.log(requestData)
-   });
-</script>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', async function (e) {
+            e.preventDefault();
+            const data = new FormData(document.getElementById('main-form'))
+            console.log(document.getElementById('main-form'))
+            const requestData = {
+                systematic_id: document.getElementById('systematic-id').value,
+                allele_description: document.getElementById('allele-description').value,
+                allele_type: document.getElementById('allele-type').value,
+            }
+            const resp = await fetch('/check_allele', {
+                method: 'POST', body: JSON.stringify(requestData), headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+            });
+            document.getElementById('error-messages').textContent = JSON.stringify(await resp.json(), null, 4)
+        });
+    </script>
 </footer>
+
 </html>
