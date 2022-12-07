@@ -61,12 +61,12 @@ output_data_list = list()
 for i, row in allele_data.iterrows():
     if 'amino_acid' in row['allele_type'] or 'nonsense_mutation' == row['allele_type']:
         if row.systematic_id not in fasta_genome or 'peptide' not in fasta_genome[row.systematic_id]:
-            output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': 'Peptide sequence missing (perhaps multiple transcripts)'})
+            output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'Peptide sequence of {row.systematic_id} missing (perhaps multiple transcripts)'})
         else:
             output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, fasta_genome[row.systematic_id]))
     elif 'nucleotide' in row['allele_type']:
         if row.systematic_id not in contig_genome:
-            output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': 'Nucleotide sequence missing'})
+            output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'Nucleotide sequence of {row.systematic_id} missing'})
         else:
             output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, contig_genome[row.systematic_id]))
     elif 'disruption' == row['allele_type']:
