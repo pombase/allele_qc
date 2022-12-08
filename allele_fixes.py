@@ -3,6 +3,8 @@ from Bio import pairwise2
 from genome_functions import get_other_index_from_alignment, get_feature_location_from_string
 import pickle
 import pandas
+from Bio.Seq import Seq
+import regex
 
 
 def old_coords_fix(systematic_id, targets):
@@ -84,5 +86,69 @@ def multi_shift_fix(seq, targets):
         if all(all_vals):
             out_str += new_coords + '\n'
         i += 1
+
+    return out_str
+
+
+def primer_mutagenesis(main_seq, primer_seq, allowed_mismatches, has_peptide):
+    main_seq = str(main_seq)
+    primer_seq = Seq(primer_seq)
+    out_str = ''
+
+    for reverse_the_primer in [True, False]:
+        for i in range(1, allowed_mismatches):
+            primer = str(primer_seq) if not reverse_the_primer else str(primer_seq.reverse_complement())
+            pattern = f'({primer})' + '{s<=' + str(i) + '}'
+            matches = list(regex.finditer(pattern, main_seq))
+
+            for match in matches:
+                match: regex.Match
+                start = match.start()
+                end = start + len(primer)
+                primer_DNA = main_seq[:start] + primer + main_seq[end:]
+            if len(matches) > 0:
+                break
+        else:
+            continue
+
+        matches_rvs = ''
+        mutations = ''
+        for i in range(len(main_seq)):
+            matches_rvs = matches_rvs + (' ' if primer_DNA[i] == main_seq[i] else '|')
+            if primer_DNA[i] != main_seq[i]:
+                mutations += f'{main_seq[i]}{i+1}{primer_DNA[i]},'
+
+        if reverse_the_primer:
+            out_str = out_str + f'> with the reverse primer and {i} mistmatches\n'
+        else:
+            out_str = out_str + f'> with the forward primer and {i} mistmatches\n'
+
+        out_str = out_str + f'mutations observed at DNA level: {mutations}\n'
+        out_str = out_str + f'original_sequence:  {main_seq}\n'
+        out_str = out_str + f'                    {matches_rvs}\n'
+        out_str = out_str + f'mutated_sequence:   {primer_DNA}\n'
+
+        if not has_peptide:
+            continue
+
+        peptide_seq = Seq(main_seq).translate()
+        peptide_rvs = Seq(primer_DNA).translate()
+
+        matches_rvs = ''
+        mutations = ''
+        for i in range(len(peptide_seq)):
+            matches_rvs = matches_rvs + \
+                (' ' if peptide_rvs[i] == peptide_seq[i] else '|')
+            if peptide_rvs[i] != peptide_seq[i]:
+                mutations += f'{peptide_seq[i]}{i+1}{peptide_rvs[i]},'
+
+        out_str = out_str + '\n'
+        out_str = out_str + f'mutations observed at peptide level:{mutations}\n'
+        out_str = out_str + f'original_sequence: {peptide_seq}\n'
+        out_str = out_str + f'                   {matches_rvs}\n'
+        out_str = out_str + f'mutated_sequence:  {peptide_rvs}\n'
+
+    if not out_str:
+        return 'Nothing found :_(. This works with cDNA, perhaps primer aligns at exon border?'
 
     return out_str

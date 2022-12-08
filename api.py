@@ -6,7 +6,7 @@ from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar, disrup
 from models import SyntaxRule
 from refinement_functions import check_allele_description
 from enum import Enum
-from allele_fixes import multi_shift_fix, old_coords_fix
+from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as primer_mutagenesis_func
 from typing import Optional
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
@@ -70,8 +70,18 @@ class OldCoordsFixRequest(BaseModel):
 
 
 class PrimerRequest(BaseModel):
+    systematic_id: str
     primer: str
     max_mismatch: int
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "systematic_id": "SPAPB1A10.09",
+                "primer": 'TTAGAGGTTATTAATTCCTAAGAAGAAGAAATTTTGG',
+                'max_mismatch': 3
+            }
+        }
 
 
 class CheckAlleleDescriptionResponse(BaseModel):
@@ -143,11 +153,23 @@ async def check_allele(request: CheckRequest):
 
 
 @app.post("/primer")
-async def primer_mutagenesis(request: CheckRequest):
+async def primer_mutagenesis(request: PrimerRequest):
     with open('data/genome.pickle', 'rb') as ins:
         contig_genome = pickle.load(ins)
+    gene = contig_genome[request.systematic_id]
+    if 'CDS' in gene:
+        has_peptide = True
+        seq = gene['CDS'].extract(gene['contig'])
+    else:
+        has_peptide = False
+        if len(gene) != 2:
+            # Error, we cannot read this position
+            raise ValueError('cannot read sequence, alternative splicing?')
+        # The key is the one that is not 'contig'
+        key = next(k for k in gene if k != 'contig')
+        seq = gene[key].extract(gene['contig'])
 
-    return check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, contig_genome[request.systematic_id])
+    return PlainTextResponse(primer_mutagenesis_func(seq.seq, request.primer, request.max_mismatch, has_peptide))
 
 
 @app.post("/multi_shift")
