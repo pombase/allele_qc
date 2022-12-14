@@ -39,7 +39,7 @@ def check_position_doesnt_exist(pos, gene, seq_type):
         return e.args[0]
 
 
-def check_value_at_pos(value, pos, gene, seq_type):
+def check_value_at_pos(value, pos, gene, seq_type, append_suggestion=True):
     """
     Return error string if the position is beyond the end of the sequence or the indicated
     value is not at that position.
@@ -62,24 +62,26 @@ def check_value_at_pos(value, pos, gene, seq_type):
         return ''
 
     out_str = f'{value}{pos}'
-    for i in [1, -1]:
-        if not check_position_doesnt_exist(pos + i, gene, seq_type) and (get_value_at_pos(pos + i) == value):
-            out_str += f'>{value}{pos + i}'
+
+    if append_suggestion:
+        for i in [1, -1]:
+            if not check_position_doesnt_exist(pos + i, gene, seq_type) and (get_value_at_pos(pos + i) == value):
+                out_str += f'>{value}{pos + i}'
 
     return out_str
 
 
-def check_sequence_single_pos(groups, gene, seq_type):
+def check_sequence_single_pos(groups, gene, seq_type, append_suggestion=True):
     """
     Check that a single position in the sequence exists, defined in regex capture groups. In `groups` the first
     element is the aminoacid / nucleotide and the second is the number, e.g. in V123A, groups are ['V', '123','A']
     """
     value = groups[0]
     pos = int(groups[1])
-    return check_value_at_pos(value, pos, gene, seq_type)
+    return check_value_at_pos(value, pos, gene, seq_type, append_suggestion)
 
 
-def check_sequence_multiple_pos(groups, gene, seq_type):
+def check_sequence_multiple_pos(groups, gene, seq_type, append_suggestion=True):
     """
     Check multiple positions in the sequence from the capture groups of the regex.
     This is called for example in 'VPL-234-AAA'.
@@ -91,7 +93,7 @@ def check_sequence_multiple_pos(groups, gene, seq_type):
     results_list = list()
     # Iterate over chars of string
     for i, value in enumerate(groups[0]):
-        results_list.append(check_value_at_pos(value, pos_first + i, gene, seq_type))
+        results_list.append(check_value_at_pos(value, pos_first + i, gene, seq_type, append_suggestion))
 
     output = '/'.join([r for r in results_list if r])
     if len(output):

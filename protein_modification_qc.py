@@ -53,5 +53,13 @@ error_data.to_csv('results/protein_modification_results_errors.tsv', sep='\t', i
 sequence_error_data = error_data[~error_data['sequence_error'].isin(['', 'pattern_error', 'missing_CDS'])].copy()
 sequence_error_data.loc[sequence_error_data['change_sequence_position_to'] != '', 'sequence_position'] = sequence_error_data['change_sequence_position_to']
 
-aggregated_sequence_error_data = sequence_error_data[['systematic_id', 'reference', 'sequence_position', 'sequence_error']].drop_duplicates().groupby(['systematic_id', 'reference'], as_index=False).agg({'sequence_position': '|'.join, 'sequence_error': '|'.join})
+sequence_error_data.loc[:, 'sequence_position'] = sequence_error_data['sequence_position'].apply(str.split, args=',')
+
+sequence_error_data = sequence_error_data.explode('sequence_position')
+sequence_error_data.loc[:, 'sequence_position'] = sequence_error_data['sequence_position'].astype(str)
+
+
+sequence_error_data.loc[:, 'sorting_col'] = sequence_error_data['sequence_position'].apply(lambda x: int(x[1:]))
+sequence_error_data.sort_values('sorting_col', inplace=True)
+aggregated_sequence_error_data = sequence_error_data[['systematic_id', 'reference', 'sequence_position', 'sequence_error']].drop_duplicates().groupby(['systematic_id', 'reference'], as_index=False).agg({'sequence_position': ','.join, 'sequence_error': '|'.join})
 aggregated_sequence_error_data.to_csv('results/protein_modification_results_errors_aggregated.tsv', sep='\t', index=False)
