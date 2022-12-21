@@ -41,3 +41,33 @@ python load_genome.py data/*.contig
 # previous gene feature coordinates.
 echo -e "${GREEN}Getting coordinate changes${NC}"
 curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/only_modified_coordinates.tsv --output data/only_modified_coordinates.tsv
+
+# Get a genome versions where genome sequences changed. This is important to retrieve the
+# sequences of features for which the coordinates were defined in old genomes.
+echo -e "${GREEN}Getting genome versions where genome sequence changed${NC}"
+
+# Table of when changes in sequence happenned
+curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/genome_sequence_changes.tsv --output data/genome_sequence_changes.tsv
+
+mkdir -p data/old_genome_versions/
+
+# Download those versions
+while read row; do
+    year=$(echo "$row"|cut -f3 -d$'\t'|cut -f1 -d'-')
+    old_revision=$(echo "$row"|cut -f1 -d$'\t')
+    contig=$(echo "$row"|cut -f4 -d$'\t')
+    output_folder="data/old_genome_versions/$contig"
+    output_file="${output_folder}/${old_revision}.contig"
+    mkdir -p $output_folder
+    if test -s $output_file;then
+        continue
+    fi
+
+    # We know last change in pre_svn was in 2007
+    if (( $year < 2008)); then
+        curl -k https://www.pombase.org/data/genome_sequence_and_features/artemis_files/OLD/${old_revision}/${contig}.contig > $output_file
+    else
+        svn cat -r ${old_revision} svn+ssh://manu@curation.pombase.org/var/svn-repos/pombe-embl/trunk/${contig}.contig > $output_file
+    fi
+
+done < <(tail -n +2 data/genome_sequence_changes.tsv)
