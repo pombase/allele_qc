@@ -31,8 +31,11 @@ def apply_old_coords_fix(row):
         return '', '', ''
     result = old_coords_fix(coordinate_changes_dict[row['systematic_id']], row['sequence_position'].split(','))
     valid_solutions = pandas.DataFrame([r for r in result if all(r['matches'])])
+    if valid_solutions.empty:
+        return '', '', ''
+    valid_solutions.loc[:, 'values'] = valid_solutions['values'].apply(','.join)
     # There could be several solutions
-    return '|'.join(valid_solutions['values'], valid_solutions['revision'], valid_solutions['location'])
+    return tuple('|'.join(valid_solutions[key]) for key in ['values', 'revision', 'location'])
 
 
 def apply_histone_fix(row):
@@ -122,4 +125,6 @@ sequence_errors = errors_fixed - syntax_errors
 
 print(f'{nb_errors} errors found, of which {errors_fixed} fixed:\n  - {sequence_errors} sequence errors\n  - {syntax_errors} syntax errors\n  - {multiple_fixes} have several possible fixes, for those check the `change_sequence_position_to` field for "|" characters')
 print('', 'Types of errors fixed:', '', autofix_data['auto_fix_comment'].apply(lambda x: x.split(',')[0]).value_counts(), sep='\n')
+# If you want to print only the dubious cases
+# print(autofix_data[autofix_data.change_sequence_position_to.str.contains('\|')])
 autofix_data.to_csv('results/protein_modification_auto_fix.tsv', sep='\t', index=False)
