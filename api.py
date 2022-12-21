@@ -177,11 +177,13 @@ async def multi_shift(request: MultiShiftRequest):
     with open('data/genome.pickle', 'rb') as ins:
         contig_genome = pickle.load(ins)
     gene = contig_genome[request.systematic_id]
-
-    return PlainTextResponse(multi_shift_fix(gene['peptide'], request.targets.split(',')))
+    result = multi_shift_fix(gene['peptide'], request.targets.split(','))
+    return PlainTextResponse('\n'.join(result))
 
 
 @app.post("/old_coords")
 async def old_coords(request: OldCoordsFixRequest):
-
-    return PlainTextResponse(old_coords_fix(request.systematic_id, request.targets.split(',')))
+    with open('data/genome.pickle', 'rb') as ins:
+        contig_genome = pickle.load(ins)
+    result = old_coords_fix(request.systematic_id, request.targets.split(','), contig_genome)
+    return result

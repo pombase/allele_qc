@@ -8,7 +8,7 @@ with open('data/genome.pickle', 'rb') as ins:
 
 data = pandas.read_csv('data/pombase-chado.modifications', sep='\t', na_filter=False)
 # TODO what is the unknown column?
-data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', '', 'reference', 'unknown', 'date']
+data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'unknown', 'date']
 
 data = data[data['sequence_position'] != '']
 
@@ -36,7 +36,8 @@ def check_func(row):
     if correct_name != row['sequence_position']:
         change_sequence_position_to = correct_name
 
-    return '|'.join([check_sequence_single_pos(match.groups(), gene, 'peptide') for match in matches]), change_sequence_position_to
+    errors = [check_sequence_single_pos(match.groups(), gene, 'peptide') for match in matches]
+    return '|'.join(errors) if any(errors) else '', change_sequence_position_to
 
 
 extra_cols = data.apply(check_func, axis=1, result_type='expand')
@@ -61,5 +62,5 @@ sequence_error_data.loc[:, 'sequence_position'] = sequence_error_data['sequence_
 
 sequence_error_data.loc[:, 'sorting_col'] = sequence_error_data['sequence_position'].apply(lambda x: int(x[1:]))
 sequence_error_data.sort_values('sorting_col', inplace=True)
-aggregated_sequence_error_data = sequence_error_data[['systematic_id', 'reference', 'sequence_position', 'sequence_error']].drop_duplicates().groupby(['systematic_id', 'reference'], as_index=False).agg({'sequence_position': ','.join, 'sequence_error': '|'.join})
+aggregated_sequence_error_data = sequence_error_data[['systematic_id', 'reference', 'sequence_position', 'sequence_error']].drop_duplicates().groupby(['systematic_id', 'reference'], as_index=False).agg({'sequence_position': ','.join, 'sequence_error': lambda x: '|'.join(x) if any(x) else ''})
 aggregated_sequence_error_data.to_csv('results/protein_modification_results_errors_aggregated.tsv', sep='\t', index=False)

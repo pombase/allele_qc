@@ -47,7 +47,7 @@ def check_value_at_pos(value, pos, gene, seq_type, append_suggestion=True):
     # Check if the position is valid
     check_pos = check_position_doesnt_exist(pos, gene, seq_type)
     if check_pos:
-        return check_pos
+        return f'{value}{pos}'
     if seq_type == 'dna':
         value = value.replace('u', 't').replace('U', 'T')
     # Check if the value in that position is correct
