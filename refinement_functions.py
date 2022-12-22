@@ -212,3 +212,10 @@ def seq_error_change_description_to(allele_name, sequence_error):
             return ''
 
     return ','.join(new_allele_parts)
+
+
+def split_multiple_aa(value, regex):
+    """Split into single variants: VLP-123-AAA => ['V123A', 'L124A', 'P125A']"""
+
+    groups = re.match(regex, value).groups()
+    return [f'{aa1}{int(groups[1])+i}{aa2}' for i, (aa1, aa2) in enumerate(zip(groups[0], groups[2]))]

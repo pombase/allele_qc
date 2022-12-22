@@ -21,7 +21,7 @@ def extract_groups_from_targets(targets: list[str]):
     groups = list()
     for t in targets:
         this_dict = dict()
-        this_dict['value'], this_dict['number'], this_dict['new_value'] = re.match('([a-zA-Z])(\d+)([a-zA-Z]?)', t).groups()
+        this_dict['value'], this_dict['number'], this_dict['new_value'] = re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', t).groups()
         this_dict['number'] = int(this_dict['number']) - 1
         groups.append(this_dict)
 
