@@ -13,12 +13,18 @@ def apply_multi_shift_fix(row, genome, target_column):
     return '|'.join(multi_shift_fix(peptide_seq, row[target_column].split(',')))
 
 
+def solution_is_valid(matches):
+    """We consider a solution to be valid if it has at least a True value, and no False
+    """
+    return any([i is True for i in matches]) and not any([i is False for i in matches])
+
+
 def apply_old_coords_fix(row, coordinate_changes_dict, target_column):
 
     if row['systematic_id'] not in coordinate_changes_dict:
         return '', '', ''
     result = old_coords_fix(coordinate_changes_dict[row['systematic_id']], row[target_column].split(','))
-    valid_solutions = pandas.DataFrame([r for r in result if all(r['matches'])])
+    valid_solutions = pandas.DataFrame([r for r in result if solution_is_valid(r['matches'])])
     if valid_solutions.empty:
         return '', '', ''
     valid_solutions.loc[:, 'values'] = valid_solutions['values'].apply(','.join)

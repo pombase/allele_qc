@@ -44,11 +44,11 @@ data_subset.loc[:, 'sorting_col'] = data_subset['allele_description'].apply(lamb
 data_subset.sort_values('sorting_col', inplace=True)
 
 # Drop duplicates that may have arised when splitting allele description at either step
+data_subset.drop(columns='rules_applied', inplace=True)
 data_subset.drop_duplicates(inplace=True)
 
 # Aggregate by publication and systematic id
-aggregated_data = data_subset.groupby(['systematic_id', 'reference'], as_index=False).agg({'allele_description': ','.join, 'rules_applied': '|'.join})
-
+aggregated_data = data_subset.groupby(['systematic_id', 'reference'], as_index=False).agg({'allele_description': ','.join})
 
 
 print('applying fixes...')

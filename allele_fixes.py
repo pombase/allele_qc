@@ -52,6 +52,34 @@ def shift_coordinates_by_x(groups, seq, number_key, i):
     return new_coords, shifted_coords_match
 
 
+def check_sequence_position(sequence_position: str, seq: str) -> bool:
+    """Check if a given position in the format A123 exists in seq (taking into account 1-based indexing in the string)"""
+    value, index_str, _ = re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', sequence_position).group()
+    return value == seq[int(index_str) - 1]
+
+
+def map_position_from_old_coordinates(old_alignment, new_alignment, current_seq, target):
+    old_index = int(re.search(r'\d+', target).group()) - 1
+    v = target[0]
+    new_index = get_other_index_from_alignment(old_alignment, new_alignment, old_index)
+    if new_index is None:
+        return None, None
+    return f'{current_seq[new_index]}{new_index+1}', v == current_seq[new_index]
+
+
+def map_index_from_old_coordinates(old_alignment, new_alignment, target):
+    # We do this with lists, because an allele may have multiple numbers (130-140 for partial deletion)
+    old_indexes = [(int(i) - 1) for i in re.findall(r'\d+', target)]
+    new_indexes = [get_other_index_from_alignment(old_alignment, new_alignment, i) for i in old_indexes]
+    if any(i is None for i in new_indexes):
+        return None, None
+    # Replace the old indexes by the mapped ones
+    value = target
+    for (old_number, new_number) in zip(old_indexes, new_indexes):
+        value = value.replace(str(old_number + 1), str(new_number + 1), 1)
+    return value, None
+
+
 def old_coords_fix(coordinate_changes, targets):
     out_list = list()
     for prev_coord in coordinate_changes:
@@ -60,21 +88,18 @@ def old_coords_fix(coordinate_changes, targets):
         old_alignment = prev_coord['old_alignment']
         revision = prev_coord['revision']
         current_seq = new_alignment.replace('-', '')
-
-        numbers = list()
-        values = list()
-        for t in targets:
-            numbers.append(int(re.search(r'\d+', t).group()) - 1)
-            values.append(t[0])
-
         this_revision = {'revision': revision, 'location': prev_coord['old_coord'], 'values': list(), 'matches': list()}
 
-        for v, old_index in zip(values, numbers):
-            new_index = get_other_index_from_alignment(old_alignment, new_alignment, old_index)
-            if new_index is None:
+        # Shift the coordinates
+        for t in targets:
+            if re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', t) is not None:
+                value, matches = map_position_from_old_coordinates(old_alignment, new_alignment, current_seq, t)
+            else:
+                value, matches = map_index_from_old_coordinates(old_alignment, new_alignment, t)
+            if value is None:
                 break
-            this_revision['values'].append(f'{current_seq[new_index]}{new_index+1}')
-            this_revision['matches'].append(v == current_seq[new_index])
+            this_revision['values'].append(value)
+            this_revision['matches'].append(matches)
         else:
             # Only append the value if break was not triggered (if any index is None)
             out_list.append(this_revision)
