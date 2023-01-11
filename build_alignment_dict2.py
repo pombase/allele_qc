@@ -158,7 +158,7 @@ for systematic_id in set(coordinate_data.systematic_id):
         old_genome = choose_old_genome(previous_coordinate, latest_genome[systematic_id]['contig'], old_genomes_dict, genome_seq_changes)
         old_seq = old_feature_loc.extract(old_genome).translate()
 
-        # This can happen when the sequence was changed more than once to the same thing.
+        # This can happen when the sequence was equal to the current sequence in the past, then changed to something else, then reverted again to what it currently is.
         if new_seq.seq == old_seq.seq:
             continue
 
