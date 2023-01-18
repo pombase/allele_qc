@@ -56,11 +56,10 @@ extra_cols = aggregated_data.apply(apply_old_coords_fix, axis=1, result_type='ex
 aggregated_data.loc[:, 'old_coords_fix'] = extra_cols.iloc[:, 0]
 aggregated_data.loc[:, 'old_coords_revision'] = extra_cols.iloc[:, 1]
 aggregated_data.loc[:, 'old_coords_location'] = extra_cols.iloc[:, 2]
-aggregated_data.to_csv('a.tsv', sep='\t', index=False)
-exit()
 aggregated_data['multi_shift_fix'] = aggregated_data.apply(apply_multi_shift_fix, axis=1, args=[genome, 'allele_description'])
 aggregated_data['histone_fix'] = aggregated_data.apply(apply_histone_fix, axis=1, args=[genome, 'allele_description'])
-
+aggregated_data.to_csv('a.tsv', sep='\t', index=False)
+exit()
 extra_cols = aggregated_data.apply(get_preferred_fix, axis=1, result_type='expand')
 aggregated_data.loc[:, 'auto_fix_to'] = extra_cols.iloc[:, 0]
 aggregated_data.loc[:, 'auto_fix_comment'] = extra_cols.iloc[:, 1]

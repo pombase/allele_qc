@@ -59,6 +59,17 @@ def check_sequence_position(sequence_position: str, seq: str) -> bool:
 
 
 def map_position_from_old_coordinates(old_alignment, new_alignment, current_seq, target):
+    """
+    From a position in the old_alignment (A3) to coordinates in the new alignment (A4)
+
+    old_aligment = MG-A
+    new_aligment = MGTA
+
+
+    old_aligment = MG-A
+    new_aligment = MGTP
+
+    """
     old_index = int(re.search(r'\d+', target).group()) - 1
     v = target[0]
     new_index = get_other_index_from_alignment(old_alignment, new_alignment, old_index)
@@ -73,14 +84,27 @@ def map_index_from_old_coordinates(old_alignment, new_alignment, target):
     new_indexes = [get_other_index_from_alignment(old_alignment, new_alignment, i) for i in old_indexes]
     if any(i is None for i in new_indexes):
         return None, None
-    # Replace the old indexes by the mapped ones
-    value = target
+    # Replace the old indexes by the mapped ones, in order
+    re.split
+    value = re.sub(r'\d+', '$index$', target)
     for (old_number, new_number) in zip(old_indexes, new_indexes):
         value = value.replace(str(old_number + 1), str(new_number + 1), 1)
     return value, None
 
 
+# TODO
+# Create function to check that positions (A123), mutations (A123P) or indexes (123 or 124-156) exist / match.
+# Use to check targets in old sequence from old_alignment
+# If this passes, function that shifts all numbers based on old coordinates
+# Use the same check using the seq from new_alignment
+# This can then be reused for the multi-shift and the histone fix
+
 def old_coords_fix(coordinate_changes, targets):
+    """
+    Propose a fix if the sequence positions and coordinates proposed in targets (e.g. ['A123', 'P124V', '12-14'])
+    match those of an old sequence (for '12-14' we just check that the coordinate exists), and 
+
+    """
     out_list = list()
     for prev_coord in coordinate_changes:
 
