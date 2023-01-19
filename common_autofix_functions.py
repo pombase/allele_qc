@@ -13,23 +13,18 @@ def apply_multi_shift_fix(row, genome, target_column):
     return '|'.join(multi_shift_fix(peptide_seq, row[target_column].split(',')))
 
 
-def solution_is_valid(matches):
-    """We consider a solution to be valid if it has at least a True value, and no False
-    """
-    return any([i is True for i in matches]) and not any([i is False for i in matches])
-
-
 def apply_old_coords_fix(row, coordinate_changes_dict, target_column):
 
     if row['systematic_id'] not in coordinate_changes_dict:
         return '', '', ''
-    result = old_coords_fix(coordinate_changes_dict[row['systematic_id']], row[target_column].split(','))
-    valid_solutions = pandas.DataFrame([r for r in result if solution_is_valid(r['matches'])])
-    if valid_solutions.empty:
+    possible_fixes = old_coords_fix(coordinate_changes_dict[row['systematic_id']], row[target_column].split(','))
+
+    if len(possible_fixes) == 0:
         return '', '', ''
-    valid_solutions.loc[:, 'values'] = valid_solutions['values'].apply(','.join)
+    # We convert a list of dictionaries to dataframe to concatenate all values, all revisions, all location using |
+    possible_fixes = pandas.DataFrame(possible_fixes)
     # There could be several solutions
-    return tuple('|'.join(valid_solutions[key]) for key in ['values', 'revision', 'location'])
+    return tuple('|'.join(possible_fixes[key]) for key in ['values', 'revision', 'location'])
 
 
 # These are histone proteins that typically did not count the methionine

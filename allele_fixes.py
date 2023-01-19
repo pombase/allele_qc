@@ -58,20 +58,24 @@ def check_sequence_position(sequence_position: str, seq: str) -> bool:
     return value == seq[int(index_str) - 1]
 
 
-def map_position_from_old_coordinates(old_alignment, new_alignment, current_seq, target):
+def map_position_from_old_coordinates(old_alignment, new_alignment, position_in_old_coordinates):
     """
-    From a position in the old_alignment (A3) to coordinates in the new alignment (A4)
+    From a position/mutation in the old_alignment (A3 / A3V) return a position/mutation in the new alignment (A4/A4V)
 
     old_aligment = MG-A
     new_aligment = MGTA
+    position_in_old_coordinates = A3
+
+    returns A4, True
 
 
     old_aligment = MG-A
     new_aligment = MGTP
 
     """
-    old_index = int(re.search(r'\d+', target).group()) - 1
-    v = target[0]
+    current_seq = new_alignment.replace('-', '')
+    old_index = int(re.search(r'\d+', position_in_old_coordinates).group()) - 1
+    v = position_in_old_coordinates[0]
     new_index = get_other_index_from_alignment(old_alignment, new_alignment, old_index)
     if new_index is None:
         return None, None
@@ -84,7 +88,7 @@ def map_index_from_old_coordinates(old_alignment, new_alignment, target):
     new_indexes = [get_other_index_from_alignment(old_alignment, new_alignment, i) for i in old_indexes]
     if any(i is None for i in new_indexes):
         return None, None
-    # Replace the old indexes by the mapped ones, in order
+    # Replace the old indexes by the mapped ones, in order TODO
     re.split
     value = re.sub(r'\d+', '$index$', target)
     for (old_number, new_number) in zip(old_indexes, new_indexes):
@@ -99,33 +103,74 @@ def map_index_from_old_coordinates(old_alignment, new_alignment, target):
 # Use the same check using the seq from new_alignment
 # This can then be reused for the multi-shift and the histone fix
 
+def position_or_index_exists(target, sequence):
+    """
+    Check if target (e.g. 'A123', 'P124V', '12-14', '15') exist in sequence. For '12-14', '15' we just check that the coordinates exist.
+    """
+    re_match = re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', target)
+    if re_match is not None:
+        # We are dealing with a position (A123) or mutation (A123P)
+        # We check that the indicated aminoacid is at that position.
+        index = int(re_match.groups()[1]) - 1
+        return index < len(sequence) and sequence[index] == target[0]
+    else:
+        # We are dealing with indexes only, so we just check whether all integers are smaller than the sequence length
+        indexes = [(int(i) - 1) for i in re.findall(r'\d+', target)]
+        return all(i < len(sequence) for i in indexes)
+
+
+def change_to_new_indexes_from_old_coordinates(old_alignment, new_alignment, target):
+    """
+    Substitute all numbers in the string `target` applying get_other_index_from_alignment to each of them.
+    If any of the calls to get_other_index_from_alignment returns None, this function returns None.
+    """
+
+    # Split by number, keeping the number in (using the capture group)
+    splitted_string = re.split(r'(\d+)', target)
+    splitted_string_new_coords = list()
+    for ele in splitted_string:
+        # Apply get_other_index_from_alignment to the digits only
+        if not ele.isdigit():
+            splitted_string_new_coords.append(ele)
+        else:
+            new_value_zero_based = get_other_index_from_alignment(old_alignment, new_alignment, int(ele) - 1)
+            if new_value_zero_based is None:
+                return None
+            splitted_string_new_coords.append(str(new_value_zero_based + 1))
+    return ''.join(splitted_string_new_coords)
+
+
 def old_coords_fix(coordinate_changes, targets):
     """
     Propose a fix if the sequence positions and coordinates proposed in targets (e.g. ['A123', 'P124V', '12-14'])
-    match those of an old sequence (for '12-14' we just check that the coordinate exists), and 
-
+    match those of an old sequence (for '12-14' we just check that the coordinate exists), and for the rest we
+    check that the indicated aminoacid is there in the old and new sequence.
     """
     out_list = list()
     for prev_coord in coordinate_changes:
 
         new_alignment = prev_coord['new_alignment']
         old_alignment = prev_coord['old_alignment']
-        revision = prev_coord['revision']
-        current_seq = new_alignment.replace('-', '')
-        this_revision = {'revision': revision, 'location': prev_coord['old_coord'], 'values': list(), 'matches': list()}
+        new_sequence = new_alignment.replace('-', '')
+        old_sequence = old_alignment.replace('-', '')
 
-        # Shift the coordinates
+        this_revision = {'revision': prev_coord['revision'], 'location': prev_coord['old_coord'], 'values': list()}
+        # remap the coordinates
         for t in targets:
-            if re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', t) is not None:
-                value, matches = map_position_from_old_coordinates(old_alignment, new_alignment, current_seq, t)
-            else:
-                value, matches = map_index_from_old_coordinates(old_alignment, new_alignment, t)
-            if value is None:
+            # The position must exist in the old sequence
+            if not position_or_index_exists(t, old_sequence):
                 break
-            this_revision['values'].append(value)
-            this_revision['matches'].append(matches)
+
+            # We now remap from old coordinates to new ones. It may return None if the position in the old sequence
+            # does not exist in the new one. We also checked whether the new value matches the new sequence.
+            target_remapped = change_to_new_indexes_from_old_coordinates(old_alignment, new_alignment, t)
+            if target_remapped is None or not position_or_index_exists(target_remapped, new_sequence):
+                break
+
+            this_revision['values'].append(target_remapped)
         else:
-            # Only append the value if break was not triggered (if any index is None)
+            # Only append the value if break was not triggered
+            this_revision['values'] = ','.join(this_revision['values'])
             out_list.append(this_revision)
 
     return out_list

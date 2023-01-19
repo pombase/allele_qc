@@ -71,3 +71,7 @@ while read row; do
     fi
 
 done < <(tail -n +2 data/genome_sequence_changes.tsv)
+
+echo -e "${GREEN}Downloading protein modification data${NC}"
+curl -k https://www.pombase.org/data/annotations/modifications/pombase-chado.modifications.gz --output data/pombase-chado.modifications.gz
+gzip -fd data/pombase-chado.modifications.gz

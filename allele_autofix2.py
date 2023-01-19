@@ -11,8 +11,6 @@ from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix
 with open('data/genome.pickle', 'rb') as ins:
     genome = pickle.load(ins)
 
-data = pandas.read_csv('results/protein_modification_results_errors_aggregated.tsv', sep='\t', na_filter=False)
-
 with open('results/coordinate_changes_dict2.json') as ins:
     coordinate_changes_dict = json.load(ins)
 
@@ -56,8 +54,8 @@ extra_cols = aggregated_data.apply(apply_old_coords_fix, axis=1, result_type='ex
 aggregated_data.loc[:, 'old_coords_fix'] = extra_cols.iloc[:, 0]
 aggregated_data.loc[:, 'old_coords_revision'] = extra_cols.iloc[:, 1]
 aggregated_data.loc[:, 'old_coords_location'] = extra_cols.iloc[:, 2]
-aggregated_data['multi_shift_fix'] = aggregated_data.apply(apply_multi_shift_fix, axis=1, args=[genome, 'allele_description'])
-aggregated_data['histone_fix'] = aggregated_data.apply(apply_histone_fix, axis=1, args=[genome, 'allele_description'])
+# aggregated_data['multi_shift_fix'] = aggregated_data.apply(apply_multi_shift_fix, axis=1, args=[genome, 'allele_description'])
+# aggregated_data['histone_fix'] = aggregated_data.apply(apply_histone_fix, axis=1, args=[genome, 'allele_description'])
 aggregated_data.to_csv('a.tsv', sep='\t', index=False)
 exit()
 extra_cols = aggregated_data.apply(get_preferred_fix, axis=1, result_type='expand')
