@@ -219,3 +219,10 @@ def split_multiple_aa(value, regex):
 
     groups = re.match(regex, value).groups()
     return [f'{aa1}{int(groups[1])+i}{aa2}' for i, (aa1, aa2) in enumerate(zip(groups[0], groups[2]))]
+
+
+def join_multiple_aa(values):
+    """Opposite of split_multiple_aa"""
+    print(values)
+    sorted_values = sorted(values, key=lambda x: int(re.search(r'\d+', x).group()))
+    return ''.join(v[0] for v in sorted_values) + '-' + sorted_values[0][1:-1] + '-' + ''.join(v[-1] for v in sorted_values)

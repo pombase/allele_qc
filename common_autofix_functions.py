@@ -1,5 +1,5 @@
 import pandas
-from allele_fixes import multi_shift_fix, old_coords_fix
+from allele_fixes import multi_shift_fix, old_coords_fix, shift_coordinates_by_x, position_or_index_exists
 
 
 def apply_multi_shift_fix(row, genome, target_column):
@@ -31,19 +31,18 @@ def apply_old_coords_fix(row, coordinate_changes_dict, target_column):
 
 
 # These are histone proteins that typically did not count the methionine
-histones = ['SPBC1105.11c', 'SPBC1105.12', 'SPAC1834.03c', 'SPAC1834.04', 'SPAC19G12.06c', 'SPBC8D2.03c', 'SPBC8D2.04', 'SPCC622.08c', 'SPCC622.09']
+histones = ['SPBC1105.11c', 'SPBC1105.12', 'SPAC1834.03c', 'SPAC1834.04', 'SPAC19G12.06c', 'SPBC8D2.03c', 'SPBC8D2.04', 'SPCC622.08c', 'SPCC622.09', 'SPBC11B10.10c']
 
 
 def apply_histone_fix(row, genome, target_column):
-    # if not (row['systematic_id'] in histones):
-    #     return ''
+    if not (row['systematic_id'] in histones):
+        return ''
 
-    # groups = extract_groups_from_targets(row[target_column].split(','))
-    # peptide_seq = genome[row['systematic_id']]['peptide']
+    shifted_targets = shift_coordinates_by_x(row[target_column], 1)
+    peptide_seq = genome[row['systematic_id']]['peptide']
 
-    # new_coords, shifted_coords_match = shift_coordinates_by_x(groups, peptide_seq, 'number', 1)
-    # if all(shifted_coords_match):
-    #     return ','.join(new_coords)
+    if all(position_or_index_exists(shifted_target, peptide_seq) for shifted_target in shifted_targets.split(',')):
+        return shifted_targets
 
     return ''
 
