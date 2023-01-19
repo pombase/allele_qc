@@ -1,7 +1,10 @@
+set -e
+
 mkdir -p data
 mkdir -p results
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
+
 
 echo -e "${GREEN}getting allele data${NC}"
 # Get phenotype annotations from PomBase
@@ -40,14 +43,14 @@ python load_genome.py data/*.contig
 # Get updates to genome coordinates from PomBase, these can be used to update alleles that used
 # previous gene feature coordinates.
 echo -e "${GREEN}Getting coordinate changes${NC}"
-curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/only_modified_coordinates.tsv --output data/only_modified_coordinates.tsv
+curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/results/only_modified_coordinates.tsv --output data/only_modified_coordinates.tsv
 
 # Get a genome versions where genome sequences changed. This is important to retrieve the
 # sequences of features for which the coordinates were defined in old genomes.
 echo -e "${GREEN}Getting genome versions where genome sequence changed${NC}"
 
 # Table of when changes in sequence happenned
-curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/genome_sequence_changes.tsv --output data/genome_sequence_changes.tsv
+curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/results/genome_sequence_changes.tsv --output data/genome_sequence_changes.tsv
 
 mkdir -p data/old_genome_versions/
 

@@ -4,104 +4,20 @@ from Bio.Seq import Seq
 import regex
 
 
-# def read_sequence_position_from_string(input_str: str):
-
-
-def extract_groups_from_targets(targets: list[str]):
+def shift_coordinates_by_x(input_str, shift_value):
     """
-    From targets ['V123A', 'P125L']
-    Returns list of dicts:
-    [
-        {'value': 'V', 'number': 122, 'new_value': 'A', 'number_zero': 0},
-        {'value': 'P', 'number': 124, 'new_value': 'L', 'number_zero': 2}
-    ]
-    It sorts by number, and number_zero is substracting result[0]['number'] from all numbers
-    Also, note that it uses zero-based indexing in number
+    Add shift_value to all numbers in input_str.
     """
-    groups = list()
-    for t in targets:
-        this_dict = dict()
-        this_dict['value'], this_dict['number'], this_dict['new_value'] = re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', t).groups()
-        this_dict['number'] = int(this_dict['number']) - 1
-        groups.append(this_dict)
+    splitted_string = re.split(r'(\d+)', input_str)
+    splitted_string_new_coords = list()
+    for ele in splitted_string:
+        # Shift digits only
+        if not ele.isdigit():
+            splitted_string_new_coords.append(ele)
+        else:
+            splitted_string_new_coords.append(str(int(ele) + shift_value))
+    return ''.join(splitted_string_new_coords)
 
-    groups.sort(key=lambda x: x['number'])
-
-    for group in groups:
-        group['number_zero'] = group['number'] - groups[0]['number']
-
-    return groups
-
-
-def shift_coordinates_by_x(groups, seq, number_key, i):
-    """
-    Shift the coordinates in groups (see extract_groups_from_targets) by a certain
-    index i. `number_key` can be indicated to shift from `number_zero` or `number`.
-
-    Returns the shifted coordinates in new coords, and whether they match the specified
-    sequence (seq argument).
-
-    """
-    shifted_coords_match = list()
-    new_coords = list()
-    for group in groups:
-        n, value, new_value = (group[number_key], group['value'], group['new_value'],)
-        shifted_coords_match.append(value == seq[n + i])
-        new_coords.append(value + str(n + i + 1) + new_value)
-
-    return new_coords, shifted_coords_match
-
-
-def check_sequence_position(sequence_position: str, seq: str) -> bool:
-    """Check if a given position in the format A123 exists in seq (taking into account 1-based indexing in the string)"""
-    value, index_str, _ = re.match('^([a-zA-Z])(\d+)([a-zA-Z*]?)$', sequence_position).group()
-    return value == seq[int(index_str) - 1]
-
-
-def map_position_from_old_coordinates(old_alignment, new_alignment, position_in_old_coordinates):
-    """
-    From a position/mutation in the old_alignment (A3 / A3V) return a position/mutation in the new alignment (A4/A4V)
-
-    old_aligment = MG-A
-    new_aligment = MGTA
-    position_in_old_coordinates = A3
-
-    returns A4, True
-
-
-    old_aligment = MG-A
-    new_aligment = MGTP
-
-    """
-    current_seq = new_alignment.replace('-', '')
-    old_index = int(re.search(r'\d+', position_in_old_coordinates).group()) - 1
-    v = position_in_old_coordinates[0]
-    new_index = get_other_index_from_alignment(old_alignment, new_alignment, old_index)
-    if new_index is None:
-        return None, None
-    return f'{current_seq[new_index]}{new_index+1}', v == current_seq[new_index]
-
-
-def map_index_from_old_coordinates(old_alignment, new_alignment, target):
-    # We do this with lists, because an allele may have multiple numbers (130-140 for partial deletion)
-    old_indexes = [(int(i) - 1) for i in re.findall(r'\d+', target)]
-    new_indexes = [get_other_index_from_alignment(old_alignment, new_alignment, i) for i in old_indexes]
-    if any(i is None for i in new_indexes):
-        return None, None
-    # Replace the old indexes by the mapped ones, in order TODO
-    re.split
-    value = re.sub(r'\d+', '$index$', target)
-    for (old_number, new_number) in zip(old_indexes, new_indexes):
-        value = value.replace(str(old_number + 1), str(new_number + 1), 1)
-    return value, None
-
-
-# TODO
-# Create function to check that positions (A123), mutations (A123P) or indexes (123 or 124-156) exist / match.
-# Use to check targets in old sequence from old_alignment
-# If this passes, function that shifts all numbers based on old coordinates
-# Use the same check using the seq from new_alignment
-# This can then be reused for the multi-shift and the histone fix
 
 def position_or_index_exists(target, sequence):
     """
@@ -144,7 +60,7 @@ def old_coords_fix(coordinate_changes, targets):
     """
     Propose a fix if the sequence positions and coordinates proposed in targets (e.g. ['A123', 'P124V', '12-14'])
     match those of an old sequence (for '12-14' we just check that the coordinate exists), and for the rest we
-    check that the indicated aminoacid is there in the old and new sequence.
+    check that the indicated aminoacid is there in the old and new sequence. (see test_coordinate_change)
     """
     out_list = list()
     for prev_coord in coordinate_changes:
@@ -176,15 +92,34 @@ def old_coords_fix(coordinate_changes, targets):
     return out_list
 
 
-def multi_shift_fix(seq, targets, shift_amount=None):
+def multi_shift_fix(seq, targets):
+    """
+    Check if changing all coordinates by a fixed amount they match the sequence. Return
+    all possible solutions
 
-    groups = extract_groups_from_targets(targets)
+    seq = AVPPAVPPP
+    targets = ['A3', 'V4'] # or ['A3L', 'V4L']
+    returns ['A1,V2', 'A5,V6']
 
+    It also works with only index targets, checking if the sequence is shorter than the
+    indicated value.
+    seq = AVPPAVPPP
+    targets = ['A3', 'V4', '8']
+    returns ['A1,V2'] # Because position 10 does not exist
+    """
+
+    all_indexes = list()
+    for target in targets:
+        all_indexes.extend([(int(i) - 1) for i in re.findall(r'\d+', target)])
+
+    minus_shift = - min(all_indexes)
+    plus_shift = len(seq) + minus_shift
     out_list = list()
-    for i in range(len(seq) - groups[-1]['number_zero']):
-        new_coords, shifted_coords_match = shift_coordinates_by_x(groups, seq, 'number_zero', i)
-        if all(shifted_coords_match):
-            out_list.append(','.join(new_coords))
+
+    for shift_amount in range(minus_shift, plus_shift):
+        shifted_targets = [shift_coordinates_by_x(target, shift_amount) for target in targets]
+        if all(position_or_index_exists(shifted_target, seq) for shifted_target in shifted_targets):
+            out_list.append(','.join(shifted_targets))
 
     return out_list
 

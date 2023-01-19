@@ -1,6 +1,5 @@
 import pandas
 from allele_fixes import multi_shift_fix, old_coords_fix
-from allele_fixes import extract_groups_from_targets, shift_coordinates_by_x
 
 
 def apply_multi_shift_fix(row, genome, target_column):
@@ -9,6 +8,10 @@ def apply_multi_shift_fix(row, genome, target_column):
         return ''
     if row['systematic_id'] not in genome:
         return ''
+    if 'peptide' not in genome[row['systematic_id']]:
+        print(f'no peptide found for {row["systematic_id"]}')
+        return ''
+
     peptide_seq = genome[row['systematic_id']]['peptide']
     return '|'.join(multi_shift_fix(peptide_seq, row[target_column].split(',')))
 
@@ -32,15 +35,15 @@ histones = ['SPBC1105.11c', 'SPBC1105.12', 'SPAC1834.03c', 'SPAC1834.04', 'SPAC1
 
 
 def apply_histone_fix(row, genome, target_column):
-    if not (row['systematic_id'] in histones):
-        return ''
+    # if not (row['systematic_id'] in histones):
+    #     return ''
 
-    groups = extract_groups_from_targets(row[target_column].split(','))
-    peptide_seq = genome[row['systematic_id']]['peptide']
+    # groups = extract_groups_from_targets(row[target_column].split(','))
+    # peptide_seq = genome[row['systematic_id']]['peptide']
 
-    new_coords, shifted_coords_match = shift_coordinates_by_x(groups, peptide_seq, 'number', 1)
-    if all(shifted_coords_match):
-        return ','.join(new_coords)
+    # new_coords, shifted_coords_match = shift_coordinates_by_x(groups, peptide_seq, 'number', 1)
+    # if all(shifted_coords_match):
+    #     return ','.join(new_coords)
 
     return ''
 
