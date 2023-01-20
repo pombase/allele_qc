@@ -115,9 +115,9 @@ def choose_old_genome(previous_coordinate, latest_genome_seq, old_genomes_dict, 
 # Load info about changes in genome sequence
 genome_seq_changes = pandas.read_csv('data/genome_sequence_changes.tsv', sep='\t', na_filter=False, dtype=str)
 
-print('reading old genomes...')
+print('\033[0;32mreading old genomes...\033[0m')
 old_genomes_dict = read_old_genomes(glob.glob('data/old_genome_versions/*/*.contig'), 'embl')
-print('old genomes read')
+print('\033[0;32mold genomes read\033[0m')
 
 with open(args.genome, 'rb') as ins:
     latest_genome = pickle.load(ins)
@@ -133,7 +133,12 @@ coordinate_data.sort_values(['date', 'revision', 'chromosome', 'systematic_id', 
 
 changes_dict = dict()
 
-for systematic_id in set(coordinate_data.systematic_id):
+for systematic_id in sorted(list(set(coordinate_data.systematic_id))):
+
+    if systematic_id not in latest_genome or 'contig' not in latest_genome[systematic_id]:
+        print(systematic_id, 'skipped, probably to do with alt-splicing')
+        continue
+
     data_subset = coordinate_data[coordinate_data.systematic_id == systematic_id].copy()
     # First added is the latest coordinates
     latest_coordinate = data_subset[data_subset['added_or_removed'] == 'added'].iloc[0, :]
@@ -141,19 +146,17 @@ for systematic_id in set(coordinate_data.systematic_id):
     previous_coordinates = data_subset[data_subset['added_or_removed'] == 'removed']
     changes_dict[systematic_id] = list()
 
+    new_feature_loc = get_feature_location_from_string(latest_coordinate['value'])
+    new_seq = new_feature_loc.extract(latest_genome[systematic_id]['contig']).translate()
+
     for i, previous_coordinate in previous_coordinates.iterrows():
         this_change = dict()
         this_change['revision'] = previous_coordinate['revision']
         this_change['new_coord'] = latest_coordinate['value']
         this_change['old_coord'] = previous_coordinate['value']
 
-        new_feature_loc = get_feature_location_from_string(latest_coordinate['value'])
         old_feature_loc = get_feature_location_from_string(previous_coordinate['value'])
-        if systematic_id not in latest_genome or 'contig' not in latest_genome[systematic_id]:
-            print(systematic_id, 'skipped, probably to do with alt-splicing')
-            continue
 
-        new_seq = new_feature_loc.extract(latest_genome[systematic_id]['contig']).translate()
         # The genome on which a feature was defined might not have the same sequence, if so use the old sequence
         old_genome = choose_old_genome(previous_coordinate, latest_genome[systematic_id]['contig'], old_genomes_dict, genome_seq_changes)
         old_seq = old_feature_loc.extract(old_genome).translate()
