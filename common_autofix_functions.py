@@ -3,8 +3,12 @@ from allele_fixes import multi_shift_fix, old_coords_fix, shift_coordinates_by_x
 
 
 def apply_multi_shift_fix(row, genome, target_column):
-    # We use at least 4 for the multi-shift
-    if (row[target_column].count(',') < 3):
+    # We use at least 4 for the multi-shift, and they must contain the expected
+    # residue (e.g. A123, A123V, but not 12-14).
+    all_targets_with_residue = [i for i in row[target_column].split(',') if i[0].isalpha()]
+    # Also they should be referring to unique sites (e.g. not A123V, A123P, A123L, ect.)
+    unique_residue_references = set(i[:-1] if i[-1].isalpha() else i for i in all_targets_with_residue)
+    if len(unique_residue_references) < 4:
         return ''
     if row['systematic_id'] not in genome:
         return ''
@@ -31,7 +35,7 @@ def apply_old_coords_fix(row, coordinate_changes_dict, target_column):
 
 
 # These are histone proteins that typically did not count the methionine
-histones = ['SPBC1105.11c', 'SPBC1105.12', 'SPAC1834.03c', 'SPAC1834.04', 'SPAC19G12.06c', 'SPBC8D2.03c', 'SPBC8D2.04', 'SPCC622.08c', 'SPCC622.09', 'SPBC11B10.10c']
+histones = ['SPBC1105.11c', 'SPBC1105.12', 'SPAC1834.03c', 'SPAC1834.04', 'SPAC19G12.06c', 'SPBC8D2.03c', 'SPBC8D2.04', 'SPCC622.08c', 'SPCC622.09', 'SPBC11B10.10c', 'SPBC1105.17']
 
 
 def apply_histone_fix(row, genome, target_column):

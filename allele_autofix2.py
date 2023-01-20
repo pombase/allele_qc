@@ -20,8 +20,8 @@ syntax_rules_dict = {f'{r.type}:{r.rule_name}': r for r in syntax_rules}
 data = pandas.read_csv('results/allele_results_errors.tsv', sep='\t', na_filter=False)
 
 # We only want alleles with sequence errors, with mutations described at the aminoacid level
-subset_logi = (data['sequence_error'] != '') & (data['rules_applied'].str.contains('amino_acid') | data['rules_applied'].str.contains('nonsense'))
-data_subset = data.loc[subset_logi, ['systematic_id', 'allele_description', 'reference', 'change_description_to', 'rules_applied', 'sequence_error']]
+aminoacid_alleles_with_sequence_errors = (data['sequence_error'] != '') & (data['rules_applied'].str.contains('amino_acid') | data['rules_applied'].str.contains('nonsense'))
+data_subset = data.loc[aminoacid_alleles_with_sequence_errors, ['systematic_id', 'allele_description', 'allele_name', 'reference', 'change_description_to', 'rules_applied', 'sequence_error']]
 
 # Explode the references
 data_subset.loc[:, 'reference'] = data_subset['reference'].apply(str.split, args=[','])
@@ -29,6 +29,7 @@ data_subset = data_subset.explode('reference')
 
 # Keep correct description only
 data_subset.loc[data_subset['change_description_to'] != '', 'allele_description'] = data_subset.loc[data_subset['change_description_to'] != '', 'change_description_to']
+data_subset.drop(columns='change_description_to', inplace=True)
 
 # Copy allele_description to explode it
 data_subset['allele_description_exploded'] = data_subset['allele_description'].copy()
@@ -52,7 +53,7 @@ data_subset.sort_values('sorting_col', inplace=True)
 data_subset.drop(columns='sorting_col', inplace=True)
 
 data_subset.drop_duplicates(inplace=True)
-data_subset.to_csv('b.tsv', sep='\t', index=False)
+
 
 # Make a copy for matching the proposed fixes later
 data_for_fixing = data_subset.copy()
@@ -80,7 +81,6 @@ aggregated_data.to_csv('results/allele_auto_fix_info.tsv', sep='\t', index=False
 
 # Re-explode the columns that have solutions (now they are aggregated)
 aggregated_data_with_fixes = aggregated_data.loc[aggregated_data['auto_fix_to'] != '', :].copy()
-# TODO deal with multiple solutions
 
 # Deaggregate multiple solutions
 aggregated_data_with_fixes.loc[:, 'auto_fix_to'] = aggregated_data_with_fixes['auto_fix_to'].apply(str.split, args=['|'])
@@ -97,13 +97,10 @@ for i, row in aggregated_data_with_fixes.iterrows():
         print(row['allele_description_exploded2'], row['auto_fix_to'])
 
 data2merge = aggregated_data_with_fixes.explode(['allele_description_exploded2', 'auto_fix_to'])
-
-data2merge.to_csv('to_merge.tsv', sep='\t', index=False)
-
 data_for_fixing = data_for_fixing.merge(data2merge[['systematic_id', 'reference', 'allele_description_exploded2', 'auto_fix_to', 'auto_fix_comment', 'solution_index']], on=['systematic_id', 'reference', 'allele_description_exploded2'])
 
 # Aggregate the multiple_aa, they only differ on the columns allele_description_exploded2 and auto_fix_to, so we aggregate on everything else
-# We also drop allele_description_exploded and allele_description_exploded2 after the aggregation, no longer needed
+# We also drop allele_description_exploded and allele_description_exploded2 and rules_applied after the aggregation, no longer needed
 multi_aa = data_for_fixing['rules_applied'] == 'amino_acid_mutation:multiple_aa'
 groupby_columns = list(data_for_fixing.columns)
 groupby_columns.remove('allele_description_exploded2')
@@ -111,17 +108,42 @@ groupby_columns.remove('auto_fix_to')
 new_rows = data_for_fixing[multi_aa].groupby(groupby_columns, as_index=False).agg({'auto_fix_to': lambda x: join_multiple_aa(x.values)})
 data_for_fixing = data_for_fixing[~multi_aa]
 data_for_fixing = pandas.concat([data_for_fixing, new_rows])
-data_for_fixing.drop(columns=['allele_description_exploded', 'allele_description_exploded2', 'sequence_error'], inplace=True)
+data_for_fixing.drop(columns=['allele_description_exploded', 'allele_description_exploded2', 'sequence_error', 'rules_applied'], inplace=True)
 data_for_fixing.drop_duplicates(inplace=True)
+
+# Sort again by first number in the string (concat step may mess up the order,
+# which is important for the next aggregation)
+data_for_fixing.loc[:, 'sorting_col'] = data_for_fixing['auto_fix_to'].apply(lambda x: int(re.search(r'\d+', x).group()))
+data_for_fixing.sort_values('sorting_col', inplace=True)
+data_for_fixing.drop(columns='sorting_col', inplace=True)
 
 # Apply the fix by merging the auto_fix_to individual columns
 groupby_columns = list(data_for_fixing.columns)
 groupby_columns.remove('auto_fix_to')
-data_for_fixing.sort_values(groupby_columns)
-data_for_fixing.to_csv('pre_fixing.tsv', sep='\t', index=False)
 
 data_for_fixing = data_for_fixing.groupby(groupby_columns, as_index=False).agg({'auto_fix_to': ','.join})
 
-# TODO sort again here
 # TODO find conflicting solutions with different PMIDs, if not, merge, otherwise warning.
-data_for_fixing.to_csv('fixing.tsv', sep='\t', index=False)
+# Merge solutions from different PMIDs that are the same
+groupby_columns = list(data_for_fixing.columns)
+groupby_columns.remove('reference')
+data_for_fixing = data_for_fixing.groupby(groupby_columns, as_index=False).agg({'reference': ','.join})
+
+# Here we check if multiple solutions were found from different references, if so give a warning
+groupby_columns.remove('auto_fix_to')
+different_solutions = data_for_fixing[data_for_fixing[groupby_columns].duplicated(keep=False)]
+if not different_solutions.empty:
+    print('Different solutions have been found in different papers')
+    print(different_solutions)
+
+
+data_for_fixing.to_csv('results/allele_sequence_errors_auto_fix.tsv', sep='\t', index=False)
+# Finally, we merge with the original data
+data = data.merge(data_for_fixing[['systematic_id', 'allele_name', 'auto_fix_comment', 'solution_index', 'auto_fix_to']], on=['systematic_id', 'allele_name'], how='outer')
+
+# Set auto_fix_to value in change_description_to, and drop the column
+fixed_sequence_errors = data['auto_fix_to'] != ''
+data.loc[fixed_sequence_errors, 'change_description_to'] = data.loc[fixed_sequence_errors, 'auto_fix_to']
+data.drop(columns='auto_fix_to')
+
+data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)

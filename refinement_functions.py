@@ -223,6 +223,5 @@ def split_multiple_aa(value, regex):
 
 def join_multiple_aa(values):
     """Opposite of split_multiple_aa"""
-    print(values)
     sorted_values = sorted(values, key=lambda x: int(re.search(r'\d+', x).group()))
     return ''.join(v[0] for v in sorted_values) + '-' + sorted_values[0][1:-1] + '-' + ''.join(v[-1] for v in sorted_values)
