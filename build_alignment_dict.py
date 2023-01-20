@@ -47,7 +47,7 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--genome', default='data/genome.pickle')
 parser.add_argument('--coords', default='data/only_modified_coordinates.tsv')
-parser.add_argument('--output', default='results/coordinate_changes_dict2.json')
+parser.add_argument('--output', default='results/coordinate_changes_dict.json')
 args = parser.parse_args()
 
 chromosome_dictionary = {

@@ -184,7 +184,7 @@ async def multi_shift(request: MultiShiftRequest):
 
 @app.post("/old_coords")
 async def old_coords(request: OldCoordsFixRequest):
-    with open('results/coordinate_changes_dict2.json') as ins:
+    with open('results/coordinate_changes_dict.json') as ins:
         coordinate_changes_dict = json.load(ins)
     result = old_coords_fix(coordinate_changes_dict[request.systematic_id], request.targets.split(','))
     return result

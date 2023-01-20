@@ -148,6 +148,12 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
         output_dict['pattern_error'] = ','.join(unmatched)
         return output_dict
 
+    # Very special case, in which the allele description contains no alphanumeric characters
+    # and therefore both matches and unmatched are empty (see sort_result function)
+    if len(matches) == 0:
+        output_dict['pattern_error'] = allele_description
+        return output_dict
+
     # By default empty strings
     allele_part_types = ['' for m in matches]
     correct_name_list = ['' for m in matches]

@@ -11,7 +11,7 @@ from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix
 with open('data/genome.pickle', 'rb') as ins:
     genome = pickle.load(ins)
 
-with open('results/coordinate_changes_dict2.json') as ins:
+with open('results/coordinate_changes_dict.json') as ins:
     coordinate_changes_dict = json.load(ins)
 
 syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]

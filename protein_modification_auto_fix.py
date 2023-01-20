@@ -9,7 +9,7 @@ with open('data/genome.pickle', 'rb') as ins:
 
 data = pandas.read_csv('results/protein_modification_results_errors_aggregated.tsv', sep='\t', na_filter=False)
 
-with open('results/coordinate_changes_dict2.json') as ins:
+with open('results/coordinate_changes_dict.json') as ins:
     coordinate_changes_dict = json.load(ins)
 
 
