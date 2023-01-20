@@ -1,5 +1,6 @@
 import pandas
 from allele_fixes import multi_shift_fix, old_coords_fix, shift_coordinates_by_x, position_or_index_exists
+import re
 
 
 def apply_multi_shift_fix(row, genome, target_column):
@@ -87,3 +88,24 @@ def format_auto_fix(row, target_column, syntax_error_column):
         possible_fixes.add(this_fix)
 
     return '|'.join(possible_fixes), row['auto_fix_comment']
+
+
+def print_warnings(data: pandas.DataFrame):
+
+    print('\033[0;32mmixed case\033[0m')
+    print()
+    for i, row in data.iterrows():
+        desc = row['allele_description']
+        # Combinations of upper and lower case might have been weird patterns
+        if re.search('[a-z]', desc) and re.search('[A-Z]', desc):
+            print(desc)
+
+    print()
+    print('\033[0;32mnt or aa\033[0m')
+    print()
+    for i, row in data.iterrows():
+        desc = row['allele_description']
+
+        # Presence of aa or nt might mean nucleotides or aminoacids
+        if 'aa' in desc.lower() or 'nt' in desc.lower():
+            print(desc)

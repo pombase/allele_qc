@@ -5,7 +5,7 @@ from refinement_functions import split_multiple_aa, join_multiple_aa
 import pickle
 import json
 import re
-from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix, apply_histone_fix, get_preferred_fix
+from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix, apply_histone_fix, get_preferred_fix, print_warnings
 
 
 with open('data/genome.pickle', 'rb') as ins:
@@ -140,10 +140,19 @@ if not different_solutions.empty:
 data_for_fixing.to_csv('results/allele_sequence_errors_auto_fix.tsv', sep='\t', index=False)
 # Finally, we merge with the original data
 data = data.merge(data_for_fixing[['systematic_id', 'allele_name', 'auto_fix_comment', 'solution_index', 'auto_fix_to']], on=['systematic_id', 'allele_name'], how='outer')
-
+data.fillna('', inplace=True)
 # Set auto_fix_to value in change_description_to, and drop the column
 fixed_sequence_errors = data['auto_fix_to'] != ''
 data.loc[fixed_sequence_errors, 'change_description_to'] = data.loc[fixed_sequence_errors, 'auto_fix_to']
-data.drop(columns='auto_fix_to')
+data.drop(columns='auto_fix_to', inplace=True)
 
-data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
+# Print some warnings for rows with an auto-fix that may not be right
+columns_auto_fixed = fixed_sequence_errors | \
+    ((data['sequence_error'] == '') & ((data['change_type_to'] != '') | (data['change_description_to'] != '')))
+
+print_warnings(data[columns_auto_fixed])
+
+data[columns_auto_fixed].to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
+
+errors_cannot_fix = data[~columns_auto_fixed].drop(columns=['auto_fix_comment', 'solution_index'])
+errors_cannot_fix.to_csv('results/allele_cannot_fix.tsv', sep='\t', index=False)
