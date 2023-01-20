@@ -176,7 +176,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'usual',
-        'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
+        'regex': f'({aa}?)(\d+)-({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide'),
         'coordinate_indexes': (1,)
