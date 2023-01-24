@@ -138,9 +138,11 @@ if not different_solutions.empty:
 
 
 data_for_fixing.to_csv('results/allele_sequence_errors_auto_fix.tsv', sep='\t', index=False)
+
 # Finally, we merge with the original data
 data = data.merge(data_for_fixing[['systematic_id', 'allele_name', 'auto_fix_comment', 'solution_index', 'auto_fix_to']], on=['systematic_id', 'allele_name'], how='outer')
 data.fillna('', inplace=True)
+
 # Set auto_fix_to value in change_description_to, and drop the column
 fixed_sequence_errors = data['auto_fix_to'] != ''
 data.loc[fixed_sequence_errors, 'change_description_to'] = data.loc[fixed_sequence_errors, 'auto_fix_to']
@@ -150,9 +152,17 @@ data.drop(columns='auto_fix_to', inplace=True)
 columns_auto_fixed = fixed_sequence_errors | \
     ((data['sequence_error'] == '') & ((data['change_type_to'] != '') | (data['change_description_to'] != '')))
 
-print_warnings(data[columns_auto_fixed])
+autofixed_data = data[columns_auto_fixed].copy()
 
-data[columns_auto_fixed].to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
+# Add extra comments
+syntax_error = (autofixed_data.solution_index == '') & (autofixed_data.change_description_to != '')
+type_error = (autofixed_data.solution_index == '') & (autofixed_data.change_type_to != '')
+
+autofixed_data.loc[syntax_error, 'auto_fix_comment'] = 'syntax_error'
+autofixed_data.loc[type_error, 'auto_fix_comment'] = 'type_error'
+autofixed_data.loc[syntax_error & type_error, 'auto_fix_comment'] = 'syntax_and_type_error'
+
+autofixed_data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
 
 errors_cannot_fix = data[~columns_auto_fixed].drop(columns=['auto_fix_comment', 'solution_index'])
 errors_cannot_fix.to_csv('results/allele_cannot_fix.tsv', sep='\t', index=False)
