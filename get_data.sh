@@ -24,20 +24,9 @@ curl -k https://www.pombase.org/releases/latest/pombe-embl/mating_type_region.co
 curl -k https://www.pombase.org/releases/latest/pombe-embl/pMIT.contig --output  data/pMIT.contig
 curl -k https://www.pombase.org/releases/latest/pombe-embl/telomeric.contig --output  data/telomeric.contig
 
-echo -e "${GREEN}Getting fasta files${NC}"
-# Get individual sequences in fasta format
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/cds+introns+utrs.fa.gz --output data/cds+introns+utrs.fa.gz
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/cds+introns.fa.gz --output data/cds+introns.fa.gz
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/cds.fa.gz --output data/cds.fa.gz
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/five_prime_utrs.fa.gz --output data/five_prime_utrs.fa.gz
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/three_prime_utrs.fa.gz --output data/three_prime_utrs.fa.gz
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/introns_within_cds.fa.gz --output data/introns_within_cds.fa.gz
-curl -k https://www.pombase.org/releases/latest/fasta/feature_sequences/peptide.fa.gz --output data/peptide.fa.gz
-gzip -fd data/*.fa.gz
 
 # Store the genome as a dictionary using pickle
 echo -e "${GREEN}Loading the genome${NC}"
-python load_sequences.py data/*.fa
 python load_genome.py data/*.contig
 
 # Get updates to genome coordinates from PomBase, these can be used to update alleles that used

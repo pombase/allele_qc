@@ -23,17 +23,13 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-parser.add_argument('--fasta_genome', default='data/fasta_genome.pickle', help='genome dictionary built from fasta files.')
 parser.add_argument('--alleles', default='data/alleles.tsv')
 parser.add_argument('--output', default='results/allele_results.tsv')
 args = parser.parse_args()
 
 
 with open(args.genome, 'rb') as ins:
-    contig_genome = pickle.load(ins)
-
-with open(args.fasta_genome, 'rb') as ins:
-    fasta_genome = pickle.load(ins)
+    genome = pickle.load(ins)
 
 
 def empty_dict():
@@ -60,21 +56,21 @@ syntax_rules_disruption = [SyntaxRule.parse_obj(r) for r in disruption_grammar]
 output_data_list = list()
 for i, row in allele_data.iterrows():
     if 'amino_acid' in row['allele_type'] or 'nonsense_mutation' == row['allele_type']:
-        if row.systematic_id not in fasta_genome or 'peptide' not in fasta_genome[row.systematic_id]:
+        if row.systematic_id not in genome or 'peptide' not in genome[row.systematic_id]:
             output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'Peptide sequence of {row.systematic_id} missing (perhaps multiple transcripts)'})
         else:
-            output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, fasta_genome[row.systematic_id]))
+            output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, genome[row.systematic_id]))
     elif 'nucleotide' in row['allele_type']:
-        if row.systematic_id not in contig_genome:
+        if row.systematic_id not in genome:
             output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'Nucleotide sequence of {row.systematic_id} missing'})
         else:
-            output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, contig_genome[row.systematic_id]))
+            output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, genome[row.systematic_id]))
     elif 'disruption' == row['allele_type']:
         if row['allele_description'] != '':
-            output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, contig_genome[row.systematic_id]))
+            output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id]))
         # Special case where the description  is empty
         else:
-            out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, contig_genome[row.systematic_id])
+            out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id])
             # The name matches the pattern
             if out_dict['change_description_to'] != '':
                 output_data_list.append(dict(row) | out_dict)

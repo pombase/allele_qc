@@ -9,9 +9,6 @@ from Bio.SeqIO import parse
 with open('data/genome.pickle', 'rb') as ins:
     contig_genome = pickle.load(ins)
 
-with open('data/fasta_genome.pickle', 'rb') as ins:
-    fasta_genome = pickle.load(ins)
-
 
 class SequenceIndexingTest(unittest.TestCase):
 
@@ -53,5 +50,5 @@ class SequenceIndexingTest(unittest.TestCase):
 
     def test_aas(self):
         for seq in parse('test_data/test_peptides.fasta', 'fasta'):
-            self.assertEqual(fasta_genome[seq.id]['peptide'], seq.seq)
+            self.assertEqual(contig_genome[seq.id]['peptide'], seq.seq)
             self.assertEqual(contig_genome[seq.id]['peptide'], seq.seq)
