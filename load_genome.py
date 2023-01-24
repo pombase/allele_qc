@@ -18,6 +18,7 @@ import pickle
 from Bio import SeqIO
 from Bio.SeqFeature import SeqFeature
 import argparse
+import json
 
 genome: dict[str, dict[str, SeqFeature]] = dict()
 
@@ -25,6 +26,9 @@ genome: dict[str, dict[str, SeqFeature]] = dict()
 class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
     pass
 
+
+with open('config.json') as ins:
+    config = json.load(ins)
 
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('files', metavar='N', type=str, nargs='+',
@@ -59,7 +63,10 @@ for f in args.files:
         # if feature_type == 'CDS' and not any([('pseudogene' in prod or 'dubious' in prod) for prod in feature.qualifiers['product']]):
         if feature_type == 'CDS':
             cds_seq = feature.extract(contig).seq
-            genome[gene_id]['peptide'] = cds_seq.translate()
+            if gene_id.startswith(config['mitochondrial_prefix']):
+                genome[gene_id]['peptide'] = cds_seq.translate(table=config['mitochondrial_table'])
+            else:
+                genome[gene_id]['peptide'] = cds_seq.translate()
             errors = list()
             if len(cds_seq) % 3 != 0:
                 errors.append('CDS length not multiple of 3')

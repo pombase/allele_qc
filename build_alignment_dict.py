@@ -57,6 +57,8 @@ chromosome_dictionary = {
     'mating_type_region': 'mating_type_region',
     'mitochondrial': 'pMIT',
 }
+with open('config.json') as ins:
+    config = json.load(ins)
 
 
 def read_old_genomes(files, format):
@@ -147,7 +149,10 @@ for systematic_id in sorted(list(set(coordinate_data.systematic_id))):
     changes_dict[systematic_id] = list()
 
     new_feature_loc = get_feature_location_from_string(latest_coordinate['value'])
-    new_seq = new_feature_loc.extract(latest_genome[systematic_id]['contig']).translate()
+    if systematic_id.startswith(config['mitochondrial_prefix']):
+        new_seq = new_feature_loc.extract(latest_genome[systematic_id]['contig']).translate(table=config['mitochondrial_table'])
+    else:
+        new_seq = new_feature_loc.extract(latest_genome[systematic_id]['contig']).translate()
 
     for i, previous_coordinate in previous_coordinates.iterrows():
         this_change = dict()
@@ -159,7 +164,11 @@ for systematic_id in sorted(list(set(coordinate_data.systematic_id))):
 
         # The genome on which a feature was defined might not have the same sequence, if so use the old sequence
         old_genome = choose_old_genome(previous_coordinate, latest_genome[systematic_id]['contig'], old_genomes_dict, genome_seq_changes)
-        old_seq = old_feature_loc.extract(old_genome).translate()
+
+        if systematic_id.startswith(config['mitochondrial_prefix']):
+            old_seq = old_feature_loc.extract(old_genome).translate(table=config['mitochondrial_table'])
+        else:
+            old_seq = old_feature_loc.extract(old_genome).translate()
 
         # This can happen when the sequence was equal to the current sequence in the past, then changed to something else, then reverted again to what it currently is.
         if new_seq.seq == old_seq.seq:

@@ -18,6 +18,7 @@ for id in contig_genome:
             print(id)
             print('contig')
             print(contig_genome[id]['peptide'])
-            print('fasta')
+            print(''.join(' ' if contig_genome[id]['peptide'][i] == fasta_genome[id]['peptide'][i] else '|' for i in range(len(contig_genome[id]['peptide']))))
             print(fasta_genome[id]['peptide'])
+            print('fasta')
             print()
