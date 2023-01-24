@@ -6,6 +6,7 @@ import pickle
 import json
 import re
 from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix, apply_histone_fix, get_preferred_fix, print_warnings
+import os
 
 
 with open('data/genome.pickle', 'rb') as ins:
@@ -165,4 +166,13 @@ autofixed_data.loc[syntax_error & type_error, 'auto_fix_comment'] = 'syntax_and_
 autofixed_data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
 
 errors_cannot_fix = data[~columns_auto_fixed].drop(columns=['auto_fix_comment', 'solution_index'])
+
+# If there is a file with manual fixes, remove those from the auto_fix
+if os.path.isfile('manual_fixes_pombase/manual_changes_formatted.tsv'):
+    manual_changes = pandas.read_csv('manual_fixes_pombase/manual_changes_formatted.tsv', sep='\t', na_filter=False)
+    manual_changes['combined_column'] = manual_changes.apply(lambda r: [r['systematic_id'], r['allele_name']], axis=1)
+    errors_cannot_fix['combined_column'] = errors_cannot_fix.apply(lambda r: [r['systematic_id'], r['allele_name']], axis=1)
+    errors_cannot_fix = errors_cannot_fix[~errors_cannot_fix['combined_column'].isin(manual_changes['combined_column'])].copy()
+    errors_cannot_fix.drop(columns='combined_column', inplace=True)
+
 errors_cannot_fix.to_csv('results/allele_cannot_fix.tsv', sep='\t', index=False)
