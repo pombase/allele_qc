@@ -1,11 +1,27 @@
 """
-Updates the modification files in the svn repository with the current
+Usage:
+
+python update_svn_modification_files.py svn_repo_path
+
+svn_repo_path is the root directory of pombe svn (where branches are trunk dirs are).
+
+The script applies the changes in results/protein_modification_auto_fix.tsv to
+the modification files in the svn repository (trunk/external_data/modification_files).
+The files with errors corrected are saved to a folder in this repo called
+svn_protein_modification_files_corrected (included in .gigtignore).
+
+In the same folder, along with the corrected files, a file called fixes_applied.tsv
+is created with the lines in results/protein_modification_auto_fix.tsv
+that were used.
+
+Then you can simply replace the svn files by running:
+mv svn_protein_modification_files_corrected/PMID*.tsv svn_repo_path/trunk/external_data/modification_files/
 """
 
 import os
 import glob
 import pandas
-import tempfile
+import numpy as np
 
 # Column names are not consistent across files
 column_names = [
@@ -27,14 +43,28 @@ modification_folder = os.path.join(svn_folder, modification_sub_path)
 
 fixes = pandas.read_csv('results/protein_modification_auto_fix.tsv', sep='\t', na_filter=False)
 fixed_references = set(fixes.reference)
-all_applied_fixes = list()
 
-# Temporary directory to store the files that will eventually replace the current ones
-temp_dir = tempfile.gettempdir()
+# Create output folder if it does not exist:
+output_folder = 'svn_protein_modification_files_corrected'
+if not os.path.isdir(output_folder):
+    os.mkdir(output_folder)
+
+# Logical index of the rows in fixes that are used, updated at each iteration
+all_applied_fixes = np.zeros_like(fixes['systematic_id'], dtype=bool)
 
 for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     file_name = os.path.split(modification_file)[-1]
     print(file_name)
+
+    # Read the comments of the file to write them again later
+    comments = list()
+    with open(modification_file) as ins:
+        for line in ins:
+            if line.startswith('#'):
+                comments.append(line)
+            else:
+                break
+
     data = pandas.read_csv(modification_file, sep='\t', na_filter=False, comment='#')
 
     original_column_names = list(data.columns)
@@ -56,8 +86,9 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
 
     # Important to include also the date, because some of the changes were made in canto, so they belong
     # to the same PMID, but not in this file.
-    fixes_for_this_paper = fixes.loc[(fixes.reference == pmid) & (fixes.date == data['date'][0]), :].copy()
-
+    rows_for_this_paper = (fixes.reference == pmid) & (fixes.date == data['date'][0])
+    fixes_for_this_paper = fixes.loc[rows_for_this_paper, :].copy()
+    all_applied_fixes = all_applied_fixes | rows_for_this_paper
     # We create a column combining the systematic_id + residue, which uniquely identifies the position
     # in the genome.
     fixes_for_this_paper['combined_column'] = fixes_for_this_paper.apply(lambda r: r['systematic_id'] + '|' + r['sequence_position'], axis=1)
@@ -95,12 +126,8 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     # Revert to original column names
     data_fixed.columns = original_column_names
 
-    # We store the file in a temp directory (we want to replace the original
-    # files only if all checks have passed).
-    data_fixed.to_csv(os.path.join(temp_dir, file_name), sep='\t', index=False)
+    with open(os.path.join(output_folder, file_name), 'w') as ins:
+        ins.writelines(comments)
+        data_fixed.to_csv(ins, sep='\t', index=False)
 
-
-for f in glob.glob(os.path.join(temp_dir, '*.tsv')):
-    file_name = os.path.basename(f)
-    os.rename(f, os.path.join(modification_folder, file_name))
-    print(file_name, 'overwritten')
+fixes[all_applied_fixes].to_csv(os.path.join(output_folder, 'fixes_applied.tsv'), sep='\t', index=False)
