@@ -139,6 +139,8 @@ python perform_qc.py
 
 Takes the allele file as input (by default `data/alleles.tsv`), and generates a new file (by default `results/allele_results.tsv`) that contains the following new columns:
 
+### New columns in allele file
+
 * `allele_parts`: the substrings of the `allele_description` that match regex patterns in the grammar, separated by `|` characters. For example `E325A G338D` would result in `L916H|W1048C`.
 * `needs_fixing`: `True` or `False` depending on whether the allele needs fixing.
 * `change_description_to`: if the correct nomenclature differs from `allele_description`, `change_description_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
