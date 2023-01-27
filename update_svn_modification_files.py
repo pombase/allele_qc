@@ -22,6 +22,7 @@ import os
 import glob
 import pandas
 import numpy as np
+import warnings
 
 # Column names are not consistent across files
 column_names = [
@@ -49,8 +50,13 @@ output_folder = 'svn_protein_modification_files_corrected'
 if not os.path.isdir(output_folder):
     os.mkdir(output_folder)
 
-# Logical index of the rows in fixes that are used, updated at each iteration
+# Logical indexes of the rows in fixes that are used, updated at each iteration
 all_applied_fixes = np.zeros_like(fixes['systematic_id'], dtype=bool)
+
+# Logical indexes of rows that contain several errors
+multi_solution_fixes = fixes['change_sequence_position_to'].str.contains('|', regex=False)
+
+multi_solution_skipped_warnings = list()
 
 for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     file_name = os.path.split(modification_file)[-1]
@@ -87,8 +93,14 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     # Important to include also the date, because some of the changes were made in canto, so they belong
     # to the same PMID, but not in this file.
     rows_for_this_paper = (fixes.reference == pmid) & (fixes.date == data['date'][0])
+    # Check if there are multi-solution for this paper, and skip those rows:
+    if any(multi_solution_fixes & rows_for_this_paper):
+        multi_solution_skipped_warnings.append(file_name)
+
+    rows_for_this_paper = rows_for_this_paper & ~multi_solution_fixes
     fixes_for_this_paper = fixes.loc[rows_for_this_paper, :].copy()
     all_applied_fixes = all_applied_fixes | rows_for_this_paper
+
     # We create a column combining the systematic_id + residue, which uniquely identifies the position
     # in the genome.
     fixes_for_this_paper['combined_column'] = fixes_for_this_paper.apply(lambda r: r['systematic_id'] + '|' + r['sequence_position'], axis=1)
@@ -110,7 +122,8 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     # Sort so that the original index of rows is kept and drop the column
     data_fixed.sort_values('original_index', inplace=True)
     data_fixed.drop(columns='original_index', inplace=True)
-    # We also drop in data, because later we will check that the merge does not change
+
+    # We also drop original_index in data, because later we will check that the merge does not change
     # the shape of the dataset
     data.drop(columns='original_index', inplace=True)
 
@@ -126,8 +139,14 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     # Revert to original column names
     data_fixed.columns = original_column_names
 
+    # Write the file with the original comments and column names
     with open(os.path.join(output_folder, file_name), 'w') as ins:
         ins.writelines(comments)
         data_fixed.to_csv(ins, sep='\t', index=False)
 
+# Write to a file the changes in fixes that have been applied
 fixes[all_applied_fixes].to_csv(os.path.join(output_folder, 'fixes_applied.tsv'), sep='\t', index=False)
+
+# Print a warning if any row with multiple solutions was skipped
+for f in multi_solution_skipped_warnings:
+    warnings.warn(f'\033[1;33mWarning: Some lines in {f} skipped, contained multiple solutions. You have to resolve the conflict by hand \033[0m')
