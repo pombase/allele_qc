@@ -130,18 +130,19 @@ data_for_fixing = data_for_fixing.groupby(groupby_columns, as_index=False).agg({
 groupby_columns = list(data_for_fixing.columns)
 groupby_columns.remove('reference')
 data_for_fixing = data_for_fixing.groupby(groupby_columns, as_index=False).agg({'reference': ','.join})
-
+print(data_for_fixing[data_for_fixing['auto_fix_comment'].str.contains('hist')])
 # Here we check if multiple solutions were found from different references, if so give a warning
 groupby_columns.remove('auto_fix_to')
 different_solutions = data_for_fixing[data_for_fixing[groupby_columns].duplicated(keep=False)]
 if not different_solutions.empty:
     print('Different solutions have been found in different papers')
     print(different_solutions)
+print(data_for_fixing[data_for_fixing['auto_fix_comment'].str.contains('hist')])
 
 # Finally, we merge with the original data
 data = data.merge(data_for_fixing[['systematic_id', 'allele_name', 'auto_fix_comment', 'solution_index', 'auto_fix_to']], on=['systematic_id', 'allele_name'], how='outer')
 data.fillna('', inplace=True)
-
+print(data[data['auto_fix_comment'].str.contains('hist')])
 # Set auto_fix_to value in change_description_to, and drop the column
 fixed_sequence_errors = data['auto_fix_to'] != ''
 data.loc[fixed_sequence_errors, 'change_description_to'] = data.loc[fixed_sequence_errors, 'auto_fix_to']

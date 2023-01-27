@@ -141,17 +141,20 @@ Takes the allele file as input (by default `data/alleles.tsv`), and generates a 
 
 ### New columns in allele file
 
-* `allele_parts`: the substrings of the `allele_description` that match regex patterns in the grammar, separated by `|` characters. For example `E325A G338D` would result in `L916H|W1048C`.
+* `allele_parts`: the substrings of the `allele_description` that match regex patterns in the grammar, separated by `|` characters. For example `E325A G338D` would result in `E325A|G338D`.
 * `needs_fixing`: `True` or `False` depending on whether the allele needs fixing.
 * `change_description_to`: if the correct nomenclature differs from `allele_description`, `change_description_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
 * `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP-120-AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
 * `pattern_error`: contains the parts of the allele that are not picked up by any regular expression in the grammar.
 * `invalid_error`: output of the function `check_invalid` of each of the rules applied. E.g. for `KKRKK-71-NEHG` contains `lengths don't match: KKRKK-NEHG`.
-* `sequence_error`: contains an error if the indicated position does not exist or if the aminoacid indicated at a certain position is not correct. Examples:
-  * `position 198 does not exist, peptide length is 193`
-  * `|I66|||`, `|`-separated, for allele `P65A,I66A,N67A,P68A,D69A`, to indicate that there is no `I` at position 66.
-  * `K5>K6|K8>K9|K12>K13|K16>K17`, for allele `K5R,K8R,K12R,K16R`, to indicate that at each indicated position a `K` does not exist, but at a flanking position it does (`>` separated). If both flanking positions contain the indicated aminoacid, they are both indicated (e.g. `K5>K4>K6`).
+* `sequence_error`: contains an error if the indicated position does not exist or if the aminoacid indicated at a certain position is not correct. Values to be homogenised in the future.
 * `change_type_to`: if `allele_type` is not right, contains the right type. This comes from using the `frozenset` in `grammar.py`.
+* `auto_fix_comment`: for alleles that can be auto-fixed, contains some info (e.g.):
+  * `syntax_error`
+  * `type_error`
+  * `syntax_and_type_error`
+  * `multi_shift_fix`: method used for fixing
+  * `histone_fix`
 
 ### Optional - Coordinate changes
 
