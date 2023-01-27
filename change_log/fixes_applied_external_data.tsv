@@ -16,7 +16,7 @@ SPAC1250.05	rpl3002	MOD:01148	mass spectrometry evidence	K25		PMID:26412298	4896
 SPAC1250.05	rpl3002	MOD:01148	mass spectrometry evidence	K28		PMID:26412298	4896	2015-11-11	K28>K27		
 SPAC12G12.07c		MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S353;S58		PMID:30726745	4896	2019-02-05	|S58>S57	S353,S58	syntax_error
 SPAC144.06	apl5	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S817		PMID:33823663	4896	2022-03-08	S817	S802	old_coords_fix, revision 20110324: join(4664387..4664545,4664586..4664747,4664799..4666982)
-SPAC1486.05	nup189	MOD:01149	mass spectrometry evidence	K1000		PMID:26537787	4896	2020-11-06	K1000>K1001	K1029|K1001	old_coords_fix, revision 3985: join(3197028..3197525,3197528..3202450)|old_coords_fix, revision 2716: join(3197028..3197443,3197530..3202450)
+SPAC1486.05	nup189	MOD:01149	mass spectrometry evidence	K1000		PMID:26537787	4896	2020-11-06	K1000>K1001	K1029	old_coords_fix, revision 3985: join(3197028..3197525,3197528..3202450)|old_coords_fix, revision 2716: join(3197028..3197443,3197530..3202450)
 SPAC1486.05	nup189	MOD:00006	mass spectrometry evidence	N706		PMID:22633491	4896	2020-02-17	N706	N735	old_coords_fix, revision 2716: join(3197028..3197443,3197530..3202450)
 SPAC1486.05	nup189	MOD:00046	experimental evidence	S1021	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S1021	S1050	old_coords_fix, revision 2716: join(3197028..3197443,3197530..3202450)
 SPAC1486.05	nup189	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S1021		PMID:25720772	4896	2016-06-27	S1021	S1050	old_coords_fix, revision 2716: join(3197028..3197443,3197530..3202450)
