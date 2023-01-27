@@ -85,8 +85,9 @@ aggregated_data_with_fixes = aggregated_data.loc[aggregated_data['auto_fix_to'] 
 
 # Deaggregate multiple solutions
 aggregated_data_with_fixes.loc[:, 'auto_fix_to'] = aggregated_data_with_fixes['auto_fix_to'].apply(str.split, args=['|'])
+
 # We add an extra column with the index of the solution if there is more than one
-aggregated_data_with_fixes.loc[:, 'solution_index'] = aggregated_data_with_fixes['auto_fix_to'].apply(lambda x: list(range(len(x))))
+aggregated_data_with_fixes.loc[:, 'solution_index'] = aggregated_data_with_fixes['auto_fix_to'].apply(lambda x: list(range(len(x))) if len(x) > 1 else [None, ])
 aggregated_data_with_fixes = aggregated_data_with_fixes.explode(['auto_fix_to', 'solution_index'])
 
 # Deaggregate the parts of each solution
@@ -146,15 +147,14 @@ fixed_sequence_errors = data['auto_fix_to'] != ''
 data.loc[fixed_sequence_errors, 'change_description_to'] = data.loc[fixed_sequence_errors, 'auto_fix_to']
 data.drop(columns='auto_fix_to', inplace=True)
 
-# Print some warnings for rows with an auto-fix that may not be right
 columns_auto_fixed = fixed_sequence_errors | \
     ((data['sequence_error'] == '') & ((data['change_type_to'] != '') | (data['change_description_to'] != '')))
 
 autofixed_data = data[columns_auto_fixed].copy()
 
-# Add extra comments
-syntax_error = (autofixed_data.solution_index == '') & (autofixed_data.change_description_to != '')
-type_error = (autofixed_data.solution_index == '') & (autofixed_data.change_type_to != '')
+# Fill comments for the rest of error types
+syntax_error = (autofixed_data.auto_fix_comment == '') & (autofixed_data.change_description_to != '')
+type_error = (autofixed_data.auto_fix_comment == '') & (autofixed_data.change_type_to != '')
 
 autofixed_data.loc[syntax_error, 'auto_fix_comment'] = 'syntax_error'
 autofixed_data.loc[type_error, 'auto_fix_comment'] = 'type_error'
@@ -164,7 +164,7 @@ autofixed_data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
 
 errors_cannot_fix = data[~columns_auto_fixed].drop(columns=['auto_fix_comment', 'solution_index'])
 
-# If there is a file with manual fixes, remove those from the auto_fix
+# If there is a file with manual fixes, do not include in cannot_fix
 if os.path.isfile('manual_fixes_pombase/manual_changes_formatted.tsv'):
     manual_changes = pandas.read_csv('manual_fixes_pombase/manual_changes_formatted.tsv', sep='\t', na_filter=False)
     manual_changes['combined_column'] = manual_changes.apply(lambda r: [r['systematic_id'], r['allele_name']], axis=1)

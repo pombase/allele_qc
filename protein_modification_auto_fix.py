@@ -38,9 +38,13 @@ autofix_data.fillna('', inplace=True)
 extra_cols = autofix_data.apply(format_auto_fix, axis=1, result_type='expand', args=['sequence_position', 'change_sequence_position_to'])
 
 # Overwrite these columns with the new values
-autofix_data.loc[:, 'change_sequence_position_to'] = extra_cols.iloc[:, 0]
-autofix_data.loc[:, 'auto_fix_comment'] = extra_cols.iloc[:, 1]
+autofix_data.loc[:, 'change_sequence_position_to'] = extra_cols.iloc[:, 0].apply(lambda x: x.split('|'))
+autofix_data.loc[:, 'auto_fix_comment'] = extra_cols.iloc[:, 1].apply(lambda x: x.split('|'))
 autofix_data.drop(columns=['auto_fix_from', 'auto_fix_to'], inplace=True)
+
+# Explode columns with multiple solutions
+autofix_data.loc[:, 'solution_index'] = autofix_data['change_sequence_position_to'].apply(lambda x: list(range(len(x))) if len(x) > 1 else [None, ])
+autofix_data = autofix_data.explode(['change_sequence_position_to', 'auto_fix_comment', 'solution_index'])
 
 # Print some stats
 nb_errors = autofix_data.shape[0]

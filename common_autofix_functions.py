@@ -79,15 +79,23 @@ def format_auto_fix(row, target_column, syntax_error_column):
     if not row['auto_fix_to']:
         return (row[syntax_error_column], 'syntax_error') if syntax_error else ('', '')
 
-    # There are edge cases where multiple fixes could be possible
-    possible_fixes = set()
+    # There are cases where multiple fixes could be possible, and cases where changes were made
+    # and reverted several times, so the same coordinate (or updated depending on genome sequence)
+    # may exist
+    possible_fixes = list()
     for all_change_to in row['auto_fix_to'].split('|'):
         this_fix = sequence_position
         for change_from, change_to in zip(row['auto_fix_from'].split(','), all_change_to.split(',')):
             this_fix = this_fix.replace(change_from, change_to)
-        possible_fixes.add(this_fix)
+        possible_fixes.append(this_fix)
 
-    return '|'.join(possible_fixes), row['auto_fix_comment']
+    # Case 1 -> all old coordinates give the same residue
+    if len(set(possible_fixes)) == 1:
+        return possible_fixes[0], '/'.join(row['auto_fix_comment'].split('|'))
+
+    # Case 2 -> different old coordinates give different residues
+    else:
+        return '|'.join(possible_fixes), row['auto_fix_comment']
 
 
 def print_warnings(data: pandas.DataFrame):
@@ -98,7 +106,11 @@ def print_warnings(data: pandas.DataFrame):
         desc = row['allele_description']
         # Combinations of upper and lower case might have been weird patterns
         if re.search('[a-z]', desc) and re.search('[A-Z]', desc):
-            print(desc)
+            new_desc = row['change_description_to']
+            if new_desc == '':
+                print(desc)
+            else:
+                print(desc, '    >>>>>    ', new_desc)
 
     print()
     print('\033[0;32mnt or aa\033[0m')
@@ -107,5 +119,9 @@ def print_warnings(data: pandas.DataFrame):
         desc = row['allele_description']
 
         # Presence of aa or nt might mean nucleotides or aminoacids
-        if 'aa' in desc.lower() or 'nt' in desc.lower():
-            print(desc)
+        if 'aa' in desc or 'nt' in desc:
+            new_desc = row['change_description_to']
+            if new_desc == '':
+                print(desc)
+            else:
+                print(desc, '    >>>>>    ', new_desc)

@@ -59,9 +59,9 @@ if not os.path.isdir(output_folder):
 # Logical indexes of the rows in fixes that are used, updated at each iteration
 all_applied_fixes = np.zeros_like(fixes['systematic_id'], dtype=bool)
 
-# Logical indexes of rows that contain several errors
-multi_solution_fixes = fixes['change_sequence_position_to'].str.contains('|', regex=False)
-
+# Logical indexes of rows that contain several solutions
+multi_solution_fixes = fixes['solution_index'] != ''
+fixes.drop(columns='solution_index', inplace=True)
 multi_solution_skipped_warnings = list()
 
 for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):

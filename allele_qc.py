@@ -84,6 +84,6 @@ output_data = pandas.DataFrame.from_records(output_data_list)
 output_data.to_csv(args.output, sep='\t', index=False)
 
 root_output_name = args.output.split('.')[0]
-print_warnings(output_data[(output_data['needs_fixing'] == True) & (output_data['invalid_error'] == '')])
+print_warnings(output_data[(output_data['needs_fixing'] == True) & (output_data['pattern_error'] == '') & (output_data['allele_type'].str.contains('nucleot') | output_data['allele_type'].str.contains('amino'))])
 output_data[output_data['needs_fixing'] == True].to_csv(f'{root_output_name}_errors.tsv', sep='\t', index=False)
 output_data[output_data['needs_fixing'] == True][['allele_description', 'change_description_to']].to_csv(f'{root_output_name}_errors_summarised.tsv', sep='\t', index=False)
