@@ -148,6 +148,12 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
         output_dict['pattern_error'] = ','.join(unmatched)
         return output_dict
 
+    # Very special case, in which the allele description contains no alphanumeric characters
+    # and therefore both matches and unmatched are empty (see sort_result function)
+    if len(matches) == 0:
+        output_dict['pattern_error'] = allele_description
+        return output_dict
+
     # By default empty strings
     allele_part_types = ['' for m in matches]
     correct_name_list = ['' for m in matches]
@@ -212,3 +218,16 @@ def seq_error_change_description_to(allele_name, sequence_error):
             return ''
 
     return ','.join(new_allele_parts)
+
+
+def split_multiple_aa(value, regex):
+    """Split into single variants: VLP-123-AAA => ['V123A', 'L124A', 'P125A']"""
+
+    groups = re.match(regex, value).groups()
+    return [f'{aa1}{int(groups[1])+i}{aa2}' for i, (aa1, aa2) in enumerate(zip(groups[0], groups[2]))]
+
+
+def join_multiple_aa(values):
+    """Opposite of split_multiple_aa"""
+    sorted_values = sorted(values, key=lambda x: int(re.search(r'\d+', x).group()))
+    return ''.join(v[0] for v in sorted_values) + '-' + sorted_values[0][1:-1] + '-' + ''.join(v[-1] for v in sorted_values)

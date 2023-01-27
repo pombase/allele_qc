@@ -39,17 +39,17 @@ def check_position_doesnt_exist(pos, gene, seq_type):
         return e.args[0]
 
 
-def check_value_at_pos(value, pos, gene, seq_type, append_suggestion=True):
+def check_value_at_pos(indicated_value, pos, gene, seq_type, append_suggestion=True):
     """
     Return error string if the position is beyond the end of the sequence or the indicated
-    value is not at that position.
+    indicated_value is not at that position.
     """
     # Check if the position is valid
     check_pos = check_position_doesnt_exist(pos, gene, seq_type)
     if check_pos:
-        return f'{value}{pos}'
+        return f'{indicated_value}{pos}'
     if seq_type == 'dna':
-        value = value.replace('u', 't').replace('U', 'T')
+        indicated_value = indicated_value.replace('u', 't').replace('U', 'T')
     # Check if the value in that position is correct
     if seq_type == 'peptide':
         def get_value_at_pos(p):
@@ -58,15 +58,15 @@ def check_value_at_pos(value, pos, gene, seq_type, append_suggestion=True):
         def get_value_at_pos(p):
             return get_nt_at_genome_position(p, gene, gene['contig'])
 
-    if get_value_at_pos(pos) == value:
+    if get_value_at_pos(pos) == indicated_value:
         return ''
 
-    out_str = f'{value}{pos}'
+    out_str = f'{indicated_value}{pos}'
 
     if append_suggestion:
         for i in [1, -1]:
-            if not check_position_doesnt_exist(pos + i, gene, seq_type) and (get_value_at_pos(pos + i) == value):
-                out_str += f'>{value}{pos + i}'
+            if not check_position_doesnt_exist(pos + i, gene, seq_type) and (get_value_at_pos(pos + i) == indicated_value):
+                out_str += f'>{indicated_value}{pos + i}'
 
     return out_str
 
@@ -176,7 +176,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'usual',
-        'regex': f'({aa}?)(\d+)-?({aa}+)(?!\d)',
+        'regex': f'({aa}?)(\d+)-({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide'),
         'coordinate_indexes': (1,)

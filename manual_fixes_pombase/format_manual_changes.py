@@ -1,65 +1,41 @@
-"""
-Reformat the manual changes to match the allele_auto_fix + extra column with a comment
-
-fix_type	systematic_id	allele_name	reference	allele_type	allele_description	change_type_to	change_description_to	change_name_to  comment
-
-Also create a file with the ones that need to be deleted
-
-"""
-
 import pandas
 
-input_alleles = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
+autofix_data = pandas.read_csv('../results/allele_auto_fix.tsv', sep='\t', na_filter=False)
+manual_data1 = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name=None, na_filter=False)
+manual_data2 = pandas.read_excel('allele_needs_supervision.xlsx', sheet_name=None, na_filter=False)
 
-identified_alleles = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name='identified', na_filter=False)
+manual_data = pandas.concat(list(manual_data1.values()) + list(manual_data2.values()))
 
-identified_alleles['fix_type'] = 'manual_fix_other'
-identified_alleles.loc[identified_alleles['invalid_error'] != '', 'fix_type'] = 'manual_fix_invalid_error'
-identified_alleles.loc[identified_alleles['sequence_error'] != '', 'fix_type'] = 'manual_fix_sequence_error'
+cols2keep = ['systematic_id', 'allele_name', 'manual_fix_allele_description', 'manual_fix_allele_name', 'manual_fix_allele_type', 'comment']
 
-unidentified_alleles = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name='not identified')
+manual_data = manual_data[cols2keep].copy()
+manual_data.rename(columns={'comment': 'manual_fix_comment'})
 
-# Fill columns from the original alleles
-cols = ['systematic_id', 'reference', 'allele_type', 'allele_description']
-for col in cols:
-    unidentified_alleles[col] = ''
+# Alleles that have to be removed (added to separate file)
+alleles2remove = manual_data.manual_fix_allele_description.str.contains('remove')
+manual_data[alleles2remove].to_csv('manual_alleles2remove.tsv', sep='\t', index=False)
+manual_data = manual_data[~alleles2remove].copy()
 
-for i, row in unidentified_alleles.iterrows():
-    for col in cols:
-        unidentified_alleles.at[i, col] = list(input_alleles[input_alleles.allele_name == row.allele_name][col])[0]
+# Those without fix
+no_fix = manual_data.manual_fix_allele_description.str.contains('cannot fix') | \
+    manual_data[['manual_fix_allele_description', 'manual_fix_allele_name', 'manual_fix_allele_type', 'comment']].eq('').all(axis=1)
 
-unidentified_alleles['fix_type'] = 'unnoticed'
+manual_data = manual_data[~no_fix].copy()
 
-# Formatting here is required
-need_supervision = pandas.read_excel('allele_needs_supervision.xlsx', na_filter=False)
+# Load the autofix, and look for conflicts
+merged_data = autofix_data.merge(manual_data[manual_data.manual_fix_allele_description != ''], on='allele_name', how='inner')
+merged_data.fillna('', inplace=True)
+conflict_logi = merged_data.manual_fix_allele_description != merged_data.change_description_to
+conflict_data = merged_data.loc[conflict_logi, ['systematic_id_x', 'allele_description', 'manual_fix_allele_description', 'solution_index', 'change_description_to', 'auto_fix_comment']]
+if not conflict_data.empty:
+    print('\033[1;33mConflict between manual and auto fix data printed to manual_auto_fix_conflict_data.tsv\033[0m')
+    conflict_data.to_csv('manual_auto_fix_conflict_data.tsv', sep='\t', index=False)
 
-# Remove the ones that were either fixed in canto or can't be fixed
-need_supervision = need_supervision[~need_supervision.manual_fix_allele_description.isin(['skip', 'asked'])]
 
-manual_data = pandas.concat([identified_alleles, unidentified_alleles, need_supervision])
-
-# Drop old fixes that still resulted in errors
-manual_data = manual_data.drop(columns=['change_description_to', 'change_type_to'])
-
-manual_data.rename(columns={
-    'manual_fix_allele_description': 'change_description_to',
-    'manual_fix_allele_name': 'change_name_to',
-    'manual_fix_allele_type': 'change_type_to',
-}, inplace=True)
-
-manual_data = manual_data.fillna('')
-
-manual_data = manual_data[['fix_type', 'systematic_id', 'allele_name', 'reference', 'allele_type', 'allele_description', 'change_type_to', 'change_description_to', 'change_name_to', 'comment']]
+# In some cases I had not added the systematic_id, so we fill from the original allele data
+original_allele_data = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
+manual_data.fillna('', inplace=True)
+missing_systematic_id = manual_data['systematic_id'] == ''
+manual_data.loc[missing_systematic_id, 'systematic_id'] = manual_data.loc[missing_systematic_id, 'allele_name'].apply(lambda name: original_allele_data.loc[original_allele_data.allele_name == name].iloc[0])
 
 manual_data.to_csv('manual_changes_formatted.tsv', sep='\t', index=False)
-
-changes_applied = manual_data.copy()
-
-changes_applied['allele_type'][changes_applied['change_type_to'] != ''] = changes_applied['change_type_to']
-changes_applied['allele_description'][changes_applied['change_description_to'] != ''] = changes_applied['change_description_to']
-
-# I don't do this, because we want to preserve the original names to see which one gave errors.
-# changes_applied['allele_name'][changes_applied['change_name_to'] != ''] = changes_applied['change_name_to']
-
-changes_applied = changes_applied.drop(columns=['change_type_to', 'change_description_to', 'change_name_to'])
-changes_applied.to_csv('manual_changes_applied.tsv', sep='\t', index=False)

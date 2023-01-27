@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+import json
 from starlette.responses import RedirectResponse, PlainTextResponse
 from pydantic import BaseModel
 import pickle
@@ -183,7 +184,7 @@ async def multi_shift(request: MultiShiftRequest):
 
 @app.post("/old_coords")
 async def old_coords(request: OldCoordsFixRequest):
-    with open('data/genome.pickle', 'rb') as ins:
-        contig_genome = pickle.load(ins)
-    result = old_coords_fix(request.systematic_id, request.targets.split(','), contig_genome)
+    with open('results/coordinate_changes_dict.json') as ins:
+        coordinate_changes_dict = json.load(ins)
+    result = old_coords_fix(coordinate_changes_dict[request.systematic_id], request.targets.split(','))
     return result

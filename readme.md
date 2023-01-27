@@ -186,3 +186,6 @@ python get_allele_autofix.py
 ```
 
 
+## TODO
+
+document mitochondrial pre_fix
