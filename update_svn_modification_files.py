@@ -38,12 +38,18 @@ column_names = [
 ]
 
 svn_folder = '/Users/manu/Documents/OpenSource/pombe-embl'
-modification_sub_path = 'trunk/external_data/modification_files'
+modification_sub_path = 'trunk/external_data/modification_files/old'
 
 modification_folder = os.path.join(svn_folder, modification_sub_path)
 
 fixes = pandas.read_csv('results/protein_modification_auto_fix.tsv', sep='\t', na_filter=False)
 fixed_references = set(fixes.reference)
+
+# This is an extra control, to make sure we are not replacing by empty strings (no solution found),
+# Empty strings should never be included in protein_modification_auto_fix.tsv,
+# and be in protein_modification_cannot_fix.tsv, but just in case
+if any(fixes.change_sequence_position_to == ''):
+    raise ValueError(f'Error in {fixes}: empty string in change_sequence_position_to')
 
 # Create output folder if it does not exist:
 output_folder = 'svn_protein_modification_files_corrected'
@@ -128,8 +134,8 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     data.drop(columns='original_index', inplace=True)
 
     data_fixed.fillna('', inplace=True)
-    rows2fix = data_fixed.change_sequence_position_to != ''
-    data_fixed.loc[rows2fix, 'sequence_position'] = data_fixed.loc[rows2fix, 'change_sequence_position_to']
+
+    data_fixed.loc[:, 'sequence_position'] = data_fixed.loc[:, 'change_sequence_position_to']
     data_fixed.drop(columns='change_sequence_position_to', inplace=True)
 
     # The resulting file should have the same number of rows as the original one

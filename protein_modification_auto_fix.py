@@ -53,4 +53,7 @@ print(f'{nb_errors} errors found, of which {errors_fixed} fixed:\n  - {sequence_
 print('', 'Types of errors fixed:', '', autofix_data['auto_fix_comment'].apply(lambda x: x.split(',')[0]).value_counts(), sep='\n')
 # If you want to print only the dubious cases
 # print(autofix_data[autofix_data.change_sequence_position_to.str.contains('\|')])
-autofix_data.to_csv('results/protein_modification_auto_fix.tsv', sep='\t', index=False)
+
+fixed_rows = autofix_data.change_sequence_position_to != ''
+autofix_data[fixed_rows].to_csv('results/protein_modification_auto_fix.tsv', sep='\t', index=False)
+autofix_data[~fixed_rows].to_csv('results/protein_modification_cannot_fix.tsv', sep='\t', index=False)
