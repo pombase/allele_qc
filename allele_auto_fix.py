@@ -122,8 +122,11 @@ data_for_fixing.drop(columns='sorting_col', inplace=True)
 # Apply the fix by merging the auto_fix_to individual columns
 groupby_columns = list(data_for_fixing.columns)
 groupby_columns.remove('auto_fix_to')
+# The error starts here
+print(data_for_fixing[data_for_fixing['auto_fix_comment'].str.contains('hist')])
 
 data_for_fixing = data_for_fixing.groupby(groupby_columns, as_index=False).agg({'auto_fix_to': ','.join})
+print(data_for_fixing[data_for_fixing['auto_fix_comment'].str.contains('hist')])
 
 # TODO find conflicting solutions with different PMIDs, if not, merge, otherwise warning.
 # Merge solutions from different PMIDs that are the same
