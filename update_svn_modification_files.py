@@ -38,7 +38,7 @@ column_names = [
 ]
 
 svn_folder = '/Users/manu/Documents/OpenSource/pombe-embl'
-modification_sub_path = 'trunk/external_data/modification_files/old'
+modification_sub_path = 'trunk/external_data/modification_files'
 
 modification_folder = os.path.join(svn_folder, modification_sub_path)
 
