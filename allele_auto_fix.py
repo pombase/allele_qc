@@ -5,7 +5,7 @@ from refinement_functions import split_multiple_aa, join_multiple_aa
 import pickle
 import json
 import re
-from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix, apply_histone_fix, get_preferred_fix, print_warnings
+from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix, apply_histone_fix, get_preferred_fix
 import os
 
 
@@ -136,9 +136,6 @@ different_solutions = data_for_fixing[data_for_fixing[groupby_columns].duplicate
 if not different_solutions.empty:
     print('Different solutions have been found in different papers')
     print(different_solutions)
-
-
-data_for_fixing.to_csv('results/allele_sequence_errors_auto_fix.tsv', sep='\t', index=False)
 
 # Finally, we merge with the original data
 data = data.merge(data_for_fixing[['systematic_id', 'allele_name', 'auto_fix_comment', 'solution_index', 'auto_fix_to']], on=['systematic_id', 'allele_name'], how='outer')
