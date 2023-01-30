@@ -153,8 +153,10 @@ Takes the allele file as input (by default `data/alleles.tsv`), and generates a 
   * `syntax_error`
   * `type_error`
   * `syntax_and_type_error`
-  * `multi_shift_fix`: method used for fixing
-  * `histone_fix`
+  * `multi_shift_fix`: For a given publication with 4 or more alleles with errors, if shifting all coordinates by the same amount fixes the error, the fix is accepted. This fix has the lowest priority.
+  * `histone_fix`: histone indexes have been often counted ignoring the first methionine, so if a shift by +1 in index fixes the sequence error in a histone, it is accepted. This type of fix takes second priority.
+  * `old_coords_fix, revision xxx: gene_coordinates`: if using old gene coordinates the error is fixed, the fix is accepted. This type of fix takes max priority, as it is in principle more reliable.
+* `solution_index`: Normally empty, but if more than one solution has been found to a sequence error, they have the index of the solution.
 
 ### Optional - Coordinate changes
 
