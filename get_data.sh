@@ -61,6 +61,7 @@ while read row; do
     else
         # TODO handle this properly (issue #35)
         # svn cat -r ${old_revision} svn+ssh://manu@curation.pombase.org/var/svn-repos/pombe-embl/trunk/${contig}.contig > $output_file
+        curl -k https://raw.githubusercontent.com/pombase/allele_qc/master/temp_commits/${old_revision}.contig --output $output_file
     fi
 
 done < <(tail -n +2 data/genome_sequence_changes.tsv)
