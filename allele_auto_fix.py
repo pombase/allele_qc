@@ -80,14 +80,16 @@ aggregated_data.loc[:, 'auto_fix_to'] = extra_cols.iloc[:, 0]
 aggregated_data.loc[:, 'auto_fix_comment'] = extra_cols.iloc[:, 1]
 aggregated_data.to_csv('results/allele_auto_fix_info.tsv', sep='\t', index=False)
 
-# Re-explode the columns that have solutions (now they are aggregated)
+# Re-explode the columns that have multiple solutions (now they are aggregated as '|'-separated strings)
 aggregated_data_with_fixes = aggregated_data.loc[aggregated_data['auto_fix_to'] != '', :].copy()
 
 # Deaggregate multiple solutions
 aggregated_data_with_fixes.loc[:, 'auto_fix_to'] = aggregated_data_with_fixes['auto_fix_to'].apply(str.split, args=['|'])
 
 # We add an extra column with the index of the solution if there is more than one
-aggregated_data_with_fixes.loc[:, 'solution_index'] = aggregated_data_with_fixes['auto_fix_to'].apply(lambda x: list(range(len(x))) if len(x) > 1 else [None, ])
+# We convert to strings because the missing values may give unexpected behaviour in .groupby or .agg
+aggregated_data_with_fixes.loc[:, 'solution_index'] = aggregated_data_with_fixes['auto_fix_to'].apply(lambda x: list(range(len(x))) if len(x) > 1 else [''])
+aggregated_data_with_fixes.loc[:, 'solution_index'] = aggregated_data_with_fixes.loc[:, 'solution_index']
 aggregated_data_with_fixes = aggregated_data_with_fixes.explode(['auto_fix_to', 'solution_index'])
 
 # Deaggregate the parts of each solution
@@ -125,7 +127,6 @@ groupby_columns.remove('auto_fix_to')
 
 data_for_fixing = data_for_fixing.groupby(groupby_columns, as_index=False).agg({'auto_fix_to': ','.join})
 
-# TODO find conflicting solutions with different PMIDs, if not, merge, otherwise warning.
 # Merge solutions from different PMIDs that are the same
 groupby_columns = list(data_for_fixing.columns)
 groupby_columns.remove('reference')
