@@ -8,6 +8,8 @@ from models import SyntaxRule
 from refinement_functions import check_allele_description
 from enum import Enum
 from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as primer_mutagenesis_func
+from protein_modification_qc import check_func as check_modification_description
+
 from typing import Optional
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
@@ -30,7 +32,7 @@ class AlleleType(str, Enum):
     partial_nucleotide_deletion = 'partial_nucleotide_deletion'
 
 
-class CheckRequest(BaseModel):
+class CheckAlleleRequest(BaseModel):
     systematic_id: str
     allele_description: str
     allele_type: AlleleType
@@ -41,6 +43,19 @@ class CheckRequest(BaseModel):
                 "systematic_id": "SPBC359.03c",
                 "allele_description": "V123A,PLR-140-AAA,150-600",
                 "allele_type": "partial_amino_acid_deletion"}
+        }
+
+
+class CheckModificationRequest(BaseModel):
+    systematic_id: str
+    sequence_position: str
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "systematic_id": "SPBC359.03c",
+                "sequence_position": "V123; V124,V125",
+            }
         }
 
 
@@ -98,7 +113,43 @@ class CheckAlleleDescriptionResponse(BaseModel):
     user_friendly_fields: Optional['CheckAlleleDescriptionResponse'] = None
 
 
-def get_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> CheckAlleleDescriptionResponse:
+class CheckModificationResponse(BaseModel):
+
+    needs_fixing: bool
+    sequence_error: str
+    change_sequence_position_to: str
+    user_friendly_fields: Optional['CheckModificationResponse'] = None
+
+
+def get_modification_user_friendly_fields(obj: CheckModificationResponse) -> CheckModificationResponse:
+    new_obj = obj.copy()
+
+    if obj.sequence_error:
+        positions_dont_exist = list()
+        residues_dont_match = list()
+        for e in obj.sequence_error.split('|'):
+            if e == '':
+                continue
+            if e[0].isalpha():
+                residues_dont_match.append(e)
+            else:
+                positions_dont_exist.append(e)
+        out_str = ''
+        if len(positions_dont_exist):
+            out_str = out_str + f'The following sequence positions don\'t exist: {",".join(positions_dont_exist)}'
+        if len(residues_dont_match):
+            if len(positions_dont_exist):
+                out_str = out_str + '\n'
+            out_str = out_str + f'The following sequence positions don\'t contain the indicated residues: {",".join(residues_dont_match)}'
+        new_obj.sequence_error = out_str
+
+    if obj.change_sequence_position_to:
+        new_obj.change_sequence_position_to = f'There is a syntax error in the modification description, it should be changed to: {obj.change_sequence_position_to}'
+
+    return new_obj
+
+
+def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> CheckAlleleDescriptionResponse:
     new_obj = obj.copy()
     if obj.allele_parts:
         new_obj.allele_parts = f'We identified {len(obj.allele_parts.split("|"))} parts in the allele description, which are: {obj.allele_parts.replace("|",", ")}'
@@ -115,17 +166,20 @@ def get_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> CheckAllele
         positions_dont_exist = list()
         residues_dont_match = list()
         for e in obj.sequence_error.split('|'):
+            if e == '':
+                continue
+
             if e[0].isalpha():
                 residues_dont_match.append(e)
             else:
                 positions_dont_exist.append(e)
         out_str = ''
         if len(positions_dont_exist):
-            out_str = out_str + f'The following sequence positions don\'t exist: {";".join(positions_dont_exist)}'
+            out_str = out_str + f'The following sequence positions don\'t exist: {",".join(positions_dont_exist)}'
         if len(residues_dont_match):
             if len(positions_dont_exist):
                 out_str = out_str + '\n'
-            out_str = out_str + f'The following sequence positions don\'t contain the indicated residues: {";".join(residues_dont_match)}'
+            out_str = out_str + f'The following sequence positions don\'t contain the indicated residues: {",".join(residues_dont_match)}'
         new_obj.sequence_error = out_str
     if obj.change_type_to:
         new_obj.change_type_to = f'The indicated allele_type is not correct based on the existing mutations, it should be changed to {obj.change_type_to}'
@@ -136,24 +190,36 @@ def get_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> CheckAllele
 app = FastAPI()
 
 
-@app.get("/")
+@ app.get("/")
 async def root():
     return RedirectResponse("/docs")
 
 
-@app.post("/check_allele", response_model=CheckAlleleDescriptionResponse)
-async def check_allele(request: CheckRequest):
+@ app.post("/check_allele", response_model=CheckAlleleDescriptionResponse)
+async def check_allele(request: CheckAlleleRequest):
     with open('data/genome.pickle', 'rb') as ins:
         contig_genome = pickle.load(ins)
 
     response_data = CheckAlleleDescriptionResponse.parse_obj(
         check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, contig_genome[request.systematic_id])
     )
-    response_data.user_friendly_fields = get_user_friendly_fields(response_data)
+    response_data.user_friendly_fields = get_allele_user_friendly_fields(response_data)
     return response_data
 
 
-@app.post("/primer")
+@ app.post("/check_modification", response_model=CheckModificationResponse)
+async def check_modification(request: CheckModificationRequest):
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+
+    errors, change_sequence_position_to = check_modification_description(request.dict(), genome)
+    needs_fixing = errors != '' or change_sequence_position_to != ''
+    response_data = CheckModificationResponse(sequence_error=errors, change_sequence_position_to=change_sequence_position_to, needs_fixing=needs_fixing)
+    response_data.user_friendly_fields = get_modification_user_friendly_fields(response_data)
+    return response_data
+
+
+@ app.post("/primer")
 async def primer_mutagenesis(request: PrimerRequest):
     with open('data/genome.pickle', 'rb') as ins:
         contig_genome = pickle.load(ins)
@@ -173,7 +239,7 @@ async def primer_mutagenesis(request: PrimerRequest):
     return PlainTextResponse(primer_mutagenesis_func(seq.seq, request.primer, request.max_mismatch, has_peptide))
 
 
-@app.post("/multi_shift")
+@ app.post("/multi_shift")
 async def multi_shift(request: MultiShiftRequest):
     with open('data/genome.pickle', 'rb') as ins:
         contig_genome = pickle.load(ins)
@@ -182,7 +248,7 @@ async def multi_shift(request: MultiShiftRequest):
     return PlainTextResponse('\n'.join(result))
 
 
-@app.post("/old_coords")
+@ app.post("/old_coords")
 async def old_coords(request: OldCoordsFixRequest):
     with open('results/coordinate_changes_dict.json') as ins:
         coordinate_changes_dict = json.load(ins)
