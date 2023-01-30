@@ -40,7 +40,7 @@ class CheckRequest(BaseModel):
             "example": {
                 "systematic_id": "SPBC359.03c",
                 "allele_description": "V123A,PLR-140-AAA,150-600",
-                "allele_type": "amino_acid_deletion_and_mutation"}
+                "allele_type": "partial_amino_acid_deletion"}
         }
 
 
