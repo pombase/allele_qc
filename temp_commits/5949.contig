@@ -1,0 +1,1161 @@
+ID   X54421     standard; circular DNA; ORG; 19431 BP.
+XX
+AC   X54421;
+XX
+SV   X54421.1
+XX
+DT   28-NOV-1990 (Rel. 26, Created)
+DT   14-MAR-2001 (Rel. 67, Last updated, Version 13)
+XX
+DE   Schizosaccharomyces pombe complete mitochondrial genome
+XX
+KW   apocytochrome b; ATPase; cob gene; cox gene; cytochrome b;
+KW   cytochrome oxidase; large ribosomal RNA; mitochondrial genome; oxidase;
+KW   ribosomal DNA; ribosomal RNA; small ribosomal RNA; transfer RNA.
+XX
+OS   Schizosaccharomyces pombe (fission yeast)
+OC   Eukaryota; Fungi; Ascomycota; Schizosaccharomycetes;
+OC   Schizosaccharomycetales; Schizosaccharomycetaceae; Schizosaccharomyces.
+OG   Mitochondrion
+XX
+RN   [1]
+RP   1-19431
+RA   Lang B.F.;
+RT   ;
+RL   Submitted (16-AUG-1990) to the EMBL/GenBank/dictyBaseJ databases.
+RL   Lang B.F., Departement de Biochemie, Universite de Montreal, C.P. 6128 ,
+RL   Montreal, Quebec H3C 3J7, Canada.
+XX
+RN   [2]
+RP   1-2900
+RX   MEDLINE; 88082786.
+RA   Lang B.F., Cedergren R.J., Gray M.W.;
+RT   "The mitochondrial genome of the fission yeast, Schizosaccharomyces pombe.
+RT   Sequence of the large.subunit ribosomal RNA gene, comparison of potential
+RT   secondary structure in fungal mitochondrial large.subunit rRNAs and
+RT   evolutionary considerations";
+RL   Eur. J. Biochem. 169:527-537(1987).
+XX
+RN   [3]
+RP   3131-4580
+RX   MEDLINE; 89386004.
+RA   Trinkl H., Lang B.F., Wolf K.;
+RT   "Nucleotide sequence of the gene encoding the small ribosomal RNA in the
+RT   mitochondrial genome of the fission yeast Schizosaccharomyces pombe";
+RL   Nucleic Acids Res. 17:6730-6730(1989).
+XX
+RN   [4]
+RP   4666-8923
+RX   MEDLINE; 85027166.
+RA   Lang B.F.;
+RT   "The mitochondrial genome of the fission yeast Schizosaccharomyces pombe:
+RT   IV. Highly homologous introns are inserted at the same position of the
+RT   otherwise less conserved cox1 genes in Schizosaccharomyces pombe and
+RT   Aspergillus nidulans";
+RL   EMBO J. 3:2129-2136(1984).
+XX
+RN   [5]
+RP   9973-13974
+RX   MEDLINE; 86011547.
+RA   Lang B.F., Ahne F., Bonen L.;
+RT   "The mitochondrial genome of the fission yeast Schizosaccharomyces pombe:
+RT   The cytochrome b gene has an intron closely related to the first two
+RT   introns in the Saccharomyces cerevisiae cox1 gene";
+RL   J. Mol. Biol. 184:353-366(1985).
+XX
+RN   [6]
+RP   14275-14508, 15464-15629
+RA   Lang B.F., Ahne F., Distler S., Trinkl H., Kaudewitz F., Wolf K.;
+RT   ;
+RL   Unpublished.
+XX
+DR   SWISS-PROT; P05501; CYB_SCHPO.
+DR   SWISS-PROT; P05511; YM91_SCHPO.
+DR   SWISS-PROT; P07657; COX1_SCHPO.
+DR   SWISS-PROT; P14575; COX3_SCHPO.
+DR   SWISS-PROT; P21534; COX2_SCHPO.
+DR   SWISS-PROT; P21535; ATP6_SCHPO.
+DR   SWISS-PROT; P21536; ATP8_SCHPO.
+DR   SWISS-PROT; P21537; ATP9_SCHPO.
+DR   SWISS-PROT; P21547; YM25_SCHPO.
+DR   SWISS-PROT; P22190; YMC2_SCHPO.
+DR   SWISS-PROT; P22191; YMC1_SCHPO.
+XX
+CC   See <X06597> for overlapping sequence ([2]).
+XX
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   source          1..19431
+FT                   /db_xref="taxon:4896"
+FT                   /organelle=mitochondrion
+FT                   /organism="Schizosaccharomyces pombe"
+FT                   /allele="ad7-50h-."
+FT   rRNA            1..2822
+FT                   /product="21S rRNA, rnl"
+FT                   /gene="21S_rRNA"
+FT                   /systematic_id="SPRRNA.01"
+FT                   /primary_name="rnl"
+FT                   /synonym="21S_rRNA"
+FT   misc_difference complement(2091)
+FT                   /note="conflict"
+FT                   /replace="c"
+FT                   /db_xref="PMID:2446871"
+FT   tRNA            2857..2929
+FT                   /gene="SPMITTRNALYS.01"
+FT                   /product="tRNA Lysine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033443;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=AAA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033443; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033443; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNALYS.01"
+FT   tRNA            2968..3050
+FT                   /gene="SPMITTRNASER.01"
+FT                   /product="tRNA Serine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033446;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=AGC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033446; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033446; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNASER.01"
+FT   tRNA            3060..3130
+FT                   /gene="SPMITTRNAASN.01"
+FT                   /product="tRNA Asparagine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033442;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=AAC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033442; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033442; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAASN.01"
+FT   rRNA            3131..4552
+FT                   /product="15S rRNA, rns"
+FT                   /gene="15S_rRNA"
+FT                   /synonym="15S_rRNA"
+FT                   /systematic_id="SPRRNA.02"
+FT                   /primary_name="rns"
+FT   misc_difference complement(4102)
+FT                   /note="conflict"
+FT                   /replace="g"
+FT                   /db_xref="PMID:2780299"
+FT   tRNA            4591..4665
+FT                   /gene="SPMITTRNAMET.01"
+FT                   /product="tRNA Methionine, mitochondrial"
+FT                   /GO="aspect=P; term=translation; GOid=GO:0006412;
+FT                   evidence=ISM; from=GO:0033436; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /GO="aspect=F; term=ATG codon-amino acid adaptor activity;
+FT                   GOid=GO:0033436; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033436; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAMET.01"
+FT   CDS             join(4886..5289,6500..6844,7926..8790)
+FT                   /transl_table=4
+FT                   /gene="cox1"
+FT                   /primary_name="cox1"
+FT                   /systematic_id="SPMIT.01"
+FT                   /product="cytochrome c oxidase 1 (predicted)"
+FT                   /colour=2
+FT                   /GO="aspect=C; term=respiratory chain complex IV (sensu
+FT                   Eukaryota); GOid=GO:0005751; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007260;
+FT                   date=20040629"
+FT                   /GO="aspect=F; term=cytochrome-c oxidase activity;
+FT                   GOid=GO:0004129; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007260; date=20040629"
+FT                   /GO="aspect=P; term=aerobic respiration; GOid=GO:0009060;
+FT                   evidence=ISS; db_xref=GO_REF:0000024; with=SGD:S000007260;
+FT                   date=20040629"
+FT                   /GO="aspect=P; term=mitochondrial electron transport,
+FT                   cytochrome c to oxygen; GOid=GO:0006123; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007260;
+FT                   date=20160216"
+FT                   /fasta_file="fasta/pMIT.tab.seq.00048.out"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0045; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT   intron          5290..6499
+FT                   /systematic_id="SPMIT.01"
+FT   CDS             5291..6445
+FT                   /systematic_id="SPMIT.02"
+FT                   /product="mitochondrial DNA binding endonuclease
+FT                   (predicted)"
+FT                   /transl_table=4
+FT                   /colour=7
+FT                   /fasta_file="fasta/pMIT.tab.seq.00049.out"
+FT                   /GO="aspect=P; term=intron homing; GOid=GO:0006314;
+FT                   evidence=ISM; db_xref=GO_REF:0000050; with=Pfam:PF00961;
+FT                   date=20060209"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; db_xref=GO_REF:0000111; from=GO:0006314;
+FT                   date=20060209"
+FT                   /GO="aspect=F; term=DNA binding; GOid=GO:0003677;
+FT                   evidence=ISM; db_xref=GO_REF:0000050; with=Pfam:PF00961;
+FT                   date=20060209"
+FT                   /GO="aspect=F; term=endonuclease activity;
+FT                   GOid=GO:0004519; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   with=Pfam:PF00961; date=20060209"
+FT                   /GO="aspect=C; term=mitochondrial chromosome;
+FT                   GOid=GO:0000262; evidence=IC; db_xref=GO_REF:0000111;
+FT                   from=GO:0003677|GO:0005739; date=20190128"
+FT                   /controlled_curation="term=genome organization, protein in
+FT                   cox1 intron-1; cv=genome_org; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in archaea; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100827"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100827"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0110 and Q0115 and Q0120 and Q0255; date=20110719"
+FT                   /controlled_curation="term=warning, intronic ORF;
+FT                   date=20110719"
+FT   intron          6845..7925
+FT                   /systematic_id="SPMIT.01"
+FT   CDS             <6966..7718
+FT                   /systematic_id="SPMIT.03"
+FT                   /product="mitochondrial DNA binding endonuclease
+FT                   (predicted)"
+FT                   /transl_table=4
+FT                   /colour=7
+FT                   /fasta_file="fasta/pMIT.tab.seq.00050.out"
+FT                   /GO="aspect=P; term=intron homing; GOid=GO:0006314;
+FT                   evidence=ISM; db_xref=GO_REF:0000050; with=Pfam:PF00961;
+FT                   date=20060209"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; db_xref=GO_REF:0000024; from=GO:0006314;
+FT                   date=20060209"
+FT                   /GO="aspect=F; term=DNA binding; GOid=GO:0003677;
+FT                   evidence=ISM; db_xref=GO_REF:0000050; with=Pfam:PF00961;
+FT                   date=20060209"
+FT                   /GO="aspect=F; term=endonuclease activity;
+FT                   GOid=GO:0004519; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   with=Pfam:PF00961; date=20060209"
+FT                   /GO="aspect=C; term=mitochondrial chromosome;
+FT                   GOid=GO:0000262; evidence=IC; db_xref=GO_REF:0000111;
+FT                   from=GO:0003677|GO:0005739; date=20190128"
+FT                   /controlled_curation="term=gene expression, RNA level;
+FT                   annotation_extension=during(GO:0034605);
+FT                   qualifier=increased; evidence=ECO:0000058;
+FT                   db_xref=PMID:12529438; date=20130503"
+FT                   /controlled_curation="term=genome organization, protein in
+FT                   cox1 intron-2; cv=genome_org; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in archaea; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100827"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100827"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0060 and Q0065 and Q0075; date=20110719"
+FT                   /controlled_curation="term=warning, intronic ORF;
+FT                   date=20110719"
+FT   CDS             8947..9765
+FT                   /EC_number="1.9.3.1"
+FT                   /gene="cox3"
+FT                   /primary_name="cox3"
+FT                   /systematic_id="SPMIT.04"
+FT                   /product="cytochrome c oxidase 3"
+FT                   /colour=2
+FT                   /GO="aspect=C; term=respiratory chain complex IV (sensu
+FT                   Eukaryota); GOid=GO:0005751; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007283;
+FT                   date=20040629"
+FT                   /transl_table=4
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0275; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT   tRNA            9818..9894
+FT                   /gene="SPMITTRNAARG.01"
+FT                   /product="tRNA Arginine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033447;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=AGA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033447; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033447; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAARG.01"
+FT   tRNA            9920..9992
+FT                   /note="anticodon=ugu, thr"
+FT                   /gene="SPMITTRNATHR.01"
+FT                   /systematic_id="SPMITTRNATHR.01"
+FT                   /product="tRNA Threonine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033439;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=ACA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033439; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033439; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT   CDS             join(10173..10856,13383..13862)
+FT                   /transl_table=4
+FT                   /gene="cob1"
+FT                   /gene="cob"
+FT                   /gene="SPMIT.05"
+FT                   /primary_name="cob1"
+FT                   /synonym="cob"
+FT                   /synonym="cytb"
+FT                   /systematic_id="SPMIT.05"
+FT                   /product="cytochrome b, Cob1 (predicted)"
+FT                   /colour=7
+FT                   /GO="aspect=C; term=mitochondrial respiratory chain
+FT                   complex III; GOid=GO:0005750; evidence=TAS;
+FT                   db_xref=PMID:6094974; date=20040505"
+FT                   /GO="aspect=F; term=ubiquinol-cytochrome-c reductase
+FT                   activity; GOid=GO:0008121; evidence=TAS;
+FT                   db_xref=PMID:6094974; date=20040505"
+FT                   /GO="aspect=P; term=mitochondrial electron transport,
+FT                   ubiquinol to cytochrome c; GOid=GO:0006122; evidence=TAS;
+FT                   db_xref=PMID:6094974; date=20040505"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0105; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20090507"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20090507"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20140321"
+FT                   /controlled_curation="term=disease associated, metabolic
+FT                   disorders; date=20160106"
+FT                   /controlled_curation="term=disease associated,
+FT                   mitochondrial disorders; date=20160106"
+FT                   /controlled_curation="term=disease associated,
+FT                   mitochondrial complex III deficiency; date=20160106"
+FT   CDS             10857..13280
+FT                   /note="intronic ORF"
+FT                   /transl_table=4
+FT                   /systematic_id="SPMIT.06"
+FT                   /product="mitochondrial DNA binding endonuclease
+FT                   (predicted)"
+FT                   /colour=7
+FT                   /fasta_file="fasta/pMIT.tab.seq.00053.out"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=ISS; db_xref=GO_REF:0000024; with=SGD:S000007261;
+FT                   date=20040906"
+FT                   /GO="aspect=F; term=DNA binding; GOid=GO:0003677;
+FT                   evidence=ISS; db_xref=GO_REF:0000024; with=SGD:S000007261;
+FT                   date=20040906"
+FT                   /GO="aspect=F; term=endonuclease activity;
+FT                   GOid=GO:0004519; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007261; date=20040906"
+FT                   /GO="aspect=P; term=homing of group II introns;
+FT                   GOid=GO:0006315; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007261; date=20040906"
+FT                   /GO="aspect=C; term=mitochondrial chromosome;
+FT                   GOid=GO:0000262; evidence=IC; db_xref=GO_REF:0000111;
+FT                   from=GO:0003677|GO:0005739; date=20190128"
+FT                   /controlled_curation="term=genome organization, protein in
+FT                   cob intron; cv=genome_org; date=20070727"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0050 and Q0055; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20070727"
+FT   intron          10857..13382
+FT                   /systematic_id="SPMIT.05"
+FT   tRNA            14081..14153
+FT                   /gene="SPMITTRNAMET.02"
+FT                   /product="tRNA Methionine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033436;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=ATG codon-amino acid adaptor activity;
+FT                   GOid=GO:0033436; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033436; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAMET.02"
+FT   tRNA            14159..14230
+FT                   /gene="SPMITTRNAPHE.01"
+FT                   /product="tRNA Phenylalanine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033402;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=UUC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033402; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033402; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAPHE.01"
+FT   tRNA            14238..14308
+FT                   /gene="SPMITTRNAASP.01"
+FT                   /product="tRNA Aspartic acid, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033458;
+FT                   db_xref=GO_REF:0000050; date=20070713"
+FT                   /GO="aspect=F; term=GAC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033458; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033458; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAASP.01"
+FT   tRNA            14314..14385
+FT                   /gene="SPMITTRNAGLY.01"
+FT                   /product="tRNA Glycine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033463;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=GGA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033463; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033463; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAGLY.01"
+FT   tRNA            14394..14476
+FT                   /gene="SPMITTRNALEU.01"
+FT                   /product="tRNA Leucine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033403;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=UUA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033403; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033403; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNALEU.01"
+FT   tRNA            14492..14563
+FT                   /gene="SPMITTRNATRP.01"
+FT                   /product="tRNA Tryptophan, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033416;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=UGG codon-amino acid adaptor activity;
+FT                   GOid=GO:0033416; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033416; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNATRP.01"
+FT   tRNA            14596..14669
+FT                   /gene="SPMITTRNALEU.02"
+FT                   /product="tRNA Leucine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033419;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=CUA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033419; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033419; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNALEU.02"
+FT   CDS             14756..15529
+FT                   /transl_table=4
+FT                   /gene="atp6"
+FT                   /primary_name="atp6"
+FT                   /systematic_id="SPMIT.07"
+FT                   /product="F1-FO ATP synthase subunit 6 (predicted)"
+FT                   /colour=7
+FT                   /GO="aspect=C; term=proton-transporting ATP synthase
+FT                   complex, coupling factor F(o) (sensu Eukaryota);
+FT                   GOid=GO:0000276; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007268; date=20040810"
+FT                   /GO="aspect=F; term=hydrogen-transporting ATP synthase
+FT                   activity, rotational mechanism; qualifier=contributes_to;
+FT                   GOid=GO:0046933; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007268; date=20040810"
+FT                   /GO="aspect=F; term=structural molecule activity;
+FT                   GOid=GO:0005198; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007268; date=20051007"
+FT                   /GO="aspect=P; term=ATP synthesis coupled proton transport
+FT                   (sensu Eukaryota); GOid=GO:0042776; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007268;
+FT                   date=20040810"
+FT                   /fasta_file="fasta/pMIT.tab.seq.00054.out"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0085; date=20070911"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT                   /controlled_curation="term=disease associated,
+FT                   neurological disorders; db_xref=PMID:18461509;
+FT                   date=20141024"
+FT                   /controlled_curation="term=disease associated, Leigh
+FT                   syndrome; db_xref=PMID:18461509; date=20141024"
+FT                   /controlled_curation="term=disease associated,
+FT                   mitochondrial disorders; date=20150428"
+FT                   /controlled_curation="term=disease associated, NARP;
+FT                   date=20150428"
+FT   tRNA            15550..15622
+FT                   /gene="SPMITTRNAHIS.01"
+FT                   /product="tRNA Histidine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033426;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=CAC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033426; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033426; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAHIS.01"
+FT   tRNA            15661..15735
+FT                   /gene="SPMITTRNAPRO.01"
+FT                   /product="tRNA Proline, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033423;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033423; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=F; term=CCA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033423; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /systematic_id="SPMITTRNAPRO.01"
+FT   tRNA            15747..15819
+FT                   /gene="SPMITTRNAGLN.01"
+FT                   /product="tRNA Glutamine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033427;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=CAA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033427; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033427; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAGLN.01"
+FT   CDS             15954..16637
+FT                   /transl_table=4
+FT                   /systematic_id="SPMIT.08"
+FT                   /product="mitochondrial ribosomal small subunit Var1"
+FT                   /colour=7
+FT                   /fasta_file="fasta/pMIT.tab.seq.00059.out"
+FT                   /GO="aspect=C; term=mitochondrial small ribosomal subunit;
+FT                   GOid=GO:0005763; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007275; date=20041012"
+FT                   /GO="aspect=P; term=mitochondrial translation;
+FT                   GOid=GO:0032543; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007275; date=20041012"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20070727"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0140; date=20070727"
+FT                   /primary_name="var1"
+FT                   /synonym="urfa"
+FT   tRNA            16662..16734
+FT                   /gene="SPMITTRNAILE.01"
+FT                   /product="tRNA Isoleucine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033434;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=AUC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033434; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033434; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAILE.01"
+FT   CDS             16914..17060
+FT                   /transl_table=4
+FT                   /product="F1-FO ATP synthase subunit 8 (predicted)"
+FT                   /gene="atp8"
+FT                   /primary_name="atp8"
+FT                   /systematic_id="SPMIT.09"
+FT                   /colour=7
+FT                   /GO="aspect=C; term=proton-transporting ATP synthase
+FT                   complex, coupling factor F(o) (sensu Eukaryota);
+FT                   GOid=GO:0000276; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007267; date=20040810"
+FT                   /GO="aspect=F; term=hydrogen-transporting ATP synthase
+FT                   activity, rotational mechanism; qualifier=contributes_to;
+FT                   GOid=GO:0046933; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007267; date=20040810"
+FT                   /GO="aspect=P; term=ATP synthesis coupled proton transport
+FT                   (sensu Eukaryota); GOid=GO:0042776; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007267;
+FT                   date=20040810"
+FT                   /fasta_file="fasta/pMIT.tab.seq.00056.out"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20070212"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0080; date=20071118"
+FT                   /controlled_curation="term=disease associated,
+FT                   neurological disorders; date=20180429"
+FT                   /controlled_curation="term=disease associated,
+FT                   mitochondrial disorders; date=20180429"
+FT                   /controlled_curation="term=human MT-ATP8 ortholog;
+FT                   date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates;  date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes;  date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa;  date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes only;  date=20180822"
+FT   tRNA            17082..17150
+FT                   /gene="SPMITTRNACYS.01"
+FT                   /product="tRNA Cysteine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033414;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=UGC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033414; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033414; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNACYS.01"
+FT   tRNA            17166..17238
+FT                   /gene="SPMITTRNAVAL.01"
+FT                   /product="tRNA Valine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033451;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=GUA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033451; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033451; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAVAL.01"
+FT   tRNA            17257..17342
+FT                   /gene="SPMITTRNATYR.01"
+FT                   /product="tRNA Tyrosine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033410;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=UAC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033410; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033410; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNATYR.01"
+FT   tRNA            17460..17532
+FT                   /gene="SPMITTRNAARG.02"
+FT                   /product="tRNA Arginine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033431;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=CGA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033431; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033431; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAARG.02"
+FT   tRNA            17542..17613
+FT                   /gene="SPMITTRNAILE.02"
+FT                   /product="tRNA Isoleucine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033434;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=AUC codon-amino acid adaptor activity;
+FT                   GOid=GO:0033434; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033434; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAILE.02"
+FT   tRNA            17635..17716
+FT                   /gene="SPMITTRNASER.02"
+FT                   /product="tRNA Serine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033407;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=UCA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033407; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033407; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNASER.02"
+FT   CDS             17806..18030
+FT                   /EC_number="3.6.3.14"
+FT                   /transl_table=4
+FT                   /gene="atp9"
+FT                   /primary_name="atp9"
+FT                   /systematic_id="SPMIT.10"
+FT                   /product="F1-FO ATP synthase subunit 9 (predicted)"
+FT                   /colour=7
+FT                   /GO="aspect=C; term=proton-transporting ATP synthase
+FT                   complex, coupling factor F(o) (sensu Eukaryota);
+FT                   GOid=GO:0000276; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007274; date=20040810"
+FT                   /GO="aspect=F; term=hydrogen-transporting ATP synthase
+FT                   activity, rotational mechanism; qualifier=contributes_to;
+FT                   GOid=GO:0046933; evidence=ISS; db_xref=GO_REF:0000024;
+FT                   with=SGD:S000007274; date=20040810"
+FT                   /GO="aspect=P; term=ATP synthesis coupled proton transport
+FT                   (sensu Eukaryota); GOid=GO:0042776; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007274;
+FT                   date=20040810"
+FT                   /fasta_file="fasta/pMIT.tab.seq.00057.out"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0130; date=20080204"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT   tRNA            18057..18129
+FT                   /gene="SPMITTRNAALA.01"
+FT                   /product="tRNA Alanine, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033455;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=GCA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033455; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20070713"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033455; db_xref=GO_REF:0000111;
+FT                   date=20150206"
+FT                   /systematic_id="SPMITTRNAALA.01"
+FT   ncRNA           18130..18403
+FT                   /primary_name="rnpB"
+FT                   /systematic_id="SPMITNCRNA.01"
+FT                   /product="mitochondrial RNase P RNA"
+FT                   /GO="aspect=P; term=mitochondrial tRNA processing;
+FT                   GOid=GO:0090646; evidence=TAS; db_xref=PMID:29954949;
+FT                   date=20180809"
+FT                   /GO="aspect=C; term=mitochondrial ribonuclease P complex;
+FT                   GOid=GO:0030678; evidence=TAS; db_xref=PMID:29954949;
+FT                   date=20180809"
+FT                   /GO="aspect=F; term=ribonuclease P activity;
+FT                   qualifier=contributes_to; GOid=GO:0004526; evidence=TAS;
+FT                   db_xref=PMID:29954949; date=20180809"
+FT                   /GO="aspect=C; term=mitochondrial matrix; GOid=GO:0005759;
+FT                   evidence=IC; db_xref=GO_REF:0000111; from=GO:0030678;
+FT                   date=20190108"
+FT                   /controlled_curation="term=warning, new gene;
+FT                   db_xref=PMID:29954949; date=20180809"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            18404..18475
+FT                   /gene="SPMITTRNAGLU.01"
+FT                   /product="tRNA Glutamic acid, mitochondrial"
+FT                   /GO="aspect=P; term=mitochondrial translational
+FT                   elongation; GOid=GO:0070125; evidence=IC; from=GO:0033459;
+FT                   db_xref=GO_REF:0000111; date=20070713"
+FT                   /GO="aspect=F; term=GAA codon-amino acid adaptor activity;
+FT                   GOid=GO:0033459; evidence=ISM; db_xref=GO_REF:0000050;
+FT                   date=20150206"
+FT                   /GO="aspect=C; term=mitochondrion; GOid=GO:0005739;
+FT                   evidence=IC; from=GO:0033459; db_xref=GO_REF:0000111;
+FT                   date=20070713"
+FT                   /systematic_id="SPMITTRNAGLU.01"
+FT   CDS             18561..19307
+FT                   /transl_table=4
+FT                   /gene="cox2"
+FT                   /primary_name="cox2"
+FT                   /systematic_id="SPMIT.11"
+FT                   /product="cytochrome c oxidase 2"
+FT                   /colour=2
+FT                   /GO="aspect=C; term=respiratory chain complex IV (sensu
+FT                   Eukaryota); GOid=GO:0005751; evidence=ISS;
+FT                   db_xref=GO_REF:0000024; with=SGD:S000007281;
+FT                   date=20040629"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0250; date=20070911"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+SQ   Sequence 19431 BP; 6562 A; 2783 C; 3064 G; 7022 T; 0 other;SQ   Sequence 19431 BP; 6562 A; 2783 C; 3064 G; 7022 T; 0 other;SQ   Sequence 19431 BP; 6562 A; 2783 C; 3064 G; 7022 T; 0 other;SQ   Sequence 19431 BP; 6562 A; 2783 C; 3064 G; 7022 T; 0 other;
+     aatgtgtaat ttgaatcaat ttctatcctt ttaaaaatac atcataaagt gtactttttt        60
+     aaggatttag ttattaaagg attaattatg gattgctaac cagttaatat taagaggaag       120
+     cttttaaagc ttaattcagc aattttttaa ttgttgtttc tcctaaaggt aaaccactaa       180
+     aaagaaagaa cttcgggttt ttctttaaaa taaactagag gaactgaatc atcttagtac       240
+     tctaaggaaa ataaaataac aatgattatt gtagtagtgg cgaacgaatc attaatagtc       300
+     taacttataa aaatattaaa aaaaattttt accaaagaag agaaaaatgg gttcttcatt       360
+     tttaataagt aataagtaat aaagtaaaat gggaacttaa cctgtttgaa tattggagaa       420
+     ccaatctcca aagactaaat atattaactg agtgatagtg aagagtaccg taagggaaag       480
+     caatgaaata gttaatctat aagcgaagat agtgaatttt aaataaatta ttatcttgta       540
+     ccttttgcat aatgggtcag caagttttaa ttatttgcaa gctgaaaagc cataaagtaa       600
+     ataattaaag acccgaaacc tgacgatctt accatgaaca gattttaagg atcgaaccag       660
+     taatcgttgc aaagattttg gatgatttgt ggtaaggggt gaaatgctaa tcgagttagg       720
+     tgatagctgg ttgtccacga aaccatttta agatgggcac ttcaaaaact aaatgaggta       780
+     cagaaattta ttgccttcaa gaagtttttt cttgttaata ggggatctaa agatttacct       840
+     aaggcgttaa ttaatctcgg aataaattta aaaaagtttg aagtagttag acaattggcg       900
+     ataaggtcaa tagtcaaaag agaaacagct cagatcaaag atttaaagtt ccccaattta       960
+     agttaagtga tttaaagata gtcttactcc ttattcaata agaatatggg cttggaaaca      1020
+     gccattatct aaggagtacg taatagttca cttatccaaa aaaaataata ttttctggag      1080
+     aaaggcatca aaaatttaac ggatcttaaa cttaatactt aaactttggc agtattttaa      1140
+     aaatactggg tagtggaccg atctatataa agatgaagat gaacttttaa gtttattgga      1200
+     tttattagat gcgagaatgc tgacataagt aacgtaaaaa aaggtcaaat tccttttcac      1260
+     cgaaaactga agggttttga cttaaaaagc ttagcttaag tcaaataaag taacaatctc      1320
+     taagctaata aatagtgatg agtaaatctt aacggatctt aaaataaaag ttttattgaa      1380
+     tagaaatttt tattcaggaa aattatccgt tattttaatt gtaccctaaa ccgacactgg      1440
+     tcagttaaga gaatatctta aggtgttgag agaactatgc ttaaggaact cggcaaatta      1500
+     gctctgttac ttcggtataa agagtgttca ttattttatg aactcaataa agagaaccct      1560
+     acaactgttt acttaaaaca cagcacattg ccaaaattaa aaaattatag tataatgtgt      1620
+     gaggtctgct caatgtccta tggttaacaa tacgaacttt aacgagtttt acggaaccca      1680
+     ggataaatag cggctttaac tctgagggtc ctaaggtagc gaaattcctt gtccgataaa      1740
+     tacggtcccg catgaatgac ttaatgatag ggttgctgtc tcaagcacag actcagtgaa      1800
+     attgtaattg ctgtgaagat acagtgttcc ctcagctaga cggaaagacc ctggcagctt      1860
+     tacgatagtt aattattgat taaagaaaaa atcatccaaa aggtgatctc ttctttctcg      1920
+     ctttatctat ttttgttcag tatagaggtt agtcgtttag acaaaaatga gatatcctcc      1980
+     ttaaataata aagatcttta aagtttaaac ttgacattaa ttaattgatc gtttctgtgg      2040
+     ggcgcaggcc tcataaaaaa taactgaggt atcctagatc tatataattt atctagaaat      2100
+     caaagtatcc agaaacattt tttaagtgtt tcttaattaa agatacatga cgcatataag      2160
+     cataaatagg ttaaactgaa agactaacaa gtcgcacaga tatgtaaata gggttaaatg      2220
+     atccacattg aaacactaat ttagtgtttg tatggaaaac aatgtgctca atgagcgaag      2280
+     ttacgccagg gataacaggt taatagagag ctaaagtaca aatcaaattc tctgtttgac      2340
+     acctcgatgt cgactcaacc tatctccggt tgtagcagat tggaagggtt agactgttcg      2400
+     tctatttaaa aggttacgtg agttgggtta aatccgtcgt aagacaggat ggttcctatc      2460
+     tactgaggga aaaataagca aattaaaatt tatcttttgt acgcaaggat ttagataatt      2520
+     caatctctag tttaactatt gttacttaaa taaaagtact ttattcaaaa gttaaaaatt      2580
+     aagtagcacg gtagtaaagc caaattgaac aaattaaaaa ctgaaagcat ctcaagtttg      2640
+     aaatttattt aaagagctta tattaagaaa gtagaaaact ttccaaaagg acatccttag      2700
+     gatgtacaaa tccttatttt agtaaatcat tgtttagata gatttagtta attttttaac      2760
+     caaagggatt atctctttgc taatttttta aataactgga aattgcctaa ttacacaatt      2820
+     ttttttacca tttttttgat gagggtattg tttaaagggg atgtagctca atggttagag      2880
+     ctttcgcctt ttaagcgata ggataagggt tcaaatccct tcagacccat aaataaaaga      2940
+     actaacttct cataaaagtg agttaaagga aaaatagttc taattggtaa gaaggatact      3000
+     tgctacgtat ctggtgaata accttgtgag ttcgagtctc actttttccg taaatatttg      3060
+     ttgttgtagc tcaatggtag agcaagtcac tgttaatgac ctgatagtgg ttcgattcca      3120
+     ctcaataacg ataaaaatat atataatgag tttgatgtta gctcggttat aacgctatct      3180
+     agagatttta acacatgcaa atcgaacgaa tcaacaaaaa caatacatcc tttaggggat      3240
+     gtttgtgttt ttttgtgacg tggtgaacag gtgagtaaaa gggaagaacg gaccttaaat      3300
+     ttcggctaaa ttccgaataa acacactctt ttggagtgtt gtgaaagaag tgaaaacttt      3360
+     gatttaagac tggcttctta cgattaaagt agttggagag gtaaaagctt aacaagctca      3420
+     aatcgtaatc atgacactaa gtggtgctct gatcacattg gctctgagac aacagccaag      3480
+     atgaacattt agttcatcca gcagtggaga atattagtca atgatcgaaa gattgaacta      3540
+     gtcatctaga agagtgaaac ttttagttat agctccttaa attaagaaaa tttgattctt      3600
+     aattttatgt aattcttgcc aatttccgtg ccagcagcag cggttatacg gatagaataa      3660
+     gcgtttaaca taataaaaag gcctaaaaag tatgtagatg gaaaaaaaca aatctttttc      3720
+     tagagtaata aagatgtttg tagtattgtc aaataaggga tcaaatccga caatcttgat      3780
+     gagactgctt aagtaaaaac tacttacaat taattactga cattgagata cgaaggctta      3840
+     gatcgcgaaa gagattagat acctctgtag tctaagctgt aaacgattat tgctctccca      3900
+     atctttttga ttgggtttag tgaagacggt aagcaatatg cctggggagt actttcgcaa      3960
+     gattgaaacc caaaacatta gacggtcttg gaaatccgca gtgaatcatg ttatttaatt      4020
+     agataatccg ctaaaaatct tacctttcct taaaacaatt agttttaatt gttgggtatt      4080
+     gcatggctgt ctttagttaa tctcgtaaga tgaggttaat tcccattaat taacgaaagc      4140
+     cttcaaagaa tttgtttttc tttgtgttag tgataagcta actttttaga gggttaagac      4200
+     aagtcaatat gatccttatg gaaagggcta tagacgtgat ataaaatcta atccaataat      4260
+     ttttaatatc gaaagattga agtattatta taatggttag gagatttatt cagatttaaa      4320
+     tctgtaattt gatttaatga aggaggaatt gcgagtaatc actaatcatt acgtagtggt      4380
+     gaaatttatc tctgagatgt actaactact cgtcaagcgc tgaaagtatt aatctcttga      4440
+     agaagacatt catttgtttt cccaaggtgt tgtgcaatta gtgttaagtc gaaataaggt      4500
+     aaccgtagtg gaagttgcgg ttgaactaat taattcaggt taaccccccc ccaaaaaata      4560
+     aaatacatcc atatcaaaaa gatgttaatt gttggtatag tttaattggt taaaataatc      4620
+     tcctcatgtg agattgatct ataggttcga gcccttttac caacttttcc ttaaccacat      4680
+     ctgtttaagt caaaaaatct taaatggtag gaaaccttta aacaaagttt aaaaaagtta      4740
+     ttaaataatc ttaatgatct tttcatctac cctaaaaata ttgaatcctt ttaaaatagt      4800
+     ttaataaatt agcttttgga tgaaaactaa aaattttttt ttaacttaaa cttatttaga      4860
+     aattaataat ttagtcttga gtttaatgaa ctcttggtgg acttatgtta atagatggat      4920
+     attctcaact aatgctaagg atattgccat actatattta ttattcggat tggtatctgg      4980
+     gataattgga tctgtattct cttttataat tagaatggaa ctatcagctc caggatctca      5040
+     attcctttct ggaaatggtc aattatacaa tgttgcaatc tcagcacatg gtatacttat      5100
+     gatttttttc ttcattattc ctgctttatt tggtgcattt ggtaattatt tagtacctct      5160
+     tatgataggt gctccagatg ttgcttaccc tagagtaaat aatttcacat tctggttact      5220
+     acctcctgct ctaatgctat tattaatttc tgcattaaca gaagaaggac ctggtggtgg      5280
+     ttggacggtt ttaaagccgc agacaaaatt gtctgaaaac tcttctcgat gcgaaaaagt      5340
+     cctctactcg gaagtaatta ctcagttaat ttatttttta actagtaaaa agattactaa      5400
+     cttggggaaa attcgcctgg ttaaatccat cagagactcg tttctatcac aattagaaaa      5460
+     tattttatgt ttctttttgg tttatagaac aacatactct ttcggagtgt gtttaatgaa      5520
+     gaggttctta tttaataaat tttttaatag acatcctttt acaagggtaa aaagctgttt      5580
+     ttcatcatct tcaccatcaa aattctcttt tactcaatgg ttagtaggat ttactgatgg      5640
+     tgatggttgt tttagtattt caaaacaaaa aataaaaaat ggcaaaaata aatggtctct      5700
+     tacttttaaa ttaacacaaa atctttataa ttatagaatt ttatatttta ttaagagaaa      5760
+     tttaggtatt ggttcacttt ataaagaatc ttcaactaat acagtaatat atagattaag      5820
+     aagaagagag catcttaaaa agattataga tatttttgat caattccctc ttttaactaa      5880
+     aaaatattgg gattattatt tgtttaaaaa agcattctta attttagagg acgctaatct      5940
+     aaattctttt gaaaaaaata gtaaactaga agagatcaga atagagaaaa agtctttaaa      6000
+     acaatattct ccagttaatt tagaaaaata tttaacaaag tcttggttaa ttggatttat      6060
+     tgaagcagaa gggagctttt atttactaca aaaaagccct gtaagaataa ttcatgggtt      6120
+     tgagattact caaaattatg aacaacccct acttgctcag atttcagagt tcctatttaa      6180
+     ttctcaaatc tcaccaaaaa taaaatcaaa aaaaaattcc ttaattacaa attattcctt      6240
+     atcaactagt tcaaaagaaa gaatgttatt tctttcatct tattttgaaa attgttttaa      6300
+     aggagtaaaa tcattagaat ttaaaatttg gtctagatct ttacgtaaaa attataattt      6360
+     tgaacagctt ttaagagcta gagatttaat tagaaaatta aaaaataaat attcccgagg      6420
+     atcacaacat ccaaaggata aataaaataa gttcaaggta tagtccgatc aagattgaga      6480
+     aatcttgtta actaaaatga tatccaccac tatcaagtat cacttctcat agtggtccag      6540
+     ctattgatct agctatttta agtttacaat taactggtat ttcatcaaca ttaggatcag      6600
+     taaatttaat agcgacaatg attaatatga gagctccagg attaagttta tatcaaatgc      6660
+     cattatttgc atgggctata atgattacat caattctatt actgcttact ttaccagttt      6720
+     tagcaggtgg attatttatg ttattctcag atagaaattt aaatacttca ttctatgctc      6780
+     ctgaaggtgg tggtgaccct gtactttacc aacatttatt ctggttcttt ggtcatccag      6840
+     aggtcaattt aataggcctc ttaacgttgc tatatgctgg aactacttga aaaatactag      6900
+     ataagagttt ttgttttaaa tactccaaga aaaacaccag attagtgttt atttttatag      6960
+     taaaaatgtt aaaacaatta agtatatcag caggtaacct tttgaataag ggaacctcag      7020
+     agactttacg caacgaaatc acaacaaaaa aagtttctat tcatctccct aaacacttaa      7080
+     aaccagctaa tgattctcaa tttggtcact atttagcagg tttaattgat ggtgatggtc      7140
+     attttagtag taaacaacaa ttaattattg cttttcactc tttagatata caattagctt      7200
+     attatattaa aaaacaaata ggttatggta ttgtacgtaa aattaaagat aaaaatgcta      7260
+     ttctttttat aatagctaac tctaaaggaa ttgaaagagt aataacttta attaataata      7320
+     aatttagaac tactagtaaa tataatcaga ttattaataa tatatttgct catcctagat      7380
+     ttaaagaatt tagtaaaact attactttag gtttaaattc aaataataat ttaaataatc      7440
+     attggctagc tggattctca gatgctgatg ctagttttca gattaaaatt ttaaataggg      7500
+     acaaaaaaat agaagttcga ttgaactatc aaatagatca aaaaaaagag tatcttttga      7560
+     gtttaattaa agataattta ggtggtaata taggctatcg aaaaagtcaa gatacttatt      7620
+     attatggttc tactagtttt ggttcagcta aaaaagttat taattatttt gataattatc      7680
+     atttgctatc ttctaaatat attagctatt taaaatgaag aaaagcttat cttattattc      7740
+     aagaaaataa acatttaaca gaatcaggac tttctcaaat aaaaaaacct catccctatc      7800
+     ggaagaatat taattagatt tgttgagatt taaaataaag tcctaacaag ggtataaagc      7860
+     ttttgagtgt taaaaagaat aaatcacctt ttgggtgatt ttttttcatt aaccaaaatt      7920
+     tattgttata ttttaattat gccagctttc ggtgttgtta gtcacattat tcctagttta      7980
+     gctcataaac ctattttcgg taaagaaggt atgctttggg ctatgttaag tattgcttta      8040
+     ttaggattaa tggtatggtc tcatcactta ttcacagttg gtttagatgt tgatactaga      8100
+     gcttatttca gtgctgcaac tatggttatt gcaattccaa caggtattaa aatcttcagt      8160
+     tggttagcta ctttaacagg tggtgcaata caatggtcaa gagtacctat gttatatgct      8220
+     attggtttct taatcttatt cacaattggt ggattaacag gtgttatatt aagtaattca      8280
+     gtattagata tcgctttcca tgatacttat ttcgttgtag ctcacttcca ttacgttctg      8340
+     tcaatgggtg cattatttgg tctttgtggt gcatactatt ggagtccaaa aatgtttgga      8400
+     ttaatgtaca atgaaactct agcttcaatc caattctgga ttttattcat aggtgttaat      8460
+     attgtattcg gtcctcaaca tttcttagga ttaaatggta tgcctagaag aataccagat      8520
+     tatccagagg catttgtggg atggaatttt gtatcaagta ttggttcagt aatttctatt      8580
+     ctttcattat tcctatttat gtatgttatg tatgatcaat ttacatcaaa tagagtggtt      8640
+     aaaacaaatc cttatttaat ccctagctat tttgatgata atgtaatctt cgtaaatgaa      8700
+     aaattagggg tagctcaatc aatagaatgg ttactacatt caccagtaca cgaacacgca      8760
+     tttaatacat tacctacaaa aagtatttaa tttaaaatct taacccccct tttattttat      8820
+     aaactttatt ccaatttaaa aattggagag ggagattgaa ggataattta gctatcctat      8880
+     tcaaaattgt atctttataa tttttttatt ccttatatgt gagagaacac tattgagata      8940
+     aactaattta gcttaaacat gaatctttct actaaatttc aaggacatcc ttatcatatt      9000
+     gtaagtgcgt caccttggcc atttttctta tctgtagtat tattctttaa ctgtttagca      9060
+     gctacattat atttacatgg atacaaacat tcatcagtat tctttggaat cagtttctta      9120
+     ggtttattag caactatgta tttatggttt agagatatgt caactgaagc taatattcat      9180
+     ggtgcacata caaaagcagt aacaaaagga ttaaaaatag gatttatgtt attcctaatt      9240
+     tctgaaactt tcttatttgc ttctattttc tgggctttct tccatagttc attatcacct      9300
+     acttttgaat taggtgcagt atggccacca gtaggaatag cagataaaac aatagatcca      9360
+     ttagaagtcc ctctattaaa tacagtaatt ttattaactt ctggtgctag tttaacttat      9420
+     gctcattatt cattaattgc tagaaataga gaaaatgctt taaaaggttt atatatgact      9480
+     atcgctttat cattcttatt cttaggaggt caagcttatg aatactggaa tgctccattc      9540
+     actatttcag attctgttta tggtgctagt ttctattttg ctactggtct tcatggtatt      9600
+     catattattg ttggtacaat tctacttctt gttgctactt ataatattta tacttaccac      9660
+     ttaactaata ctcatcataa tggatttgaa tgtggtattt attattggca tttctgtgat      9720
+     gttgtttggt tattccttta tttaactatt tatatttggg gtagctaagg cttacttcaa      9780
+     tttttccccc ctttttatat cttatttctc taaaatagtc tgtatagctc aatggtagag      9840
+     catctcactt ctaatgagtc gatctaagtt cgattcttag tacagattcc acacctagaa      9900
+     ggtgtgtatt ttttttttag ctaatttaac tcaattggta gagtgcgtac cttgtaagta      9960
+     cgaagttaga ggttcaattc ctctaattag caatcccttt cccatatttt tggtataaga     10020
+     ggatctcaga tagtatctaa cctatcttat cttttattat ccaatatcct tttaataaga     10080
+     tttggatctt ttttcccaat tccttcaaat ttttgactat ttatcgataa tgattgttca     10140
+     atttagaagg gataatttca aatttaattt ttatgaaaat tttaaaatct aatccttttt     10200
+     tagctttggc taataattat atgattgatg ctcctgaacc ttcaaatatt tcatacttct     10260
+     ggaattttgg ttctctttta gcttgtgtat tagttattca aattgtaatc ggtatacttt     10320
+     tagcttgttt ttatattcct aatatggatt tagctttcct ttcagttgaa agaattgtta     10380
+     gagatgtaaa ttatggtttc ttattaagag ctttccatgc aaatggtgct agtttcttct     10440
+     ttatcttctt atacttacac ataggtagag gtttatatta tggttcttat aaatatccaa     10500
+     gaacaatgac atggaatatt ggtgttatta tcttcttatt aactattatt actgcctttt     10560
+     taggttactg tttaccagct aatcaaatgt cattctgggg tgcaactgtt attactaatt     10620
+     tattatcagc tgttcctttc attggtgatg atttagttca tctattatgg ggtggattta     10680
+     gtgtatctaa tcctacttta aatagattct tctcacttca ctatttaatg ccttttgtta     10740
+     ttgctgcttt atcagtaatg catttaattg ctctacatac taatggttca tcaaatccat     10800
+     taggtgtaac agctaatatg gacagaatcc caatgaaccc gtattatctg ataaaattgc     10860
+     gccgttgtgg tatatatgtg taccctcata gagaaaggga tatcttgtgt gtaaagatat     10920
+     gaacaataca cttaggtagc tggggaaacc caatgccgaa cagagcatgt gtacagaagg     10980
+     tccttcctgt aacgaaacag ataagttcag atggatcagt tcaaatagat acggttagag     11040
+     ctgtattgcc cgaattccaa ttcccatctc accctcagat aggtgattgt cttagctgaa     11100
+     tagagacatt cttctctaga tctttggttg gcttttatga ccaaggatac acaccaggag     11160
+     aagagagttg taccaatagt acaattaagg gaatgagtgg aaaacctacg tctatcatct     11220
+     caaacatata tacaactacg ggtcccgcta aggtcagtaa tgactatgcg gtcagagatc     11280
+     ctggagtagc tgttgatcat tttgatcaat acggtccttt gaaagaggga agaagtttga     11340
+     actctgcaaa gatttcaaca cagtgaagtg gatcagctac attaaagtct tccaatagat     11400
+     caatatttaa tattggttta ggatacatta atactttttt aggggtatct aatgtaagag     11460
+     gatttagtac aggatcagga cgatcaaaaa atgtactaaa taaactagac gatttatcta     11520
+     aacgatcaaa aaattatcct aatcttgtaa ttgatagaaa tctctacaaa gatttcctat     11580
+     taaatcgaga tatgttcctt attgcttata ataaattaaa atctaatcct ggtatgatga     11640
+     ctcatggtct taaaccggat actttagatg gaatgtctat agatgttatt gataaaatta     11700
+     tccaaagcct taaatctgaa gaatttaact tcactcctgg tagacgtatc ttaattgata     11760
+     aagccagtgg tggaaaaaga ccattaacaa ttggtagtcc tcgagacaaa ttagttcaag     11820
+     aaattcttag aatagtcctt gaggctatct atgaaccatt atttaatact gcttctcatg     11880
+     gatttagacc aggtcgaagt tgtcattctg ctcttagatc tattttcact aattttaaag     11940
+     gttgtacttg gtggattgaa ggagatatta aagcttgttt tgattctatc cctcatgata     12000
+     aattaattgc tctattatct tctaaaatta aagatcaacg atttattcaa ttaattcgta     12060
+     aagctttaaa tgctggatat ctaactgaaa atagatataa atacgatatt gttggaactc     12120
+     ctcaaggttc tatagttagt cctatcttag caaatatcta ccttcatcaa ttggatgaat     12180
+     ttattgaaaa cctaaaatca gaatttgatt acaaaggtcc aatagctcgt aaaagaactt     12240
+     ctgaatctag acatcttcat tatctaatgg caaaagccaa aagagaaaat gctgattcaa     12300
+     aaacaattag aaaaatagcg attgaaatgc gtaatgttcc taataagata catggtattc     12360
+     aatctaataa actaatgtat gttcgatacg ctgatgattg gatagttgca gttaatggaa     12420
+     gttatactca aactaaagag attttagcta aaattacctg tttctgttca tcaattggac     12480
+     taacagtatc tccaactaag actaaaataa ctaattcata tacggataaa atacttttcc     12540
+     ttggtactaa tattagccat tctaaaaatg ttacctttag tagacatttt ggtatacttc     12600
+     aaagaaattc tgggtttatt ttactttctg ctcctatgga tcgaattgca aaaaaactta     12660
+     gagaaactgg acttatgctt aatcataaag gtagatctgt tattagatgg ttacctcttg     12720
+     atgtacgaca aattattggt ttagcgaatt ctattattag aggttacgat aattattatt     12780
+     cttttgttca taatagagga agatttgcta cttacgttta cttcataatt aaagactgtg     12840
+     ttcttcgaac attagctcat aaattatcat taggtactag aatgaaagta attaaaaaat     12900
+     ttggtcctga cctttctatc tatgattaca actctagaga tgaaaataat aaaccaaaat     12960
+     taattaccca attatttaaa ccttcttgga aagttaatgt ttggggattt aaatctgaca     13020
+     aagttaaatt gaacattaga acactttatg cttctcactt atcaatggct aacttagaaa     13080
+     atctacagtg tgctgcttgt caaagtactt ataaagtgga aatgcatcat gttagacaga     13140
+     tgaaaaatct taaaccaatc aaaggtactt tagattactt aatggcaaaa gcaaacagaa     13200
+     aacaaattcc attatgtaga tcttgtcaca tgaaacttca tgctaataag ttaactctta     13260
+     atgaggataa aaaagtttag atatcttaaa tgtagtggag agccgtataa ttacgaaagt     13320
+     atcccgtacg gttcggtgac gagccgtgtc aaccctgcaa agggaatgcg tcttagttca     13380
+     atgatttgat aacaatattt atcttcttaa tcggtataaa ttatatggca ttctataatc     13440
+     catatggatt tatggaacca gattgtgctt taccagcgga tcctctaaaa actccaatgt     13500
+     ctattgttcc agaatggtat ttattacctt tctatgctat tttaagagct atacctaact     13560
+     tccaattagg agttatagca atgttattat caatcttagt attactatta ttaccattat     13620
+     tagatttctc agctattaga ggtaatagtt ttaacccatt tggtaaattc ttcttctgga     13680
+     catttgttgc cgattttgta attcttgcat ggattggtgg atcacatcca gaaaacgtct     13740
+     ttatcacaat cggtgctatt gctacaatct tctattttag ctacttcttt attttaatac     13800
+     cagtatatac tatattaggt aatacattaa ttgatttaaa tttaagctca attaaacgat     13860
+     aatctcttcc ccctttacac tatataaaaa tatcttattt aaacagtata atatttaata     13920
+     aaaagctcat caaaaggtat gaataaaagt tttttacata gattaggtaa taaaacattc     13980
+     tttgggtgtt agtagtgatt agaagaagtt gatcttttag ggatttattt ttatcagaat     14040
+     ttttacggtc aatttttatc taattaaatg tgaataagtt tgcgatttaa tgtaattggt     14100
+     taacatctct gactcatgat cagtgtatta aggttcaagt ccttaggtcg cactttatgc     14160
+     tctgataact taacggttaa agtgcagtat tgaagctgct gagatattgg ttcgattcca     14220
+     tttcagagca aataaaagaa tctgtagctt aaagtaaagt atcgccttgt cacggtgatg     14280
+     gatgcccact cgtactgggt cagattcgtt taagcagata taagtcaatt ggcagacctt     14340
+     ctgatttcca cttagattat gttcgttcga atcggactat ctgcattaaa taagcctaaa     14400
+     tgctggaatt tggtagacag aacaaactta agatttgtcg ctttcgagcg tgttggttcg     14460
+     agtccaactt taggtataac taaaaaaaaa aaagagtata gtttaattgg taaaacttct     14520
+     gattccaaat tagacattgt tcgttcaagt cggactgctc ttgatttttt attctttgat     14580
+     ctgttaggga agtatgcaga tgtgatgaaa ttggtaaaca tgtttacctt aggagtaaaa     14640
+     tcttgaaggt tcgaatcctt ccatctgtag gataaaaaat ctctaaaaga tttttcttag     14700
+     ttaaaatctt aattgattac taaaaatact ctacaaaatt tttatatttt tttaaatgtt     14760
+     tattacaagt cctttagaac aattcgaatt aaataattat ttcggtttct atctttttaa     14820
+     ttaccatttt gatttctcta attttggttt ctatttaggt ttaagtgcat taattgctat     14880
+     ttcattagca ataataaatt taacaccata tggatcagga gctaaaatag tacctcaaaa     14940
+     atttggtata gcaatggaag ctatttattt tactatgtta aatttagttg aaaatcaaat     15000
+     tcatagttca aaaactgtat caggacaaag ctatttccca ttcatttgga gtttatttgt     15060
+     tttaatctta ttttctaatt tacttaggtt aattccttat ggttatgcta ctactgctca     15120
+     attaatcttt actttaggtt taagtatttc tattttaatt ggtgctacta ttttaggatt     15180
+     acaacaacat aaagctaaag tctttggatt attcttacct tctggtactc ctactccttt     15240
+     aattcctctt ttagttttaa ttgaattcgt ttcttatatt gctagaggtt taagtttagg     15300
+     tattcgatta ggtgctaata ttatagcagg tcatttaaca atgtcaattt taggaggttt     15360
+     aatctttact ttcatgggat taaatcttat tacttttatt attggtttct tacctattac     15420
+     agttttagtc gctatctctt tattagaatt tggtattgct tttattcaag cttatgtatt     15480
+     cgctatttta acttgtggat tcattaatga tagtttaaac cttcactaat tttctccccc     15540
+     tatttttatg gtgattgtaa ttcaatggta gaatgcttat ttgtggcata agaagttctt     15600
+     ggttcgattc caagtaatca cccaatcaaa attatataac tctctttaaa aagtgtttaa     15660
+     cggatagaaa catgtattgg ttcatgtact tgctttgggt gtgagaattt gttagttcga     15720
+     atctaaccta tccgataata agtgattggg ttgttgacta ataggtaagt ccctgaaatt     15780
+     tgacttcagt ctatgtaagt tcgaatctta ccatcccatt acttaaacat ctttaagatg     15840
+     ttcctaaacc atccaaaaaa aaaacacttt attagtggga tggtctcttt tttatttaag     15900
+     tatttccaaa atcaattagg aaccaattag ggtttcttaa atttctaatc aaaatgcaaa     15960
+     aaaataattt aaaaaattta attactacta ttgtaactaa tgcttttttt aatcaaaaag     16020
+     ctaatttttc aatacctctt aaaggtgtta ttggagaaaa aagaccatca atcttaatag     16080
+     gaaatattaa tataaatttt aaaagtgatt ctttaattga agtatctttc ccttattatc     16140
+     ctttacttaa taaaaattat ccaaatcctt caattataag taatattata caaaaagctc     16200
+     tttcaaatca tcttttatat tcatctaaaa attactcttt tattgttaat attagagctc     16260
+     ttcctatttc aactccttat ggaagtagtt taatcttttc aaaatatata gcaataataa     16320
+     taggatcaaa tccaaaaata gcttctacat tatggataga tcctaaacga tttattaatt     16380
+     tacccaaatt acaaagtgat tctatattta aaattttagg attaaatgta ccaaaaggat     16440
+     ggaaaggtat tcatatctca ttaaatttaa ttaaatgaaa tagtctatca tcaagaggac     16500
+     gaataactaa tataattaaa ggtagtgtac cattaacaaa taattctaat ggatatgatg     16560
+     aaagttcttt agctatttat tctaaaatgg gtactattca aattaaggtt agattgtctt     16620
+     attcttcaaa tctttaattg tttccccctt caatcattta aagttcttta acttaaaagg     16680
+     tcagagtgca gacttgataa gtctgtggta ttggttcgat tccaataaga actagccaaa     16740
+     taaattaatc cattacaata taattaatac cctttaaaag ttgtatggaa tttttcaatg     16800
+     aagtaaaata actcccaaat ctttattttt ctttaaacct ttagtaacta tcaatttaaa     16860
+     agtgaaaaag ataaaaaata aagaaaccct atagggttac tcaaatcatt aatatgccac     16920
+     aattagtacc attctatttt attaatattt tatcttttgg ttttttaatc tttactgttt     16980
+     tattatatat ttcatcagta tatgtattac caagatataa tgaattattt atctcaagat     17040
+     ctattataag ttctttataa tttaacccct ccaaaagtat tgataatgtt cagtggtctg     17100
+     aaattgaatt tgcaaaattt gatatatgag ttcaattctc atcattatct tttaccatat     17160
+     ttattaggag aatagcttaa ttggtagagc acttacctta caagtaagat tataagggtt     17220
+     caaatccctt ttctcctatt tcatctctaa aaaaaagggg agaattctta tgttggtttt     17280
+     aagaggtgag ttgtagcctc attaggtcaa tcctatcgca ggttcgattc ctgctctcct     17340
+     cattactcaa aagggagtaa aatcccctct ctcatctttt ttagttttaa ttaataataa     17400
+     aatggcatcc ataactaatt tagtattgta aaagggaaaa tattttctta atatttattg     17460
+     cacttttagc ttaattggtt agagtaacaa tcttcgaaat tgttagtata ggttcaaatc     17520
+     ctataaagtg ttaatgaggt aaggattata gcttaacggt taaagcagag agctcataac     17580
+     tcttgtatat tggttcgatt ccagtttgtc ctaatttatt tttcctcttt aattggaagg     17640
+     gtgtccgagt ggtttaagga gcgatatttg agctattgtg atttattcat cgcaggttcg     17700
+     aatcctgccc ctttcgaaag tctacagata aaaaaaatca catttctttt tgttagaata     17760
+     gtaaactcta gctgtagaga gttaaattca tctaaatttt aaaatatgat acaagctgca     17820
+     aaatacattg gtgctggttt agctacaatt ggtgttagtg gtgctggtgt tggtattgga     17880
+     ttaatcttca gtaacttaat ctcaggtact tcaagaaacc catcagttcg acctcactta     17940
+     ttctcaatgg ctatcctagg attcgcctta acagaagcta caggtttatt ctgtttaatg     18000
+     ttagcgttct taattatcta cgctgcttaa tttccccctt taaaaaagag aatactgggg     18060
+     atttaattta attggttaga atattgtgtt tgcaccacaa aaatctggtt tcgagtacca     18120
+     gaatctccat tttccccctc caaaacattt tatttgaatg tttttaaact agaatctgtt     18180
+     tgaagagaat ttgaataatt ctttggaaag tttggatcac tcataacatt agaatagtat     18240
+     ttgtttaaag tggttaataa aaaagaaacc caagagggta agtctactaa tattaaagaa     18300
+     agaagaattc agaattaaat tctgaaagtg ttaaaatagt agttcatttt taatttttag     18360
+     taatttcaaa tataacagaa tccatcttat aagattccta gttggctcta ttgtctaatg     18420
+     gttaagacct tacatcttca ttgtaaatat cttggttcga ttccaagtag ggctacttaa     18480
+     ataataattt tgaaactatt acttttcgga tattatctta tttgttctca atttattatt     18540
+     attaactcaa tgtgctctct atgttatttt ttaactctat attaaatgat gccccttcta     18600
+     gctgggctct ttatttccaa gatggtgcat ctcctagtta tttaggtgta acacacttaa     18660
+     atgattatct tatgttctat ctaactttca tctttatcgg tgtaatctat gctatctgta     18720
+     aagctgttat agaatataat tacaatagcc atcctattgc tgcaaaatat acaactcatg     18780
+     gttcaattgt tgaattcatt tggactttaa ttccagcttt aatcttaatt ttagttgctt     18840
+     taccatcatt caaactttta tacttattag atgaagtaca aaaaccaagt atgactgtta     18900
+     aggcaattgg aagacaatgg ttctggagtt atgaattaaa cgattttgtt actaatgaaa     18960
+     atgaaccagt ttcatttgat agttatatgg taccagaaga agatttagaa gaaggtagtc     19020
+     taagacaatt agaagtagat aatcgattag ttctacctat agatacacga ataagattaa     19080
+     tcttaacaag tggtgatgtt atccatagtt gggctgttcc ttctttaggt ataaaatgtg     19140
+     attgtatccc tagtagatta aatcaagttt ctttatctat tgatagagaa ggtttattct     19200
+     acggacaatg tagtgaactt tgtggtgtac ttcattcatc tatgcctatt gttgttcaag     19260
+     gtgtatctct tgaagatttc ttagcttggt tagaagaaaa ttcataacct cccccctaaa     19320
+     gtgtttatta aatgatgaac tcaaatagag aataatcaag ttaaataata gtaagataag     19380
+     tactaaatta gattttataa aattccaaag tataaatatt tttatatatg t              19431
+//

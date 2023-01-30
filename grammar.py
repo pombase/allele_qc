@@ -28,7 +28,7 @@ def check_position_doesnt_exist(pos, gene, seq_type):
     if seq_type == 'peptide':
         peptide_seq = gene['peptide']
         if pos > len(peptide_seq):
-            return f'position {pos} does not exist, peptide length is {len(peptide_seq)}'
+            return str(pos)
         return ''
 
     try:

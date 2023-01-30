@@ -196,3 +196,10 @@ python get_allele_autofix.py
 ## TODO
 
 document mitochondrial pre_fix
+
+## Running the API
+
+```
+docker build -t allele_qc_api .
+docker run -d --name apicontainer -p 8000:80 allele_qc_api
+```

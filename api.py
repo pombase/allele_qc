@@ -115,10 +115,10 @@ def get_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> CheckAllele
         positions_dont_exist = list()
         residues_dont_match = list()
         for e in obj.sequence_error.split('|'):
-            if 'position' in e:
-                positions_dont_exist.append(e)
-            else:
+            if e[0].isalpha():
                 residues_dont_match.append(e)
+            else:
+                positions_dont_exist.append(e)
         out_str = ''
         if len(positions_dont_exist):
             out_str = out_str + f'The following sequence positions don\'t exist: {";".join(positions_dont_exist)}'

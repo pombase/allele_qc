@@ -12,7 +12,7 @@ curl -k https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype
 gzip -fd data/phenotype_annotations.phaf.gz
 
 # Get unique lines with allele types, and remove deletion and wild-type alleles
-cut -d $'\t' -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format.tsv
+cut -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format.tsv
 python format_alleles.py data/alleles_pre_format.tsv data/alleles.tsv
 
 echo -e "${GREEN}Getting contig files${NC}"
@@ -59,7 +59,9 @@ while read row; do
     if (( $year < 2008)); then
         curl -k https://www.pombase.org/data/genome_sequence_and_features/artemis_files/OLD/${old_revision}/${contig}.contig > $output_file
     else
-        svn cat -r ${old_revision} svn+ssh://manu@curation.pombase.org/var/svn-repos/pombe-embl/trunk/${contig}.contig > $output_file
+        # TODO handle this properly (issue #35)
+        # svn cat -r ${old_revision} svn+ssh://manu@curation.pombase.org/var/svn-repos/pombe-embl/trunk/${contig}.contig > $output_file
+        curl -k https://raw.githubusercontent.com/pombase/allele_qc/master/temp_commits/${old_revision}.contig --output $output_file
     fi
 
 done < <(tail -n +2 data/genome_sequence_changes.tsv)
