@@ -8,6 +8,7 @@ from models import SyntaxRule
 from refinement_functions import check_allele_description
 from enum import Enum
 from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as primer_mutagenesis_func
+from common_autofix_functions import apply_histone_fix
 from protein_modification_qc import check_func as check_modification_description
 
 from typing import Optional
@@ -85,6 +86,19 @@ class OldCoordsFixRequest(BaseModel):
         }
 
 
+class HistoneFixRequest(BaseModel):
+    systematic_id: str
+    targets: str
+
+    class Config:
+        schema_extra = {
+            "example": {
+                "systematic_id": "SPAC1834.04",
+                "targets": 'K9A,K14R,K14A'
+            }
+        }
+
+
 class PrimerRequest(BaseModel):
     systematic_id: str
     primer: str
@@ -119,6 +133,17 @@ class CheckModificationResponse(BaseModel):
     sequence_error: str
     change_sequence_position_to: str
     user_friendly_fields: Optional['CheckModificationResponse'] = None
+
+
+class AlleleFix(BaseModel):
+
+    values: str
+
+
+class OldCoordsFix(AlleleFix):
+
+    revision: str
+    location: str
 
 
 def get_modification_user_friendly_fields(obj: CheckModificationResponse) -> CheckModificationResponse:
@@ -198,10 +223,10 @@ async def root():
 @ app.post("/check_allele", response_model=CheckAlleleDescriptionResponse)
 async def check_allele(request: CheckAlleleRequest):
     with open('data/genome.pickle', 'rb') as ins:
-        contig_genome = pickle.load(ins)
+        genome = pickle.load(ins)
 
     response_data = CheckAlleleDescriptionResponse.parse_obj(
-        check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, contig_genome[request.systematic_id])
+        check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, genome[request.systematic_id])
     )
     response_data.user_friendly_fields = get_allele_user_friendly_fields(response_data)
     return response_data
@@ -222,8 +247,8 @@ async def check_modification(request: CheckModificationRequest):
 @ app.post("/primer")
 async def primer_mutagenesis(request: PrimerRequest):
     with open('data/genome.pickle', 'rb') as ins:
-        contig_genome = pickle.load(ins)
-    gene = contig_genome[request.systematic_id]
+        genome = pickle.load(ins)
+    gene = genome[request.systematic_id]
     if 'CDS' in gene:
         has_peptide = True
         seq = gene['CDS'].extract(gene['contig'])
@@ -239,18 +264,31 @@ async def primer_mutagenesis(request: PrimerRequest):
     return PlainTextResponse(primer_mutagenesis_func(seq.seq, request.primer, request.max_mismatch, has_peptide))
 
 
-@ app.post("/multi_shift")
-async def multi_shift(request: MultiShiftRequest):
+@ app.post("/multi_shift_fix", response_model=list[AlleleFix])
+async def fix_with_multi_shift(request: MultiShiftRequest):
     with open('data/genome.pickle', 'rb') as ins:
-        contig_genome = pickle.load(ins)
-    gene = contig_genome[request.systematic_id]
-    result = multi_shift_fix(gene['peptide'], request.targets.split(','))
-    return PlainTextResponse('\n'.join(result))
+        genome = pickle.load(ins)
+    gene = genome[request.systematic_id]
+    targets = request.targets.split(',')
+
+    if len([t for t in targets if t[0].isalpha()]) >= 3:
+        result = multi_shift_fix(gene['peptide'], targets)
+        return [AlleleFix.parse_obj({'values': i}) for i in result]
+    else:
+        return []
 
 
-@ app.post("/old_coords")
-async def old_coords(request: OldCoordsFixRequest):
+@ app.post("/old_coords_fix", response_model=list[OldCoordsFix])
+async def fix_with_old_coords(request: OldCoordsFixRequest):
     with open('results/coordinate_changes_dict.json') as ins:
         coordinate_changes_dict = json.load(ins)
     result = old_coords_fix(coordinate_changes_dict[request.systematic_id], request.targets.split(','))
-    return result
+    return [OldCoordsFix.parse_obj(i) for i in result]
+
+
+@ app.post("/histone_fix", response_model=list[AlleleFix])
+async def fix_histone(request: HistoneFixRequest):
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+    result = apply_histone_fix(request.dict(), genome, 'targets')
+    return [AlleleFix.parse_obj({'values': result})] if result != '' else []
