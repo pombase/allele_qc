@@ -28,6 +28,10 @@ class SyntaxRulesTest(unittest.TestCase):
                 if len(ls) > 4:
                     invalid_error = ls[4]
                 output = check_allele_description(allele_description, syntax_rules, allele_type, allowed_types, None)
-                self.assertEqual(output['change_description_to'], change_description_to)
-                self.assertEqual(output['change_type_to'], change_type_to)
-                self.assertEqual(output['invalid_error'], invalid_error)
+                try:
+                    self.assertEqual(output['change_description_to'], change_description_to)
+                    self.assertEqual(output['change_type_to'], change_type_to)
+                    self.assertEqual(output['invalid_error'], invalid_error)
+                except AssertionError:
+                    print('error in line:', line.strip())
+                    raise

@@ -128,7 +128,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'multiple_aa',
-        # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
+        # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
         'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
@@ -168,12 +168,23 @@ aminoacid_grammar = [
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide'),
         'coordinate_indexes': (0,)
     },
+    # We split the insertion into two cases, one where a single aminoacid is inserted, in which the dash
+    # is compulsory, and one where the dash is optional, for more than one. Otherwise A123V would match
+    # this and the amino_acid_mutation.
     {
         'type': 'amino_acid_insertion',
-        'rule_name': 'usual',
-        'regex': f'({aa}?)(\d+)-({aa}+)(?!\d)',
-        'apply_syntax': lambda g: '-'.join(g[1:]).upper(),
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[1:2], gene, 'peptide') if not groups[0] else check_sequence_single_pos(groups, gene, 'peptide'),
+        'rule_name': 'single',
+        'regex': f'({aa})(\d+)-({aa})\\b',
+        'apply_syntax': lambda g: f'{g[0]}{g[1]}-{g[2]}'.upper(),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
+        'coordinate_indexes': (1,)
+    },
+    {
+        'type': 'amino_acid_insertion',
+        'rule_name': 'multiple',
+        'regex': f'({aa})(\d+)-?({aa}{aa}+)\\b',
+        'apply_syntax': lambda g: f'{g[0]}{g[1]}-{g[2]}'.upper(),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
         'coordinate_indexes': (1,)
     }
 ]

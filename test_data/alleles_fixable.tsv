@@ -44,17 +44,20 @@ partial_amino_acid_deletion	196–245	196-245
 partial_amino_acid_deletion	196
 
 ## amino_acid_insertion
-amino_acid_insertion	A123VVVV	123-VVVV
-amino_acid_insertion	A123-VVVV	123-VVVV
-amino_acid_insertion	123-VVVV
+amino_acid_insertion	A123VVVV	A123-VVVV
+amino_acid_insertion	A123-VVVV
+
+## single insertion is not messed up
+amino_acid_mutation	A123V
+amino_acid_insertion	A123-V
 
 ## combined types
 amino_acid_deletion_and_mutation	196-245,A123V
 amino_acid_deletion_and_mutation	196-245 A123V	196-245,A123V
 amino_acid_deletion_and_mutation	196-245, A123V	196-245,A123V
 
-amino_acid_insertion_and_deletion	123-VVVV,196-245
+amino_acid_insertion_and_deletion	A123-VVVV,196-245
 
-amino_acid_insertion_and_mutation	123-VVVV,A421V
+amino_acid_insertion_and_mutation	A123-VVVV,A421V
 
 unknown	unknown
