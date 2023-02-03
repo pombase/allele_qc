@@ -244,6 +244,9 @@ nucleotide_grammar = [
         'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
     },
+    # We split the insertion into two cases, one where a single nt is inserted, in which the dash
+    # is compulsory, and one where the dash is optional, for more than one. Otherwise A123T would match
+    # this and the nucleotide_mutation.
     {
         'type': 'nucleotide_insertion',
         'rule_name': 'single',
