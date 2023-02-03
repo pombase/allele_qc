@@ -160,7 +160,7 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
     invalid_error_list = ['' for m in matches]
     sequence_error_list = ['' for m in matches]
     rules_applied = ['' for m in matches]
-
+    print(allele_description, matches[0].groups())
     for i, match in enumerate(matches):
 
         syntax_rule = regex2syntax_rule[match.re.pattern]

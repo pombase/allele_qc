@@ -119,7 +119,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'single_aa',
-        'regex': f'(?<!{aa})({aa})(\d+)({aa})(?!{aa})',
+        'regex': f'\\b({aa})(\d+)({aa})\\b',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
@@ -129,7 +129,7 @@ aminoacid_grammar = [
         'type': 'amino_acid_mutation',
         'rule_name': 'multiple_aa',
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
-        'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
+        'regex': f'\\b({aa}{aa}+)-?(\d+)-?({aa}+)\\b',
         'apply_syntax': lambda g: '-'.join(g).upper(),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
@@ -190,10 +190,11 @@ aminoacid_grammar = [
 ]
 
 
-def format_negatives(input_list, indexes):
+def format_negatives(input_list: list[str], indexes: list[int]):
     output_list = list(input_list[:])
     for index in indexes:
-        output_list[index] = output_list[index] if int(output_list[index]) > 0 else f'({output_list[index]})'
+        this_value = output_list[index].replace('(', '').replace(')', '')
+        output_list[index] = this_value if int(this_value) > 0 else f'({this_value})'
     return output_list
 
 
@@ -203,12 +204,17 @@ nt = 'ACGUT'
 nt = nt + nt.lower()
 nt = f'[{nt}]'
 
+# We favour formatting negative numbers with parenthesis
+# this regex captures both positive and negative numbers without parenthesis, and
+# negative numbers with parenthesis
+num = '(\(-\d+\)|-?\d+)'
+
 nucleotide_grammar = [
     {
         'type': 'nucleotide_mutation',
         'rule_name': 'single_nt',
         # Negative numbers are common
-        'regex': f'(?<!{nt})({nt})(-?\d+)({nt})(?!{nt})',
+        'regex': f'\\b({nt}){num}({nt})\\b',
         'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
         'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna')
@@ -217,16 +223,23 @@ nucleotide_grammar = [
         'type': 'nucleotide_mutation',
         'rule_name': 'multiple_nt',
         # This is only valid for cases with two nts or more (not to clash with nucleotide_insertion:usual)
-        # Note the non-greedy flanking dashes, to prioritise the dash for negative numbers
-        'regex': f'({nt}{nt}+)-??(-?\d+)-??({nt}+)(?!\d)',
-        'apply_syntax': lambda g: ('-'.join(format_negatives(g, [1])) if len(g[0]) != 1 else ''.join(g)).upper().replace('U', 'T'),
+        # Cases contemplated here:
+        # AA-23-TT (positive number correctly formatted)
+        # AA-(-23)-TT (negative number correctly formatted)
+        # AA23TT (positive number without dashes)
+        # AA-23TT (negative number without dashes nor parenthesis)
+        # AA(-23)TT (negative number without dashes)
+        # AA--23-TT (negative number without parenthesis)
+        # Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
+        'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)\\b',
+        'apply_syntax': lambda g: ('-'.join(format_negatives(g, [1]))).upper().replace('U', 'T'),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
     },
     {
         'type': 'partial_nucleotide_deletion',
         'rule_name': 'usual',
-        'regex': f'(?<!{nt})(-?\d+)\s*[-–]\s*(-?\d+)(?!{nt})',
+        'regex': f'\\b{num}\s*[-–]\s*{num}\\b',
         'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=int), [0, 1])).upper(),
         'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
