@@ -66,13 +66,13 @@ def check_value_at_pos(indicated_value, pos, gene, seq_type):
     return out_str
 
 
-def check_sequence_single_pos(groups, gene, seq_type):
+def check_sequence_single_pos(groups: list[str], gene, seq_type):
     """
     Check that a single position in the sequence exists, defined in regex capture groups. In `groups` the first
     element is the aminoacid / nucleotide and the second is the number, e.g. in V123A, groups are ['V', '123','A']
     """
     value = groups[0]
-    pos = int(groups[1])
+    pos = int(groups[1].replace('(', '').replace(')', ''))
     return check_value_at_pos(value, pos, gene, seq_type)
 
 
@@ -84,7 +84,7 @@ def check_sequence_multiple_pos(groups, gene, seq_type):
     strings. E.g. `V234/P235/L236`.
     """
 
-    pos_first = int(groups[1])
+    pos_first = int(groups[1].replace('(', '').replace(')', ''))
     results_list = list()
     # Iterate over chars of string
     for i, value in enumerate(groups[0]):
@@ -101,7 +101,7 @@ def check_multiple_positions_dont_exist(groups, gene, seq_type):
 
     results_list = list()
     for pos in groups:
-        results_list.append(check_position_doesnt_exist(int(pos), gene, seq_type))
+        results_list.append(check_position_doesnt_exist(int(pos.replace('(', '').replace(')', '')), gene, seq_type))
 
     output = '/'.join([r for r in results_list if r])
     if len(output):
@@ -119,7 +119,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'single_aa',
-        'regex': f'\\b({aa})(\d+)({aa})\\b',
+        'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
@@ -129,7 +129,7 @@ aminoacid_grammar = [
         'type': 'amino_acid_mutation',
         'rule_name': 'multiple_aa',
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
-        'regex': f'\\b({aa}{aa}+)-?(\d+)-?({aa}+)\\b',
+        'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
@@ -174,7 +174,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'single',
-        'regex': f'({aa})(\d+)-({aa})\\b',
+        'regex': f'({aa})(\d+)-({aa})(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{g[1]}-{g[2]}'.upper(),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
         'coordinate_indexes': (1,)
@@ -182,7 +182,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'multiple',
-        'regex': f'({aa})(\d+)-?({aa}{aa}+)\\b',
+        'regex': f'({aa})(\d+)-?({aa}{aa}+)(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{g[1]}-{g[2]}'.upper(),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
         'coordinate_indexes': (1,)
@@ -214,7 +214,7 @@ nucleotide_grammar = [
         'type': 'nucleotide_mutation',
         'rule_name': 'single_nt',
         # Negative numbers are common
-        'regex': f'\\b({nt}){num}({nt})\\b',
+        'regex': f'(?<=\\b)({nt}){num}({nt})(?=\\b)',
         'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
         'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna')
@@ -231,7 +231,7 @@ nucleotide_grammar = [
         # AA(-23)TT (negative number without dashes)
         # AA--23-TT (negative number without parenthesis)
         # Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
-        'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)\\b',
+        'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)(?=\\b)',
         'apply_syntax': lambda g: ('-'.join(format_negatives(g, [1]))).upper().replace('U', 'T'),
         'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
@@ -239,10 +239,26 @@ nucleotide_grammar = [
     {
         'type': 'partial_nucleotide_deletion',
         'rule_name': 'usual',
-        'regex': f'\\b{num}\s*[-–]\s*{num}\\b',
-        'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=int), [0, 1])).upper(),
+        'regex': f'(?<!{nt}){num}\s*[-–]\s*{num}(?!{nt})',
+        'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=lambda x: int(x.replace('(', '').replace(')', ''))), [0, 1])).upper(),
         'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
+    },
+    {
+        'type': 'nucleotide_insertion',
+        'rule_name': 'single',
+        'regex': f'({nt}){num}-({nt})(?=\\b)',
+        'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}-{g[2]}'.upper().replace('U', 'T'),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
+        'coordinate_indexes': (1,)
+    },
+    {
+        'type': 'nucleotide_insertion',
+        'rule_name': 'multiple',
+        'regex': f'({nt}){num}-?({nt}{nt}+)(?=\\b)',
+        'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}-{g[2]}'.upper().replace('U', 'T'),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
+        'coordinate_indexes': (1,)
     },
 
 ]
