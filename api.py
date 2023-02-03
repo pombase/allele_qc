@@ -4,18 +4,19 @@ from starlette.responses import RedirectResponse, PlainTextResponse
 from pydantic import BaseModel
 import pickle
 from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar, disruption_grammar
-from models import SyntaxRule
-from refinement_functions import check_allele_description
+from models import SyntaxRule, find_rule
+from refinement_functions import check_allele_description, split_multiple_aa
 from enum import Enum
 from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as primer_mutagenesis_func
 from common_autofix_functions import apply_histone_fix
 from protein_modification_qc import check_func as check_modification_description
-
+import re
 from typing import Optional
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
 syntax_rules_disruption = [SyntaxRule.parse_obj(r) for r in disruption_grammar]
+multi_aa_rule = find_rule(syntax_rules_aminoacids, 'amino_acid_mutation', 'multiple_aa')
 
 
 class AlleleType(str, Enum):
@@ -68,7 +69,7 @@ class MultiShiftRequest(BaseModel):
         schema_extra = {
             "example": {
                 "systematic_id": "SPAPB1A10.09",
-                "targets": "S123,A124,N125"
+                "targets": "S123,A124,N125,SAN-213-LLL"
             }
         }
 
@@ -81,7 +82,7 @@ class OldCoordsFixRequest(BaseModel):
         schema_extra = {
             "example": {
                 "systematic_id": "SPBC1706.01",
-                "targets": 'P170A,V223A,F225A'
+                "targets": 'P170A,V223A,F225A,AEY-171-LLL'
             }
         }
 
@@ -94,7 +95,7 @@ class HistoneFixRequest(BaseModel):
         schema_extra = {
             "example": {
                 "systematic_id": "SPAC1834.04",
-                "targets": 'K9A,K14R,K14A'
+                "targets": 'ART-1-LLL,K9A,K14R,K14A'
             }
         }
 
@@ -269,7 +270,13 @@ async def fix_with_multi_shift(request: MultiShiftRequest):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
     gene = genome[request.systematic_id]
-    targets = request.targets.split(',')
+    targets_1 = request.targets.split(',')
+    targets = list()
+    for t in targets_1:
+        if not re.match(multi_aa_rule.regex, t):
+            targets.append(t)
+        else:
+            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
 
     if len([t for t in targets if t[0].isalpha()]) >= 3:
         result = multi_shift_fix(gene['peptide'], targets)
@@ -282,7 +289,14 @@ async def fix_with_multi_shift(request: MultiShiftRequest):
 async def fix_with_old_coords(request: OldCoordsFixRequest):
     with open('results/coordinate_changes_dict.json') as ins:
         coordinate_changes_dict = json.load(ins)
-    result = old_coords_fix(coordinate_changes_dict[request.systematic_id], request.targets.split(','))
+    targets_1 = request.targets.split(',')
+    targets = list()
+    for t in targets_1:
+        if not re.match(multi_aa_rule.regex, t):
+            targets.append(t)
+        else:
+            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
+    result = old_coords_fix(coordinate_changes_dict[request.systematic_id], targets)
     return [OldCoordsFix.parse_obj(i) for i in result]
 
 
@@ -290,5 +304,13 @@ async def fix_with_old_coords(request: OldCoordsFixRequest):
 async def fix_histone(request: HistoneFixRequest):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    result = apply_histone_fix(request.dict(), genome, 'targets')
+    targets_1 = request.targets.split(',')
+    targets = list()
+    for t in targets_1:
+        if not re.match(multi_aa_rule.regex, t):
+            targets.append(t)
+        else:
+            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
+    print(request.dict() | {'targets': targets})
+    result = apply_histone_fix(request.dict() | {'targets': ','.join(targets)}, genome, 'targets')
     return [AlleleFix.parse_obj({'values': result})] if result != '' else []
