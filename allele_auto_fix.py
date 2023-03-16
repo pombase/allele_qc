@@ -161,6 +161,8 @@ autofixed_data.loc[syntax_error, 'auto_fix_comment'] = 'syntax_error'
 autofixed_data.loc[type_error, 'auto_fix_comment'] = 'type_error'
 autofixed_data.loc[syntax_error & type_error, 'auto_fix_comment'] = 'syntax_and_type_error'
 
+autofixed_data = autofixed_data[['systematic_id', 'allele_description', 'allele_name', 'allele_type', 'change_description_to', 'change_type_to', 'auto_fix_comment', 'sequence_error', 'solution_index', 'allele_parts', 'rules_applied', 'reference']].copy()
+
 autofixed_data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
 
 errors_cannot_fix = data[~columns_auto_fixed].drop(columns=['auto_fix_comment', 'solution_index'])
@@ -173,4 +175,18 @@ if os.path.isfile('manual_fixes_pombase/manual_changes_formatted.tsv'):
     errors_cannot_fix = errors_cannot_fix[~errors_cannot_fix['combined_column'].isin(manual_changes['combined_column'])].copy()
     errors_cannot_fix.drop(columns='combined_column', inplace=True)
 
-errors_cannot_fix.to_csv('results/allele_cannot_fix.tsv', sep='\t', index=False)
+errors_cannot_fix.to_csv('results/allele_cannot_fix_format1.tsv', sep='\t', index=False)
+
+
+# Separate into error types
+error_cols = {'pattern_error', 'invalid_error', 'sequence_error'}
+id_cols = set(errors_cannot_fix.columns) - error_cols
+
+errors_cannot_fix = errors_cannot_fix.melt(id_vars=id_cols, value_vars=error_cols, var_name='error_type', value_name='error_info')
+errors_cannot_fix = errors_cannot_fix[errors_cannot_fix['error_info'] != '']
+errors_cannot_fix = errors_cannot_fix[['systematic_id', 'allele_name', 'allele_description', 'error_type', 'error_info']].copy()
+
+sequence_errors = errors_cannot_fix[errors_cannot_fix.error_type == 'sequence_error'].drop(columns=['error_type']).rename(columns={'error_info': 'sequence_error'})
+sequence_errors.to_csv('results/allele_cannot_fix_sequence_errors.tsv', sep='\t', index=False)
+
+errors_cannot_fix[errors_cannot_fix.error_type != 'sequence_error'].to_csv('results/allele_cannot_fix_other_errors.tsv', sep='\t', index=False)
