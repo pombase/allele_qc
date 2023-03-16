@@ -175,8 +175,6 @@ if os.path.isfile('manual_fixes_pombase/manual_changes_formatted.tsv'):
     errors_cannot_fix = errors_cannot_fix[~errors_cannot_fix['combined_column'].isin(manual_changes['combined_column'])].copy()
     errors_cannot_fix.drop(columns='combined_column', inplace=True)
 
-errors_cannot_fix.to_csv('results/allele_cannot_fix_format1.tsv', sep='\t', index=False)
-
 
 # Separate into error types
 error_cols = {'pattern_error', 'invalid_error', 'sequence_error'}

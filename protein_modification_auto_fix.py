@@ -60,4 +60,12 @@ print('', 'Types of errors fixed:', '', autofix_data['auto_fix_comment'].apply(l
 
 fixed_rows = autofix_data.change_sequence_position_to != ''
 autofix_data[fixed_rows].to_csv('results/protein_modification_auto_fix.tsv', sep='\t', index=False)
-autofix_data[~fixed_rows].to_csv('results/protein_modification_cannot_fix.tsv', sep='\t', index=False)
+
+other_errors_names = ['systematic_id not in genome', 'missing_CDS', 'pattern_error']
+
+cannot_fix = autofix_data[~fixed_rows].drop(columns=['change_sequence_position_to', 'auto_fix_comment', 'solution_index'])
+
+other_errors = cannot_fix.sequence_error.isin(other_errors_names)
+
+cannot_fix[other_errors].rename(columns={'sequence_error': 'error'}).to_csv('results/protein_modification_cannot_fix_other_errors.tsv', sep='\t', index=False)
+cannot_fix[~other_errors].to_csv('results/protein_modification_cannot_fix_sequence_errors.tsv', sep='\t', index=False)
