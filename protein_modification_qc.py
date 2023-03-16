@@ -36,8 +36,7 @@ if __name__ == "__main__":
         genome = pickle.load(ins)
 
     data = pandas.read_csv('data/pombase-chado.modifications', sep='\t', na_filter=False)
-    # TODO what is the unknown column?
-    data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'unknown', 'date']
+    data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'taxon', 'date']
     data = data[data['sequence_position'] != '']
 
     extra_cols = data.apply(check_func, axis=1, result_type='expand', args=[genome])

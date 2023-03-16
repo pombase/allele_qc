@@ -109,6 +109,8 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
 
     # We create a column combining the systematic_id + residue, which uniquely identifies the position
     # in the genome.
+    if fixes_for_this_paper.empty:
+        continue
     fixes_for_this_paper['combined_column'] = fixes_for_this_paper.apply(lambda r: r['systematic_id'] + '|' + r['sequence_position'], axis=1)
     data['combined_column'] = data.apply(lambda r: r['systematic_id'] + '|' + r['sequence_position'], axis=1)
 
@@ -134,8 +136,8 @@ for modification_file in glob.glob(modification_folder + '/PMID*.tsv'):
     data.drop(columns='original_index', inplace=True)
 
     data_fixed.fillna('', inplace=True)
-
-    data_fixed.loc[:, 'sequence_position'] = data_fixed.loc[:, 'change_sequence_position_to']
+    rows2fix = data_fixed.change_sequence_position_to != ''
+    data_fixed.loc[rows2fix, 'sequence_position'] = data_fixed.loc[rows2fix, 'change_sequence_position_to']
     data_fixed.drop(columns='change_sequence_position_to', inplace=True)
 
     # The resulting file should have the same number of rows as the original one

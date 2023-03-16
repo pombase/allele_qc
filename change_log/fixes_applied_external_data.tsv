@@ -1,4 +1,4 @@
-systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	unknown	date	sequence_error	change_sequence_position_to	auto_fix_comment
+systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	sequence_error	change_sequence_position_to	auto_fix_comment
 SPAC1002.12c		MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S293		PMID:30726745	4896	2019-02-05	S293	S244	old_coords_fix, revision 8148: complement(1818695..1820338)
 SPAC1002.17c	urg2	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S65		PMID:25720772	4896	2016-06-27	S65>S64	S50	old_coords_fix, revision 8148: complement(1831012..1831626)
 SPAC1002.17c	urg2	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S69		PMID:25720772	4896	2016-06-27	S69>S70	S54	old_coords_fix, revision 8148: complement(1831012..1831626)
@@ -1134,3 +1134,10 @@ SPCP1E11.06	apl4	MOD:00046	tryptic phosphopeptide mapping assay evidence used in
 SPCPB16A4.02c	opy1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S208		PMID:33823663	4896	2022-03-08	S208	S219	old_coords_fix, revision 20110324: complement(join(944872..945632,945671..945713,945797..945859,946141..946260))
 SPCPB16A4.02c	opy1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S210	decreased_during(GO:0032007),in_presence_of(CHEBI:84327)	PMID:33823663	4896	2022-03-08	S210	S221	old_coords_fix, revision 20110324: complement(join(944872..945632,945671..945713,945797..945859,946141..946260))
 SPCPB16A4.02c	opy1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S210		PMID:33823663	4896	2022-03-08	S210	S221	old_coords_fix, revision 20110324: complement(join(944872..945632,945671..945713,945797..945859,946141..946260))
+SPBC17D1.06	dbp3	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S113		PMID:25720772	4896	2016-06-27	S113	S64	old_coords_fix, revision 8652: 3338604..3340340
+SPBC17D1.06	dbp3	MOD:00046	experimental evidence	S131	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S131	S82	old_coords_fix, revision 8652: 3338604..3340340
+SPBC17D1.06	dbp3	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S131		PMID:33823663	4896	2022-03-08	S131	S82	old_coords_fix, revision 8652: 3338604..3340340
+SPBC17D1.06	dbp3	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S135		PMID:33823663	4896	2022-03-08	S135	S86	old_coords_fix, revision 8652: 3338604..3340340
+SPBC17D1.06	dbp3	MOD:00046	experimental evidence	S61	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S61	S12	old_coords_fix, revision 8652: 3338604..3340340
+SPBC17D1.06	dbp3	MOD:00046	experimental evidence	S67	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S67	S18	old_coords_fix, revision 8652: 3338604..3340340
+SPBC17D1.06	dbp3	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T109		PMID:25720772	4896	2016-06-27	T109	T60	old_coords_fix, revision 8652: 3338604..3340340

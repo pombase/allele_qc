@@ -5,6 +5,7 @@ SPAC1071.06	Q13->stop	arp9-127	nonsense_mutation	Q13*		syntax_error			Q13->stop	
 SPAC110.02	pds5::ura4+	pds5-1	disruption	pds5::ura4		syntax_error			pds5::ura4+	disruption:usual	PMID:11598020
 SPAC1296.03c	W247->stop	sxa2-563	amino_acid_mutation	W247*	nonsense_mutation	syntax_and_type_error			W247->stop	nonsense_mutation:stop_codon_text	PMID:10792724,PMID:1549128,PMID:7900424
 SPAC12G12.14c		pfs2::ura4+	disruption	pfs2::ura4		syntax_error			pfs2::ura4+	disruption:usual	PMID:15743824
+SPAC13C5.03	C65A C78A	tht1+	amino_acid_mutation	C65A,C78A		syntax_error			C65A|C78A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:36650056
 SPAC13C5.03	W541->stop	tht1-1	nonsense_mutation	W541*		syntax_error			W541->stop	nonsense_mutation:stop_codon_text	PMID:9442101
 SPAC13C5.07	CL454RR	mre11-CL454RR	amino_acid_mutation	CL-454-RR		syntax_error			CL454RR	amino_acid_mutation:multiple_aa	PMID:21441914
 SPAC13C5.07	HD134LV	mre11-H134L,D135V	amino_acid_mutation	HD-134-LV		syntax_error			HD134LV	amino_acid_mutation:multiple_aa	PMID:19211838
@@ -13,8 +14,11 @@ SPAC1486.02c	F72->stop	dsc2-F72*	nonsense_mutation	F72*		syntax_error			F72->sto
 SPAC1486.02c	G100->stop	dsc2-G100*	nonsense_mutation	G100*		syntax_error			G100->stop	nonsense_mutation:stop_codon_text	PMID:28821619
 SPAC1486.02c	W52->stop	dsc2-W52*	nonsense_mutation	W52*		syntax_error			W52->stop	nonsense_mutation:stop_codon_text	PMID:28821619
 SPAC14C4.14	Q200->ochre	atp1-A2313	nonsense_mutation	Q200*		syntax_error			Q200->ochre	nonsense_mutation:stop_codon_text	PMID:1824697,PMID:6214396
+SPAC1565.08	A366D	cdc48-9	amino_acid_mutation	A360D		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	A366		A366D	amino_acid_mutation:single_aa	PMID:28821619
+SPAC1565.08	A586V	cdc48-6	amino_acid_mutation	A580V		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	A586		A586V	amino_acid_mutation:single_aa	PMID:28821619
 SPAC1565.08	E325A G338D	cdc48-353sup	amino_acid_mutation	E319A,G332D		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	E325|G338		E325A|G338D	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:35320724
-SPAC1565.08	E325K	cdc48-E325K	amino_acid_mutation	E319K		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	E325		E325K	amino_acid_mutation:single_aa	PMID:23729666
+SPAC1565.08	E325K	cdc48-8	amino_acid_mutation	E319K		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	E325		E325K	amino_acid_mutation:single_aa	PMID:23729666,PMID:28821619
+SPAC1565.08	E731D	cdc48-7	amino_acid_mutation	E725D		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	E731		E731D	amino_acid_mutation:single_aa	PMID:28821619
 SPAC1565.08	G338D	cdc48-353	amino_acid_mutation	G332D		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	G338		G338D	amino_acid_mutation:single_aa	PMID:15507118,PMID:25658828,PMID:25963819,PMID:35320724
 SPAC1565.08	G338D,E325K	cdc48-353sup-28	amino_acid_mutation	E319K,G332D		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	G338|E325		G338D|E325K	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:25658828
 SPAC1565.08	G338D,E598V	cdc48-353sup-2	amino_acid_mutation	G332D,E592V		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	G338|E598		G338D|E598V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:25658828
@@ -31,8 +35,17 @@ SPAC1565.08	G338D,R644H	cdc48-353sup-8	amino_acid_mutation	G332D,R638H		old_coor
 SPAC1565.08	G338D,R764S	cdc48-353sup-11	amino_acid_mutation	G332D,R758S		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	G338|R764		G338D|R764S	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:25658828
 SPAC1565.08	G338D,V767A	cdc48-353sup-21	amino_acid_mutation	G332D,V761A		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	G338|V767		G338D|V767A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:25658828
 SPAC1565.08	M298Y	cdc48-M298Y	amino_acid_mutation	M292Y		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	M298		M298Y	amino_acid_mutation:single_aa	PMID:35320724
+SPAC1565.08	N558I	cdc48-5	amino_acid_mutation	N552I		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	N558		N558I	amino_acid_mutation:single_aa	PMID:28821619
+SPAC1565.08	R764C	cdc48-10	amino_acid_mutation	R758C		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	R764		R764C	amino_acid_mutation:single_aa	PMID:28821619
 SPAC15A10.02	S217A-T218A-S220A-T221A-T283A	taf12-5A	amino_acid_mutation	S217A,T218A,S220A,T221A,T283A		syntax_error			S217A|T218A|S220A|T221A|T283A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:29079657
 SPAC15A10.02	S217D-T218E-S220D-T221E-T283E	taf12-5DE	amino_acid_mutation	S217D,T218E,S220D,T221E,T283E		syntax_error			S217D|T218E|S220D|T221E|T283E	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:29079657
+SPAC15E1.04	G445R	tds1-13	amino_acid_insertion_and_mutation		amino_acid_mutation	type_error			G445R	amino_acid_mutation:single_aa	PMID:18030666
+SPAC15E1.04	G459R	tds1-21	amino_acid_insertion_and_mutation		amino_acid_mutation	type_error			G459R	amino_acid_mutation:single_aa	PMID:18030666
+SPAC16A10.07c	I379R	taz1-I379R	amino_acid_insertion		amino_acid_mutation	type_error			I379R	amino_acid_mutation:single_aa	PMID:21217703
+SPAC16A10.07c	L380R	taz1-L380R	amino_acid_insertion		amino_acid_mutation	type_error			L380R	amino_acid_mutation:single_aa	PMID:21217703
+SPAC16A10.07c	L383R	taz1-L383R	amino_acid_insertion		amino_acid_mutation	type_error			L383R	amino_acid_mutation:single_aa	PMID:21217703
+SPAC16A10.07c	R384E	taz1-R384E	amino_acid_insertion		amino_acid_mutation	type_error			R384E	amino_acid_mutation:single_aa	PMID:21217703
+SPAC16A10.07c	R386E	taz1-R386E	amino_acid_insertion		amino_acid_mutation	type_error			R386E	amino_acid_mutation:single_aa	PMID:21217703
 SPAC17A2.09c		csx1::ura4+	disruption	csx1::ura4		syntax_error			csx1::ura4+	disruption:usual	PMID:14633985
 SPAC17A5.02c		dbr1::leu1+	disruption	dbr1::leu1		syntax_error			dbr1::leu1+	disruption:usual	PMID:10982890
 SPAC17G6.17	2-10	pof8delta2-10	amino_acid_insertion_and_deletion		partial_amino_acid_deletion	type_error			2-10	partial_amino_acid_deletion:multiple_aa	PMID:33378677
@@ -52,14 +65,18 @@ SPAC1834.04	K9M	hht1-K9M	amino_acid_mutation	K10M		histone_fix	K9		K9M	amino_aci
 SPAC1834.04	Y41F	hht1-Y41F	amino_acid_mutation	Y42F		histone_fix	Y41		Y41F	amino_acid_mutation:single_aa	PMID:29136238
 SPAC1851.03		ckb1::ura4+	disruption	ckb1::ura4		syntax_error			ckb1::ura4+	disruption:usual	PMID:8264625
 SPAC18B11.04	-102--130	mec promoter mutant	partial_nucleotide_deletion	(-130)-(-102)		syntax_error			-102--130	partial_nucleotide_deletion:usual	PMID:20018864
+SPAC19A8.12	244–741	dcp2delta244–741	partial_amino_acid_deletion	244-741		syntax_error			244–741	partial_amino_acid_deletion:multiple_aa	PMID:22085934
+SPAC19A8.12	290–741	dcp2delta290–741	partial_amino_acid_deletion	290-741		syntax_error			290–741	partial_amino_acid_deletion:multiple_aa	PMID:22085934
+SPAC19A8.12	553–741	dcp2delta553–741	partial_amino_acid_deletion	553-741		syntax_error			553–741	partial_amino_acid_deletion:multiple_aa	PMID:22085934
 SPAC19G12.01c		cut20::ura4+	disruption	cut20::ura4		syntax_error			cut20::ura4+	disruption:usual	PMID:10082519
 SPAC1B2.03c	H168A	elo2-H168A	amino_acid_mutation	H161A		old_coords_fix, revision 8403: complement(join(2811438..2812368,2812412..2812485))	H168		H168A	amino_acid_mutation:single_aa	PMID:30975915
 SPAC1D4.09c	Q146->stop	rtf2-1	nonsense_mutation	Q146*		syntax_error			Q146->stop	nonsense_mutation:stop_codon_text	PMID:19416828
 SPAC1F3.01		rrp6::ura4+	disruption	rrp6::ura4		syntax_error			rrp6::ura4+	disruption:usual	PMID:24081329
 SPAC1F3.06c		spo15::ura4+	disruption	spo15::ura4		syntax_error			spo15::ura4+	disruption:usual	PMID:10639340
 SPAC1F5.04c		cdc12::ura4+	disruption	cdc12::ura4		syntax_error			cdc12::ura4+	disruption:usual	PMID:9105045
-SPAC1F7.03	F335S,S408P,N521D,M530V,S534G,Q543E,I555T,I571T,N675K,T676Y,D677->stop	pkd2-B42	amino_acid_mutation	F335S,S408P,N521D,M530V,S534G,Q543E,I555T,I571T,N675K,T676Y,D677*	amino_acid_other	syntax_and_type_error			F335S|S408P|N521D|M530V|S534G|Q543E|I555T|I571T|N675K|T676Y|D677->stop	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|nonsense_mutation:stop_codon_text	PMID:35099006
+SPAC1F7.03	F335S,S408P,N521D,M530V,S534G,Q543E,I555T,I571T,N675K,T676Y,D677->stop	pkd2-B42	amino_acid_mutation	F335S,S408P,N521D,M530V,S534G,Q543E,I555T,I571T,N675K,T676Y,D677*	amino_acid_other	syntax_and_type_error			F335S|S408P|N521D|M530V|S534G|Q543E|I555T|I571T|N675K|T676Y|D677->stop	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|nonsense_mutation:stop_codon_text	PMID:35099006,PMID:36200871
 SPAC1F7.05		cdc22::ura4+	disruption	cdc22::ura4		syntax_error			cdc22::ura4+	disruption:usual	PMID:8479429
+SPAC1F7.05	I665F	cdc22-3	amino_acid_insertion_and_mutation		amino_acid_mutation	type_error			I665F	amino_acid_mutation:single_aa	PMID:18030666
 SPAC20G4.02c	1014–1274	fus1deltaFH2	partial_amino_acid_deletion	1014-1274		syntax_error			1014–1274	partial_amino_acid_deletion:multiple_aa	PMID:9606213
 SPAC20G4.02c	192–411	fus1deltaFH3	partial_amino_acid_deletion	192-411		syntax_error			192–411	partial_amino_acid_deletion:multiple_aa	PMID:9606213
 SPAC20G4.02c	808–817	fus1deltaFH1	partial_amino_acid_deletion	808-817		syntax_error			808–817	partial_amino_acid_deletion:multiple_aa	PMID:9606213
@@ -249,9 +266,9 @@ SPBC146.09c	E918->stop	lsd1-E918	nonsense_mutation	E918*		syntax_error			E918->s
 SPBC146.09c	KK603AA	lsd1-KK603AA	amino_acid_mutation	KK-603-AA		syntax_error			KK603AA	amino_acid_mutation:multiple_aa	PMID:17434129
 SPBC146.13c	myo1::his3+	myo1::his3+	disruption	myo1::his3		syntax_error			myo1::his3+	disruption:usual	PMID:11076964
 SPBC14C8.01c	R267opal	cut2-364	nonsense_mutation	R262*		old_coords_fix, revision 8404: complement(2203316..2204221)	R267		R267opal	nonsense_mutation:stop_codon_text	PMID:16453724,PMID:2203537,PMID:30072439,PMID:8978688,PMID:9635190
-SPBC14C8.01c	R33A,L36A	cut2dm1	amino_acid_mutation	R28A,L31A		old_coords_fix, revision 8404: complement(2203316..2204221)	R33|L36		R33A|L36A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:9312055
-SPBC14C8.01c	R33A,L36A,R52A,L55A	cut2ddm	amino_acid_mutation	R28A,L31A,R47A,L50A		old_coords_fix, revision 8404: complement(2203316..2204221)	R33|L36|R52|L55		R33A|L36A|R52A|L55A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:9312055
-SPBC14C8.01c	R52A,L55A	cut2dm2	amino_acid_mutation	R47A,L50A		old_coords_fix, revision 8404: complement(2203316..2204221)	R52|L55		R52A|L55A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:9312055
+SPBC14C8.01c	R33A,L36A	cut2-dm1	amino_acid_mutation	R28A,L31A		old_coords_fix, revision 8404: complement(2203316..2204221)	R33|L36		R33A|L36A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:9312055
+SPBC14C8.01c	R33A,L36A,R52A,L55A	cut2-ddm	amino_acid_mutation	R28A,L31A,R47A,L50A		old_coords_fix, revision 8404: complement(2203316..2204221)	R33|L36|R52|L55		R33A|L36A|R52A|L55A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:9312055
+SPBC14C8.01c	R52A,L55A	cut2-dm2	amino_acid_mutation	R47A,L50A		old_coords_fix, revision 8404: complement(2203316..2204221)	R52|L55		R52A|L55A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:9312055
 SPBC14C8.07c	DE286AA	cdc18-DEAD	amino_acid_mutation	DE-286-AA		syntax_error			DE286AA	amino_acid_mutation:multiple_aa	PMID:10101168,PMID:11030343
 SPBC14F5.05c	I24M E115G	sam1-4	amino_acid_mutation	I24M,E115G		syntax_error			I24M|E115G	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:30240645
 SPBC14F5.05c	L292S R299H	sam1-3	amino_acid_mutation	L292S,R299H		syntax_error			L292S|R299H	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:30240645
@@ -368,7 +385,7 @@ SPBC3D6.04c	E670Q D673N D676N	mad1-EDD/QNN	amino_acid_mutation	E670Q,D673N,D676N
 SPBC3D6.04c	R510A L512G	mad1-RL/AG	amino_acid_mutation	R510A,L512G		syntax_error			R510A|L512G	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:24161933
 SPBC3D6.04c	R580A K582A	mad1-RLK/ALA	amino_acid_mutation	R580A,K582A		syntax_error			R580A|K582A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:24477934
 SPBC3D6.04c	R580A L581A K582A	mad1-RLK/AAA	amino_acid_mutation	R580A,L581A,K582A		syntax_error			R580A|L581A|K582A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:24477934
-SPBC3D6.04c	S633G P661A	mad1-S633G P661A	amino_acid_mutation	S633G,P661A		syntax_error			S633G|P661A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:24477934
+SPBC3D6.04c	S633G P661A	mad1-S633G,P661A	amino_acid_mutation	S633G,P661A		syntax_error			S633G|P661A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:24477934
 SPBC3D6.15	-45--38	rps2501(promoter-45--38)	partial_nucleotide_deletion	(-45)-(-38)		syntax_error			-45--38	partial_nucleotide_deletion:usual	PMID:27902423
 SPBC3F6.03	-186--499	trr1-pYUTR40	partial_nucleotide_deletion	(-499)-(-186)		syntax_error			-186--499	partial_nucleotide_deletion:usual	PMID:16554715
 SPBC3F6.03	-499--891	trr1-pYUTR30	partial_nucleotide_deletion	(-891)-(-499)		syntax_error			-499--891	partial_nucleotide_deletion:usual	PMID:16554715
@@ -409,7 +426,6 @@ SPBC776.12c	KK129RS	hsk1-KK	amino_acid_mutation	KK-129-RS		syntax_error			KK129R
 SPBC776.13		cnd1::ura4+	disruption	cnd1::ura4		syntax_error			cnd1::ura4+	disruption:usual	PMID:10485849
 SPBC800.13	S3A,T8A,S12A,S13A,S14A,T21A,S23A,T29A,S31A,S33A,T36A,S39A,T43A,T45A	cnp20-14A	amino_acid_insertion_and_mutation		amino_acid_mutation	type_error			S3A|T8A|S12A|S13A|S14A|T21A|S23A|T29A|S31A|S33A|T36A|S39A|T43A|T45A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:34810257
 SPBC800.13	S3D,T8D,S12D,S13D,S14D,T21D,S23D,T29D,S31D,S33D,T36D,S39D,T43D,T45D	cnp20-14D	amino_acid_insertion_and_mutation		amino_acid_mutation	type_error			S3D|T8D|S12D|S13D|S14D|T21D|S23D|T29D|S31D|S33D|T36D|S39D|T43D|T45D	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:34810257
-SPBC887.03c	IIPGY271AAAAA	noc3ts	amino_acid_mutation	IIPGY-271-AAAAA		syntax_error			IIPGY271AAAAA	amino_acid_mutation:multiple_aa	PMID:18606828
 SPBC887.10	D512N	mcs4-D512N	amino_acid_insertion		amino_acid_mutation	type_error			D512N	amino_acid_mutation:single_aa	PMID:32915139
 SPBC8D2.03c	K5R,K8R,K12R,K16R	hhf2-KR	amino_acid_mutation	K6R,K9R,K13R,K17R		histone_fix	K5|K8|K12|K16		K5R|K8R|K12R|K16R	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:22095079,PMID:30992049
 SPBC8D2.04	H113D	hht2-H113D	amino_acid_mutation	H114D		histone_fix	H113		H113D	amino_acid_mutation:single_aa	PMID:31584934
@@ -460,6 +476,9 @@ SPCC1672.02c	241-254	sap1delta241-254	amino_acid_mutation		partial_amino_acid_de
 SPCC1682.04	A62T	cdc31-1	amino_acid_insertion		amino_acid_mutation	type_error			A62T	amino_acid_mutation:single_aa	PMID:12857865
 SPCC1682.04	P108S	cdc31-5	amino_acid_insertion		amino_acid_mutation	type_error			P108S	amino_acid_mutation:single_aa	PMID:12857865
 SPCC1795.03	280-353	gms1delta73	amino_acid_mutation		partial_amino_acid_deletion	type_error			280-353	partial_amino_acid_deletion:multiple_aa	PMID:11378902
+SPCC18.06c	D50A	caf1-D50A	amino_acid_mutation	D53A		old_coords_fix, revision 20110324: complement(1965839..1966837)	D50		D50A	amino_acid_mutation:single_aa	PMID:19307292
+SPCC18.06c	L125F	caf1-L125F	amino_acid_mutation	L128F		old_coords_fix, revision 20110324: complement(1965839..1966837)	L125		L125F	amino_acid_mutation:single_aa	PMID:19307292
+SPCC18.06c	S122A	caf1-S122A	amino_acid_mutation	S125A		old_coords_fix, revision 20110324: complement(1965839..1966837)	S122		S122A	amino_acid_mutation:single_aa	PMID:19307292
 SPCC188.03		cnd3::ura4+	disruption	cnd3::ura4		syntax_error			cnd3::ura4+	disruption:usual	PMID:10485849
 SPCC188.07	KR54AA	ccq1-KR54AA	amino_acid_mutation	KR-54-AA		syntax_error			KR54AA	amino_acid_mutation:multiple_aa	PMID:29216371
 SPCC188.07	W32->stop	ccq1-1-31	nonsense_mutation	W32*		syntax_error			W32->stop	nonsense_mutation:stop_codon_text	PMID:31269446
@@ -491,6 +510,8 @@ SPCC338.08	D250->stop	ctp1-6	nonsense_mutation	D250*		syntax_error			D250->stop	
 SPCC338.08	G187->stop	ctp1-25	nonsense_mutation	G187*		syntax_error			G187->stop	nonsense_mutation:stop_codon_text	PMID:26130711,PMID:27325741
 SPCC338.08	H160Y,R214*	ctp1-8	amino_acid_mutation		amino_acid_other	type_error			H160Y|R214*	amino_acid_mutation:single_aa|nonsense_mutation:stop_codon_star	PMID:26130711
 SPCC338.08	R201->stop	ctp1-10	nonsense_mutation	R201*		syntax_error			R201->stop	nonsense_mutation:stop_codon_text	PMID:26130711
+SPCC4B3.15	1–506	mid1-delta1–506	partial_amino_acid_deletion	1-506		syntax_error			1–506	partial_amino_acid_deletion:multiple_aa	PMID:10930468
+SPCC4B3.15	RKKRK-691-QNSQS	mid1-delta-NLS*	partial_amino_acid_deletion		amino_acid_mutation	type_error			RKKRK-691-QNSQS	amino_acid_mutation:multiple_aa	PMID:10930468
 SPCC4F11.02		ptc1::ura4+	disruption	ptc1::ura4		syntax_error			ptc1::ura4+	disruption:usual	PMID:7859738
 SPCC576.10c	Q384->stop	rpt3-1	nonsense_mutation	Q384*		syntax_error			Q384->stop	nonsense_mutation:stop_codon_text	PMID:24710126
 SPCC576.15c	W540->stop	ksg1-3	nonsense_mutation	W540*		syntax_error			W540->stop	nonsense_mutation:stop_codon_text	PMID:34534388
