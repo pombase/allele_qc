@@ -1,9 +1,10 @@
 import pandas
 
 autofix_data = pandas.read_csv('../results/allele_auto_fix.tsv', sep='\t', na_filter=False)
+original_allele_data = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
+
 manual_data1 = pandas.read_excel('allele_cannot_fix.xlsx', sheet_name=None, na_filter=False)
 manual_data2 = pandas.read_excel('allele_needs_supervision.xlsx', sheet_name=None, na_filter=False)
-
 manual_data = pandas.concat(list(manual_data1.values()) + list(manual_data2.values()))
 
 cols2keep = ['systematic_id', 'allele_name', 'manual_fix_allele_description', 'manual_fix_allele_name', 'manual_fix_allele_type', 'comment']
@@ -22,6 +23,10 @@ no_fix = manual_data.manual_fix_allele_description.str.contains('cannot fix') | 
 
 manual_data = manual_data[~no_fix].copy()
 
+manual_alleles_dont_exist = manual_data.allele_name[~manual_data.allele_name.isin(set(original_allele_data.allele_name))]
+if not manual_alleles_dont_exist.empty:
+    raise ValueError(f'The following alelle names in the manual changes do not exist: {list(manual_alleles_dont_exist)}')
+
 # Load the autofix, and look for conflicts
 merged_data = autofix_data.merge(manual_data[manual_data.manual_fix_allele_description != ''], on='allele_name', how='inner')
 merged_data.fillna('', inplace=True)
@@ -31,11 +36,17 @@ if not conflict_data.empty:
     print('\033[1;33mConflict between manual and auto fix data printed to manual_auto_fix_conflict_data.tsv\033[0m')
     conflict_data.to_csv('manual_auto_fix_conflict_data.tsv', sep='\t', index=False)
 
+# Remove the non-conflicting ones, since they are already handled by the auto-fix. The conflicts are manually-checked and
+# manual ones are correct.
+manual_data = manual_data[~manual_data.allele_name.isin(set(merged_data.loc[~conflict_logi, 'allele_name']))].copy()
 
-# In some cases I had not added the systematic_id, so we fill from the original allele data
-original_allele_data = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
+# In some cases I had not added the systematic_id and allele_description, so we fill from the original allele data
+
 manual_data.fillna('', inplace=True)
 missing_systematic_id = manual_data['systematic_id'] == ''
 manual_data.loc[missing_systematic_id, 'systematic_id'] = manual_data.loc[missing_systematic_id, 'allele_name'].apply(lambda name: original_allele_data.loc[original_allele_data.allele_name == name].iloc[0])
+manual_data = manual_data.merge(original_allele_data[['allele_name', 'allele_description']], on='allele_name', how='left')
 
+# Reorder the columns
+manual_data = manual_data[['systematic_id', 'allele_name', 'allele_description', 'manual_fix_allele_description', 'manual_fix_allele_name', 'manual_fix_allele_type', 'comment']]
 manual_data.to_csv('manual_changes_formatted.tsv', sep='\t', index=False)
