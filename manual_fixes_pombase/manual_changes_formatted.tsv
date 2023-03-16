@@ -1,4 +1,4 @@
-systematic_id	allele_name	allele_description	manual_fix_allele_description	manual_fix_allele_name	manual_fix_allele_type	comment
+systematic_id	allele_name	allele_description	change_description_to	change_name_to	change_type_to	comment
 SPAC1006.09	win1KM	L1149M	K1149M			
 SPAC1093.06c	dhc1-P1	L1896T	K1896T			
 SPAC10F6.09c	psm3-3B	E1128Q	E1126Q			
