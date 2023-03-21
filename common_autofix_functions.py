@@ -126,6 +126,7 @@ def print_warnings(data: pandas.DataFrame):
             else:
                 print(desc, '    >>>>>    ', new_desc)
 
+
 def apply_name_fix(row):
 
     if row['sequence_error'] == '':
