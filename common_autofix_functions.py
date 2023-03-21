@@ -125,3 +125,15 @@ def print_warnings(data: pandas.DataFrame):
                 print(desc)
             else:
                 print(desc, '    >>>>>    ', new_desc)
+
+def apply_name_fix(row):
+
+    if row['sequence_error'] == '':
+        return ''
+
+    new_description = row['change_description_to']
+    old_description = row['allele_description']
+    name = row['allele_name']
+    if old_description in name:
+        return name.replace(old_description, new_description)
+    return ''
