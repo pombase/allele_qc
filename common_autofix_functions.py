@@ -129,7 +129,7 @@ def print_warnings(data: pandas.DataFrame):
 
 def apply_name_fix(row):
 
-    if row['sequence_error'] == '':
+    if row['sequence_error'] == '' or row['auto_fix_comment'] == 'histone_fix':
         return ''
 
     new_description = row['change_description_to']
