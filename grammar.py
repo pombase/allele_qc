@@ -9,12 +9,12 @@ allowed_types = {
     frozenset({'amino_acid_insertion', 'partial_amino_acid_deletion'}): 'amino_acid_insertion_and_deletion',
     frozenset({'amino_acid_insertion', 'amino_acid_mutation'}): 'amino_acid_insertion_and_mutation',
     frozenset({'disruption'}): 'disruption',
-    frozenset({'nonsense_mutation'}): 'nonsense_mutation',
-    frozenset({'amino_acid_mutation', 'nonsense_mutation'}): 'amino_acid_other',
+    frozenset({'nonsense_mutation'}): 'partial_amino_acid_deletion',
+    frozenset({'amino_acid_mutation', 'nonsense_mutation'}): 'amino_acid_deletion_and_mutation',
     frozenset({'nucleotide_mutation'}): 'nucleotide_mutation',
     frozenset({'nucleotide_insertion'}): 'nucleotide_insertion',
     frozenset({'partial_nucleotide_deletion'}): 'partial_nucleotide_deletion',
-    frozenset({'nonsense_mutation', 'amino_acid_insertion'}): 'amino_acid_other'
+    frozenset({'nonsense_mutation', 'amino_acid_insertion'}): 'amino_acid_insertion_and_deletion'
 }
 
 
