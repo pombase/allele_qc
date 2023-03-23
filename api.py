@@ -1,6 +1,6 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 import json
-from starlette.responses import RedirectResponse, PlainTextResponse
+from starlette.responses import RedirectResponse, PlainTextResponse, FileResponse
 from pydantic import BaseModel
 import pickle
 from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar, disruption_grammar
@@ -12,6 +12,13 @@ from common_autofix_functions import apply_histone_fix
 from protein_modification_qc import check_func as check_modification_description
 import re
 from typing import Optional
+from Bio.SeqRecord import SeqRecord
+from Bio.SeqFeature import SeqFeature
+from Bio import SeqIO
+import tempfile
+import os
+from starlette.background import BackgroundTask
+
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
@@ -314,3 +321,52 @@ async def fix_histone(request: HistoneFixRequest):
     print(request.dict() | {'targets': targets})
     result = apply_histone_fix(request.dict() | {'targets': ','.join(targets)}, genome, 'targets')
     return [AlleleFix.parse_obj({'values': result})] if result != '' else []
+
+
+@app.get("/genome_region")
+async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: int = 0):
+
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic id does not exist')
+
+    gene = genome[systematic_id]
+
+    if 'CDS' not in gene:
+        raise HTTPException(400, 'Only supports genes with CDS for now')
+
+    strand = gene["CDS"].location.strand
+    if "5'UTR" in gene:
+        start_feature = "5'UTR"
+    else:
+        start_feature = "CDS"
+
+    if strand == 1:
+        start = gene[start_feature].location.start
+    else:
+        end = gene[start_feature].location.end
+
+    if "3'UTR" in gene:
+        end_feature = "3'UTR"
+    else:
+        end_feature = "CDS"
+
+    if strand == 1:
+        end = gene[end_feature].location.end
+    else:
+        start = gene[end_feature].location.start
+    feat: SeqFeature = gene['CDS']
+    feat.qualifiers['translation'] = gene['peptide']
+    seq_record: SeqRecord = gene['contig'][start - upstream:end + downstream]
+
+    with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as fp:
+        if strand == 1:
+            SeqIO.write(seq_record, fp, 'genbank')
+        else:
+            rv = seq_record.reverse_complement()
+            rv.annotations["molecule_type"] = "DNA"
+            SeqIO.write(rv, fp, 'genbank')
+
+        return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.gb')
