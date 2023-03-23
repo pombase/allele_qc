@@ -1,4 +1,4 @@
-systematic_id	allele_name	allele_description	reference	change_description_to	change_name_to	change_type_to	comment	add_synonym
+systematic_id	allele_name	allele_description	reference	change_description_to	change_name_to	change_type_to	comment_on_change	add_synonym	add_comment
 SPAC110.03	cdc42-GFP-N	GFP fused to N-terminus	PMID:25837586	GFP-cdc42	GFP-cdc42	fusion_or_chimera	GFP should be before the gene name if it is N-term tag
 SPAC1486.05	nup189n-GFP	GFP fusion gene	PMID:24637836	nup98-GFP		fusion_or_chimera	better to indicate what it's meant by nup189n (I could not find the reference)
 SPAC1565.06c	spg1-GFP	spg1-GFP fusion	PMID:20805322	spg1-GFP		fusion_or_chimera	
@@ -14,35 +14,35 @@ SPAC20G4.02c	fus1(Nt)-cdc12(FH1)-cdc12(FH2)-fus1(Ct)	fus1(1-791)-cdc12(882-1390)
 SPAC20G4.02c	fus1(Nt)-for3(FH1)-for3(FH2)-fus1(Ct)	fus1(1-791)-for3(718-1265)-fus1(1278-1372),integrated at the endogenous locus instead of the native fus1	PMID:35673994	fus1delta::fus1(1-791)-for3(718-1265)-fus1(1278-1372)		fusion_or_chimera	
 SPAC20G4.02c	fus1(Nt)-fus1(2FH1)-fus1(FH2)-fus1(Ct)	fus1(1-868)-fus1(792-1372),integrated at the endogenous locus instead of the native fus1	PMID:35673994	fus1delta::fus1(1-868)-fus1(792-1372)		fusion_or_chimera	
 SPAC20G4.02c	fus1(Nt)-fus1(FH1)-cdc12(FH2)-fus1(Ct)	fus1(1-868)-cdc12(973-1390)-fus1(1278-1372),integrated at the endogenous locus instead of the native fus1	PMID:35673994	fus1delta::fus1(1-868)-cdc12(973-1390)-fus1(1278-1372)		fusion_or_chimera	
-SPAC20G4.02c	fus1-TR1 deleted	TR1 promoter box at -157 deleted	PMID:7791776	(-166)-(-158)		partial_nucleotide_deletion	JPP6, deletes GAACAAAGAA
-SPAC20G4.02c	fus1-TR2 deleted	TR2 promoter box at -238 deleted	PMID:7791776	(-249)-(-239)		partial_nucleotide_deletion	JPP15, deletes TTCTTTGTTC
+SPAC20G4.02c	fus1-TR1 deleted	TR1 promoter box at -157 deleted	PMID:7791776	(-166)-(-158)	fus1-deltaTR1	partial_nucleotide_deletion	JPP6, deletes GAACAAAGAA
+SPAC20G4.02c	fus1-TR2 deleted	TR2 promoter box at -238 deleted	PMID:7791776	(-249)-(-239)	fus1-deltaTR2	partial_nucleotide_deletion	JPP15, deletes TTCTTTGTTC
 SPAC20G4.02c	fus1N-cdc12C	fus1N(1-792)-BamHIsite-cdc12C(888-1841),integrated at the endogenous locus instead of the native fus1	PMID:35673994	fus1delta::fus1(1-792)-BamHIsite-cdc12(888-1841)		fusion_or_chimera	"linker" could be used instead of BamHIsite, but it's quite self-explaining
 SPAC20G4.02c	fus1N-for3C	fus1N(1-792)-BamHIsite-for3C(715-1461),integrated at the endogenous locus instead of the native fus1	PMID:35673994	fus1delta::fus1(1-792)-BamHIsite-for3(715-1461)		fusion_or_chimera	"linker" could be used instead of BamHIsite, but it's quite self-explaining
 SPAC20G4.02c	pfus1:fus1N-cdc12deltaolig	fus1N(1-792)-BamHIsite-cdc12CΔolig(888-1451),expressed from the fus1 promotor at the ura4 locus	PMID:35673994	ura4+::P.fus1-fus1(1-792)-BamHIsite-cdc12(888-1451)		fusion_or_chimera	"linker" could be used instead of BamHIsite, but it's quite self-explaining
 SPAC20G8.05c	cdc15-imp2(IDR) chimera	chimera	PMID:31509478	cdc15(1-312)-imp2(321-591)		fusion_or_chimera	
 SPAC22G7.09c	nup45-GFP	GFP-fusion	PMID:24637836	nup45-GFP		fusion_or_chimera	
-SPAC22H10.07	ral3-cor-C-GFP fusion	ral3-cor-C-GFP fusion	PMID:10574765	ral3-cor1(?-?)-GFP	ral3-cor-C-GFP	fusion_or_chimera	from the paper: cor-C marker was found to represent a fragment of a novel non-essential gene, cor1+
-SPAC23C11.16	plo1-cnp3(fusion)	plo1-cnp3(fusion)	PMID:28497540	plo1-cnp3(384-642)		fusion_or_chimera	
-SPAC23C11.16	plo1-sid4C fusion	plo1-sid4C fusion	PMID:22438582	plo1-sid4(302-660)		fusion_or_chimera	
+SPAC22H10.07	ral3-cor-C-GFP fusion	ral3-cor-C-GFP fusion	PMID:10574765	ral3-cor1(?-?)-GFP	ral3-cor-C-GFP	fusion_or_chimera			Unspecified fragment of cor1: "cor-C marker was found to represent a fragment of a novel non-essential gene, cor1+"
+SPAC23C11.16	plo1-cnp3(fusion)	plo1-cnp3(fusion)	PMID:28497540	plo1-cnp3(384-642)	plo1-cnp3	fusion_or_chimera	
+SPAC23C11.16	plo1-sid4C fusion	plo1-sid4C fusion	PMID:22438582	plo1-sid4(302-660)	plo1-sid4C	fusion_or_chimera	
 SPAC23C4.12	hhp2-CD	swi6-CD fusion	PMID:20383139	hhp2-swi6(69-215)		fusion_or_chimera	
 SPAC24H6.06	sld3deltaC-rad4	chimera sld3 aa 1-600 fused to rad4+	PMID:21593208	sld3(1-600)-rad4		fusion_or_chimera	
-SPAC25B8.19c	loz1-426-522:mtfA-1-230	fusion: loz1 426-522 + A. Nidulans mtfA 1-230	PMID:24831008	loz1(462-522)-Anid\mtfA(1-230)		fusion_or_chimera	
+SPAC25B8.19c	loz1-426-522:mtfA-1-230	fusion: loz1 426-522 + A. Nidulans mtfA 1-230	PMID:24831008	loz1(462-522)-Anid\mtfA(1-230)	loz1(462-522)-mtfA(1-230)	fusion_or_chimera	
 SPAC25B8.19c	pgk1DTATA-loz1-GFP	a Loz1-GFP fusion protein that is expressed from a derivative of the pgk1 promoter containing a deletion in the TATA box.	PMID:31515876		loz1+	wild_type	just an overexpression
 SPAC25G10.03	zip1-GFP	GFP fusion	PMID:28388826	zip1-GFP		fusion_or_chimera	
 SPAC2C4.14c	ppk11-delta8-pmo25-fusion	ppk11-delta8 fused to pmo25+	PMID:20826805	ppk11(305-312)-pmo25	ppk11-delta8-pmo25	fusion_or_chimera	
 SPAC2F7.03c	Pom1-Cdr2C-GFP	fusion,ectopically localized	PMID:19474792	pom1-cdr2(252-352)-GFP	pom1-cdr2C-GFP	fusion_or_chimera	
 SPAC2F7.03c	pom1C-PMT	chimera with PM localising TM	PMID:19474789	pom1(591-1087)-mid1(500-920)		fusion_or_chimera	
 SPAC2F7.03c	pom1delta305N-cdr2C-chimera	Pom1delta305N fused to Cdr2 C-terminus	PMID:24316795	pom1delta(10-303)-cdr2(252-352)		fusion_or_chimera	
-SPAC31G5.18c	hub1-AAKGG-sde2-C	hub1-AAKGG-sde2 fusion	PMID:28947618	hub1-AAKGG-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
-SPAC31G5.18c	hub1-GGKGG-sde2-C	hub1-GGKGG-sde2 fusion	PMID:28947618	hub1-GGKGG-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
-SPAC31G5.18c	ned8-AAKGG-sde2-C	ned8-AAKGG-sde2 fusion	PMID:28947618	ned8-AAKGG-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
-SPAC31G5.18c	ned8-GGKGG-sde2-C	ned8-GGKGG-sde2 fusion	PMID:28947618	ned8-GGKGG-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
-SPAC31G5.18c	ubi4-AAKAA-sde2-C	ubi4-AAKAA-sde2 fusion	PMID:28947618	ubi4-AAKAA-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
-SPAC31G5.18c	ubi4-GGKGG-sde2-C	ubi4-GGKGG-sde2 fusion	PMID:28947618	ubi4-GGKGG-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
+SPAC31G5.18c	hub1-AAKGG-sde2-C	hub1-AAKGG-sde2 fusion	PMID:28947618	hub1-(AAKGG)-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
+SPAC31G5.18c	hub1-GGKGG-sde2-C	hub1-GGKGG-sde2 fusion	PMID:28947618	hub1-(GGKGG)-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
+SPAC31G5.18c	ned8-AAKGG-sde2-C	ned8-AAKGG-sde2 fusion	PMID:28947618	ned8-(AAKGG)-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
+SPAC31G5.18c	ned8-GGKGG-sde2-C	ned8-GGKGG-sde2 fusion	PMID:28947618	ned8-(GGKGG)-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
+SPAC31G5.18c	ubi4-AAKAA-sde2-C	ubi4-AAKAA-sde2 fusion	PMID:28947618	ubi4-(AAKAA)-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
+SPAC31G5.18c	ubi4-GGKGG-sde2-C	ubi4-GGKGG-sde2 fusion	PMID:28947618	ubi4-(GGKGG)-sde2(85-263)		fusion_or_chimera	could use "linker", but aminoacids is more explicit
 SPAC328.06	ubp2-NES	fused to nuclear exclusion signal	PMID:27151298	ubp2-NES		fusion_or_chimera	
 SPAC4H3.11c	ppc89-DUB	DUB fusion	PMID:29975113	ppc89-ubp7(201-875)		fusion_or_chimera	
 SPAC694.06c	mrc1(536-673):mrc(536-673)tandemfusion	two copies of aa 536-673 (i.e. also del aa 1-535,674-1019)	PMID:22024164	mrc1(536-673)-mrc1(536-673)	mrc1(536-673)-mrc(536-673)tandemfusion	fusion_or_chimera	
-SPAC6F6.16c	Pmt3-tpz1(243-420)	Tpz1 amino acids 243-420 fused to SUMO	PMID:24925530	pmt3-tpz1(243-420)		fusion_or_chimera	
+SPAC6F6.16c	Pmt3-tpz1(243-420)	Tpz1 amino acids 243-420 fused to SUMO	PMID:24925530	pmt3-tpz1(243-420)	pmt3-tpz1(243-420)	fusion_or_chimera	
 SPAC890.02c	alp7+NLS	PKKKRKV-fused	PMID:19696784	alp7-SV40\NLS	alp7-NLS	fusion_or_chimera	
 SPAP27G11.10c	nup184-GFP	GFP fusion gene	PMID:24637836	nup184-GFP		fusion_or_chimera	
 SPBC106.01	mph1-delta(1-302)-mis12-fusion	mph1-delta(1-302)-kinetochore fusion	PMID:22825872	mph1delta(1-302)-mis12	mph1delta(1-302)-mis12	fusion_or_chimera	
@@ -51,7 +51,7 @@ SPBC106.01	mph1-ndc80-fusion	fusion	PMID:22184248	mph1-ndc80	mph1-ndc80	fusion_o
 SPBC1105.17	cnp1-tailswap	chimera N-tail swap cnp1 to H3	PMID:25619765	hht1(1-40)-cnp1(21-120)		fusion_or_chimera	
 SPBC14C8.07c	cdc18-NLSdelta138	amino acids 1-138 deleted; T-antigen NLS fused to N-terminus	PMID:9177184	cdc18delta(1-138)-SV40\NLS		fusion_or_chimera	
 SPBC14C8.07c	cdc18-NLSdelta183	amino acids 1-183 deleted; T-antigen NLS fused to N-terminus	PMID:9177184	cdc18delta(1-138)-SV40\NLS		fusion_or_chimera	
-SPBC1604.20c	tea2-N(1-557)-GFP-myo52-C	tea2-N(1-557)-GFP-myo52-C(926-1516) (chimera)	PMID:22137473	tea2(1-557)-GFP-myo52(926-1516)		fusion_or_chimera	
+SPBC1604.20c	tea2-N(1-557)-GFP-myo52-C	tea2-N(1-557)-GFP-myo52-C(926-1516) (chimera)	PMID:22137473	tea2(1-557)-GFP-myo52(926-1516)	tea2N-GFP-myo52C	fusion_or_chimera	
 SPBC1685.15c	Klp5N/klp6C chimera	N terminal domain substituted with klp5 Nterm	PMID:18799626	klp5(1-404)-Klp6(411-784)	klp5N/klp6C	fusion_or_chimera	
 SPBC16A3.05c	GFP-rae1	GFP fusion gene	PMID:24637836	GFP-rae1		fusion_or_chimera	
 SPBC16D10.09	EGFP-pcn1	Pcn1 fused to GFP	PMID:17304223	EGFP-pcn1		fusion_or_chimera		EGFP-PCNA
@@ -62,45 +62,45 @@ SPBC16H5.11c	skb1-slf1-C-chimera	Skb1 with aa 451-485 of Slf1 fused to C-terminu
 SPBC1706.01	pcp89-tea4	pcp89-tea4 fusion protein	PMID:21703453	ppc89-GFP-(AGAGAG)-tea4	ppc89-GFP-tea4	fusion_or_chimera	
 SPBC1706.01	tea4-pcp89 fusion	tea4N-pcp89 fusion protein	PMID:24554432	ppc89-GFP-(AGAGAG)-tea4	ppc89-GFP-tea4	fusion_or_chimera	
 SPBC1706.01	tea4N-cdr2 fusion	tea4N-cdr2 fusion protein	PMID:24554432	cdr2(1-774)-GSlinker-GFP-(PGAGAGAGS)-tea4(1-521)	cdr2-tea4N	fusion_or_chimera	They are not the same construct, but they were used interchangeably, so they are synonyms in the genotype-phenotype sense	cdr2-GFP-tea4N,cdr2-CFP-tea4N,cdr2-mCherry-tea4N
-SPBC17F3.02	nak1*-orb6	Nterm-GPF-Nak1-K39R-Orb6-Cterm fusion	PMID:20805322	GFP-nak1-K39R-orb6		fusion_or_chimera	expressed from pREP41-GFP-derived plasmid
-SPBC17F3.02	nak1-orb6	Nterm-GPF-Nak1-Orb6-Cterm fusion	PMID:20805322	GFP-nak1-K39R-orb6		fusion_or_chimera	expressed from pREP41-GFP-derived plasmid
+SPBC17F3.02	nak1*-orb6	Nterm-GPF-Nak1-K39R-Orb6-Cterm fusion	PMID:20805322	GFP-nak1-K39R-orb6		fusion_or_chimera			expressed from pREP41-GFP-derived plasmid
+SPBC17F3.02	nak1-orb6	Nterm-GPF-Nak1-Orb6-Cterm fusion	PMID:20805322	GFP-nak1-K39R-orb6		fusion_or_chimera			expressed from pREP41-GFP-derived plasmid
 SPBC19G7.09	ulp1-lexA	Ulp1-LexA fusion	PMID:33159083	ulp1-lexA		fusion_or_chimera	
 SPBC1A4.05	rga4delta622-760-blt1-fusion	rga4delta622-760-blt1-fusion	PMID:21849474	rga4delta(622-760)-blt1	rga4delta(622-760)-blt1	fusion_or_chimera	
 SPBC244.01c	Sid4-Ppc89 fusion	C-term of ppc89	PMID:16775007	sid4(1-301)-ppc89(280-783)	sid4-ppc89	fusion_or_chimera	very similar to that of PMID:21131906, but not exactly the same
 SPBC244.01c	sid4-DUB	DUB-fusion	PMID:29975113	sid4-ubp7(201-875)		fusion_or_chimera	
 SPBC244.01c	sid4N-ppc89C	chimera	PMID:21131906	sid4(1-305)-ppc89(280-783)		fusion_or_chimera	very similar to that of PMID:16775007, but not exactly the same
 SPBC25H2.13c	cdc20+-dpb2+	cdc20+-dpb2+ fusion	PMID:22718908	cdc20delta::cdc20-dpb2	cdc20-dpb2	fusion_or_chimera	
-SPBC25H2.13c	cdc20-ct1-dpb2+	cdc20-ct1-dpb2+ fusion	PMID:22718908	cdc20delta::cdc20-Y1520N,D1625G,L1726S,S1904P-dpb2		fusion_or_chimera	
-SPBC29A3.14c	trt1-PK-tpz1	trt1+-PK-tpz1+ fusion	PMID:25131669	trt1-PK-tpz1		fusion_or_chimera	
-SPBC29A3.14c	trt1-PK-tpz1-K75A	trt1+-PK-tpz1-K75A fusion	PMID:25131669	trt1-PK-tpz1-K75A		fusion_or_chimera	
-SPBC29A3.14c	trt1-PK-tpz1-L449A	trt1+-PK-tpz1-L449A fusion	PMID:25131669	trt1-PK-tpz1-L499A	trt1-PK-tpz1-L499A	fusion_or_chimera	typo in pombase
-SPBC2D10.13	ccq1(1-441)-13xMyc-est1	Ccq1(1-441) fusion	PMID:29216371			fusion_or_chimera	
-SPBC2D10.13	ccq1(131-735)-13xMyc-est1	Ccq1(131-735) fusion	PMID:29216371			fusion_or_chimera	
-SPBC2D10.13	ccq1(T93A)-13xMyc-est1	Ccq1-T93A fusion	PMID:29216371			fusion_or_chimera	
-SPBC2D10.13	ccq1-13xMyc-est1	Ccq1 fusion	PMID:29216371			fusion_or_chimera	
+SPBC25H2.13c	cdc20-ct1-dpb2+	cdc20-ct1-dpb2+ fusion	PMID:22718908	cdc20delta::cdc20-Y1520N,D1625G,L1726S,S1904P-dpb2	cdc20-ct1-dpb2	fusion_or_chimera	
+SPBC29A3.14c	trt1-PK-tpz1	trt1+-PK-tpz1+ fusion	PMID:25131669	trt1-9xPK-tpz1		fusion_or_chimera	
+SPBC29A3.14c	trt1-PK-tpz1-K75A	trt1+-PK-tpz1-K75A fusion	PMID:25131669	trt1-9xPK-tpz1-K75A		fusion_or_chimera	
+SPBC29A3.14c	trt1-PK-tpz1-L449A	trt1+-PK-tpz1-L449A fusion	PMID:25131669	trt1-9xPK-tpz1-L499A	trt1-PK-tpz1-L499A	fusion_or_chimera	typo in pombase
+SPBC2D10.13	ccq1(1-441)-13xMyc-est1	Ccq1(1-441) fusion	PMID:29216371	ccq1(1-441)-13xMyc-est1		fusion_or_chimera	
+SPBC2D10.13	ccq1(131-735)-13xMyc-est1	Ccq1(131-735) fusion	PMID:29216371	ccq1(131-735)-13xMyc-est1		fusion_or_chimera	
+SPBC2D10.13	ccq1(T93A)-13xMyc-est1	Ccq1-T93A fusion	PMID:29216371	ccq1-T93A-13xMyc-est1	ccq1-T93A-13xMyc-est1	fusion_or_chimera	
+SPBC2D10.13	ccq1-13xMyc-est1	Ccq1 fusion	PMID:29216371	ccq1-13xMyc-est1		fusion_or_chimera	
 SPBC2F12.13	Klp6N/Klp5C chimera	N terminal domain substituted with klp6 Nterm	PMID:18799626	klp6(1-410)-Klp5(405-883)	klp6N/klp5C	fusion_or_chimera	
-SPBC32H8.12c	GFP-act1	N-terminal GFP fusion	PMID:20587778			fusion_or_chimera	
-SPBC342.05	crb2(1-358)-LZ	del aa 359-778 fusion with C-terminal heterologous leucine zipper	PMID:22792081			fusion_or_chimera	
+SPBC32H8.12c	GFP-act1	N-terminal GFP fusion	PMID:20587778	GFP-act1		fusion_or_chimera	
+SPBC342.05	crb2(1-358)-LZ	del aa 359-778 fusion with C-terminal heterologous leucine zipper	PMID:22792081	crb2(1-358)-LZ		fusion_or_chimera			LZ stands for Leucine Zipper
 SPBC3H7.15	hhp1-CD	swi6-CD fusion	PMID:20383139	hhp1-swi6(69-215)		fusion_or_chimera	
-SPBC4F6.12	pxl1(N)-ppb1(fusion)	chimera Pxl1-1-257 fused to Ppb1	PMID:30332655			fusion_or_chimera	
-SPBC649.05	cut12-hrs1 fusion	cut12-hrs1 fusion	PMID:22438582			fusion_or_chimera	
-SPBC649.05	pcp-hrs1 fusion	pcp-hrs1 fusion	PMID:22438582			fusion_or_chimera	
-SPBC6B1.09c	ctp1:nbs1-FHA/BRCT1-delta	fusion of Nbs1 aa 221-613 to Ctp1	PMID:19804756			fusion_or_chimera	
-SPBC713.02c	ubp15-NES	fused to nuclear exclusion signal	PMID:27151298			fusion_or_chimera	
-SPBC725.13c	psf2-HBD	steroid hormone-binding domain fusion	PMID:19109429			fusion_or_chimera	
-SPBP23A10.09	psf1-HBD	steroid hormone-binding domain fusion	PMID:19109429			fusion_or_chimera	
-SPBP4H10.13	rps2302-GFP	GFP fusion	PMID:29083304			fusion_or_chimera	
-SPCC1322.12c	TetR-bub1-N700delta fusion	delta701-1044 (ectopic SAC)	PMID:31257143			fusion_or_chimera	
-SPCC1322.12c	TetR-bub1-TPR fusion	TetR bub1-delta241-1044 (ectopic SAC)	PMID:31257143			fusion_or_chimera	
-SPCC1442.12	GFP-pps1	N-terminal GFP fusion	PMID:17905925			fusion_or_chimera	
-SPCC1442.12	pps1-GFP	C-terminal GFP fusion	PMID:17905925			fusion_or_chimera	
-SPCC1494.05c	ubp12-NES	fused to nuclear exclusion signal	PMID:27151298			fusion_or_chimera	
-SPCC16A11.17	mcm4td	N-terminus of Mcm4 fused to DHFR degron	PMID:11854402			fusion_or_chimera	
-SPCC18B5.11c	cds1-D312E-FKBP-Cds1cat	fusion- FKBP:Cds1-D312E,150-460	PMID:16618806			fusion_or_chimera	
-SPCC18B5.11c	cds1-FKBP-Cds1cat	fusion-FKBP:Cds1(150-460)	PMID:16618806			fusion_or_chimera	
-SPCC18B5.11c	cds1-rad26	cds1-rad26 fusion	PMID:15173168			fusion_or_chimera	
-SPCC1919.10c	Tea2N-CFP-Myo52C	fusion of Tea2 N-terminal motor domain,CFP,and Myo52 C-terminal domain	PMID:22768263			fusion_or_chimera	
-SPCC338.08	ctp1-N-MBP	MBP fused to Ctp1 C-terminus	PMID:30626735			fusion_or_chimera	
-SPCC645.05c	N-degron:myo2+	Myo2+ fused to DHFR degron	PMID:21422229,PMID:30928696			fusion_or_chimera	
+SPBC4F6.12	pxl1(N)-ppb1(fusion)	chimera Pxl1-1-257 fused to Ppb1	PMID:30332655	pxl1(1-257)-ppb1	pxl1N-ppb1	fusion_or_chimera	
+SPBC649.05	cut12-hrs1 fusion	cut12-hrs1 fusion	PMID:22438582	cut12-hrs1	cut12-hrs1	fusion_or_chimera	
+SPBC649.05	pcp-hrs1 fusion	pcp-hrs1 fusion	PMID:22438582	pcp1-hrs1	pcp1-hrs1	fusion_or_chimera	
+SPBC6B1.09c	ctp1:nbs1-FHA/BRCT1-delta	fusion of Nbs1 aa 221-613 to Ctp1	PMID:19804756	nbs1delta::ctp1-linker-nbs1(221-613)		fusion_or_chimera	added synonym with more correct syntax	ctp1-nbs1-FHA/BRCT1-delta
+SPBC713.02c	ubp15-NES	fused to nuclear exclusion signal	PMID:27151298	ubp15-NES		fusion_or_chimera	
+SPBC725.13c	psf2-HBD	steroid hormone-binding domain fusion	PMID:19109429	psf2-HBD		fusion_or_chimera			The hormone binding sequence (HBD) comes from human ERalpha, cloned from plasmid pHCA/GAL4(848).ER (addgene:108215)
+SPBP23A10.09	psf1-HBD	steroid hormone-binding domain fusion	PMID:19109429	psf1-HBD		fusion_or_chimera			The hormone binding sequence (HBD) comes from human ERalpha, cloned from plasmid pHCA/GAL4(848).ER (addgene:108215)
+SPBP4H10.13	rps2302-GFP	GFP fusion	PMID:29083304	rps2302-GFP		fusion_or_chimera	
+SPCC1322.12c	TetR-bub1-N700delta fusion	delta701-1044 (ectopic SAC)	PMID:31257143	TetR-bub1(1-700)	TetR-bub1-N700delta	fusion_or_chimera	
+SPCC1322.12c	TetR-bub1-TPR fusion	TetR bub1-delta241-1044 (ectopic SAC)	PMID:31257143	TetR-bub1(1-240)	TetR-bub1-TPR	fusion_or_chimera	
+SPCC1442.12	GFP-pps1	N-terminal GFP fusion	PMID:17905925	GFP-pps1		fusion_or_chimera	
+SPCC1442.12	pps1-GFP	C-terminal GFP fusion	PMID:17905925	pps1-GFP		fusion_or_chimera	
+SPCC1494.05c	ubp12-NES	fused to nuclear exclusion signal	PMID:27151298	ubp12-NES		fusion_or_chimera	
+SPCC16A11.17	mcm4td	N-terminus of Mcm4 fused to DHFR degron	PMID:11854402	mcm4-td		fusion_or_chimera		mcm4-td	td stands for "temperature-inducible degron"
+SPCC18B5.11c	cds1-D312E-FKBP-Cds1cat	fusion- FKBP:Cds1-D312E,150-460	PMID:16618806	FKBP-cds1(150-460)-D312E	FKBP-cds1cat-D312E	fusion_or_chimera	
+SPCC18B5.11c	cds1-FKBP-Cds1cat	fusion-FKBP:Cds1(150-460)	PMID:16618806	FKBP-cds1(150-460)	FKBP-cds1cat	fusion_or_chimera	
+SPCC18B5.11c	cds1-rad26	cds1-rad26 fusion	PMID:15173168	cds1delta::cds1-rad26	cds1-rad26	fusion_or_chimera	
+SPCC1919.10c	Tea2N-CFP-Myo52C	fusion of Tea2 N-terminal motor domain,CFP,and Myo52 C-terminal domain	PMID:22768263	tea2(1-557)-CFP-myo52(926-1516)	tea2N-CFP-myo52C	fusion_or_chimera	coordinates from PMID:22137473
+SPCC338.08	ctp1-N-MBP	MBP fused to Ctp1 C-terminus	PMID:30626735	MBP-ctp1	MBP-ctp1	fusion_or_chimera	error in PomBase: "the fusion of the bulky MBP protein to the Ctp1 N terminus (N-MBP)".		MBP stands for maltose-binding protein
+SPCC645.05c	N-degron:myo2+	Myo2+ fused to DHFR degron	PMID:21422229,PMID:30928696	degron-myo2		fusion_or_chimera		degron-myo2
 SPCC645.05c	myo2(myp2-Head)	myo2(myp2-Head)-chimera	PMID:16148042			fusion_or_chimera	
 SPCC645.05c	myo2(myp2-Tail)	myo2(myp2-Tail)-chimera	PMID:16148042			fusion_or_chimera	
