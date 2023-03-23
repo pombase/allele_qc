@@ -104,3 +104,26 @@ SPCC338.08	ctp1-N-MBP	MBP fused to Ctp1 C-terminus	PMID:30626735	MBP-ctp1	MBP-ct
 SPCC645.05c	N-degron:myo2+	Myo2+ fused to DHFR degron	PMID:21422229,PMID:30928696	degron-myo2		fusion_or_chimera		degron-myo2
 SPCC645.05c	myo2(myp2-Head)	myo2(myp2-Head)-chimera	PMID:16148042			fusion_or_chimera	
 SPCC645.05c	myo2(myp2-Tail)	myo2(myp2-Tail)-chimera	PMID:16148042			fusion_or_chimera	
+SPBC36.12c	git7-GFP	git7-GFP	PMID:12456004			fusion_or_chimera	
+SPAC18G6.15	mal3-GFP	C-terminal tag GFP	PMID:15062095	mal3-GFP		fusion_or_chimera	
+SPBC30D10.10c	tor1-N-termGFP	N-term GFP tagged	PMID:18076573	GFP-tor1	GFP-tor1	fusion_or_chimera	
+SPBC1105.17	cnp1(GFP-N)	GFP-N	PMID:18077559	GFP-cnp1	GFP-cnp1	fusion_or_chimera	
+SPBC14C8.16c	bot1-GFP	GFP tagged bot1	PMID:18245278	bot1-GFP		fusion_or_chimera	
+SPAC110.03	cdc42-mCherrySW-psy1TM	replacement of prenylation CAAX box with transmembrane domain	PMID:25837586	cdc42(1-134)-linker-GFP-linker-cdc42(135-188,193-195)-psy1(248-284)		fusion_or_chimera			Prenilation box CAAX missing from Cdc42, SW stands for sandwich, TM is the transmembrane domain of psy1
+SPAC110.03	cdc42-mCherrySW-ritC	replacement of prenylation CAAX box with amphipathic helix	PMID:25837586	cdc42(1-134)-linker-GFP-linker-cdc42(135-188,193-195)-ritC		fusion_or_chimera			Prenilation box CAAX missing from Cdc42, SW stands for sandwich, ritC is the "amphipathic helix of a heterologous mammalian protein Rit, previously shown to efficiently localize to the plasma membrane but not to endomembrane systems"
+SPBC577.06c	stt4(N-GFP)	N-terminal tag	PMID:28784611	GFP-stt4	GFP-stt4	fusion_or_chimera	
+SPAC1006.08	41X-GFP-etd1	Overexpression of GFP-etd1	PMID:29813053		etd1+	wild_type	could be treated as an overexpression of the wt product, since no etd1+ overexpression to compare with
+SPAC1006.08	Overexpression of etd1-D9	41X-GFP-etd1-D9		1-400	etd1-D9	partial_amino_acid_deletion	could be treated as an overexpression of the wt product, since no etd1+ overexpression to compare with
+SPAC20G8.05c	cdc15-GFP	Hypomorphic Cdc15	PMID:29813053	cdc15-GFP		fusion_or_chimera	
+SPCC550.13	dfp1-CFP-2CD	centomere tethered	PMID:31000521	dfp1-CFP-swi6(69-215)-swi6(69-215)		fusion_or_chimera			2CD for 2 ChromoDomains of swi6
+SPAC644.06c	mEGFP-cdr1(delta460-482)	mEGFP=cdr2 binding peptide	PMID:31644361			fusion_or_chimera	
+SPAC25G10.07c	cut7-GFP	C-ter tag GFP	PMID:32327557	cut7-GFP		fusion_or_chimera	
+SPAC3A11.14c	pkl1-3xGFP	C-ter tag 3xGFP	PMID:32327557	pkl1-3xGFP		fusion_or_chimera	
+SPAC1687.20c	mis6-GFP	GFP-C	PMID:34849791	mis6-GFP		fusion_or_chimera	
+SPAC16A10.05c	dad1-GFP	GFP-C	PMID:34849791	dad1-GFP		fusion_or_chimera	
+SPBC1105.17	cnp1-GFP	GFP-C	PMID:34849791	cnp1-GFP		fusion_or_chimera	
+SPBC11C11.03	ndc80-GFP	GFP-C	PMID:34849791	ndc80-GFP		fusion_or_chimera	
+SPBC1861.01c	cnp3-GFP	GFP-C	PMID:34849791	cnp3-GFP		fusion_or_chimera	
+SPBC409.04c	mis12-GFP	GFP-C	PMID:34849791	mis12-GFP		fusion_or_chimera	
+SPCC1020.02	spc7-GFP	GFP-C	PMID:34849791	spc7-GFP		fusion_or_chimera	
+SPCC338.17c	rad21-GFP	GFP-C	PMID:34849791	rad21-GFP		fusion_or_chimera	
