@@ -65,9 +65,9 @@ SPAC694.06c	mrc1-S604A,S673A	S604A,S673A	S604A,S637A			pombase typo
 SPAC6F12.17	rna14-11	R316Q			amino_acid_mutation	
 SPAC6G9.06c	pcp1-14	K848R,L1187P	K846R,L1187P			
 SPAC767.01c	vps1-K42A	K42A	K40A			cerevisiae coordinates
-SPAC7D4.04	atg11(522-552)-LZ	522-552-LZ motif			chimera	
-SPAC7D4.04	atg11(522-583)-LZ	522-583-LZ motif			chimera	
-SPAC7D4.04	atg11(532-583)-LZ	532-583-LZ motif			chimera	
+SPAC7D4.04	atg11(522-552)-LZ	522-552-LZ motif	atg11(522-552)-LZ		fusion_or_chimera	
+SPAC7D4.04	atg11(522-583)-LZ	522-583-LZ motif	atg11(522-583)-LZ		fusion_or_chimera	
+SPAC7D4.04	atg11(532-583)-LZ	532-583-LZ motif	atg11(532-583)-LZ		fusion_or_chimera	
 SPAC821.11	pro1-1	ntG30304A	G392D			
 SPAC890.02c	alp7-L461A	L641A	L461A			typo in pombase
 SPAC8F11.06	brr6.ts8	C192G	C194G			
@@ -164,8 +164,8 @@ SPCC5E4.04	cut1-21	T545S	N547S			https://www.ncbi.nlm.nih.gov/pmc/articles/PMC45
 SPCC645.03c	isa1-C136A	C136A	C180A			
 SPCC645.03c	isa1-C138A	C138A	C182A			
 SPCC645.03c	isa1-C72A	C72A	C116A			
-SPCC645.05c	myo2-LT	+ myp2-aa1622-2104	chimera		chimera	
-SPCC645.05c	myo2-ST	+myp2-aa1923-2104	chimera		chimera	
+SPCC645.05c	myo2-LT	+ myp2-aa1622-2104	myo2-myp2(1622-2104)		fusion_or_chimera	
+SPCC645.05c	myo2-ST	+myp2-aa1923-2104	myo2-myp2(1923-2104)		fusion_or_chimera	
 SPCC645.05c	myo2deltaCt-1-1393,S144A	1394-1526,S144A	1-1393,S1444A	myo2Ct-S144A	amino_acid_deletion_and_mutation	typo in pombase
 SPCC645.05c	myo2deltaCt-1-1393,S144D	1394-1526,S144D	1-1393,S1444D	myo2Ct-S1444D	amino_acid_deletion_and_mutation	typo in pombase
 SPCC736.15	pil1N	pil1(1-266)	267-351		partial_amino_acid_deletion	
