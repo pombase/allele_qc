@@ -1,6 +1,5 @@
 /.venv
 *.pyc
-/data
 /results
 .DS_Store
 manual_fixes_pombase/~*

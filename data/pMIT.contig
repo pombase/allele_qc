@@ -1,0 +1,740 @@
+ID   MK618072; SV 1; circular; genomic DNA; STD; FUN; 19433 BP.
+XX
+AC   MK618072;
+XX
+PR   Project:PRJNA525552;
+XX
+DT   30-JUL-2019 (Rel. 141, Created)
+DT   30-JUL-2019 (Rel. 141, Last updated, Version 1)
+XX
+DE   Schizosaccharomyces pombe isolate MT1 mitochondrion, complete genome.
+XX
+KW   .
+XX
+OS   Schizosaccharomyces pombe (fission yeast)
+OC   Eukaryota; Fungi; Dikarya; Ascomycota; Taphrinomycotina;
+OC   Schizosaccharomycetes; Schizosaccharomycetales; Schizosaccharomycetaceae;
+OC   Schizosaccharomyces.
+OG   Mitochondrion
+XX
+RN   [1]
+RP   1-19433
+RX   DOI; .1093/gbe/evz165.
+RX   PUBMED; 31364709.
+RA   Tao Y.-T., Suo F., Tusson S., Wang Y.-K., Huang S., Wolf J.B.W., Du L.-L.;
+RT   "Intraspecific Diversity of Fission Yeast Mitochondrial Genomes";
+RL   Genome Biol Evol 11(8):2312-2329(2019).
+XX
+RN   [2]
+RP   1-19433
+RA   Tao Y.-T., Du L.-L., Suo F.;
+RT   ;
+RL   Submitted (08-MAR-2019) to the INSDC.
+RL   Dr. Li-lin Du' lab, National Institute of Biological Sciences, 7 Science
+RL   Park Road ZGC Life Science Park, Beijng 102206, China
+XX
+DR   MD5; ba456edb6a94f7762c806ed112042f20.
+DR   BioSample; SAMN11053514.
+XX
+XX
+FH   Key             Location/Qualifiers
+FH
+FT   rRNA            1..2827
+FT                   /product="large subunit (21S) rRNA, rnl"
+FT                   /systematic_id="SPRRNA.01"
+FT                   /primary_name="rnl"
+FT                   /synonym="21S_rRNA"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            2858..2930
+FT                   /product="tRNA Lysine (uuu), mitochondrial"
+FT                   /systematic_id="SPMITTRNALYS.01"
+FT   tRNA            2969..3051
+FT                   /product="tRNA Serine (gcu), mitochondrial"
+FT                   /systematic_id="SPMITTRNASER.01"
+FT   tRNA            3061..3131
+FT                   /product="tRNA Asparagine (guu), mitochondrial"
+FT                   /systematic_id="SPMITTRNAASN.01"
+FT   rRNA            3133..4553
+FT                   /product="small subunit (15S) rRNA, rns"
+FT                   /synonym="15S_rRNA"
+FT                   /systematic_id="SPRRNA.02"
+FT                   /primary_name="rns"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            4591..4665
+FT                   /note="elongator tRNA"
+FT                   /product="tRNA Methionine (cau), mitochondrial"
+FT                   /systematic_id="SPMITTRNAMET.01"
+FT   CDS             join(4885..5288,6499..6843,7925..8792)
+FT                   /codon_start=1
+FT                   /protein_id="QDP17083.1"
+FT                   /transl_table=4
+FT                   /primary_name="cox1"
+FT                   /systematic_id="SPMIT.01"
+FT                   /product="cytochrome c oxidase subunit 1"
+FT                   /colour=2
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0045; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT   intron          5289..6498
+FT                   /number=1
+FT                   /note="group I intron"
+FT                   /systematic_id="SPMIT.01"
+FT   CDS             5290..6444
+FT                   /codon_start=1
+FT                   /transl_table=4
+FT                   /primary_name="cox1-I1b"
+FT                   /product="mitochondrial DNA binding endonuclease Cox1-I1b
+FT                   (intron-encoded)"
+FT                   /protein_id="QDP17084.1"
+FT                   /systematic_id="SPMIT.02"
+FT                   /colour=2
+FT                   /controlled_curation="term=genome organization, protein in
+FT                   cox1 intron-1; cv=genome_org; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in archaea; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100827"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100827"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0110 and Q0115 and Q0120 and Q0255; date=20110719"
+FT                   /controlled_curation="term=warning, intronic ORF;
+FT                   date=20110719"
+FT   intron          6844..7924
+FT                   /number=2
+FT                   /note="group I intron"
+FT                   /systematic_id="SPMIT.01"
+FT   CDS             6965..7816
+FT                   /transl_table=4
+FT                   /primary_name="cox1-I2b"
+FT                   /protein_id="QDP17085.1"
+FT                   /systematic_id="SPMIT.03"
+FT                   /product="mitochondrial DNA binding endonuclease (intron
+FT                   encoded)"
+FT                   /colour=2
+FT                   /controlled_curation="term=genome organization, protein in
+FT                   cox1 intron-2; cv=genome_org; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in archaea; date=20100827"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100827"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100827"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0060 and Q0065 and Q0075; date=20110719"
+FT                   /controlled_curation="term=warning, intronic ORF;
+FT                   date=20110719"
+FT   3'UTR           8793..8817
+FT                   /systematic_id="SPMIT.01"
+FT                   /db_xref="PMID:29954949"
+FT   5'UTR           8921..8960
+FT                   /systematic_id="SPMIT.04"
+FT                   /db_xref="PMID:29954949"
+FT   CDS             8961..9770
+FT                   /codon_start=1
+FT                   /transl_table=4
+FT                   /transl_table=4
+FT                   /protein_id="QDP17086.1"
+FT                   /primary_name="cox3"
+FT                   /systematic_id="SPMIT.04"
+FT                   /product="cytochrome c oxidase subunit 3"
+FT                   /colour=2
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0275; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT   3'UTR           9771..9799
+FT                   /systematic_id="SPMIT.04"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            9819..9890
+FT                   /product="tRNA Arginine (ucu), mitochondrial"
+FT                   /systematic_id="SPMITTRNAARG.01"
+FT   tRNA            9922..9994
+FT                   /systematic_id="SPMITTRNATHR.01"
+FT                   /product="tRNA Threonine (ugu), mitochondrial"
+FT   CDS             join(10175..10858,13385..13864)
+FT                   /codon_start=1
+FT                   /protein_id="QDP17087.1"
+FT                   /transl_table=4
+FT                   /primary_name="cob1"
+FT                   /synonym="cob"
+FT                   /synonym="cytb"
+FT                   /systematic_id="SPMIT.05"
+FT                   /product="cytochrome b, Cob1"
+FT                   /colour=2
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0105; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20090507"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20090507"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20140321"
+FT   CDS             <10859..13282
+FT                   /codon_start=1
+FT                   /protein_id="QDP17088.1"
+FT                   /note="intronic ORF"
+FT                   /transl_table=4
+FT                   /systematic_id="SPMIT.06"
+FT                   /product="mitochondrial DNA binding endonuclease (intron
+FT                   encoded)"
+FT                   /colour=2
+FT                   /controlled_curation="term=genome organization, protein in
+FT                   cob intron; cv=genome_org; date=20070727"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0050 and Q0055; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20070727"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20070727"
+FT   intron          10859..13384
+FT                   /note="group II intron"
+FT                   /systematic_id="SPMIT.05"
+FT   3'UTR           13865..13877
+FT                   /systematic_id="SPMIT.05"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            14083..14155
+FT                   /product="tRNA Methionine (cau), mitochondrial"
+FT                   /systematic_id="SPMITTRNAMET.02"
+FT   tRNA            14161..14232
+FT                   /product="tRNA Phenylalanine (gaa), mitochondrial"
+FT                   /systematic_id="SPMITTRNAPHE.01"
+FT   tRNA            14240..14310
+FT                   /product="tRNA Aspartic acid (guc), mitochondrial"
+FT                   /systematic_id="SPMITTRNAASP.01"
+FT   tRNA            14316..14387
+FT                   /product="tRNA Glycine (ucc), mitochondrial"
+FT                   /systematic_id="SPMITTRNAGLY.01"
+FT   tRNA            14396..14478
+FT                   /product="tRNA Leucine (uaa), mitochondrial"
+FT                   /systematic_id="SPMITTRNALEU.01"
+FT   tRNA            14494..14565
+FT                   /product="tRNA Tryptophan (cca), mitochondrial"
+FT                   /systematic_id="SPMITTRNATRP.01"
+FT   tRNA            14598..14671
+FT                   /product="tRNA Leucine (uag), mitochondrial"
+FT                   /systematic_id="SPMITTRNALEU.02"
+FT   5'UTR           14670..14757
+FT                   /db_xref="PMID:29954949"
+FT                   /systematic_id="SPMIT.07"
+FT   CDS             14758..15531
+FT                   /codon_start=1
+FT                   /transl_table=4
+FT                   /product="F1-FO ATP synthase subunit 6 (predicted)"
+FT                   /protein_id="QDP17089.1"
+FT                   /primary_name="atp6"
+FT                   /systematic_id="SPMIT.07"
+FT                   /colour=7
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0085; date=20070911"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT   tRNA            15552..15624
+FT                   /product="tRNA Histidine (gug), mitochondrial"
+FT                   /systematic_id="SPMITTRNAHIS.01"
+FT   tRNA            15663..15737
+FT                   /product="tRNA Proline (ugg), mitochondrial"
+FT                   /systematic_id="SPMITTRNAPRO.01"
+FT   tRNA            15749..15821
+FT                   /product="tRNA Glutamine (uug), mitochondrial"
+FT                   /systematic_id="SPMITTRNAGLN.01"
+FT   CDS             15956..16639
+FT                   /codon_start=1
+FT                   /synonym="rps3"
+FT                   /synonym="urfa"
+FT                   /protein_id="QDP17090.1"
+FT                   /transl_table=4
+FT                   /systematic_id="SPMIT.08"
+FT                   /product="mitochondrial ribosomal protein subunit S3"
+FT                   /colour=7
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20070727"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0140; date=20070727"
+FT                   /controlled_curation="term=human MRPS24 ortholog;
+FT                   date=20210309"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa;  date=20210213"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates;  date=20210213"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+FT                   /primary_name="var1"
+FT   tRNA            16664..16736
+FT                   /product="tRNA Isoleucine (gau), mitochondrial"
+FT                   /systematic_id="SPMITTRNAILE.01"
+FT   CDS             16916..17062
+FT                   /codon_start=1
+FT                   /transl_table=4
+FT                   /transl_table=4
+FT                   /protein_id="QDP17091.1"
+FT                   /product="F1-FO ATP synthase subunit 8 (predicted)"
+FT                   /primary_name="atp8"
+FT                   /systematic_id="SPMIT.09"
+FT                   /colour=7
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20070212"
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0080; date=20071118"
+FT                   /controlled_curation="term=human MT-ATP8 ortholog;
+FT                   date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates;  date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes;  date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa;  date=20180822"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes only;  date=20180822"
+FT   3'UTR           17063..17077
+FT                   /systematic_id="SPMIT.09"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            17084..17152
+FT                   /product="tRNA Cysteine (gca), mitochondrial"
+FT                   /systematic_id="SPMITTRNACYS.01"
+FT   tRNA            17168..17240
+FT                   /product="tRNA Valine (uac), mitochondrial"
+FT                   /systematic_id="SPMITTRNAVAL.01"
+FT   tRNA            17259..17344
+FT                   /product="tRNA Tyrosine (gua), mitochondrial"
+FT                   /systematic_id="SPMITTRNATYR.01"
+FT   tRNA            17462..17534
+FT                   /product="tRNA Arginine (ucg), mitochondrial"
+FT                   /note="tRNA-Arg(ucg)"
+FT                   /systematic_id="SPMITTRNAARG.02"
+FT   tRNA            17544..17615
+FT                   /product="tRNA Isoleucine (cau), mitochondrial"
+FT                   /systematic_id="SPMITTRNAILE.02"
+FT   tRNA            17637..17718
+FT                   /product="tRNA Serine (uga), mitochondrial"
+FT                   /systematic_id="SPMITTRNASER.02"
+FT   CDS             17808..18032
+FT                   /codon_start=1
+FT                   /transl_table=4
+FT                   /protein_id="QDP17092.1"
+FT                   /primary_name="atp9"
+FT                   /systematic_id="SPMIT.10"
+FT                   /product="F1-FO ATP synthase subunit 9 (predicted)"
+FT                   /colour=2
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0130; date=20080204"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT   3'UTR           18033..18046
+FT                   /systematic_id="SPMIT.10"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            18059..18131
+FT                   /product="tRNA Alanine (ugc), mitochondrial"
+FT                   /systematic_id="SPMITTRNAALA.01"
+FT   lncRNA          18132..18405
+FT                   /primary_name="rnpB"
+FT                   /systematic_id="SPMITNCRNA.01"
+FT                   /product="mitochondrial RNase P RNA"
+FT                   /controlled_curation="term=warning, new gene;
+FT                   db_xref=PMID:29954949; date=20180809"
+FT                   /db_xref="PMID:29954949"
+FT   tRNA            18406..18478
+FT                   /product="tRNA Glutamic acid (uuc), mitochondrial"
+FT                   /systematic_id="SPMITTRNAGLU.01"
+FT   5'UTR           18475..18562
+FT                   /systematic_id="SPMIT.11"
+FT                   /db_xref="PMID:29954949"
+FT   CDS             18563..19309
+FT                   /codon_start=1
+FT                   /protein_id="QDP17093.1"
+FT                   /transl_table=4
+FT                   /primary_name="cox2"
+FT                   /systematic_id="SPMIT.11"
+FT                   /product="cytochrome c oxidase subunit 2"
+FT                   /colour=2
+FT                   /controlled_curation="term=orthologous to S. cerevisiae
+FT                   Q0250; date=20070911"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in bacteria; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in fungi; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in eukaryotes; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in metazoa; date=20100820"
+FT                   /controlled_curation="term=species distribution, conserved
+FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20100820"
+SQ   Sequence 19433 BP; 6561 A; 2780 C; 3064 G; 7028 T; 0 other;
+     aatgtgtaat ttgaatcaat ttctatcctt ttaaaaatac atcataaagt gtactttttt        60
+     aaggatttag ttattaaagg attaattatg gattgctaac cagttaatat taagaggaag       120
+     cttttaaagc ttaattcagc aattttttaa ttgttgtttc tcctaaaggt aaaccactaa       180
+     aaagaaagaa cttcgggttt ttctttaaaa taaactagag gaactgaatc atcttagtac       240
+     tctaaggaaa ataaaataac aatgattatt gtagtagtgg cgaacgaatc attaatagtc       300
+     taacttataa aaatattaaa aaaaattttt accaaagaag agaaaaatgg gttcttcatt       360
+     tttaataagt aataagtaat aaagtaaaat gggaacttaa cctgtttgaa tattggagaa       420
+     ccaatctcca aagactaaat atattaactg agtgatagtg aagagtaccg taagggaaag       480
+     caatgaaata gttaatctat aagcgaagat agtgaatttt aaataaatta ttatcttgta       540
+     ccttttgcat aatgggtcag caagttttaa ttatttgcaa gctgaaaagc cataaagtaa       600
+     ataattaaag acccgaaacc tgacgatctt accatgaaca gattttaagg atcgaaccag       660
+     taatcgttgc aaagattttg gatgatttgt ggtaaggggt gaaatgctaa tcgagttagg       720
+     tgatagctgg ttgtccacga aaccatttta agatgggcac ttcaaaaact aaatgaggta       780
+     cagaaattta ttgccttcaa gaagtttttt cttgttaata ggggatctaa agatttacct       840
+     aaggcgttaa ttaatctcgg aataaattta aaaaagtttg aagtagttag acaattggcg       900
+     ataaggtcaa tagtcaaaag agaaacagct cagatcaaag atttaaagtt ccccaattta       960
+     agttaagtga tttaaagata gtcttactcc ttattcaata agaatatggg cttggaaaca      1020
+     gccattatct aaggagtacg taatagttca cttatccaaa aaaaataata ttttctggag      1080
+     aaaggcatca aaaatttaac ggatcttaaa cttaatactt aaactttggc agtattttaa      1140
+     aaatactggg tagtggaccg atctatataa agatgaagat gaacttttaa gtttattgga      1200
+     tttattagat gcgagaatgc tgacataagt aacgtaaaaa aaggtcaaat tccttttcac      1260
+     cgaaaactga agggttttga cttaaaaagc ttagcttaag tcaaataaag taacaatctc      1320
+     taagctaata aatagtgatg agtaaatctt aacggatctt aaaataaaag ttttattgaa      1380
+     tagaaatttt tattcaggaa aattatccgt tattttaatt gtaccctaaa ccgacactgg      1440
+     tcagttaaga gaatatctta aggtgttgag agaactatgc ttaaggaact cggcaaatta      1500
+     gctctgttac ttcggtataa agagtgttca ttattttatg aactcaataa agagaaccct      1560
+     acaactgttt acttaaaaca cagcacattg ccaaaattaa aaaattatag tataatgtgt      1620
+     gaggtctgct caatgtccta tggttaacaa tacgaacttt aacgagtttt acggaaccca      1680
+     ggataaatag cggctttaac tctgagggtc ctaaggtagc gaaattcctt gtccgataaa      1740
+     tacggtcccg catgaatgac ttaatgatag ggttgctgtc tcaagcatag actcagtgaa      1800
+     attgtaattg ctgtgaagat acagtgttcc ctcagctaga cggaaagacc ctggcagctt      1860
+     tacgatagtt aattattgat taaagaaaaa atcatccaaa aggtgatctc ttctttctcg      1920
+     ctttatctat ttttgttcag tatagaggtt agtcgtttag acaaaaatga gatatcctcc      1980
+     ttaaataata aagatcttta aagtttaaac ttgacattaa ttaattgatc gtttctgtgg      2040
+     ggcgcaggcc tcataaaaaa taactgaggt atcctagatc tatataattt gtctagaaat      2100
+     caaagtatcc agaaacattt tttaagtgtt tcttaattaa agatacatga cgcatataag      2160
+     cataaatagg ttaaactgaa agactaacaa gtcgcacaga tatgtaaata gggttaaatg      2220
+     atccacattg aaacactaat ttagtgtttg tatggaaaac aatgtgctca atgagcgaag      2280
+     ttacgccagg gataacaggt taatagagag ctaaagtaca aatcaaattc tctgtttgac      2340
+     acctcgatgt cgactcaacc tatcctccgg ttgtagcaga ttggaagggt tagactgttc      2400
+     gtctatttaa aaggttacgt gagttgggtt aaatccgtcg taagacagga tggttcctat      2460
+     ctactgaggg aaaaataagc aaattaaaat ttatcttttg tacgcaagga tttagataat      2520
+     tcaatctcta gtttaactat tgttacttaa ataaaagtac tttattcaaa agttaaaaat      2580
+     taagtagcac ggtagtaaag ccaaattgaa caaattaaaa actgaaagca tctcaagttt      2640
+     gaaatttatt taaagagctt atattaagaa agtagaaaac tttccaaaag gacatcctta      2700
+     ggatgtacaa atccttattt tagtaaatca ttgtttagat agatttagtt aattttttaa      2760
+     ccaaagggat tatctctttg ctaatttttt aaataactgg aaattgccta attacacaat      2820
+     tttttttacc atttttttga tgagggtatt gtttaaaggg gatgtagctc aatggttaga      2880
+     gctttcgcct tttaagcgat aggataaggg ttcaaatccc ttcagaccca taaataaaag      2940
+     aactaacttc tcataaaagt gagttaaagg aaaaatagtt ctaattggta agaaggatac      3000
+     ttgctacgta tctggtgaat aaccttgtga gttcgagtct cactttttcc gtaaatattt      3060
+     gttgttgtag ctcaatggta gagcaagtca ctgttaatga cctgatagtg gttcgattcc      3120
+     actcaataac gataaaaata tatataatga gtttgatgtt agctcggtta taacgctatc      3180
+     tagagatttt aacacatgca aatcgaacga atcaacaaaa acaatacatc ctttagggga      3240
+     tgtttgtgtt tttttgtgac gtggtgaaca ggtgagtaaa agggaagaac ggaccttaaa      3300
+     tttcggctaa attccgaata aacacactct tttggagtgt tgtgaaagaa gtgaaaactt      3360
+     tgatttaaga ctggcttctt acgattaaag tagttggaga ggtaaaagct taacaagctc      3420
+     aaatcgtaat catgacacta agtggtgctc tgatcacatt ggctctgaga caacagccaa      3480
+     gatgaacatt tagttcatcc agcagtggag aatattagtc aatgatcgaa agattgaact      3540
+     agtcatctag aagagtgaaa cttttagtta tagctcctta aattaagaaa atttgattct      3600
+     taattttatg taattcttgc caatttccgt gccagcagca gcggttatac ggatagaata      3660
+     agcgtttaac ataataaaaa ggcctaaaaa gtatgtagat ggaaaaaaac aaatcttttt      3720
+     ctagagtaat aaagatgttt gtagtattgt caaataaggg atcaaatccg acaatcttga      3780
+     tgagactgct taagtaaaaa ctacttacaa ttaattactg acattgagat acgaaggctt      3840
+     agatcgcgaa agagattaga tacctctgta gtctaagctg taaacgatta ttgctctccc      3900
+     aatctttttg attgggttta gtgaagacgg taagcaatat gcctggggag tactttcgca      3960
+     agattgaaac ccaaaacatt agacggtctt ggaaatccgc agtgaatcat gttatttaat      4020
+     tagataatcc gctaaaaatc ttacctttcc ttaaaacaat tagttttaat tgttgggtat      4080
+     tgcatggctg tctttagtta atgtcgtaag atgaggttaa ttcccattaa ttaacgaaag      4140
+     ccttcaaaga atttgttttt ctttgtgtta gtgataagct aactttttag agggttaaga      4200
+     caagtcaata tgatccttat ggaaagggct atagacgtga tataaaatct aatccaataa      4260
+     tttttaatat cgaaagattg aagtattatt ataatggtta ggagatttat tcagatttaa      4320
+     atctgtaatt tgatttaatg aaggaggaat tgcgagtaat cactaatcat tacgtagtgg      4380
+     tgaaatttat ctctgagatg tactaactac tcgtcaagcg ctgaaagtat taatctcttg      4440
+     aagaagacat tcatttgttt tccaaaggtg ttgtgcaatt agtgttaagt cgaaataagg      4500
+     taaccgtagt ggaagttgcg gttgaataat taattcaggt taaccccccc ccaaaaaata      4560
+     aaatacatcc atatcaaaaa gatgttaatt gttggtatag tttaattggt taaaataatc      4620
+     tcctcatgtg agattgatct ataggttcga gcccttttac caacttttcc ttaaccacat      4680
+     ctgtttaagt caaaaaatct taaatggtag gaaaccttta aacaaagttt aaaaaagtta      4740
+     ttaaataatc ttaatgatct tttcatctac cctaaaatat tgaatccttt taaaatagtt      4800
+     taataaatta gcttttggat gaaaactaaa aatttttttt taacttaaac ttatttagaa      4860
+     attaataatt tagtcttgag tttaatgaac tcttggtgga cttatgttaa tagatggata      4920
+     ttctcaacta atgctaagga tattgccata ctatatttat tattcggatt ggtatctggg      4980
+     ataattggat ctgtattctc ttttataatt agaatggaac tatcagctcc aggatctcaa      5040
+     ttcctttctg gaaatggtca attatacaat gttgcaatct cagcacatgg tatacttatg      5100
+     atttttttct tcattattcc tgctttattt ggtgcatttg gtaattattt agtacctctt      5160
+     atgataggtg ctccagatgt tgcttaccct agagtaaata atttcacatt ctggttacta      5220
+     cctcctgctc taatgctatt attaatttct gcattaacag aagaaggacc tggtggtggt      5280
+     tggacggttt taaagccgca gacaaaattg tctgaaaact cttctcgatg cgaaaaagtc      5340
+     ctctactcgg aagtaattac tcagttaatt tattttttaa ctagtaaaaa gattactaac      5400
+     ttggggaaaa ttcgcctggt taaatccatc agagactcgt ttctatcaca attagaaaat      5460
+     attttatgtt tctttttggt ttatagaaca acatactctt tcggagtgtg tttaatgaag      5520
+     aggttcttat ttaataaatt ttttaataga catcctttta caagggtaaa aagctgtttt      5580
+     tcatcatctt caccatcaaa attctctttt actcaatggt tagtaggatt tactgatggt      5640
+     gatggttgtt ttagtatttc aaaacaaaaa ataaaaaatg gcaaaaataa atggtctctt      5700
+     acttttaaat taacacaaaa tctttataat tatagaattt tatattttat taagagaaat      5760
+     ttaggtattg gttcacttta taaagaatct tcaactaata cagtaatata tagattaaga      5820
+     agaagagagc atcttaaaaa gattatagat atttttgatc aattccctct tttaactaaa      5880
+     aaatattggg attattattt gtttaaaaaa gcattcttaa ttttagagga cgctaatcta      5940
+     aattcttttg aaaaaaatag taaactagaa gagatcagaa tagagaaaaa gtctttaaaa      6000
+     caatattctc cagttaattt agaaaaatat ttaacaaagt cttggttaat tggatttatt      6060
+     gaagcagaag ggagctttta tttactacaa aaaagccctg taagaataat tcatgggttt      6120
+     gagattactc aaaattatga acaaccccta cttgctcaga tttcagagtt cctatttaat      6180
+     tctcaaatct caccaaaaat aaaatcaaaa aaaaattcct taattacaaa ttattcctta      6240
+     tcaactagtt caaaagaaag aatgttattt ctttcatctt attttgaaaa ttgttttaaa      6300
+     ggagtaaaat cattagaatt taaaatttgg tctagatctt tacgtaaaaa ttataatttt      6360
+     gaacagcttt taagagctag agatttaatt agaaaattaa aaaataaata ttcccgagga      6420
+     tcacaacatc caaaggataa ataaaataag ttcaaggtat agtccgatca agattgagaa      6480
+     atcttgttaa ctaaaatgat atccaccact atcaagtatc acttctcata gtggtccagc      6540
+     tattgatcta gctattttaa gtttacaatt aactggtatt tcatcaacat taggatcagt      6600
+     aaatttaata gcgacaatga ttaatatgag agctccagga ttaagtttat atcaaatgcc      6660
+     attatttgca tgggctataa tgattacatc aattctatta ctgcttactt taccagtttt      6720
+     agcaggtgga ttatttatgt tattctcaga tagaaattta aatacttcat tctatgctcc      6780
+     tgaaggtggt ggtgaccctg tactttacca acatttattc tggttctttg gtcatccaga      6840
+     ggtcaattta ataggcctct taacgttgct atatgctgga actacttgaa aaatactaga      6900
+     taagtgtttt tgttttaaat actccaagaa aaacaccaga ttagtgttta tttttatagt      6960
+     aaaaatgtta aaacaattaa gtatatcagc aggtaacctt ttgaataagg gaacctcaga      7020
+     gactttacgc aacgaaatca caacaaaaaa agtttctatt catctcccta aacacttaaa      7080
+     accagctaat gattctcaat ttggtcacta tttagcaggt ttaattgatg gtgatggtca      7140
+     ttttagtagt aaacaacaat taattattgc ttttcactct ttagatatac aattagctta      7200
+     ttatattaaa aaacaaatag gttatggtat tgtacgtaaa attaaagata aaaatgctat      7260
+     tctttttata atagctaact ctaaaggaat tgaaagagta ataactttaa ttaataataa      7320
+     atttagaact actagtaaat ataatcagat tattaataat atatttgctc atcctagatt      7380
+     taaagaattt agtaaaacta ttactttagg tttaaattca aataataatt taaataatca      7440
+     ttggctagct ggattctcag atgctgatgc tagttttcag attaaaattt taaataggga      7500
+     caaaaaaata gaagttcgat tgaactatca aatagatcaa aaaaaagagt atcttttgag      7560
+     tttaattaaa gataatttag gtggtaatat aggctatcga aaaagtcaag atacttatta      7620
+     ttatggttct actagttttg gttcagctaa aaaagttatt aattattttg ataattatca      7680
+     tttgctatct tctaaatata ttagctattt aaaatgaaga aaagcttatc ttattattca      7740
+     agaaaataaa catttaacag aatcaggact ttctcaaata aaaaaacctc atccctatcg      7800
+     gaagaatatt aattagattt gttgagattt aaaataaagt cctaacaagg gtataaagct      7860
+     tttgagtgtt aaaaagaata aatcaccttt tgggtgattt tttttcatta accaaaattt      7920
+     attgttatat tttaattatg ccagctttcg gtgttgttag tcacattatt cctagtttag      7980
+     ctcataaacc tattttcggt aaagaaggta tgctttgggc tatgttaagt attgctttat      8040
+     taggattaat ggtatggtct catcacttat tcacagttgg tttagatgtt gatactagag      8100
+     cttatttcag tgctgcaact atggttattg caattccaac aggtattaaa atcttcagtt      8160
+     ggttagctac tttaacaggt ggtgcaatac aatggtcaag agtacctatg ttatatgcta      8220
+     ttggtttctt aatcttattc acaattggtg gattaacagg tgttatatta agtaattcag      8280
+     tattagatat cgctttccat gatacttatt tcgttgtagc tcacttccat tacgttctgt      8340
+     caatgggtgc attatttggt ctttgtggtg catactacta ttggagtcca aaaatgtttg      8400
+     gattaatgta caatgaaact ctagcttcaa tccaattctg gattttattc ataggtgtta      8460
+     atattgtatt cggtcctcaa catttcttag gattaaatgg tatgcctaga agaataccag      8520
+     attatccaga tgcatttgtg ggatggaatt ttgtatcaag tattggttca gtaatttcta      8580
+     ttctttcatt attcctattt atgtatgtta tgtatgatca atttacatca aatagagtgg      8640
+     ttaaaacaaa tccttattta atccctagct attttgatga taatgtaatc ttcgtaaatg      8700
+     aaaaattagg ggtagctcaa tcaatagaat ggttactaca ttcaccagta cacgaacacg      8760
+     catttaatac attacctaca aaaagtattt aatttaaaat cttaaccccc cttttatttt      8820
+     ataaacttta ttccaattta aaaattggag agggagattg aaggataatt tagctatcct      8880
+     attcaaaatt gtatctttat aattttttta ttccttatat gtgagagaac actattgaga      8940
+     taaactaatt tagcttaaac atgaatcttt ctactaaatt tcaaggacat ccttatcata      9000
+     ttgtaagtgc gtcaccttgg ccatttttct tatctgtagt attattcttt aactgtttag      9060
+     cagctacatt atatttacat ggatacaaac attcatcagt attctttgga atcagtttct      9120
+     taggtttatt agcaactatg tatttatggt ttagagatat gtcaactgaa gctaatattc      9180
+     atggtgcaca tacaaaagca gtaacaaaag gattaaaaat aggatttatg ttattcctaa      9240
+     tttctgaaac tttcttattt gcttctattt tctgggcttt cttccatagt tcattatcac      9300
+     ctacttttga attaggtgca gtatggccac cagtaggaat agcagataaa acaatagatc      9360
+     cattagaagt ccctctatta aatacagtaa ttttattaac ttctggtgct agtttaactt      9420
+     atgctcatta ttcattaatt gctagaaata gagaaaatgc tttaaaaggt ttatatatga      9480
+     ctatcgcttt atcattctta ttcttaggag gtcaagctta tgaatactgg aatgctccat      9540
+     tcactatttc agattctgtt tatggtgcta gtttctattt tgctactggt cttcatggta      9600
+     ttcatattat tgttggtaca attctacttc ttgttgctac ttataatatt tatacttacc      9660
+     acttaactaa tactcatcat aatggatttg aatgtggtat ttattattgg catttctgtg      9720
+     atgttgtttg gttattcctt tatttaacta tttatatttg gggtagctaa ggcttacttc      9780
+     aatttttccc ccctttttat atcttatttc tctaaaatag tctgtatagc tcaatggtag      9840
+     agcatctcac ttctaatgag tcgatctaag ttcgattctt agtacagatt ccacacctag      9900
+     aaggtgtgta tttttttttt agctaattta actcaattgg tagagtgcgt accttgtaag      9960
+     tacgaagtta gaggttcaat tcctctaatt agcaatccct ttcccatatt tttggtataa     10020
+     gaggatctca gatagtatct aacctatctt atcttttatt atccaatatc cttttaataa     10080
+     gatttggatc ttttttccca attccttcaa atttttgact atttatcgat aatgattgtt     10140
+     caatttagaa gggataattt caaatttaat ttttatgaaa attttaaaat ctaatccttt     10200
+     tttagctttg gctaataatt atatgattga tgctcctgaa ccttcaaata tttcatactt     10260
+     ctggaatttt ggttctcttt tagcttgtgt attagttatt caaattgtaa ctggtatact     10320
+     tttagcttgt ttttatattc ctaatatgga tttagctttc ctttcagttg aaagaattgt     10380
+     tagagatgta aattatggtt tcttattaag agctttccat gcaaatggtg ctagtttctt     10440
+     ctttatcttc ttatacttac acataggtag aggtttatat tatggttctt ataaatatcc     10500
+     aagaacaatg acatggaata ttggtgttat tatcttctta ttaactatta ttactgcctt     10560
+     tttaggttac tgtttaccag ctaatcaaat gtcattctgg ggtgcaactg ttattactaa     10620
+     tttattatca gctgttcctt tcattggtga tgatttagtt catctattat ggggtggatt     10680
+     tagtgtatct aatcctactt taaatagatt cttctcactt cactatttaa tgccttttgt     10740
+     tattgctgct ttatcagtaa tgcatttaat tgctctacat actaatggtt catcaaatcc     10800
+     attaggtgta acagctaata tggacagaat cccaatgaac ccgtattatc tgataaaatt     10860
+     gcgccgttgt ggtatatatg tgtaccctca tagagaaagg gatatcttgt gtgtaaagat     10920
+     atgaacaata cacttaggta gctggggaaa cccaatgccg aacagagcat gtgtacagaa     10980
+     ggtccttcct gtaacgaaac agataagttc agatggatca gttcaaatag atacggttag     11040
+     agctgtattg cccgaattcc aattcccatc tcaccctcag ataggtgatt gtcttagctg     11100
+     aatagagaca ttcttctcta gatctttggt tggcttttat gaccaaggat acacaccagg     11160
+     agaagagagt tgtaccaata gtacaattaa gggaatgagt ggaaaaccta cgtctatcaa     11220
+     ctcaaacata tatacaacta cgggtcccgc taaggtcagt aatgactatg cggtcagaga     11280
+     tcctggagta gctgttgatc attttgatca atacggtcct ttgaaagagg gaagaagttt     11340
+     gaactctgca aagatttcaa cacagtgaag tggatcagct acattaaagt cttccaatag     11400
+     atcaatattt aatattggtt taggatacat taatactttt ttaggggtat ctaatgtaag     11460
+     aggatttagt acaggatcag gacgatcaaa aaatgtacta aataaactag acgatttatc     11520
+     taaacgatca aaaaattatc ctaatcttgt aattgataga aatctctaca aagatttcct     11580
+     attaaatcga gatatgttcc ttattgctta taataaatta aaatctaatc ctggtatgat     11640
+     gactcctggt cttaaaccgg atactttaga tggaatgtct atagatgtta ttgataaaat     11700
+     tatccaaagc cttaaatctg aagaatttaa cttcactcct ggtagacgta tcttaattga     11760
+     taaagccagt ggtggaaaaa gaccattaac aattggtagt cctcgagaca aattagttca     11820
+     agaaattctt agaatagtcc ttgaggctat ctatgaacca ttatttaata ctgcttctca     11880
+     tggatttaga ccaggtcgaa gttgtcattc tgctcttaga tctattttca ctaattttaa     11940
+     aggttgtact tggtggattg aaggagatat taaagcttgt tttgattcta tccctcatga     12000
+     taaattaatt gctctattat cttctaaaat taaagatcaa cgatttattc aattaattcg     12060
+     taaagcttta aatgctggat atctaactga aaatagatat aaatacgata ttgttggaac     12120
+     tcctcaaggt tctatagtta gtcctatctt agcaaatatc taccttcatc aattggatga     12180
+     atttattgaa aacctaaaat cagaatttga ttacaaaggt ccaatagctc gtaaaagaac     12240
+     ttctgaatct agacatcttc attatctaat ggcaaaagcc aaaagagaaa atgctgattc     12300
+     aaaaacaatt agaaaaatag cgattgaaat gcgtaatgtt cctaataaga tacatggtat     12360
+     tcaatctaat aaactaatgt atgttcgata cgctgatgat tggatagttg cagttaatgg     12420
+     aagttatact caaactaaag agattttagc taaaattacc tgtttctgtt catcaattgg     12480
+     actaacagta tctccaacta agactaaaat aactaattca tatacggata aaatactttt     12540
+     ccttggtact aatattagcc attctaaaaa tgttaccttt agtagacatt ttggtatact     12600
+     tcaaagaaat tctgggttta ttttactttc tgctcctatg gatcgaattg caaaaaaact     12660
+     tagagaaact ggacttatgc ttaatcataa aggtagatct gttattagat ggttacctct     12720
+     tgatgtacga caaattattg gtttagcgaa ttctattatt agaggttacg ataattatta     12780
+     ttcttttgtt cataatagag gaagatttgc tacttacgtt tacttcataa ttaaagactg     12840
+     tgttcttcga acattagctc ataaattatc attaggtact agaatgaaag taattaaaaa     12900
+     atttggtcct gacctttcta tctatgatta caactctaga gatgaaaata ataaaccaaa     12960
+     attaattacc caattattta aaccttcttg gaaagttaat gtttggggat ttaaatctga     13020
+     caaagttaaa ttgaacatta gaacacttta tgcttctcac ttatcaatgg ctaacttaga     13080
+     aaatctacag tgtgctgctt gtcaaagtac ttataaagtg gaaatgcatc atgttagaca     13140
+     gatgaaaaat cttaaaccaa tcaaaggtac tttagattac ttaatggcaa aagcaaatag     13200
+     aaaacaaatt ccattatgta gatcttgtca catgaaactt catgctaata agttaactct     13260
+     taatgaggat aaaaaagttt agatatctta aatgtagtgg agagccgtat aattacgaaa     13320
+     gtatcccgta cggttcggtg acgagccgtg tcaaccctgc aaagggaatg cgtcttagtt     13380
+     caatgatttg ataacaatat ttatcttctt aatcggtata aattatatgg cattctataa     13440
+     tccatatgga tttatggaac cagattgtgc tttaccagcg gatcctctaa aaactccaat     13500
+     gtctattgtt ccagaatggt atttattacc tttctatgct attttaagag ctatacctaa     13560
+     cttccaatta ggagttatag caatgttatt atcaatctta gtattactat tattaccatt     13620
+     attagatttc tcagctatta gaggtaatag ttttaaccca tttggtaaat tcttcttctg     13680
+     gacatttgtt gccgattttg taattcttgc atggattggt ggatcacatc cagaaaacgt     13740
+     ctttatcaca attggtgcta ttgctacaat cttctatttt agctacttct ttattttaat     13800
+     accagtatat actatattag gtaatacatt aattgattta aatttaagct caattaaacg     13860
+     ataatctctt ccccctttac actatataaa aatatcttat ttaaacagta taatatttaa     13920
+     taaaaagctc atcaaaaggt atgaataaaa gttttttaca tagattaggt aataaaacat     13980
+     tctttgggtg ttagtagtga ttagaagaag ttgatctttt agggatttat ttttatcaga     14040
+     atttttacgg tcaattttta tctaattaaa tgtgaataag tttgcgattt aatgtaattg     14100
+     gttaacatct ctgactcatg atcagtgtat taaggttcaa gtccttaggt cgcactttat     14160
+     gctctgataa cttaacggtt aaagtgcagt attgaagctg ctgagatatt ggttcgattc     14220
+     catttcagag caaataaaag aatctgtagc ttaaagtaaa gtatcgcctt gtcacggtga     14280
+     tggatgccca ctcgtactgg gtcagattcg tttaagcaga tataagtcaa ttggcagacc     14340
+     ttctgatttc cacttagatt atgttcgttc gaatcggact atctgcatta aataagccta     14400
+     aatgctggaa tttggtagac agaacaaact taagatttgt cgctttcgag cgtgttggtt     14460
+     cgagtccaac tttaggtata actaaaaaaa aaaaagagta tagtttaatt ggtaaaactt     14520
+     ctgattccaa attagacatt gttcgttcaa gtcggactgc tcttgatttt ttattctttg     14580
+     atctgttagg gaagtatgca gatgtgatga aattggtaaa catgtttacc ttaggagtaa     14640
+     aatcttgaag gttcgaatcc ttccatctgt aggataaaaa atctctaaaa gatttttctt     14700
+     agttaaaatc ttaattgatt actaaaaata ctctacaaaa tttttatatt tttttaaatg     14760
+     tttattacaa gtcctttaga acaattcgaa ttaaataatt atttcggttt ctatcttttt     14820
+     aattaccatt ttgatttctc taattttggt ttctatttag gtttaagtgc attaattgct     14880
+     atttcattag caataataaa tttaacacca tatggatcag gagctaaaat agtacctcaa     14940
+     aaatttggta tagcaatgga agctatttat tttactatgt taaatttagt tgaaaatcaa     15000
+     attcatagtt caaaaactgt atcaggacaa agctatttcc cattcatttg gagtttattt     15060
+     gttttaatct tattttctaa tttcttagga ttaattcctt atggttatgc tactactgct     15120
+     caattaatct ttactttagg tttaagtatt tctattttaa ttggtgctac tattttagga     15180
+     ttacaacaac ataaagctaa attctttgga ttattcttac cttctggtac tcctactcct     15240
+     ttaattcctc ttttagtttt aattgaattc gtttcttata ttgctagagg tttaagttta     15300
+     ggtattcgat taggtgctaa tattatagca ggtcatttaa caatgtcaat tttaggaggt     15360
+     ttaatcttta ctttcatggg attaaatctt attactttta ttattggttt cttacctatt     15420
+     acagttttag tcgctatctc tttattagaa tttggtattg cttttattca agcttatgta     15480
+     ttcgctattt taacttgtgg attcattaat gatagtttaa accttcacta attttctccc     15540
+     cctattttta tggtgattgt aattcaatgg tagaatgctt atttgtggca taagaagttc     15600
+     ttggttcgat tccaagtaat cacccaatca aaattatata actctcttta aaaagtgttt     15660
+     aacggataga aacatgtatt ggttcatgta cttgctttgg gtgtgagaat ttgttagttc     15720
+     gaatctaacc tatccgataa taagtgattg ggttgttgac taataggtaa gtccctgaaa     15780
+     tttgacttca gtctatgtaa gttcgaatct taccatccca ttacttaaac atctttaaga     15840
+     tgttcctaaa ccatccaaaa aaaaaacact ttattagtgg gatggtctct tttttattta     15900
+     agtatttcca aaatcaatta ggaaccaatt agggtttctt aaatttctaa tcaaaatgca     15960
+     aaaaaataat ttaaaaaatt taattactac tattgtaact aatgcttttt ttaatcaaaa     16020
+     agctaatttt tcaatacctc ttaaaggtgt tattggagaa aaaagaccat caatcttaat     16080
+     aggaaatatt aatataaatt ttaaaagtga ttctttaatt gaagtatctt tcccttatta     16140
+     tcctttactt aataaaaatt atccaaatcc ttcaattata agtaatatta tacaaaaagc     16200
+     tctttcaaat catcttttat attcatctaa aaattactct tttattgtta atattagagc     16260
+     tcttcctatt tcaactcctt atggaagtag tttaatcttt tcaaaatata tagcaataat     16320
+     aataggatca aatccaaaaa tagcttctac attatggata gatcctaaac gatttattaa     16380
+     tttacccaaa ttacaaagtg attctatatt taaaatttta ggattaaatg taccaaaagg     16440
+     atggaaaggt attcatatct cattaaattt aattaaatga aatagtctat catcaagagg     16500
+     acgaataact aatataatta aaggtagtgt accattaaca aataattcta atggatatga     16560
+     tgaaagttct ttagctattt attctaaaat gggtactatt caaattaagg ttagattgtc     16620
+     ttattcttca aatctttaat tgtttccccc ttcaatcatt taaagttctt taacttaaaa     16680
+     ggtcagagtg cagacttgat aagtctgtgg tattggttcg attccaataa gaactagcca     16740
+     aataaattaa tccattacaa tataattaat accctttaaa agttgtatgg aatttttcaa     16800
+     tgaagtaaaa taactcccaa atctttattt ttctttaaac ctttagtaac tatcaattta     16860
+     aaagtgaaaa agataaaaaa taaagaaacc ctatagggtt actcaaatca ttaatatgcc     16920
+     acaattagta ccattctatt ttattaatat tttatctttt ggttttttaa tctttactgt     16980
+     tttattatat atttcatcag tatatgtatt accaagatat aatgaattat ttatctcaag     17040
+     atctattata agttctttat aatttaaccc ctccaaaagt attgataatg ttcagtggtc     17100
+     tgaaattgaa tttgcaaaat ttgatatatg agttcaattc tcatcattat cttttaccat     17160
+     atttattagg agaatagctt aattggtaga gcacttacct tacaagtaag attataaggg     17220
+     ttcaaatccc ttttctccta tttcatctct aaaaaaaagg ggagaattct tatgttggtt     17280
+     ttaagaggtg agttgtagcc tcattaggtc aatcctatcg caggttcgat tcctgctctc     17340
+     ctcattactc aaaagggagt aaaatcccct ctctcatctt ttttagtttt aattaataat     17400
+     aaaatggcat ccataactaa tttagtattg taaaagggaa aatattttct taatatttat     17460
+     tgcactttta gcttaattgg ttagagtaac aatcttcgaa attgttagta taggttcaaa     17520
+     tcctataaag tgttaatgag gtaaggatta tagcttaacg gttaaagcag agagctcata     17580
+     actcttgtat attggttcga ttccagtttg tcctaattta tttttcctct ttaattggaa     17640
+     gggtgtccga gtggtttaag gagcgatatt tgagctattg tgatttattc atcgcaggtt     17700
+     cgaatcctgc ccctttcgaa agtctacaga taaaaaaaat cacatttctt tttgttagaa     17760
+     tagtaaactc tagctgtaga gagttaaatt catctaaatt ttaaaatatg atacaagctg     17820
+     caaaatacat tggtgctggt ttagctacaa ttggtgttag tggtgctggt gttggtattg     17880
+     gattaatctt cagtaactta atctcaggta cttcaagaaa cccatcagtt cgacctcact     17940
+     tattctcaat ggctatccta ggattcgcct taacagaagc tacaggttta ttctgtttaa     18000
+     tgttagcgtt cttaattatc tacgctgctt aatttccccc tttaaaaaag agaatactgg     18060
+     ggatttaatt taattggtta gaatattgtg tttgcaccac aaaaatctgg tttcgagtac     18120
+     cagaatctcc attttccccc tccaaaacat tttatttgaa tgtttttaaa ctagaatctg     18180
+     tttgaagaga atttgaataa ttctttggaa agtttggatc actcataaca ttagaatagt     18240
+     atttgtttaa agtggttaat aaaaaagaaa cccaagaggg taagtctact aatattaaag     18300
+     aaagaagaat tcagaattaa attctgaaag tgttaaaata gtagttcatt tttaattttt     18360
+     agtaatttca aatataacag aatccatctt ataagattcc tagttggctc tattgtctaa     18420
+     tggttaagac cttacatctt cattgtaaat atcttggttc gattccaagt agggctactt     18480
+     aaataataat tttgaaacta ttacttttcg gatattatct tatttgttct caatttatta     18540
+     ttattaactc aatgtgctct ctatgttatt ttttaactct atattaaatg atgccccttc     18600
+     tagctgggct ctttatttcc aagatggtgc atctcctagt tatttaggta taacacactt     18660
+     aaatgattat cttatgttct atctaacttt catctttatc ggtgtaatct atgctatctg     18720
+     taaagctgtt atagaatata attacaatag ccatcctatt gctgcaaaat atacaactca     18780
+     tggttcaatt gttgaattca tttggacttt aattccagct ttaatcttaa ttttagttgc     18840
+     tttaccatca ttcaaacttt tatacttatt agatgaagta caaaaaccaa gtatgactgt     18900
+     taaggcaatt ggaagacaat ggttctggag ttatgaatta aacgattttg ttactaatga     18960
+     aaatgaacca gtttcatttg atagttatat ggtaccagaa gaagatttag aagaaggtag     19020
+     tctaagacaa ttagaagtag ataatcgatt agttctacct atagatacac gaataagatt     19080
+     aatcttaaca agtggtgatg ttatccatag ttgggctgtt ccttctttag gtataaaatg     19140
+     tgattgtatc cctggtagat taaatcaagt ttctttatct attgatagag aaggtttatt     19200
+     ctacggacaa tgtagtgaac tttgtggtgt acttcattca tctatgccta ttgttgttca     19260
+     aggtgtatct cttgaagatt tcttagcttg gttagaagaa aattcataac ctccccccta     19320
+     aagtgtttat taaatgatga actcaaatag agaataatca agttaaataa tagtaagata     19380
+     agtactaaat tagattttat aaaattccaa agtataaata tttttatata tgt            19433
+//
