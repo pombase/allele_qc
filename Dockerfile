@@ -21,5 +21,6 @@ RUN apt-get install bash
 
 COPY ./*.sh /api/
 COPY ./config.json /api/
+COPY ./data /api/data
 
 CMD ["bash", "docker_start.sh"]
