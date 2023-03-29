@@ -362,7 +362,6 @@ SPBC30D10.17c	W212->stop	smi1-284	nonsense_mutation	W212*		partial_amino_acid_de
 SPBC31E1.03	73,Y72A	hub1-YA	partial_amino_acid_deletion			amino_acid_deletion_and_mutation	type_error			73|Y72A	partial_amino_acid_deletion:single_aa|amino_acid_mutation:single_aa	PMID:15620657
 SPBC32C12.02	-C195A	ste11-Mb1	nucleotide_mutation	C195A			syntax_error			C195A	nucleotide_mutation:single_nt	PMID:10982411
 SPBC32C12.02	-G149T	ste11-TR1 box mutant	nucleotide_mutation	G149T			syntax_error			G149T	nucleotide_mutation:single_nt	PMID:10982411
-SPBC32F12.09	I42A E44A	rum1 BM1 AA	amino_acid_mutation	I42A,E44A			syntax_error			I42A|E44A	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:32361273
 SPBC336.04	C1043A	cdc6-C1043A	amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			C1043A	amino_acid_mutation:single_aa	PMID:15173383
 SPBC336.04	C1053A	cdc6-C1053A	amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			C1053A	amino_acid_mutation:single_aa	PMID:15173383
 SPBC336.04	C1058A	cdc6-C1058A	amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			C1058A	amino_acid_mutation:single_aa	PMID:15173383
