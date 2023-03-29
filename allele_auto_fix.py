@@ -12,7 +12,7 @@ import os
 with open('data/genome.pickle', 'rb') as ins:
     genome = pickle.load(ins)
 
-with open('results/coordinate_changes_dict.json') as ins:
+with open('data/coordinate_changes_dict.json') as ins:
     coordinate_changes_dict = json.load(ins)
 
 syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]

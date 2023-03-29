@@ -26,7 +26,7 @@ python perform_qc.py
 ## (If correcting coordinates)
 # make a list of the alleles that need fixing -> results/alleles_coordinate_change.tsv
 python load_coordinate_changes.py
-# make a dictionary that contains an alignment of old and new sequences -> results/coordinate_changes_dict.json
+# make a dictionary that contains an alignment of old and new sequences -> data/coordinate_changes_dict.json
 python build_alignment_dict.py
 # fix the coordinates -> results/allele_results_after_coordinates.tsv
 python fix_coordinates.py
