@@ -232,10 +232,15 @@ async def root():
 async def check_allele(request: CheckAlleleRequest):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
+    if 'allele' in request.allele_type:
+        response_data = CheckAlleleDescriptionResponse.parse_obj(
+            check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, genome[request.systematic_id])
+        )
+    else:
+        response_data = CheckAlleleDescriptionResponse.parse_obj(
+            check_allele_description(request.allele_description, syntax_rules_nucleotides, request.allele_type, allowed_types, genome[request.systematic_id])
+        )
 
-    response_data = CheckAlleleDescriptionResponse.parse_obj(
-        check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, genome[request.systematic_id])
-    )
     response_data.user_friendly_fields = get_allele_user_friendly_fields(response_data)
     return response_data
 
