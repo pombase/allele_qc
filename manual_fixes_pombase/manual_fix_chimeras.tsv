@@ -95,13 +95,13 @@ SPCC1322.12c	TetR-bub1-TPR fusion	TetR bub1-delta241-1044 (ectopic SAC)	PMID:312
 SPCC1442.12	GFP-pps1	N-terminal GFP fusion	PMID:17905925	GFP-pps1		fusion_or_chimera	
 SPCC1442.12	pps1-GFP	C-terminal GFP fusion	PMID:17905925	pps1-GFP		fusion_or_chimera	
 SPCC1494.05c	ubp12-NES	fused to nuclear exclusion signal	PMID:27151298	ubp12-NES		fusion_or_chimera	
-SPCC16A11.17	mcm4td	N-terminus of Mcm4 fused to DHFR degron	PMID:11854402	mcm4-td		fusion_or_chimera		mcm4-td	td stands for "temperature-inducible degron"
+SPCC16A11.17	mcm4td	N-terminus of Mcm4 fused to DHFR degron	PMID:11854402	Ub-DHFRts-mcm4		fusion_or_chimera		mcm4-td	temperature-inducible degron
 SPCC18B5.11c	cds1-D312E-FKBP-Cds1cat	fusion- FKBP:Cds1-D312E,150-460	PMID:16618806	FKBP-cds1(150-460)-D312E	FKBP-cds1cat-D312E	fusion_or_chimera	
 SPCC18B5.11c	cds1-FKBP-Cds1cat	fusion-FKBP:Cds1(150-460)	PMID:16618806	FKBP-cds1(150-460)	FKBP-cds1cat	fusion_or_chimera	
 SPCC18B5.11c	cds1-rad26	cds1-rad26 fusion	PMID:15173168	cds1delta::cds1-rad26	cds1-rad26	fusion_or_chimera	
 SPCC1919.10c	Tea2N-CFP-Myo52C	fusion of Tea2 N-terminal motor domain,CFP,and Myo52 C-terminal domain	PMID:22768263	tea2(1-557)-CFP-myo52(926-1516)	tea2N-CFP-myo52C	fusion_or_chimera	coordinates from PMID:22137473
 SPCC338.08	ctp1-N-MBP	MBP fused to Ctp1 C-terminus	PMID:30626735	MBP-ctp1	MBP-ctp1	fusion_or_chimera	error in PomBase: "the fusion of the bulky MBP protein to the Ctp1 N terminus (N-MBP)".		MBP stands for maltose-binding protein
-SPCC645.05c	N-degron:myo2+	Myo2+ fused to DHFR degron	PMID:21422229,PMID:30928696	degron-myo2		fusion_or_chimera		degron-myo2
+SPCC645.05c	N-degron:myo2+	Myo2+ fused to DHFR degron	PMID:21422229,PMID:30928696	Ub-DHFRts-myo2		fusion_or_chimera		degron-myo2
 SPCC645.05c	myo2(myp2-Head)	myo2(myp2-Head)-chimera	PMID:16148042			fusion_or_chimera	
 SPCC645.05c	myo2(myp2-Tail)	myo2(myp2-Tail)-chimera	PMID:16148042			fusion_or_chimera	
 SPBC36.12c	git7-GFP	git7-GFP	PMID:12456004			fusion_or_chimera	
@@ -127,3 +127,21 @@ SPBC1861.01c	cnp3-GFP	GFP-C	PMID:34849791	cnp3-GFP		fusion_or_chimera
 SPBC409.04c	mis12-GFP	GFP-C	PMID:34849791	mis12-GFP		fusion_or_chimera	
 SPCC1020.02	spc7-GFP	GFP-C	PMID:34849791	spc7-GFP		fusion_or_chimera	
 SPCC338.17c	rad21-GFP	GFP-C	PMID:34849791	rad21-GFP		fusion_or_chimera	
+SPBC14C8.17c	sep9-307	nt_1067delta,aa353->stop	PMID:10392445,PMID:19473263	1067		partial_nucleotide_deletion	Position 1067 matches codon 340 in the text
+SPAC24H6.05	cdc25-d1	5'UTRdel	PMID:10462529,PMID:28479325	(-822)-(-7)		fusion_or_chimera	
+SPBC4.04c	mcm2-M9+NLS	mcm2-M9+NLS	PMID:10588642	(mcm2-R7E,R9D)-NLS		fusion_or_chimera	
+SPCC16A11.17	mcm4-tstd	N-terminus of Mcm4/cdc21-M68 fused to DHFR degron	PMID:11854402,PMID:12972571,PMID:18180284,PMID:32341083	Ub-DHFRts-mcm4		fusion_or_chimera			ts degron
+SPAC4D7.05	sum1-ts	sum1+ with N-terminal 3xHA tagged	PMID:12006658	3xHA-sum1		fusion_or_chimera	
+SPBC685.09	orp2-3HA	orc2+ with 3 x HA epitope at C terminus	PMID:12419251	orc2-3HA	orc2-3HA	fusion_or_chimera	
+SPBC3H7.01	spo14-B221	5th intron branch point CTAAT->CTAAA	PMID:12631727,PMID:18550796,PMID:3442824,PMID:8203159	T1161A		nucleotide_mutation	
+SPBC660.07	ntp1-CRE-like promoter mutant	TGACGTAG mutated to TGACcTAG	PMID:12855726,PMID:15164362	G(-574)C	ntp1-CRE-like-promoter	fusion_or_chimera	
+SPBC1347.10	cdc23-tstd	degron(DHFR),C239Y	PMID:12972571,PMID:15941470	Ub-DHFRts-cdc23-C239Y		fusion_or_chimera			ts degron
+SPNCRNA.98	srp7-A146U,G159U,delta148-150	A146U,G159U,nt148-150 deletion	PMID:1315954	A146U,G159U,148-150		nucleotide_deletion_and_mutation	
+SPNCRNA.98	srp7-C180U,omega176U	C180U,U inserted after nt 176	PMID:1315954	C176-T,C180T		nucleotide_deletion_and_mutation	
+SPNCRNA.98	srp7-U88G,delta84-88,omega131nt	U88G,nt84-88 deletion,131 nucleotides inserted after nt83	PMID:1315954	84-87,T88G,C83-131nucleotides		other	
+SPNCRNA.98	srp7-U88G,delta84-88,omega8nt	U88G,nt84 deletion,8 nucleotides inserted after nt83	PMID:1315954	C83-GCTGCAGC,84,T88G		nucleotide_insertion_and_mutation	
+SPNCRNA.98	srp7-U88G,omegaUCGA	U88G,UCGA inserted after nt84	PMID:1315954	T84-UCGA,T88G		nucleotide_insertion_and_mutation	
+SPBC660.07	ntp1-MVP14	HSE1 promoter mutant GAAGGAAACGGAA->AAAGAAAACGAAA	PMID:15164362	GAAGGAAACGGAA-(-159)-AAAGAAAACGAAA		fusion_or_chimera	
+SPBC660.07	ntp1-MVP15	HSE2 promoter mutant TTCGTGAATAGGAA->TTTGTAAATAGAAA	PMID:15164362	TTCGTGAATAGGAA-(-105)-TTTGTAAATAGAAA		fusion_or_chimera	
+SPBC660.07	ntp1-MVP5	605 bp promoter deletion	PMID:15164362	(-1091)-(-486)		fusion_or_chimera	
+SPBC660.07	ntp1-MVP7	464 bp promoter deletion	PMID:15164362	(-1091)-(-627)		fusion_or_chimera	
