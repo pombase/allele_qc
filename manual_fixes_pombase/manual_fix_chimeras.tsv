@@ -145,3 +145,25 @@ SPBC660.07	ntp1-MVP14	HSE1 promoter mutant GAAGGAAACGGAA->AAAGAAAACGAAA	PMID:151
 SPBC660.07	ntp1-MVP15	HSE2 promoter mutant TTCGTGAATAGGAA->TTTGTAAATAGAAA	PMID:15164362	TTCGTGAATAGGAA-(-105)-TTTGTAAATAGAAA		fusion_or_chimera	
 SPBC660.07	ntp1-MVP5	605 bp promoter deletion	PMID:15164362	(-1091)-(-486)		fusion_or_chimera	
 SPBC660.07	ntp1-MVP7	464 bp promoter deletion	PMID:15164362	(-1091)-(-627)		fusion_or_chimera	
+SPBC336.04	pol3-T2	TEV cleavage site S979	PMID:15173383	cdc6(1-979)-(ENLYFQS)-cdc6(980-1086)		fusion_or_chimera			TEV protease linker
+SPBC1734.02c	cdc27-R39	nt 807-828 duplicated; translated product has aa 1-179 plus 4 aa from different reading frame	PMID:15576681	A837-TCGACAATCGATAAGACTGACA		nucleotide_insertion	
+SPBC1734.02c	cdc27-R5	nt 930-1102 duplicated; translated product has aa 1-271 plus 24 aa from different reading frame	PMID:15576681	T1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT		nucleotide_insertion	
+SPBC336.04	cdc6-R37	2903-GAAAAA GCTAGCTCTTTACTTCA	PMID:15576681	A2955-AAAAGCTAGCTCTTTACTTCATGGTGA		nucleotide_insertion	
+SPBC1347.10	cdc23-S424::TEV	AA424::TEV	PMID:15941470	cdc23(1-424)-(ENLYFQGAS)-cdc23(425-593)		fusion_or_chimera			TEV protease linker
+SPBC29A10.14	rec8(TEV)	rec8-AA362::TEV	PMID:16325576	rec8(1-361)-(ENLYFQGAS)-rec8(362-561)		fusion_or_chimera			TEV protease linker
+SPBC21C3.20c	git1-1	frameshift F995	PMID:16489217,PMID:1849107,PMID:2157626,PMID:8001792,PMID:8227198	T2986-T		fusion_or_chimera	
+SPBC216.02	mcp5-PHdelta	PHdelta	PMID:16585273	801-968		partial_amino_acid_deletion	
+SPBC216.02	mcp5deltaC	deltaC	PMID:16585273	1-298		partial_amino_acid_deletion	
+SPBC365.15	NES-alp4-C(566-784)	NES-alp4-C(566-784)	PMID:16611237	NES-alp4(566-784)		fusion_or_chimera	
+SPBC365.15	NLS-alp4-C(566-784)	NLS-alp4-C(566-784)	PMID:16611237	NLS-alp4(566-784)		fusion_or_chimera	
+SPAC27D7.03c	mei2-NLS	C-terminal PPTASKC replaced with PPKKKRKVCRP (contains NLS)	PMID:16823445	mei2(1-745)-(KKKRKVCRP)		fusion_or_chimera	
+SPBC29A10.02	spo5-C	N terminal region deleted	PMID:16896214	1-288		partial_amino_acid_deletion	
+SPAC24H6.05	cdc25-dF1234	4 FLEX promoters deleted	PMID:17804800	(-1249)-(-1243),(-1157)-(-1163),2117-2123,2587-2593		partial_nucleotide_deletion	
+SPAC19D5.01	pyp2-no UTRs	deleted 5' and 3' UTRs	PMID:17952063	(-157)-(-1),2137-2380		partial_nucleotide_deletion	
+SPBC32C12.02	ste1-promoter(deltaFLEX1)	flex1delta	PMID:18059475	(-1730)-(-1724)		partial_nucleotide_deletion	
+SPBC14C8.16c	bot1-Myc	Myc tagged bot1	PMID:18245278	bot1-Myc		fusion_or_chimera	
+SPBC1105.17	cnp1-FH	cnp1+-C:3xFLAG:6His	PMID:18493607	cnp1-3xFLAG-3xHisTag		fusion_or_chimera	
+SPBP35G2.03c	sgo1-VE-CD	sgo1-VE-CD ectopically centromere localised	PMID:18716626	(sgo1-VE)-swi6(69-215)		fusion_or_chimera	
+SPAP8A3.08	cdc4-M1M2	UCUU motif mutant	PMID:19279143	TCTT-504-AGCC,TCTT-677-CCTC		nucleotide_mutation	
+SPAC23H4.14	vam6-532	splice site mutant	PMID:19366728			fusion_or_chimera			cannot fix
+SPAC3F10.04	gsa1-MN101	nucleotide 7 deleted,nucleotide G879 mutated to A	PMID:1958212,PMID:2894829,PMID:8914526,PMID:9291132	7,G878A		nucleotide_deletion_and_mutation	
