@@ -340,30 +340,32 @@ async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: i
     gene = genome[systematic_id]
 
     if 'CDS' not in gene:
-        raise HTTPException(400, 'Only supports genes with CDS for now')
-
-    strand = gene["CDS"].location.strand
-    if "5'UTR" in gene:
-        start_feature = "5'UTR"
+        print(gene)
+        if len(gene) == 2:
+            features = list(gene.keys())
+            features.remove('contig')
+            start_feature = features[0]
+            end_feature = features[0]
+            strand = gene[start_feature].location.strand
+        else:
+            raise HTTPException(400, 'Only supports genes with CDS or RNA genes with a single feature for now')
     else:
-        start_feature = "CDS"
-
-    if strand == 1:
-        start = gene[start_feature].location.start - upstream
-    else:
-        end = gene[start_feature].location.end + upstream
-
-    if "3'UTR" in gene:
-        end_feature = "3'UTR"
-    else:
-        end_feature = "CDS"
+        strand = gene["CDS"].location.strand
+        start_feature = "5'UTR" if "5'UTR" in gene else "CDS"
+        end_feature = "3'UTR" if "3'UTR" in gene else "CDS"
 
     if strand == 1:
         end = gene[end_feature].location.end + downstream
+        start = gene[start_feature].location.start - upstream
     else:
+        end = gene[start_feature].location.end + upstream
         start = gene[end_feature].location.start - downstream
-    feat: SeqFeature = gene['CDS']
-    feat.qualifiers['translation'] = gene['peptide']
+
+    # Add translation if it exists
+    if 'CDS' in gene:
+        feat: SeqFeature = gene['CDS']
+        feat.qualifiers['translation'] = gene['peptide']
+
     seq_record: SeqRecord = gene['contig'][start:end]
 
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as fp:
