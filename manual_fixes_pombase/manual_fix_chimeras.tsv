@@ -194,3 +194,18 @@ SPBP8B7.28c	TetR-stc1-deltaC(126-215)	TetR-stc1-deltaC(126-215) (ectopic chromat
 SPBP8B7.28c	TetR-stc1-deltaZF1(32-84)	TetR-stc1-deltaZF1(32-84) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(32-84)	TetR-stc1-deltaZF1	fusion_or_chimera	
 SPBP8B7.28c	TetR-stc1-deltaZF1+2(32-126)	TetR-stc1-deltaZF1+2(32-126) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(32-126)	TetR-stc1-deltaZF1+2	fusion_or_chimera	
 SPBP8B7.28c	TetR-stc1-deltaZF2(89-126)	TetR-stc1-deltaZF2(89-126) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(89-126)	TetR-stc1-deltaZF2	fusion_or_chimera	
+SPCC895.07	alp14-KTdelta	TEVcleavable	PMID:23770679			fusion_or_chimera			N-terminal part of the protein including both TOG domains is connected to the rest through a tev-cleavable domain. Cannot determine the domains from the info in the paper
+SPCC1442.04c	SPCC1442.04c-int2delta	intron 2 deletion	PMID:24210919			fusion_or_chimera			Cannot annotate with current genome sequence, only one intron present.
+SPBC3D6.04c	mad1-RLK/AAA-KT-tethered	KT-tethered	PMID:24477934	mis12-mad1-RLK-580-AAA		fusion_or_chimera	
+SPNCRNA.103	sme2-DSRless	all hexanucleotide DSR motifs except the most upstream one disrupted by substituting TNAAAC with TNAAGC	PMID:24920274	A1274G,A1467G,A1485G,A1501G,A1527G,A1538G,A1551G,A1560G		nucleotide_mutation	
+SPAC23C11.16	plo1-TEVAA341	TEVAA341	PMID:25533956,PMID:28497540	plo1(1-341)-(ENLYFQGAS)-plo1(342-405)-(ENLYFQGAS)-plo1(406-683)		fusion_or_chimera			ENLYFQGAS is the TEV protease cleavage site
+SPBP4H10.15	aco2-MTS+ribosomal domain	mitochondrially targeted ribosomal domain	PMID:25724335	aco2(1-56,807-889,897-918)	aco2RDΔNLS	partial_amino_acid_deletion	
+SPCC338.08	ctp1-5	frameshift at W288 truncating at position 292	PMID:26130711	1-288		nucleotide_insertion			It's actually a non-specified frameshift, but the paper does not indicate whether / which nucleotide is inserted / removed after W288.
+SPAC1486.05	nup189(unspliced-uncleavable)	ntG2970A,ntT2973C,ntA3033T,aaS965A	PMID:26137436			fusion_or_chimera			Not clear how to fix with frameshift genome correction.
+SPAC1486.05	nup98-tail(uncleavable)	Nup98 portion of Nup189,plus 33aa tail,with S965A mutation	PMID:26137436			fusion_or_chimera			Not clear how to fix with frameshift genome correction.
+SPCC306.04c	set1-F	C-terminal FLAG tag. No H3K4me activity	PMID:27343236	set1-3xFLAG		fusion_or_chimera		set1-3xFLAG
+SPCC306.04c	set1-RMM2D	RRM2 domain delta	PMID:27343236			fusion_or_chimera			No info on domain coordinates
+SPCC306.04c	set1-SET	SET domain delta	PMID:27343236			fusion_or_chimera			No info on domain coordinates
+SPAC227.07c	pab1-1	nucleotides 673-684 duplicated; inserts amino acids TEVI after I228	PMID:27398807	I228-TEVI		amino_acid_insertion	
+SPBC3D6.03c	trz2(promoter--110--54,G-102C,T-99A)	-110--54,G-102C,T-99A	PMID:27902423	(-110)-(-54),G(-102)C,T(-99)A		fusion_or_chimera	
+SPCC1020.02	TetR-spc7(1-666)-9TA	TetR-667-1364,T257A,T338A,T366A,T395A,T422A,T453A,T507A,T529A,T552A	PMID:28017606	TetR-spc7(1-666)-T257A,T338A,T366A,T395A,T422A,T453A,T507A,T529A,T552A		fusion_or_chimera	
