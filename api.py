@@ -232,7 +232,7 @@ async def root():
 async def check_allele(request: CheckAlleleRequest):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    if 'allele' in request.allele_type:
+    if 'amino' in request.allele_type:
         response_data = CheckAlleleDescriptionResponse.parse_obj(
             check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, genome[request.systematic_id])
         )
@@ -349,9 +349,9 @@ async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: i
         start_feature = "CDS"
 
     if strand == 1:
-        start = gene[start_feature].location.start
+        start = gene[start_feature].location.start - upstream
     else:
-        end = gene[start_feature].location.end
+        end = gene[start_feature].location.end + upstream
 
     if "3'UTR" in gene:
         end_feature = "3'UTR"
@@ -359,12 +359,12 @@ async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: i
         end_feature = "CDS"
 
     if strand == 1:
-        end = gene[end_feature].location.end
+        end = gene[end_feature].location.end + downstream
     else:
-        start = gene[end_feature].location.start
+        start = gene[end_feature].location.start - downstream
     feat: SeqFeature = gene['CDS']
     feat.qualifiers['translation'] = gene['peptide']
-    seq_record: SeqRecord = gene['contig'][start - upstream:end + downstream]
+    seq_record: SeqRecord = gene['contig'][start:end]
 
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as fp:
         if strand == 1:
