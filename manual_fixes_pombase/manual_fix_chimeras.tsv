@@ -167,3 +167,30 @@ SPBP35G2.03c	sgo1-VE-CD	sgo1-VE-CD ectopically centromere localised	PMID:1871662
 SPAP8A3.08	cdc4-M1M2	UCUU motif mutant	PMID:19279143	TCTT-504-AGCC,TCTT-677-CCTC		nucleotide_mutation	
 SPAC23H4.14	vam6-532	splice site mutant	PMID:19366728			fusion_or_chimera			cannot fix
 SPAC3F10.04	gsa1-MN101	nucleotide 7 deleted,nucleotide G879 mutated to A	PMID:1958212,PMID:2894829,PMID:8914526,PMID:9291132	7,G878A		nucleotide_deletion_and_mutation	
+SPAC2G11.08c	tdSMN	temperature-degron allele	PMID:20400941,PMID:23221635,PMID:24298023,PMID:31927482	Ub-DHFRts-smn1		fusion_or_chimera	
+SPBC32C12.02	ste11-D5'-UTR	2137 OF 2181 5' UTR deleted	PMID:20605454	(-2141)-(-4)		partial_nucleotide_deletion	
+SPCC962.02c	bir1-8D-CD	8d+kinetochore targeted	PMID:20739936	bir1-CFP-swi6(69-215)		fusion_or_chimera	
+SPAC14C4.03	mek1-FHAD	lacks FHA domain function	PMID:21084840	65-129		partial_amino_acid_deletion	
+SPCC4G3.05c	mus81-9myc	myc tagged	PMID:21084840	mus81-9xMyc		fusion_or_chimera	
+SPAC144.13c	srw1-MutPste9	mutated promoter region	PMID:21118960	AAAGTGCATTACCCTTCCCGGTTTCTC-(-198)-CCCGGTACCGCAAAGGAAATTGGGAGC		nucleotide_mutation	
+SPBC146.13c	myo1-IQ1	IQ domain 1	PMID:21693583	I730A,Q731A	myo1-IQ1-AA	amino_acid_mutation	
+SPBC146.13c	myo1-IQ2	IQ domain 2	PMID:21693583	I748A,Q749A	myo1-IQ2-AA	amino_acid_mutation	
+SPBC12C2.05c	bzz1-deltaSH3	deltaSH3	PMID:21885283	586-642		partial_amino_acid_deletion			Deleted residues might be slightly different, but this is how SH3 domains are defined in Fig. 3C,D legend.
+SPBC12C2.05c	bzz1-deltaSH3deltaSH3	deltaSH3x2	PMID:21885283	521-642		partial_amino_acid_deletion			Deleted residues might be slightly different, but this is how SH3 domains are defined in Fig. 3C,D legend.
+SPBC146.13c	myo1-delta23A	deltaTH3&Amotif	PMID:21885283	967-1217		partial_amino_acid_deletion			Deleted TH2-SH3-LCA domains at the C-term. Deleted residues not documented in the paper, but mentioned in methods here https://www.biorxiv.org/content/10.1101/389015v1.full
+SPAC3G9.01	nsk1-18A	18 S/T->A	PMID:22065639	S71A,S103A,S113A,S140A,S171A,S195A,S206A,S221A,S236A,T240A,T255A,S257A,S289A,S344A,S379A,S399A,T411A,T437A		amino_acid_mutation	
+SPCC1795.06	P-factorDeltaLeu	terminal leu residue deleted	PMID:22500108	88,156		partial_amino_acid_deletion			This annotation represents the addition of the modified peptide to the medium, but the genome of the strains was not modified. For now we capture it as deletion of those residues in the protein sequence.
+SPNCRNA.103	sme2-m	TATA box mutant	PMID:22582262,PMID:24920274	NC_003423.3:g.33962T>C,NC_003423.3:g.33960T>C,NC_003423.3:g.33955T>C,NC_003423.3:g.33950A>G		nucleotide_mutation	
+SPAC664.01c	swi6+SV40NLS	SV40 NLS added at N-terminus	PMID:22683269	SV40\NLS-swi6		fusion_or_chimera	
+SPAC664.01c	swi6-KR25A+SV40NLS	K143A,R144A,K145A,R146A,R149A,K151A,K152A,K156A,K161A,R163A,K164A,K169A,K172A,K177A,K184A,K187A,K191A,K217A,K222A,K241A,K242A,K243A,K251A,R256A,K261A,with SV40 NLS added at N-terminus	PMID:22683269,PMID:26438724	SV40\NLS-swi6(K143A,R144A,K145A,R146A,R149A,K151A,K152A,K156A,K161A,R163A,K164A,K169A,K172A,K177A,K184A,K187A,K191A,K217A,K222A,K241A,K242A,K243A,K251A,R256A,K261A)		fusion_or_chimera	
+SPCC4B3.15	mid1-NES-delta1-150	NES-delta1-150	PMID:22918954	1-68,82-149	NES-mid1-delta1	partial_amino_acid_deletion			69-81 of mid1 is its NES
+SPBP8B7.28c	TetR-stc1	TetR-stc1(ectopic chromatin tether)	PMID:23613586			fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-C(1-126)	TetR-stc1-C(1-126) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(1-126)	TetR-stc1-C	fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-D1A(D127A,D129A,D130A)	TetR-stc1-D1A (ectopic chromatin tether)	PMID:23613586	TetR-stc1-D127A,D129A,D130A		fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-D2A(D144A,D145A,D147A,D149A,D150A,D151A)	TetR-stc1-D2A (ectopic chromatin tether)	PMID:23613586	TetR-stc1(D144A,D145A,D147A,D149A,D150A,D151A)		fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-D3A(D166A,D167A,D170A,D173A)	TetR-stc1-D3A (ectopic chromatin tether)	PMID:23613586	TetR-stc1(D166A,D167A,D170A,D173A)		fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-D4A(D192A,D193A,D194A,D195A,D197A,E198A,D199A)	TetR-stc1-D4A (ectopic chromatin tether)	PMID:23613586	TetR-stc1(D192A,D193A,D194A,D195A,D197A,E198A,D199A)		fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-deltaC(126-215)	TetR-stc1-deltaC(126-215) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(127-215)	TetR-stc1-deltaC	fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-deltaZF1(32-84)	TetR-stc1-deltaZF1(32-84) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(32-84)	TetR-stc1-deltaZF1	fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-deltaZF1+2(32-126)	TetR-stc1-deltaZF1+2(32-126) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(32-126)	TetR-stc1-deltaZF1+2	fusion_or_chimera	
+SPBP8B7.28c	TetR-stc1-deltaZF2(89-126)	TetR-stc1-deltaZF2(89-126) (ectopic chromatin tether)	PMID:23613586	TetR-stc1delta(89-126)	TetR-stc1-deltaZF2	fusion_or_chimera	
