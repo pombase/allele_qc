@@ -39,6 +39,8 @@ class AlleleType(str, Enum):
     other = 'other'
     partial_amino_acid_deletion = 'partial_amino_acid_deletion'
     partial_nucleotide_deletion = 'partial_nucleotide_deletion'
+    nucleotide_deletion_and_mutation = 'nucleotide_deletion_and_mutation'
+    nucleotide_insertion_and_mutation = 'nucleotide_insertion_and_mutation'
 
 
 class CheckAlleleRequest(BaseModel):
