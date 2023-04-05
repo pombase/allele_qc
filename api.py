@@ -26,6 +26,11 @@ syntax_rules_disruption = [SyntaxRule.parse_obj(r) for r in disruption_grammar]
 multi_aa_rule = find_rule(syntax_rules_aminoacids, 'amino_acid_mutation', 'multiple_aa')
 
 
+class DNAorProtein(str, Enum):
+    protein = 'protein'
+    dna = 'dna'
+
+
 class AlleleType(str, Enum):
     amino_acid_deletion_and_mutation = 'amino_acid_deletion_and_mutation'
     amino_acid_insertion = 'amino_acid_insertion'
@@ -379,3 +384,24 @@ async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: i
             SeqIO.write(rv, fp, 'genbank')
 
         return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.gb')
+
+@app.get('/residue_at_position')
+async def get_residue_at_position(systematic_id: str, position: int, dna_or_protein: DNAorProtein):
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+    gene = genome[systematic_id]
+    if dna_or_protein == 'dna':
+        if 'CDS' in gene:
+            seq = gene['CDS'].extract(gene['contig'])
+        else:
+            if len(gene) != 2:
+                # Error, we cannot read this position
+                raise ValueError('cannot read sequence, alternative splicing?')
+            # The key is the one that is not 'contig'
+            key = next(k for k in gene if k != 'contig')
+            seq = gene[key].extract(gene['contig'])
+        return seq.seq[position - 1]
+    elif dna_or_protein == 'protein':
+        if 'peptide' not in gene:
+            raise ValueError('cannot read sequence, no peptide')
+        return gene['peptide'][position - 1]
