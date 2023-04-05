@@ -1,156 +1,33 @@
-systematic_id	allele_name	allele_description	allele_type	reference	change_description_to	change_name_to	change_type_to	comment
-SPAC30D11.04c	nup124-1	722->stop	nonsense_mutation	PMID:10409764	Q722*		partial_amino_acid_deletion
-SPAC13D6.05	alp11-924	AA119->opal	nonsense_mutation	PMID:10473641,PMID:10905343,PMID:9658169	W119*		partial_amino_acid_deletion
-SPAC13D6.05	alp11-1-118	119->opal,121->amber	nonsense_mutation	PMID:10905343	W119*,K121*			partial_amino_acid_deletion
-SPAC2G11.12	rad12-hd	helicase domain::ura4	disruption	PMID:10572171				
-SPAPB2B4.03	nmt1-cig2-III	cig2 -3000--1248	partial_nucleotide_deletion	PMID:10725227				
-SPCC613.04c	rng3::ura4+	lacking AA330-655	disruption	PMID:10852821				
-SPAC821.08c	slp1-362	AA376->stop	nonsense_mutation	PMID:11058086,PMID:15791259,PMID:36108046				partial_amino_acid_deletion
-SPAC1805.07c	hos2-M10	Q->amber	nonsense_mutation	PMID:11193425,PMID:9748434				partial_amino_acid_deletion
-SPCC736.14	dis1-203	AA1-265	nonsense_mutation	PMID:11683390				partial_amino_acid_deletion
-SPBC119.04	mei3-RA3	S29A,T30A,S31A	amino_acid_mutation	PMID:12664134				
-SPBC119.04	mei3-rxt	T30A	amino_acid_mutation	PMID:12664134				
-SPAC23C11.16	plo1-ts19	aa316->stop	nonsense_mutation	PMID:12815070,PMID:23349808				partial_amino_acid_deletion
-SPBC4F6.09	str1-promoter-mut-CYC1-lacZ	-870AGATAA-865 ->GCCGTC	nucleotide_mutation	PMID:12888492				
-SPBC365.13c	caf1-21	89->stop	nonsense_mutation	PMID:12896976,PMID:14758541,PMID:9211790,PMID:9894913				partial_amino_acid_deletion
-SPNCRNA.98	srp7-A163U,C169U6	A163U,C169U6	nucleotide_mutation	PMID:1315954				
-SPNCRNA.98	srp7-G72A,G78A,G100A,G107A,Gl12A,G141A	G72A,G78A,G100A,G107A,Gl12A,G141A	nucleotide_mutation	PMID:1315954				
-SPNCRNA.98	srp7delta149	149	partial_nucleotide_deletion	PMID:1315954				
-SPBC1A4.03c	top2-1-40/SV	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-1-40/SV-delta-Sph	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-1-40/SV-delta-Xba	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-1-74/SV	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-1-74/SV-delta-Sph	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-1-74/SV-delta-Xba	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-26-40/SV	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-26-40/SV-delta-Sph	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977				
-SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977				
-SPBC3D6.10	apn2::ura4+	nt56-1496	disruption	PMID:14599746				
-SPBC409.03	swi5-39	AA38->stop	nonsense_mutation	PMID:15238514,PMID:1874411				partial_amino_acid_deletion
-SPAC1D4.12	rad15delta::LEU2	rad15delta::LEU2(nt483-1668)	disruption	PMID:1534406				
-SPCC330.05c	ura4-D18	unknown	disruption	PMID:15466417,PMID:15546162,PMID:22992726,PMID:3241625,PMID:8625425				
-SPBC31E1.02c	cps5-138	400->opal	nonsense_mutation	PMID:15470240				partial_amino_acid_deletion
-SPAC3G6.02	dss1-49	AA26->stop	nonsense_mutation	PMID:15990877				partial_amino_acid_deletion
-SPBC17A3.07	pgr1-M1V	M1V	amino_acid_mutation	PMID:16950927				
-SPAC3C7.11c	cnx1-ss14	183->stop	nonsense_mutation	PMID:17230581				partial_amino_acid_deletion
-SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	amino_acid_deletion_and_mutation	PMID:17502918				
-SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	amino_acid_mutation	PMID:17502918				
-SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	amino_acid_mutation	PMID:17502918				
-SPNCRNA.600	nc-tco1-Ldelta::ura4+	-395-+146	partial_amino_acid_deletion	PMID:18276645				
-SPAC5D6.08c	mes1-K1	K16R,K46R,K54R,K86R,K90RK55R,K57R,K58R,	amino_acid_mutation	PMID:18331722				
-SPAC5D6.08c	mes1-K0	K7R,K16R,K46R,K54R,K86R,K90RK55R,K57R,K58R,	amino_acid_mutation	PMID:18331722,PMID:21389117				
-SPAC25G10.04c	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	disruption	PMID:18514516,PMID:28469148,PMID:7586030				
-SPAC11E3.01c	mod22-1	nt2209->opal	nonsense_mutation	PMID:19160458				partial_amino_acid_deletion
-SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	amino_acid_mutation	PMID:20605454				
-SPBC28F2.12	rpb1-CTD-S2A	CTD-S2A	amino_acid_mutation	PMID:20605454,PMID:33579781,PMID:33711009				
-SPBC342.05	crb2-(1-520)LZ	521-778 replaced by leucine zipper	amino_acid_deletion_and_mutation	PMID:20679485				
-SPBC9B6.08	git9-232	AA181->stop	nonsense_mutation	PMID:2157626				partial_amino_acid_deletion
-SPBC28F2.12	rpb1-CTD-S2A(12)	CTD-S2A(1-12),CTD-delta(13-29)	amino_acid_mutation	PMID:22144909				
-SPNCRNA.103	sme2delta1-574	1-574	partial_nucleotide_deletion	PMID:22582262				
-SPNCRNA.103	sme2deltaA	-1030-1586	partial_nucleotide_deletion	PMID:22582262				
-SPNCRNA.103	sme2deltaB	-1030-582	partial_nucleotide_deletion	PMID:22582262				
-SPNCRNA.103	sme2deltaC	-925--54	partial_nucleotide_deletion	PMID:22582262				
-SPNCRNA.103	sme2deltaD	-925--144	partial_nucleotide_deletion	PMID:22582262				
-SPNCRNA.103	sme2deltaE	1058-1586	partial_nucleotide_deletion	PMID:22582262				
-SPNCRNA.103	sme2deltaF	1425-1586	partial_nucleotide_deletion	PMID:22582262				
-SPAC18G6.02c	chp1-alpha-mut1	KKRKK-71-NEHG	amino_acid_mutation	PMID:22727667				
-SPBC428.08c	clr4-alpha-mut	KRRKR-58-NEHG	amino_acid_mutation	PMID:22727667				
-SPBC28F2.12	rpb1-CTD-S2A(5-29)	CTD-S2A(5-29)	amino_acid_mutation	PMID:22771993				
-SPBC28F2.12	rpb1-CTD-S2A,S7A(5-29)	CTD-S2A,S7A(5-29)	amino_acid_mutation	PMID:22771993				
-SPBC28F2.12	rpb1-CTD-S7A(5-29)	CTD-S7A(5-29)	amino_acid_mutation	PMID:22771993,PMID:29414789,PMID:30652128				
-SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	partial_nucleotide_deletion	PMID:23223230				
-SPBC649.05	cut12.PDswap	GILKTPTQIKKTVNF-71-ILGHKLEYNYNSHMVYI	amino_acid_mutation	PMID:23333317				
-SPNCRNA.103	sme2-3'	1-507	partial_nucleotide_deletion	PMID:24920274				
-SPNCRNA.103	sme2-5'	509-1562	partial_nucleotide_deletion	PMID:24920274				
-SPBC215.05	gpd1-G4BS	TTACGTCA-329CGGAAGACTCTCCTCCG	nucleotide_mutation	PMID:25122751				
-SPCC757.07c	ctt1-G4BS	ATGACGT-435CGGAAGACTCTCCTCCG	nucleotide_mutation	PMID:25122751				
-SPNCRNA.1343	nc-1343-Adelta	????	partial_nucleotide_deletion	PMID:25428589				
-SPNCRNA.1343	nc-1343-Bdelta	????	partial_nucleotide_deletion	PMID:25428589				
-SPAC1F8.02c	shu1-M1 GATA box mutant	-127AGATA-122,-136AGATAA-131,-136TGATAA-141 ->GCCGTC	nucleotide_mutation	PMID:25733668				
-SPBC29A10.14	rec8-17A	unknown	amino_acid_mutation	PMID:25993311				
-SPCC63.08c	atg1-m14	aa411->stop	nonsense_mutation	PMID:26696398				partial_amino_acid_deletion
-SPAC56E4.04c	Pcut6MUT	disrupted Cbf11 binding site in promoter (GTGGGA to cTcGag)	nucleotide_mutation	PMID:27687771				
-SPAC664.01c	swi6-W293*	aa293->stop	nonsense_mutation	PMID:27738016				partial_amino_acid_deletion
-SPBC428.08c	clr4-R126*	aa126->stop	nonsense_mutation	PMID:27738016				partial_amino_acid_deletion
-SPBC428.08c	clr4-Y451*	aa451->stop	nonsense_mutation	PMID:27738016				partial_amino_acid_deletion
-SPCC11E10.08	rik1-K812*	aa812->stop	nonsense_mutation	PMID:27738016				partial_amino_acid_deletion
-SPCC70.05c	nnk1-35	Glu744->stop	nonsense_mutation	PMID:28108582				partial_amino_acid_deletion
-SPAC20H4.02	dsc3-226*	226->stop	nonsense_mutation	PMID:28821619				partial_amino_acid_deletion
-SPBC3B9.15c	scp1-1017->stop	1017->stop	nonsense_mutation	PMID:28821619				partial_amino_acid_deletion
-SPBC3B9.15c	scp1-408->stop	408->stop	nonsense_mutation	PMID:28821619				partial_amino_acid_deletion
-SPCC1795.11	sum3-599->stop	aa599->stop	nonsense_mutation	PMID:28821619				partial_amino_acid_deletion
-SPCC285.11	dsc5-127*	127->stop	nonsense_mutation	PMID:28821619				partial_amino_acid_deletion
-SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	amino_acid_mutation	PMID:29414789				
-SPBC28F2.12	rpb1-CTD-T4A,S7A(5-29)	(CTD)T4A,S7A(5-29)	amino_acid_mutation	PMID:29414789				
-SPNCRNA.9001	prt2delta-1	231 nt promoter and transcription start site deletion	partial_nucleotide_deletion	PMID:29414789				
-SPNCRNA.9001	prt2delta-2	749 nt promoter and transcription start site deletion	partial_nucleotide_deletion	PMID:29414789				
-SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5-29)	amino_acid_mutation	PMID:29414789,PMID:30282034				
-SPAC6F6.17	rif1::ura4+	ura4+ @ 5' HindIII site	disruption	PMID:29422503				
-SPCC1393.08	fil1-uORFs_mutated	6 uORFs in 5'-UTR mutated	nucleotide_mutation	PMID:29432178				
-SPBC1198.04c	zas1-1-274	326-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-1-289	341-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-1-360	412-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-1-470	522-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-1-590	642-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-1-712	764-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-a1	W761->stop	nonsense_mutation	PMID:29735745				partial_amino_acid_deletion
-SPBC1198.04c	zas1-aj3	K833->stop	nonsense_mutation	PMID:29735745				partial_amino_acid_deletion
-SPBC1198.04c	zas1-deltaaj3	885-897	partial_amino_acid_deletion	PMID:29735745				
-SPBC1198.04c	zas1-w5	E549K	amino_acid_mutation	PMID:29735745				
-SPAC1006.08	41X-GFP-etd1-D9	Overexpression of etd1-D9	partial_amino_acid_deletion	PMID:29813053				
-SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	amino_acid_mutation	PMID:29899453				
-SPAC22A12.08c	crd1delta41-372	41-372	partial_amino_acid_deletion	PMID:29958934				
-SPAC22A12.08c	crd1deltaRGFH	369-372	partial_amino_acid_deletion	PMID:29958934				
-SPBC725.06c	ppk31--579-T (5'-UTR-uORF)	-579-T	nucleotide_insertion	PMID:30072377				
-SPAC23C4.19	spt5-CTD-T1E(17)	CTD-T1E	amino_acid_mutation	PMID:30282034				
-SPBC28F2.12	rpb1-CTD-T4(25-29)	CTD-T4(25-29)	amino_acid_mutation	PMID:30282034				
-SPBC119.04	pmei3.14delta1-delta4	128-148	partial_amino_acid_deletion	PMID:3034608				
-SPBC119.04	pmei3.14delta5	105-148	partial_amino_acid_deletion	PMID:3034608				
-SPAC3G6.02	rpn15-deltahelix	aa54->stop	nonsense_mutation	PMID:30355493				partial_amino_acid_deletion
-SPCC162.04c	wtf13-poison	M1X,M12X	amino_acid_mutation	PMID:30475921				
-SPCC285.07c	wtf18+rep	332LGNAFGG	amino_acid_insertion	PMID:30475921				
-SPCC285.07c	wtf18-2	exon 6 of wtf18-2 is identical to the last exon of wtf13	amino_acid_insertion_and_mutation	PMID:30475921				
-SPBC28F2.12	rpb1-CTD-T4A	(CTD)T4A	amino_acid_mutation	PMID:31276588,PMID:32546512,PMID:33579781,PMID:33711009				
-SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A(1-29)	amino_acid_mutation	PMID:31276588,PMID:32546512,PMID:33711009				
-SPAC20G8.05c	cdc15-27A	non-phosphorylatable	nucleotide_mutation	PMID:31591131				
-SPAC20G8.05c	cdc15-27D	phospho-mimetic	nucleotide_mutation	PMID:31591131				
-SPAC10F6.13c	caa1-1	Gln26>stop	nonsense_mutation	PMID:31641022				partial_amino_acid_deletion
-SPAC19G12.02c	pms1-16	insertion of marker at HindIII site 1517bp downstream of start codon	disruption	PMID:31712578				
-SPBC19G7.01c	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	disruption	PMID:31712578				
-SPBC28F2.12	rpb1-P3-P3A(1-29)	P3-P3A(1-29)	amino_acid_mutation	PMID:32282918				
-SPBC28F2.12	rpb1-P6-P6A(1-29)	P6-P6A(1-29)	amino_acid_mutation	PMID:32282918				
-SPBC28F2.12	rpb1-Y1F(1-29)	All CTD Tyr1 mutated to Phe	amino_acid_mutation	PMID:32282918				
-SPBC28F2.12	rpb1-S7A(1-29)	All CTD Ser7 mutated to Ala	amino_acid_mutation	PMID:32282918,PMID:35012333				
-SPAC23C4.19	spt5-(T1A)7	T1A mutations within the CTR	amino_acid_mutation	PMID:32366382				
-SPCC11E10.07c	tif221-1	aa257->stop	nonsense_mutation	PMID:32841241				partial_amino_acid_deletion
-SPCC11E10.07c	tif221-2	frameshift at L43	disruption	PMID:32841241				
-SPAC1783.07c	pap1-N424STOP	aa424N>stop	nonsense_mutation	PMID:32908306				partial_amino_acid_deletion
-SPAC7D4.04	atg11(522-583)F526AY527A	522-583,F526AY527A	amino_acid_deletion_and_mutation	PMID:32909946				
-SPAC1610.03c	meu5-E33	T386G-primary_transcript	nucleotide_mutation	PMID:33202882				
-SPNCRNA.214	ter1-m1	AATTTGG_813-820_TTAAACC	nucleotide_mutation	PMID:33378677				
-SPNCRNA.214	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	nucleotide_mutation	PMID:33378677				
-SPNCRNA.214	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	nucleotide_mutation	PMID:33378677				
-SPNCRNA.214	ter1-m2	AAGGAA_882-887_TTCCTT	nucleotide_mutation	PMID:33378677				
-SPNCRNA.214	ter1-m3	TTT_823-825_CCC	nucleotide_mutation	PMID:33378677				
-SPNCRNA.214	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	nucleotide_mutation	PMID:33378677				
-SPBC28F2.12	rpb1-CTD-(S2A-S7A)	CTD-S2A,S7A	amino_acid_mutation	PMID:33579781				
-SPBC28F2.12	rpb1-CTD-P3.P3A	CTD-P3.P3A(alternating)	amino_acid_insertion_and_mutation	PMID:33579781				
-SPBC28F2.12	rpb1-CTD-P6.P6A	CTD-P6.P6A(alternating)	amino_acid_mutation	PMID:33579781				
-SPBC28F2.12	rpb1-CTD-S5.S5A	CTD-S5.S5A(alternating)	amino_acid_mutation	PMID:33579781				
-SPBC28F2.12	rpb1-CTD-Y1F	CTD-Y1F	amino_acid_mutation	PMID:33579781,PMID:33711009				
-SPAC6F12.03c	stx8(A+G)	152-224 substituted by a hinge of A+G	amino_acid_mutation	PMID:33788833				
-SPBC28F2.12	rpb1-P6-P6A	P6-P6A	amino_acid_mutation	PMID:35012333				
-SPBC28F2.12	rpb1-S5-S5A(1-29)	S5-S5A(1-29)	amino_acid_mutation	PMID:35012333				
-SPAC140.02	gar2::ura4+	Gar2 aa 1-163,Ura4 aa 1-39	disruption	PMID:7596817,PMID:9211982				
-SPAC227.07c	ret1-4	694->stop	nonsense_mutation	PMID:7845361				partial_amino_acid_deletion
-SPCC188.06c	srp54::LEU2	disruption	disruption	PMID:7969124				
-SPCC970.01	swi9-136	E659K	nucleotide_mutation	PMID:8114734				
-SPNCRNA.98	srp7-A162	A162	nucleotide_mutation	PMID:8390662				
-SPNCRNA.82	mrp1-E4	130	partial_nucleotide_deletion	PMID:8887563				
-SPAC3A11.05c	kms1-1	1039	partial_nucleotide_deletion	PMID:9150257				
-SPAC20G4.02c	fus1::ura4+	ura4+@AA270	disruption	PMID:9606213				
-SPBC2D10.06	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	disruption	PMID:9671035				
-SPBC119.04	mei3-promoter-d3	T-92A,C-90T,A-89C,G-87CATCC-88	nucleotide_mutation	PMID:9819418				
-SPBC119.04	mei3-promoter-delta14	-74--60	partial_nucleotide_deletion	PMID:9819418				
-SPBC119.04	mei3-promoter-delta5	-328--251	partial_nucleotide_deletion	PMID:9819418				
-SPBC119.04	mei3-promoter-delta7	-113--163	partial_nucleotide_deletion	PMID:9819418				
+systematic_id	allele_name	allele_description	reference	change_description_to	change_name_to	change_type_to	comment_on_change	add_synonym	add_comment
+SPAC30D11.04c	nup124-1	722->stop	PMID:10409764	Q722*		partial_amino_acid_deletion
+SPAC13D6.05	alp11-924	AA119->opal	PMID:10473641,PMID:10905343,PMID:9658169	W119*		partial_amino_acid_deletion
+SPAC13D6.05	alp11-1-118	119->opal,121->amber	PMID:10905343	W119*,K121*		partial_amino_acid_deletion
+SPAC821.08c	slp1-362	AA376->stop	PMID:11058086,PMID:15791259,PMID:36108046	W376*		partial_amino_acid_deletion
+SPAC1805.07c	hos2-M10	Q->amber	PMID:11193425,PMID:9748434	Q62*		partial_amino_acid_deletion
+SPCC736.14	dis1-203	AA1-265	PMID:11683390	Q265*		partial_amino_acid_deletion
+SPAC23C11.16	plo1-ts19	aa316->stop	PMID:12815070,PMID:23349808	W316*		partial_amino_acid_deletion
+SPBC365.13c	caf1-21	89->stop	PMID:12896976,PMID:14758541,PMID:9211790,PMID:9894913	E89*		partial_amino_acid_deletion
+SPBC409.03	swi5-39	AA38->stop	PMID:15238514,PMID:1874411	Q38*		partial_amino_acid_deletion
+SPBC31E1.02c	cps5-138	400->opal	PMID:15470240	W400*		partial_amino_acid_deletion
+SPAC3G6.02	dss1-49	AA26->stop	PMID:15990877	W26*		partial_amino_acid_deletion
+SPAC3C7.11c	cnx1-ss14	183->stop	PMID:17230581	Y183*		partial_amino_acid_deletion
+SPAC11E3.01c	mod22-1	nt2209->opal	PMID:19160458	R737*		partial_amino_acid_deletion
+SPBC9B6.08	git9-232	AA181->stop	PMID:2157626	W181*		partial_amino_acid_deletion
+SPCC63.08c	atg1-m14	aa411->stop	PMID:26696398	L411*		partial_amino_acid_deletion
+SPAC664.01c	swi6-W293*	aa293->stop	PMID:27738016	W293*		partial_amino_acid_deletion
+SPBC428.08c	clr4-R126*	aa126->stop	PMID:27738016	R126*		partial_amino_acid_deletion
+SPBC428.08c	clr4-Y451*	aa451->stop	PMID:27738016	Y451*		partial_amino_acid_deletion
+SPCC11E10.08	rik1-K812*	aa812->stop	PMID:27738016	K812*		partial_amino_acid_deletion
+SPCC70.05c	nnk1-35	Glu744->stop	PMID:28108582	E744*		partial_amino_acid_deletion
+SPAC20H4.02	dsc3-226*	226->stop	PMID:28821619	L226*		partial_amino_acid_deletion
+SPBC3B9.15c	scp1-1017->stop	1017->stop	PMID:28821619	N1017*		partial_amino_acid_deletion
+SPBC3B9.15c	scp1-408->stop	408->stop	PMID:28821619	N408*		partial_amino_acid_deletion
+SPCC1795.11	sum3-599->stop	aa599->stop	PMID:28821619	N599*		partial_amino_acid_deletion
+SPCC285.11	dsc5-127*	127->stop	PMID:28821619	D127*		partial_amino_acid_deletion
+SPBC1198.04c	zas1-a1	W761->stop	PMID:29735745	W761*		partial_amino_acid_deletion
+SPBC1198.04c	zas1-aj3	K833->stop	PMID:29735745	K833*		partial_amino_acid_deletion
+SPAC3G6.02	rpn15-deltahelix	aa54->stop	PMID:30355493	D54*		partial_amino_acid_deletion
+SPAC10F6.13c	caa1-1	Gln26>stop	PMID:31641022	Q26*		partial_amino_acid_deletion
+SPCC11E10.07c	tif221-1	aa257->stop	PMID:32841241	Q257*		partial_amino_acid_deletion
+SPAC1783.07c	pap1-N424STOP	aa424N>stop	PMID:32908306	N424*		partial_amino_acid_deletion
+SPAC227.07c	ret1-4	694->stop	PMID:7845361	R58*		partial_amino_acid_deletion
