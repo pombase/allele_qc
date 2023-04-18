@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
 import json
 from starlette.responses import RedirectResponse, PlainTextResponse, FileResponse
 from pydantic import BaseModel
@@ -83,7 +83,7 @@ class MultiShiftRequest(BaseModel):
         schema_extra = {
             "example": {
                 "systematic_id": "SPAPB1A10.09",
-                "targets": "S123,A124,N125,SAN-213-LLL"
+                "targets": "S123,A124,N125"
             }
         }
 
@@ -233,6 +233,23 @@ app = FastAPI()
 @ app.get("/")
 async def root():
     return RedirectResponse("/docs")
+
+
+@ app.get("/check_allele", response_model=CheckAlleleDescriptionResponse)
+async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c"), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+    if 'amino' in allele_type:
+        response_data = CheckAlleleDescriptionResponse.parse_obj(
+            check_allele_description(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, genome[systematic_id])
+        )
+    else:
+        response_data = CheckAlleleDescriptionResponse.parse_obj(
+            check_allele_description(allele_description, syntax_rules_nucleotides, allele_type, allowed_types, genome[systematic_id])
+        )
+
+    response_data.user_friendly_fields = get_allele_user_friendly_fields(response_data)
+    return response_data
 
 
 @ app.post("/check_allele", response_model=CheckAlleleDescriptionResponse)

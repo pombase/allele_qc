@@ -204,13 +204,5 @@ docker build -t allele_qc_api .
 docker run -d --name apicontainer -p 8000:80 allele_qc_api
 ```
 
-Downloading and processing the necessary data may take a few minutes. To make sure
-the data processing is finished and that the API is up, go to the console of the docker
-container and wait for the uvicorn success message.
-
-```
-INFO:     Uvicorn running on http://0.0.0.0:80 (Press CTRL+C to quit)
-```
-
 Then if you go to http://localhost:8000/ you should be redirected to the API documentation and
 you can run a test request directly there.
