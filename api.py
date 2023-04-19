@@ -394,6 +394,11 @@ async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, 
 
     seq_record.annotations['accession'] = systematic_id
 
+    extension = 'gb'
+
+    if format != 'genbank':
+        extension = format
+
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as fp:
         if strand == 1:
             SeqIO.write(seq_record, fp, format)
@@ -403,7 +408,7 @@ async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, 
             rv.annotations['accession'] = systematic_id
             SeqIO.write(rv, fp, format)
 
-        return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.gb')
+        return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.{extension}')
 
 @app.get('/residue_at_position')
 async def get_residue_at_position(systematic_id: str, position: int, dna_or_protein: DNAorProtein):
