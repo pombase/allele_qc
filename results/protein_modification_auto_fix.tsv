@@ -8,8 +8,8 @@ SPAC1834.04	hht1	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC2
 SPAC1834.04	hht1	MOD:00663	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K4	added_by(PomBase:SPAC637.12c)	PMID:20299449	4896	2014-12-23	K4	K5	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K4	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K4	K5	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_by(PomBase:SPBC342.06c)	PMID:17369611	4896	2011-08-08	K56	K57	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K56	K57	histone_fix	
+SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_by(PomBase:SPBC342.06c)	PMID:17369611	4896	2011-08-08	K56	K57	histone_fix	
 SPAC1834.04	hht1	MOD:00663		K9	present_during(GO:0031508)	PMID:14561399	4896	2010-03-11	K9	K10	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K9		PMID:20299449	4896	2014-12-23	K9	K10	histone_fix	
 SPAC1834.04	hht1	MOD:00046	Inferred from Direct Assay	S10	added_by(PomBase:SPCC320.13c),present_during(GO:0000087)	PMID:11792803	4896	2016-10-12	S10	S11	histone_fix	
@@ -44,7 +44,7 @@ SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T374A	added_by(PomBase:S
 SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T46A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29		T46	syntax_error	
 SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T60A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29		T60	syntax_error	
 SPBC16G5.15c	fkh2	MOD:00046	Inferred from Direct Assay	S321A	added_by(PomBase:SPCC24B10.07)	PMID:18235227	4896	2015-12-17		S321	syntax_error	
-SPBC1A4.03c	top2	MOD:00046	Inferred from Direct Assay	S1363, S1364	added_by(PomBase:SPAC23C11.11),present_during(GO:0000278),required_for(GO:0032781)	PMID:30635402	4896	2019-01-25		S1363,S1364	syntax_error	
+SPBC1A4.03c	top2	MOD:00046	Inferred from Direct Assay	S1363, S1364	added_by(PomBase:SPAC23C11.11),present_during(GO:0000278)	PMID:30635402	4896	2019-01-25		S1363,S1364	syntax_error	
 SPBC4F6.12	pxl1	MOD:00696	Inferred from Direct Assay	S3, S24, S31, T55, T64, S67, S97, S136, T214	added_by(PomBase:SPBC11B10.09),added_during(GO:0000089),removed_during(GO:0000092)	PMID:34133210	4896	2021-07-07		S3,S24,S31,T55,T64,S67,S97,S136,T214	syntax_error	
 SPBC8D2.03c	hhf2	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
 SPBC8D2.04	hht2	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
@@ -57,7 +57,7 @@ SPBP23A10.10	ppk32	MOD:00696	Inferred from Direct Assay	S630, S632		PMID:2719159
 SPCC162.07	ent1	MOD:00046	Inferred from Direct Assay	S220		PMID:23297348	4896	2014-04-07	S220	S216	old_coords_fix, revision 1899: complement(join(1571648..1573733,1574016..1574050))	
 SPCC188.11	prp45	MOD:00046	Inferred from Direct Assay	S228, S236		PMID:36361590	4896	2022-11-18		S228,S236	syntax_error	
 SPCC338.08	ctp1	MOD:00046	Inferred from Direct Assay	S77, S151	added_by(PomBase:SPAC23C11.11)	PMID:33836577	4896	2021-06-18		S77,S151	syntax_error	
-SPCC338.08	ctp1	MOD:00047	Inferred from Direct Assay	T89, T154, T155	added_by(PomBase:SPAC23C11.11),required_for(GO:0070975)	PMID:33836577	4896	2021-06-08	|T154|T155	T89,T154,T155	syntax_error	
+SPCC338.08	ctp1	MOD:00047	Inferred from Direct Assay	T89, T154, T155	added_by(PomBase:SPAC23C11.11)	PMID:33836577	4896	2021-06-08	|T154|T155	T89,T154,T155	syntax_error	
 SPCC338.17c	rad21	MOD:00046	Inferred from Direct Assay	S163, S164,S165, S174, S209, S216, S219,S223, S226, S444, S507, S544, S545, S553		PMID:28438891	4896	2017-10-28		S163,S164,S165,S174,S209,S216,S219,S223,S226,S444,S507,S544,S545,S553	syntax_error	
 SPCC4E9.01c	rec11	MOD:00696	Inferred from Direct Assay	S10|S22|S43|S150|S439|S496	added_during(GO:0098762)	PMID:25993311	4896	2017-04-11		S10,S22,S43,S150,S439,S496	syntax_error	
 SPCC4E9.01c	rec11	MOD:00696	Inferred from Direct Assay	T60|T70	added_during(GO:0098762)	PMID:25993311	4896	2017-04-11		T60,T70	syntax_error	
