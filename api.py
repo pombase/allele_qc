@@ -48,72 +48,6 @@ class AlleleType(str, Enum):
     nucleotide_insertion_and_mutation = 'nucleotide_insertion_and_mutation'
 
 
-class CheckAlleleRequest(BaseModel):
-    systematic_id: str
-    allele_description: str
-    allele_type: AlleleType
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "systematic_id": "SPBC359.03c",
-                "allele_description": "V123A,PLR-140-AAA,150-600",
-                "allele_type": "partial_amino_acid_deletion"}
-        }
-
-
-class CheckModificationRequest(BaseModel):
-    systematic_id: str
-    sequence_position: str
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "systematic_id": "SPBC359.03c",
-                "sequence_position": "V123; V124,V125",
-            }
-        }
-
-
-class MultiShiftRequest(BaseModel):
-    systematic_id: str
-    targets: str
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "systematic_id": "SPAPB1A10.09",
-                "targets": "S123,A124,N125"
-            }
-        }
-
-
-class OldCoordsFixRequest(BaseModel):
-    systematic_id: str
-    targets: str
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "systematic_id": "SPBC1706.01",
-                "targets": 'P170A,V223A,F225A,AEY-171-LLL'
-            }
-        }
-
-
-class HistoneFixRequest(BaseModel):
-    systematic_id: str
-    targets: str
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "systematic_id": "SPAC1834.04",
-                "targets": 'ART-1-LLL,K9A,K14R,K14A'
-            }
-        }
-
-
 class PrimerRequest(BaseModel):
     systematic_id: str
     primer: str
@@ -159,6 +93,11 @@ class OldCoordsFix(AlleleFix):
 
     revision: str
     location: str
+
+
+# For the query field
+systematic_id_description = 'Gene or transcript systematic id, if a gene that contains multiple transcripts is passed, the first transcript is used, `systematic_id.1`'
+systematic_id_description_longest = 'Gene or transcript systematic id, if a gene that contains multiple transcripts is passed, the longest transcript is used'
 
 
 def get_modification_user_friendly_fields(obj: CheckModificationResponse) -> CheckModificationResponse:
@@ -226,7 +165,8 @@ def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> Chec
 
     return new_obj
 
-def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) -> tuple[SeqRecord, int]:
+
+def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int, get_utrs: bool = True) -> tuple[SeqRecord, int]:
     if 'CDS' not in gene:
 
         if len(gene) == 2:
@@ -239,8 +179,8 @@ def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) 
             raise HTTPException(400, 'Only supports genes with CDS or RNA genes with a single feature for now')
     else:
         strand = gene["CDS"].location.strand
-        start_feature = "5'UTR" if "5'UTR" in gene else "CDS"
-        end_feature = "3'UTR" if "3'UTR" in gene else "CDS"
+        start_feature = "5'UTR" if ("5'UTR" in gene and get_utrs) else "CDS"
+        end_feature = "3'UTR" if ("3'UTR" in gene and get_utrs) else "CDS"
 
     if strand == 1:
         end = gene[end_feature].location.end + downstream
@@ -257,6 +197,57 @@ def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) 
     return gene['contig'][start:end], strand
 
 
+def process_fix_targets(input_targets: list[str]):
+
+    accepted_syntax = [r'[A-Z]?\d+[A-Z]?', r'\d+-\d+']
+
+    targets = list()
+    for t in input_targets:
+        if re.fullmatch(multi_aa_rule.regex, t):
+            # Format multi-substitution syntax
+            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
+        else:
+            # Check all possible syntaxes
+            if any(re.fullmatch(rule, t) for rule in accepted_syntax):
+                targets.append(t)
+            else:
+                raise HTTPException(422, f'Invalid syntax for target {t}')
+
+    return targets
+
+
+def process_systematic_id(systematic_id: str, genome: dict, when_several_transcripts: str) -> str:
+    """
+    If no multiple transcripts exist, return the systematic id, else
+    return the transcript id of the longest transcript or the .1 transcript, depending
+    on the value of when_several_transcripts
+    """
+
+    if systematic_id in genome:
+        return systematic_id
+
+    if when_several_transcripts not in ('longest', 'first'):
+        return ValueError('when_several_transcripts must be either "longest" or "first"')
+
+    if when_several_transcripts == 'first' and systematic_id + '.1' in genome:
+        return systematic_id + '.1'
+
+    # For loci with multiple transcripts, we need to find the one that is the longest
+    i = 1
+    longest_transcript_systematic_id = None
+    longest_transcript_length = 0
+    while systematic_id + '.' + str(i) in genome:
+        transcript_seq_record = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
+        if len(transcript_seq_record) > longest_transcript_length:
+            longest_transcript_length = len(transcript_seq_record)
+            longest_transcript_systematic_id = systematic_id + '.' + str(i)
+        i += 1
+    if longest_transcript_systematic_id is None:
+        raise HTTPException(404, 'Systematic id does not exist')
+    else:
+        return longest_transcript_systematic_id
+
+
 app = FastAPI()
 
 
@@ -266,9 +257,10 @@ async def root():
 
 
 @ app.get("/check_allele", response_model=CheckAlleleDescriptionResponse)
-async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c"), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
+async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
+    systematic_id = process_systematic_id(systematic_id, genome, 'first')
     if 'amino' in allele_type:
         response_data = CheckAlleleDescriptionResponse.parse_obj(
             check_allele_description(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, genome[systematic_id])
@@ -282,29 +274,12 @@ async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c"), al
     return response_data
 
 
-@ app.post("/check_allele", response_model=CheckAlleleDescriptionResponse)
-async def check_allele(request: CheckAlleleRequest):
+@ app.get("/check_modification", response_model=CheckModificationResponse)
+async def check_modification(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), sequence_position: str = Query(example="V123; V124,V125")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    if 'amino' in request.allele_type:
-        response_data = CheckAlleleDescriptionResponse.parse_obj(
-            check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, genome[request.systematic_id])
-        )
-    else:
-        response_data = CheckAlleleDescriptionResponse.parse_obj(
-            check_allele_description(request.allele_description, syntax_rules_nucleotides, request.allele_type, allowed_types, genome[request.systematic_id])
-        )
-
-    response_data.user_friendly_fields = get_allele_user_friendly_fields(response_data)
-    return response_data
-
-
-@ app.post("/check_modification", response_model=CheckModificationResponse)
-async def check_modification(request: CheckModificationRequest):
-    with open('data/genome.pickle', 'rb') as ins:
-        genome = pickle.load(ins)
-
-    errors, change_sequence_position_to = check_modification_description(request.dict(), genome)
+    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    errors, change_sequence_position_to = check_modification_description({'systematic_id': systematic_id, 'sequence_position': sequence_position}, genome)
     needs_fixing = errors != '' or change_sequence_position_to != ''
     response_data = CheckModificationResponse(sequence_error=errors, change_sequence_position_to=change_sequence_position_to, needs_fixing=needs_fixing)
     response_data.user_friendly_fields = get_modification_user_friendly_fields(response_data)
@@ -331,18 +306,15 @@ async def primer_mutagenesis(request: PrimerRequest):
     return PlainTextResponse(primer_mutagenesis_func(seq.seq, request.primer, request.max_mismatch, has_peptide))
 
 
-@ app.post("/multi_shift_fix", response_model=list[AlleleFix])
-async def fix_with_multi_shift(request: MultiShiftRequest):
+# The same endpoint as above as a get endpoint
+@ app.get("/multi_shift_fix", response_model=list[AlleleFix])
+async def fix_with_multi_shift(systematic_id: str = Query(example="SPAPB1A10.09", description=systematic_id_description), targets: str = Query(example="S123,A124,N125")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    gene = genome[request.systematic_id]
-    targets_1 = request.targets.split(',')
-    targets = list()
-    for t in targets_1:
-        if not re.match(multi_aa_rule.regex, t):
-            targets.append(t)
-        else:
-            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
+    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+
+    gene = genome[systematic_id]
+    targets = process_fix_targets(targets.split(','))
 
     if len([t for t in targets if t[0].isalpha()]) >= 3:
         result = multi_shift_fix(gene['peptide'], targets)
@@ -351,58 +323,37 @@ async def fix_with_multi_shift(request: MultiShiftRequest):
         return []
 
 
-@ app.post("/old_coords_fix", response_model=list[OldCoordsFix])
-async def fix_with_old_coords(request: OldCoordsFixRequest):
+@ app.get("/old_coords_fix", response_model=list[OldCoordsFix])
+async def fix_with_old_coords(systematic_id: str = Query(example="SPBC1706.01", description=systematic_id_description), targets: str = Query(example="P170A,V223A,F225A,AEY-171-LLL")):
     with open('data/coordinate_changes_dict.json') as ins:
         coordinate_changes_dict = json.load(ins)
-    targets_1 = request.targets.split(',')
-    targets = list()
-    for t in targets_1:
-        if not re.match(multi_aa_rule.regex, t):
-            targets.append(t)
-        else:
-            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
-    result = old_coords_fix(coordinate_changes_dict[request.systematic_id], targets)
+    # We load the genome just to check if the systematic ID is valid
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    targets = process_fix_targets(targets.split(','))
+    if systematic_id not in coordinate_changes_dict:
+        return []
+    result = old_coords_fix(coordinate_changes_dict[systematic_id], targets)
     return [OldCoordsFix.parse_obj(i) for i in result]
 
 
-@ app.post("/histone_fix", response_model=list[AlleleFix])
-async def fix_histone(request: HistoneFixRequest):
+@ app.get("/histone_fix", response_model=list[AlleleFix])
+async def fix_histone(systematic_id: str = Query(example="SPAC1834.04", description=systematic_id_description), targets: str = Query(example="ART-1-LLL,K9A,K14R,K14A")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    targets_1 = request.targets.split(',')
-    targets = list()
-    for t in targets_1:
-        if not re.match(multi_aa_rule.regex, t):
-            targets.append(t)
-        else:
-            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
-    print(request.dict() | {'targets': targets})
-    result = apply_histone_fix(request.dict() | {'targets': ','.join(targets)}, genome, 'targets')
+    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    targets = process_fix_targets(targets.split(','))
+    result = apply_histone_fix({'systematic_id': systematic_id, 'targets': ','.join(targets)}, genome, 'targets')
     return [AlleleFix.parse_obj({'values': result})] if result != '' else []
 
 
 @app.get("/genome_region")
-async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, downstream: int = 0):
+async def get_genome_region(systematic_id: str = Query(example="SPAC1834.04", description=systematic_id_description_longest), format: str = Query(example="genbank"), upstream: int = 0, downstream: int = 0):
 
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-
-    if systematic_id not in genome:
-        # For loci with multiple transcripts, we need to find the one that is the longest
-        i = 1
-        longest_transcript_systematic_id = None
-        longest_transcript_length = 0
-        while systematic_id + '.' + str(i) in genome:
-            transcript_seq_record = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
-            if len(transcript_seq_record) > longest_transcript_length:
-                longest_transcript_length = len(transcript_seq_record)
-                longest_transcript_systematic_id = systematic_id + '.' + str(i)
-            i += 1
-        if longest_transcript_systematic_id is None:
-            raise HTTPException(404, 'Systematic id does not exist')
-        else:
-            systematic_id = longest_transcript_systematic_id
+    systematic_id = process_systematic_id(systematic_id, genome, 'longest')
 
     seq_record, strand = extract_main_feature_and_strand(genome[systematic_id], downstream, upstream)
     seq_record.annotations['accession'] = systematic_id
@@ -423,23 +374,18 @@ async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, 
 
         return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.{extension}')
 
+
 @app.get('/residue_at_position')
-async def get_residue_at_position(systematic_id: str, position: int, dna_or_protein: DNAorProtein):
+async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.09', description=systematic_id_description), position: int = Query(example=1), dna_or_protein: DNAorProtein = Query(example='protein')):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic id does not exist')
     gene = genome[systematic_id]
     if dna_or_protein == 'dna':
-        if 'CDS' in gene:
-            seq = gene['CDS'].extract(gene['contig'])
-        else:
-            if len(gene) != 2:
-                # Error, we cannot read this position
-                raise ValueError('cannot read sequence, alternative splicing?')
-            # The key is the one that is not 'contig'
-            key = next(k for k in gene if k != 'contig')
-            seq = gene[key].extract(gene['contig'])
-        return seq.seq[position - 1]
+        seq, strand = extract_main_feature_and_strand(gene, 0, 0, get_utrs=False)
+        return PlainTextResponse(seq.seq[position - 1])
     elif dna_or_protein == 'protein':
         if 'peptide' not in gene:
             raise ValueError('cannot read sequence, no peptide')
-        return gene['peptide'][position - 1]
+        return PlainTextResponse(gene['peptide'][position - 1])
