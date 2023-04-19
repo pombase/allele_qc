@@ -1,4 +1,4 @@
-from api import app, CheckAlleleDescriptionResponse, CheckModificationResponse, AlleleFix
+from api import app, CheckAlleleDescriptionResponse, CheckModificationResponse, AlleleFix, OldCoordsFix
 from fastapi.testclient import TestClient
 import unittest
 
@@ -83,7 +83,8 @@ class FixTest(unittest.TestCase):
 
     entrypoints = ['/multi_shift_fix', '/old_coords_fix', '/histone_fix']
 
-    # Common part of the tests
+    # Common part of the tests ================================================
+
     def test_dummy_id(self):
         # Should return 404
         for ep in self.entrypoints:
@@ -120,17 +121,59 @@ class FixTest(unittest.TestCase):
             except Exception as e:
                 self.fail(e)
 
+    # Endpoint-specific part of the tests ================================================
+
     def test_multi_shift(self):
-        # Should contain a valid response
-        pass
-    # # There should be two possible fixes for this example
-    # self.assertEqual(len(resp), 2)
+        response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124,N125'})
 
-    # # This syntax should also work
-    # response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'SAN-123-AAA'})
+        try:
+            resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
+        except Exception as e:
+            self.fail(e)
+        # There should be two possible fixes for this example
+        self.assertEqual(len(resp), 2)
 
-    # try:
-    #     resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
-    # except Exception as e:
-    #     self.fail(e)
-    # self.assertEqual(len(resp), 2)
+        # This syntax should also work
+        response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'SAN-123-AAA'})
+
+        try:
+            resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
+        except Exception as e:
+            self.fail(e)
+        self.assertEqual(len(resp), 2)
+
+    def test_old_coords(self):
+        response = client.get("/old_coords_fix", params={'systematic_id': 'SPBC1706.01', 'targets': 'P170A,V223A,F225A,AEY-171-LLL'})
+
+        try:
+            resp = [OldCoordsFix.parse_obj(ele) for ele in response.json()]
+        except Exception as e:
+            self.fail(e)
+        self.assertEqual(len(resp), 1)
+        self.assertEqual(resp[0].values, 'P182A,V235A,F237A,A183L,E184L,Y185L')
+        self.assertEqual(resp[0].revision, '20110324')
+        self.assertEqual(resp[0].location, '588765..591194')
+
+    def test_histone(self):
+        response = client.get("/histone_fix", params={'systematic_id': 'SPAC1834.04', 'targets': 'ART-1-LLL,K9A,K14R,K14A'})
+
+        try:
+            resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
+        except Exception as e:
+            self.fail(e)
+        self.assertEqual(len(resp), 1)
+        self.assertEqual(resp[0].values, 'A2L,R3L,T4L,K10A,K15R,K15A')
+
+
+class ResidueAtPositionTest(unittest.TestCase):
+
+    def test_valid_id(self):
+        # Request protein
+        response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.09', 'position': 1, 'dna_or_protein': 'protein'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.text, 'M')
+
+        # Request DNA
+        response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.09', 'position': 1, 'dna_or_protein': 'dna'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.text, 'A')

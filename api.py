@@ -227,7 +227,7 @@ def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> Chec
     return new_obj
 
 
-def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) -> tuple[SeqRecord, int]:
+def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int, get_utrs: bool = True) -> tuple[SeqRecord, int]:
     if 'CDS' not in gene:
 
         if len(gene) == 2:
@@ -240,8 +240,8 @@ def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) 
             raise HTTPException(400, 'Only supports genes with CDS or RNA genes with a single feature for now')
     else:
         strand = gene["CDS"].location.strand
-        start_feature = "5'UTR" if "5'UTR" in gene else "CDS"
-        end_feature = "3'UTR" if "3'UTR" in gene else "CDS"
+        start_feature = "5'UTR" if ("5'UTR" in gene and get_utrs) else "CDS"
+        end_feature = "3'UTR" if ("3'UTR" in gene and get_utrs) else "CDS"
 
     if strand == 1:
         end = gene[end_feature].location.end + downstream
@@ -423,23 +423,18 @@ async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, 
 
         return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.{extension}')
 
+
 @app.get('/residue_at_position')
-async def get_residue_at_position(systematic_id: str, position: int, dna_or_protein: DNAorProtein):
+async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.09'), position: int = Query(example=1), dna_or_protein: DNAorProtein = Query(example='protein')):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic id does not exist')
     gene = genome[systematic_id]
     if dna_or_protein == 'dna':
-        if 'CDS' in gene:
-            seq = gene['CDS'].extract(gene['contig'])
-        else:
-            if len(gene) != 2:
-                # Error, we cannot read this position
-                raise ValueError('cannot read sequence, alternative splicing?')
-            # The key is the one that is not 'contig'
-            key = next(k for k in gene if k != 'contig')
-            seq = gene[key].extract(gene['contig'])
-        return seq.seq[position - 1]
+        seq, strand = extract_main_feature_and_strand(gene, 0, 0, get_utrs=False)
+        return PlainTextResponse(seq.seq[position - 1])
     elif dna_or_protein == 'protein':
         if 'peptide' not in gene:
             raise ValueError('cannot read sequence, no peptide')
-        return gene['peptide'][position - 1]
+        return PlainTextResponse(gene['peptide'][position - 1])
