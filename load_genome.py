@@ -52,13 +52,14 @@ for f in args.files:
         feature_type = feature.type
         if feature_type in ['intron', 'misc_feature']:
             continue
-        if feature_type in genome[gene_id]:
-            raise ValueError(f'several features of {feature_type} for {gene_id}')
 
         if gene_id not in genome:
             genome[gene_id] = dict()
             # assigned only once
             genome[gene_id]['contig'] = contig
+
+        if feature_type in genome[gene_id]:
+            raise ValueError(f'several features of {feature_type} for {gene_id}')
 
         genome[gene_id][feature_type] = feature
 
