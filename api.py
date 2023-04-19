@@ -353,7 +353,7 @@ async def fix_histone(request: HistoneFixRequest):
 
 
 @app.get("/genome_region")
-async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: int = 0):
+async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, downstream: int = 0):
 
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
@@ -394,11 +394,11 @@ async def get_genome_region(systematic_id: str, upstream: int = 0, downstream: i
 
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as fp:
         if strand == 1:
-            SeqIO.write(seq_record, fp, 'genbank')
+            SeqIO.write(seq_record, fp, format)
         else:
             rv = seq_record.reverse_complement()
             rv.annotations["molecule_type"] = "DNA"
-            SeqIO.write(rv, fp, 'genbank')
+            SeqIO.write(rv, fp, format)
 
         return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.gb')
 
