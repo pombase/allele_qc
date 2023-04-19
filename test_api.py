@@ -97,29 +97,16 @@ class FixTest(unittest.TestCase):
             response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124,N125, 123'})
             self.assertEqual(response.status_code, 422)
 
-    def test_few_positions(self):
-        # Should return empty list if 2 or less positions are provided
-        for ep in self.entrypoints:
-            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124'})
-            self.assertEqual(response.status_code, 200)
-            self.assertEqual(response.json(), [])
-
-        # Also with the alternative syntax
-        for ep in self.entrypoints:
-            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'SA-123-AV'})
-            self.assertEqual(response.status_code, 200)
-            self.assertEqual(response.json(), [])
-
     def test_valid_id(self):
-        # Should contain a valid response
-        for ep in self.entrypoints:
-            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124,N125'})
-            self.assertEqual(response.status_code, 200)
-
-            try:
-                resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
-            except Exception as e:
-                self.fail(e)
+        # Should contain a valid response and support genes with multiple transcripts
+        for systematic_id in ['SPBC359.03c', 'SPAC22A12.08c', 'SPAC22A12.08c.2']:
+            for ep in self.entrypoints:
+                response = client.get(ep, params={'systematic_id': systematic_id, 'targets': 'S123,A124,N125'})
+                self.assertEqual(response.status_code, 200)
+                try:
+                    resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
+                except Exception as e:
+                    self.fail(e)
 
     # Endpoint-specific part of the tests ================================================
 
@@ -141,6 +128,16 @@ class FixTest(unittest.TestCase):
         except Exception as e:
             self.fail(e)
         self.assertEqual(len(resp), 2)
+
+        # Should return empty list if 2 or less positions are provided
+        response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), [])
+
+        # Also with the alternative syntax
+        response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'SA-123-AV'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), [])
 
     def test_old_coords(self):
         response = client.get("/old_coords_fix", params={'systematic_id': 'SPBC1706.01', 'targets': 'P170A,V223A,F225A,AEY-171-LLL'})
