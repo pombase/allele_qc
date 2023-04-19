@@ -226,6 +226,7 @@ def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> Chec
 
     return new_obj
 
+
 def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) -> tuple[SeqRecord, int]:
     if 'CDS' not in gene:
 
@@ -255,6 +256,25 @@ def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) 
         feat.qualifiers['translation'] = gene['peptide']
 
     return gene['contig'][start:end], strand
+
+
+def process_fix_targets(input_targets: list[str]):
+
+    accepted_syntax = [r'[A-Z]?\d+[A-Z]?', r'\d+-\d+']
+
+    targets = list()
+    for t in input_targets:
+        if re.fullmatch(multi_aa_rule.regex, t):
+            # Format multi-substitution syntax
+            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
+        else:
+            # Check all possible syntaxes
+            if any(re.fullmatch(rule, t) for rule in accepted_syntax):
+                targets.append(t)
+            else:
+                raise HTTPException(422, f'Invalid syntax for target {t}')
+
+    return targets
 
 
 app = FastAPI()
@@ -317,18 +337,16 @@ async def primer_mutagenesis(request: PrimerRequest):
     return PlainTextResponse(primer_mutagenesis_func(seq.seq, request.primer, request.max_mismatch, has_peptide))
 
 
-@ app.post("/multi_shift_fix", response_model=list[AlleleFix])
-async def fix_with_multi_shift(request: MultiShiftRequest):
+# The same endpoint as above as a get endpoint
+@ app.get("/multi_shift_fix", response_model=list[AlleleFix])
+async def fix_with_multi_shift(systematic_id: str = Query(example="SPAPB1A10.09"), targets: str = Query(example="S123,A124,N125")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    gene = genome[request.systematic_id]
-    targets_1 = request.targets.split(',')
-    targets = list()
-    for t in targets_1:
-        if not re.match(multi_aa_rule.regex, t):
-            targets.append(t)
-        else:
-            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic ID not found in the genome')
+
+    gene = genome[systematic_id]
+    targets = process_fix_targets(targets.split(','))
 
     if len([t for t in targets if t[0].isalpha()]) >= 3:
         result = multi_shift_fix(gene['peptide'], targets)
@@ -337,34 +355,30 @@ async def fix_with_multi_shift(request: MultiShiftRequest):
         return []
 
 
-@ app.post("/old_coords_fix", response_model=list[OldCoordsFix])
-async def fix_with_old_coords(request: OldCoordsFixRequest):
+@ app.get("/old_coords_fix", response_model=list[OldCoordsFix])
+async def fix_with_old_coords(systematic_id: str = Query(example="SPBC1706.01"), targets: str = Query(example="P170A,V223A,F225A,AEY-171-LLL")):
     with open('data/coordinate_changes_dict.json') as ins:
         coordinate_changes_dict = json.load(ins)
-    targets_1 = request.targets.split(',')
-    targets = list()
-    for t in targets_1:
-        if not re.match(multi_aa_rule.regex, t):
-            targets.append(t)
-        else:
-            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
-    result = old_coords_fix(coordinate_changes_dict[request.systematic_id], targets)
+    # We load the genome just to check if the systematic ID is valid
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic ID not found in the genome')
+    targets = process_fix_targets(targets.split(','))
+    if systematic_id not in coordinate_changes_dict:
+        return []
+    result = old_coords_fix(coordinate_changes_dict[systematic_id], targets)
     return [OldCoordsFix.parse_obj(i) for i in result]
 
 
-@ app.post("/histone_fix", response_model=list[AlleleFix])
-async def fix_histone(request: HistoneFixRequest):
+@ app.get("/histone_fix", response_model=list[AlleleFix])
+async def fix_histone(systematic_id: str = Query(example="SPAC1834.04"), targets: str = Query(example="ART-1-LLL,K9A,K14R,K14A")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    targets_1 = request.targets.split(',')
-    targets = list()
-    for t in targets_1:
-        if not re.match(multi_aa_rule.regex, t):
-            targets.append(t)
-        else:
-            targets.extend(split_multiple_aa(t, multi_aa_rule.regex))
-    print(request.dict() | {'targets': targets})
-    result = apply_histone_fix(request.dict() | {'targets': ','.join(targets)}, genome, 'targets')
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic ID not found in the genome')
+    targets = process_fix_targets(targets.split(','))
+    result = apply_histone_fix({'systematic_id': systematic_id, 'targets': ','.join(targets)}, genome, 'targets')
     return [AlleleFix.parse_obj({'values': result})] if result != '' else []
 
 

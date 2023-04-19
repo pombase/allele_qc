@@ -1,10 +1,13 @@
-from api import app, CheckAlleleDescriptionResponse, CheckModificationResponse
+from api import app, CheckAlleleDescriptionResponse, CheckModificationResponse, AlleleFix
 from fastapi.testclient import TestClient
 import unittest
 
 client = TestClient(app)
 
+# NOTE: these tests may fail if the genome data is updated and should be updated accordingly.
 
+
+# test /check_modification endpoint from api.py
 class GetGenomeRegionTest(unittest.TestCase):
 
     def test_all_formats(self):
@@ -51,6 +54,7 @@ class CheckAlleleTest(unittest.TestCase):
         self.assertEqual(resp.change_description_to, '')
         self.assertIsInstance(resp.user_friendly_fields, CheckAlleleDescriptionResponse)
 
+
 # test /check_modification endpoint from api.py
 class CheckModificationTest(unittest.TestCase):
 
@@ -73,3 +77,60 @@ class CheckModificationTest(unittest.TestCase):
         self.assertEqual(resp.sequence_error, 'V123|V124|')
         self.assertIsInstance(resp.user_friendly_fields, CheckModificationResponse)
 
+
+# test fixing endpoints from api.py
+class FixTest(unittest.TestCase):
+
+    entrypoints = ['/multi_shift_fix', '/old_coords_fix', '/histone_fix']
+
+    # Common part of the tests
+    def test_dummy_id(self):
+        # Should return 404
+        for ep in self.entrypoints:
+            response = client.get(ep, params={'systematic_id': 'dummy', 'targets': 'S123,A124,N125'})
+        self.assertEqual(response.status_code, 404)
+
+    def test_targets_format_error(self):
+        # Should return 422
+        for ep in self.entrypoints:
+            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124,N125, 123'})
+            self.assertEqual(response.status_code, 422)
+
+    def test_few_positions(self):
+        # Should return empty list if 2 or less positions are provided
+        for ep in self.entrypoints:
+            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124'})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json(), [])
+
+        # Also with the alternative syntax
+        for ep in self.entrypoints:
+            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'SA-123-AV'})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json(), [])
+
+    def test_valid_id(self):
+        # Should contain a valid response
+        for ep in self.entrypoints:
+            response = client.get(ep, params={'systematic_id': 'SPAPB1A10.09', 'targets': 'S123,A124,N125'})
+            self.assertEqual(response.status_code, 200)
+
+            try:
+                resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
+            except Exception as e:
+                self.fail(e)
+
+    def test_multi_shift(self):
+        # Should contain a valid response
+        pass
+    # # There should be two possible fixes for this example
+    # self.assertEqual(len(resp), 2)
+
+    # # This syntax should also work
+    # response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'SAN-123-AAA'})
+
+    # try:
+    #     resp = [AlleleFix.parse_obj(ele) for ele in response.json()]
+    # except Exception as e:
+    #     self.fail(e)
+    # self.assertEqual(len(resp), 2)
