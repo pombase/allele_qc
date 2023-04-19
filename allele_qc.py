@@ -67,7 +67,10 @@ for i, row in allele_data.iterrows():
         else:
             output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, genome[row.systematic_id]))
     elif 'disruption' == row['allele_type']:
-        if row['allele_description'] != '':
+        # TODO: handle this better and refactor
+        if row.systematic_id not in genome:
+            output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'systematic_id {row.systematic_id} missing (perhaps multiple transcripts)'})
+        elif row['allele_description'] != '':
             output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id]))
         # Special case where the description  is empty
         else:
