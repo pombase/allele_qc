@@ -14,6 +14,7 @@ fastapi = "^0.87.0"
 uvicorn = {extras = ["standard"], version = "^0.19.0"}
 regex = "^2022.10.31"
 requests = "^2.28.2"
+httpx = "^0.24.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"

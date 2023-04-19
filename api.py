@@ -226,6 +226,36 @@ def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> Chec
 
     return new_obj
 
+def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int) -> tuple[SeqRecord, int]:
+    if 'CDS' not in gene:
+
+        if len(gene) == 2:
+            features = list(gene.keys())
+            features.remove('contig')
+            start_feature = features[0]
+            end_feature = features[0]
+            strand = gene[start_feature].location.strand
+        else:
+            raise HTTPException(400, 'Only supports genes with CDS or RNA genes with a single feature for now')
+    else:
+        strand = gene["CDS"].location.strand
+        start_feature = "5'UTR" if "5'UTR" in gene else "CDS"
+        end_feature = "3'UTR" if "3'UTR" in gene else "CDS"
+
+    if strand == 1:
+        end = gene[end_feature].location.end + downstream
+        start = gene[start_feature].location.start - upstream
+    else:
+        end = gene[start_feature].location.end + upstream
+        start = gene[end_feature].location.start - downstream
+
+    # Add translation if it exists
+    if 'CDS' in gene:
+        feat: SeqFeature = gene['CDS']
+        feat.qualifiers['translation'] = gene['peptide']
+
+    return gene['contig'][start:end], strand
+
 
 app = FastAPI()
 
@@ -359,39 +389,22 @@ async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, 
         genome = pickle.load(ins)
 
     if systematic_id not in genome:
-        raise HTTPException(404, 'Systematic id does not exist')
-
-    gene = genome[systematic_id]
-
-    if 'CDS' not in gene:
-        print(gene)
-        if len(gene) == 2:
-            features = list(gene.keys())
-            features.remove('contig')
-            start_feature = features[0]
-            end_feature = features[0]
-            strand = gene[start_feature].location.strand
+        # For loci with multiple transcripts, we need to find the one that is the longest
+        i = 1
+        longest_transcript_systematic_id = None
+        longest_transcript_length = 0
+        while systematic_id + '.' + str(i) in genome:
+            transcript_seq_record = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
+            if len(transcript_seq_record) > longest_transcript_length:
+                longest_transcript_length = len(transcript_seq_record)
+                longest_transcript_systematic_id = systematic_id + '.' + str(i)
+            i += 1
+        if longest_transcript_systematic_id is None:
+            raise HTTPException(404, 'Systematic id does not exist')
         else:
-            raise HTTPException(400, 'Only supports genes with CDS or RNA genes with a single feature for now')
-    else:
-        strand = gene["CDS"].location.strand
-        start_feature = "5'UTR" if "5'UTR" in gene else "CDS"
-        end_feature = "3'UTR" if "3'UTR" in gene else "CDS"
+            systematic_id = longest_transcript_systematic_id
 
-    if strand == 1:
-        end = gene[end_feature].location.end + downstream
-        start = gene[start_feature].location.start - upstream
-    else:
-        end = gene[start_feature].location.end + upstream
-        start = gene[end_feature].location.start - downstream
-
-    # Add translation if it exists
-    if 'CDS' in gene:
-        feat: SeqFeature = gene['CDS']
-        feat.qualifiers['translation'] = gene['peptide']
-
-    seq_record: SeqRecord = gene['contig'][start:end]
-
+    seq_record, strand = extract_main_feature_and_strand(genome[systematic_id], downstream, upstream)
     seq_record.annotations['accession'] = systematic_id
 
     extension = 'gb'
