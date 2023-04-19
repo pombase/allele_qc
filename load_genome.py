@@ -49,17 +49,19 @@ for f in args.files:
         if 'systematic_id' not in feature.qualifiers:
             continue
         gene_id = feature.qualifiers['systematic_id'][0]
-        if gene_id not in genome:
-            genome[gene_id] = dict()
         feature_type = feature.type
         if feature_type in ['intron', 'misc_feature']:
             continue
         if feature_type in genome[gene_id]:
-            raise ValueError(
-                f'several features of {feature_type} for {gene_id}')
+            raise ValueError(f'several features of {feature_type} for {gene_id}')
+
+        if gene_id not in genome:
+            genome[gene_id] = dict()
+            # assigned only once
+            genome[gene_id]['contig'] = contig
 
         genome[gene_id][feature_type] = feature
-        genome[gene_id]['contig'] = contig
+
         # if feature_type == 'CDS' and not any([('pseudogene' in prod or 'dubious' in prod) for prod in feature.qualifiers['product']]):
         if feature_type == 'CDS':
             cds_seq = feature.extract(contig).seq
