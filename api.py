@@ -269,6 +269,8 @@ async def root():
 async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c"), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic ID not found in the genome')
     if 'amino' in allele_type:
         response_data = CheckAlleleDescriptionResponse.parse_obj(
             check_allele_description(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, genome[systematic_id])
@@ -282,29 +284,13 @@ async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c"), al
     return response_data
 
 
-@ app.post("/check_allele", response_model=CheckAlleleDescriptionResponse)
-async def check_allele(request: CheckAlleleRequest):
+@ app.get("/check_modification", response_model=CheckModificationResponse)
+async def check_modification(systematic_id: str = Query(example="SPBC359.03c"), sequence_position: str = Query(example="V123; V124,V125")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    if 'amino' in request.allele_type:
-        response_data = CheckAlleleDescriptionResponse.parse_obj(
-            check_allele_description(request.allele_description, syntax_rules_aminoacids, request.allele_type, allowed_types, genome[request.systematic_id])
-        )
-    else:
-        response_data = CheckAlleleDescriptionResponse.parse_obj(
-            check_allele_description(request.allele_description, syntax_rules_nucleotides, request.allele_type, allowed_types, genome[request.systematic_id])
-        )
-
-    response_data.user_friendly_fields = get_allele_user_friendly_fields(response_data)
-    return response_data
-
-
-@ app.post("/check_modification", response_model=CheckModificationResponse)
-async def check_modification(request: CheckModificationRequest):
-    with open('data/genome.pickle', 'rb') as ins:
-        genome = pickle.load(ins)
-
-    errors, change_sequence_position_to = check_modification_description(request.dict(), genome)
+    if systematic_id not in genome:
+        raise HTTPException(404, 'Systematic ID not found in the genome')
+    errors, change_sequence_position_to = check_modification_description({'systematic_id': systematic_id, 'sequence_position': sequence_position}, genome)
     needs_fixing = errors != '' or change_sequence_position_to != ''
     response_data = CheckModificationResponse(sequence_error=errors, change_sequence_position_to=change_sequence_position_to, needs_fixing=needs_fixing)
     response_data.user_friendly_fields = get_modification_user_friendly_fields(response_data)
