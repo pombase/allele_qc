@@ -392,12 +392,15 @@ async def get_genome_region(systematic_id: str, format: str, upstream: int = 0, 
 
     seq_record: SeqRecord = gene['contig'][start:end]
 
+    seq_record.annotations['accession'] = systematic_id
+
     with tempfile.NamedTemporaryFile('w', encoding='utf-8', delete=False) as fp:
         if strand == 1:
             SeqIO.write(seq_record, fp, format)
         else:
             rv = seq_record.reverse_complement()
             rv.annotations["molecule_type"] = "DNA"
+            rv.annotations['accession'] = systematic_id
             SeqIO.write(rv, fp, format)
 
         return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.gb')
