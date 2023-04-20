@@ -31,6 +31,12 @@ class DNAorProtein(str, Enum):
     dna = 'dna'
 
 
+class SequenceFileFormat(str, Enum):
+    genbank = 'genbank'
+    fasta = 'fasta'
+    embl = 'embl'
+
+
 class AlleleType(str, Enum):
     amino_acid_deletion_and_mutation = 'amino_acid_deletion_and_mutation'
     amino_acid_insertion = 'amino_acid_insertion'
@@ -349,7 +355,7 @@ async def fix_histone(systematic_id: str = Query(example="SPAC1834.04", descript
 
 
 @app.get("/genome_region")
-async def get_genome_region(systematic_id: str = Query(example="SPAC1834.04", description=systematic_id_description_longest), format: str = Query(example="genbank"), upstream: int = 0, downstream: int = 0):
+async def get_genome_region(systematic_id: str = Query(example="SPAC1834.04", description=systematic_id_description_longest), format: SequenceFileFormat = Query(example="genbank"), upstream: int = 0, downstream: int = 0):
 
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
