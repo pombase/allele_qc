@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   repository_dispatch:
     types: [run_pipeline]
+  schedule:
+    - cron: '30 2 * * 0,3'
 
 jobs:
   update-file:
