@@ -59,6 +59,8 @@ SPBC6B1.05c	W227*	atg7-m1	nonsense_mutation			partial_amino_acid_deletion	type_e
 SPBP16F5.07	W343*	apm1-1	nonsense_mutation			partial_amino_acid_deletion	type_error			W343*	nonsense_mutation:stop_codon_star	PMID:15047861,PMID:19624755
 SPCC338.08	1-288	ctp1-5	nucleotide_insertion			partial_nucleotide_deletion	type_error			1-288	partial_nucleotide_deletion:usual	PMID:26130711
 SPCC338.08	60-100	ctp1-delta60-100	amino_acid_mutation			partial_amino_acid_deletion	type_error			60-100	partial_amino_acid_deletion:multiple_aa	PMID:25580577
+SPNCRNA.98	A146U,G159U,148-150	srp7-A146U,G159U,delta148-150	nucleotide_deletion_and_mutation	A146T,G159T,148-150			syntax_error			A146U|G159U|148-150	nucleotide_mutation:single_nt|nucleotide_mutation:single_nt|partial_nucleotide_deletion:usual	PMID:1315954
+SPNCRNA.98	C176-T,C180T	srp7-C180U,omega176U	nucleotide_deletion_and_mutation			nucleotide_insertion_and_mutation	type_error			C176-T|C180T	nucleotide_insertion:single|nucleotide_mutation:single_nt	PMID:1315954
 SPSNRNA.01	T(-1)-AU	snu1-5' extension	nucleotide_insertion	T(-1)-AT			syntax_error			T(-1)-AU	nucleotide_insertion:multiple	PMID:8665408
 SPSNRNA.01	C7U	snu1-C7U	nucleotide_mutation	C7T			syntax_error			C7U	nucleotide_mutation:single_nt	PMID:1617727
 SPSNRNA.01	C7U,U8C	snu1-C7U,U8C	nucleotide_mutation	C7T,T8C			syntax_error			C7U|U8C	nucleotide_mutation:single_nt|nucleotide_mutation:single_nt	PMID:1617727

@@ -72,15 +72,15 @@ SPBC216.07c	tor2-ts6	asked	pattern_error	asked
 SPBC23E6.07c	rfc1-47	676-HLGAP	pattern_error	-HLGAP
 SPBC23E6.07c	rfc1-50	871-VGVPH	pattern_error	-VGVPH
 SPBC28F2.12	rpb1-CTD-(S2A-S7A)	CTD-S2A,S7A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-P3.P3A	(CTD)P3A(alternating)	pattern_error	(CTD),(alternating)
-SPBC28F2.12	rpb1-CTD-P6.P6A	(CTD)P6A(alternating)	pattern_error	(CTD),(alternating)
-SPBC28F2.12	rpb1-CTD-S2A	(CTD)S2A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-P3.P3A	CTD-P3.P3A(alternating)	pattern_error	CTD-P3.,(alternating)
+SPBC28F2.12	rpb1-CTD-P6.P6A	CTD-P6.P6A(alternating)	pattern_error	CTD-P6.,(alternating)
+SPBC28F2.12	rpb1-CTD-S2A	CTD-S2A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A(12)	CTD-S2A(1-12),CTD-delta(13-29)	pattern_error	CTD-,),CTD-delta(
 SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	pattern_error	CTD-,),CTDdelta(
 SPBC28F2.12	rpb1-CTD-S2A(5-29)	CTD-S2A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A,S7A(5-29)	CTD-S2A,S7A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-S5.S5A	(CTD)S5A(alternating)	pattern_error	(CTD),(alternating)
+SPBC28F2.12	rpb1-CTD-S5.S5A	CTD-S5.S5A(alternating)	pattern_error	CTD-S5.,(alternating)
 SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	pattern_error	(CTD)S5
 SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	pattern_error	(CTD)
 SPBC28F2.12	rpb1-CTD-S7A	(CTD)S7A	pattern_error	(CTD)
@@ -89,7 +89,7 @@ SPBC28F2.12	rpb1-CTD-T4(25-29)	CTD-T4(25-29)	pattern_error	CTD-T4(
 SPBC28F2.12	rpb1-CTD-T4A	(CTD)T4A	pattern_error	(CTD)
 SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5,29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A,S7A(5-29)	(CTD)T4A,S7A(5-29)	pattern_error	(CTD)
-SPBC28F2.12	rpb1-CTD-Y1F	(CTD)Y1F	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-Y1F	CTD-Y1F	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	pattern_error	CTDdelta(
 SPBC28F2.12	rpb1-P3-P3A(1-29)	P3-P3A(1-29)	pattern_error	P3-
 SPBC28F2.12	rpb1-P6-P6A	P6-P6A	pattern_error	P6-
@@ -137,6 +137,7 @@ SPNCRNA.103	sme2deltaF	1425-1586	invalid_error	Nucleotide sequence of SPNCRNA.10
 SPNCRNA.1343	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
+SPNCRNA.1712	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	Peptide sequence of SPNCRNA.1712 missing (perhaps multiple transcripts)
 SPNCRNA.214	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
 SPNCRNA.214	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
 SPNCRNA.214	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
@@ -150,5 +151,8 @@ SPNCRNA.9001	prt2delta-2	749 nt promoter and transcription start site deletion	p
 SPNCRNA.98	srp7-A162	A162	pattern_error	A162
 SPNCRNA.98	srp7-A163U,C169U6	A163U,C169U6	pattern_error	,C169U6
 SPNCRNA.98	srp7-D4E-1	GC inserted after nt 158,GC inserted after nt 164	pattern_error	GC inserted after nt 158,GC inserted after nt 164
+SPNCRNA.98	srp7-D4E-2	G160C,GC inserted after nt 158,GC inserted after nt 164	pattern_error	,GC inserted after nt 158,GC inserted after nt 164
 SPNCRNA.98	srp7-G72A,G78A,G100A,G107A,Gl12A,G141A	G72A,G78A,G100A,G107A,Gl12A,G141A	pattern_error	,Gl12A,
+SPNCRNA.98	srp7-U88G,delta84-88,omega8nt	U88G,nt84 deletion,8 nucleotides inserted after nt83	pattern_error	,nt84 deletion,8 nucleotides inserted after nt83
+SPNCRNA.98	srp7-U88G,omegaUCGA	U88G,UCGA inserted after nt84	pattern_error	,UCGA inserted after nt84
 SPNCRNA.98	srp7delta149	149	pattern_error	149

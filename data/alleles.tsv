@@ -1368,7 +1368,6 @@ SPAC23C11.11	unknown	cka1	orb5-19		unknown	PMID:19646873,PMID:30635402,PMID:3113
 SPAC23C11.12	S48A	hcn1	hcn1-S48A		amino_acid_mutation	PMID:16950791
 SPAC23C11.13c	hpt1::Tn-seq	hpt1	hpt1::Tn-seq		disruption	PMID:32101745
 SPAC23C11.13c	unknown	hpt1	pur1-	pur 1	unknown	PMID:14008
-SPAC23C11.16		plo1	plo1-24c		unknown	PMID:24920823,PMID:24963130,PMID:32084401,PMID:9852154
 SPAC23C11.16		plo1	plo1-ts35		unknown	PMID:12411492,PMID:22375062,PMID:25356547
 SPAC23C11.16		plo1	plo1-ts4		unknown	PMID:11250892,PMID:12546793
 SPAC23C11.16	1-483	plo1	plo1-484-683		partial_amino_acid_deletion	PMID:12615979
@@ -1416,6 +1415,7 @@ SPAC23C11.16	plo1-cnp3(fusion)	plo1	plo1-cnp3(fusion)		other	PMID:28497540
 SPAC23C11.16	plo1-sid4(302-660)	plo1	plo1-sid4C	plo1-sid4C fusion	fusion_or_chimera	PMID:22438582
 SPAC23C11.16	promoter swap,meiotic shut-off	plo1	plo1-so		other	PMID:20383139,PMID:23770679
 SPAC23C11.16	unknown	plo1	plo1-1		unknown	PMID:10930468,PMID:19417002,PMID:9852154
+SPAC23C11.16	unknown	plo1	plo1-24c		unknown	PMID:24920823,PMID:24963130,PMID:32084401,PMID:9852154
 SPAC23C11.16	unknown	plo1	plo1-25		unknown	PMID:17032733,PMID:31591131,PMID:9852154
 SPAC23C4.03	K8A,T9A,Y10A,G11A	hrk1	hrk1-pim		amino_acid_mutation	PMID:28343969
 SPAC23C4.03	V91E	hrk1	hrk1-V91E	hrk1-V19E	amino_acid_mutation	PMID:20929775
@@ -2026,7 +2026,7 @@ SPAC30D11.06c	Y411A	hfl1	hfl1-Y411A		amino_acid_mutation	PMID:30451685
 SPAC30D11.10		rad52	rad22-E	E-rad22	unknown	PMID:24741789
 SPAC30D11.10	D240A,E241A	rad52	rad52-D240A,E241A		amino_acid_mutation	PMID:24186976
 SPAC30D11.10	E249A,D250A	rad52	E250A,D251A		amino_acid_mutation	PMID:24186976
-SPAC30D11.10	R45K	rad52	rad52-R45K		amino_acid_mutation	PMID:34292936
+SPAC30D11.10	R45K	rad52	rad52-R45K		amino_acid_mutation	PMID:32355220,PMID:34292936
 SPAC30D11.10	unknown	rad52	rad22		unknown	PMID:2598273
 SPAC30D11.10	unknown	rad52	rad22-67		unknown	PMID:10373582,PMID:166019,PMID:7623848,PMID:8290356,PMID:9658208
 SPAC30D11.13	A129V	hus5	hus5.62		amino_acid_mutation	PMID:11600706,PMID:12597774,PMID:7768995,PMID:9092625
@@ -2243,6 +2243,7 @@ SPAC3H1.10	C91A	pcs2	pcs2-C91A		amino_acid_mutation	PMID:12905027
 SPAC3H1.10	E375A	pcs2	pcs2-E375A		amino_acid_mutation	PMID:12905027
 SPAC3H1.12c	snt2::Tn-seq	snt2	snt2::Tn-seq		disruption	PMID:32101745
 SPAC3H5.06c		pol1	pol1-polalphats		unknown	PMID:10559981
+SPAC3H5.06c		pol1	swi7-H4		unknown	PMID:11581276,PMID:12514100,PMID:18493607,PMID:18615848,PMID:26436826,PMID:7723827
 SPAC3H5.06c		pol1	swi7-ts		unknown	PMID:14739927
 SPAC3H5.06c	1-139	pol1	pol1-delta-BlockI-II		partial_amino_acid_deletion	PMID:8590799
 SPAC3H5.06c	1-217	pol1	pol1-delta-BlockI-II-III		partial_amino_acid_deletion	PMID:8590799
@@ -2261,6 +2262,7 @@ SPAC3H5.06c	G1116E	pol1	swi7-1		amino_acid_mutation	PMID:10716938,PMID:11387218,
 SPAC3H5.06c	L471A	pol1	pol1-L471A		amino_acid_mutation	PMID:9693370
 SPAC3H5.06c	L850F	pol1	pol1-L850F		amino_acid_mutation	PMID:33568651
 SPAC3H5.06c	R472A	pol1	pol1-R472A		amino_acid_mutation	PMID:9693370
+SPAC3H5.06c	R961K	pol1	pol1-R961K		amino_acid_mutation	PMID:32355220
 SPAC3H5.06c	S470A	pol1	pol1-S470A		amino_acid_mutation	PMID:9693370
 SPAC3H5.06c	pol1::ura4	pol1	pol1::ura4+		disruption	PMID:8367300
 SPAC3H5.06c	unknown	pol1	pol1-1		unknown	PMID:10588642,PMID:10888871,PMID:8537450,PMID:9891047
@@ -2270,7 +2272,6 @@ SPAC3H5.06c	unknown	pol1	pol1-4		unknown	PMID:8537450
 SPAC3H5.06c	unknown	pol1	pol1-5		unknown	PMID:8537450
 SPAC3H5.06c	unknown	pol1	pol1-6		unknown	PMID:8537450
 SPAC3H5.06c	unknown	pol1	swi7-		unknown	PMID:24719968
-SPAC3H5.06c	unknown	pol1	swi7-H4		unknown	PMID:11581276,PMID:12514100,PMID:18493607,PMID:18615848,PMID:26436826,PMID:7723827
 SPAC3H5.07	rpl702::Tn-seq	rpl702	rpl702::Tn-seq		disruption	PMID:32101745
 SPAC3H8.06	G240C	aur1	aur1-G240C		amino_acid_mutation	PMID:9472078
 SPAC3H8.06	L264P	aur1	aur1-18		amino_acid_mutation	PMID:9472078
@@ -2336,11 +2337,11 @@ SPAC4D7.03	1-344	pop2	pop2-345-703		partial_amino_acid_deletion	PMID:10209119
 SPAC4D7.03	242-703	pop2	pop2-N241		partial_amino_acid_deletion	PMID:10209119
 SPAC4D7.03	345-703	pop2	pop2-N344		partial_amino_acid_deletion	PMID:10209119
 SPAC4D7.05	3xHA-sum1	sum1	sum1-ts		fusion_or_chimera	PMID:12006658
-SPAC4D7.08c		ade4	ade4-31		unknown	PMID:1394510,PMID:499806,PMID:7565608,PMID:8082193
 SPAC4D7.08c		ade4	min13-32		unknown	PMID:499806
 SPAC4D7.08c	unknown	ade4	ade4-		unknown	PMID:17248775,PMID:2743431
 SPAC4D7.08c	unknown	ade4	ade4-24		unknown	PMID:8082193
 SPAC4D7.08c	unknown	ade4	ade4-250		unknown	PMID:8082193
+SPAC4D7.08c	unknown	ade4	ade4-31		unknown	PMID:1394510,PMID:499806,PMID:7565608,PMID:8082193
 SPAC4D7.08c	unknown	ade4	ade4-315		unknown	PMID:8082193
 SPAC4D7.08c	unknown	ade4	ade4-51		unknown	PMID:8082193
 SPAC4D7.08c	unknown	ade4	aza1-1	aza-1	unknown	PMID:4314233
@@ -2363,9 +2364,9 @@ SPAC4F10.20	(-469)-(-333)	grx1	grx1(-333--469)		partial_nucleotide_deletion	PMID
 SPAC4F8.07c	N196S	hxk2	hxk2-N196S		amino_acid_mutation	PMID:9790975
 SPAC4F8.13c	1-190	rng2	rng2-pdeltaCHD		partial_amino_acid_deletion	PMID:23615450
 SPAC4F8.13c	1-300	rng2	rng2delta1-300	rng2-delta1-300|rng2deltaNs	partial_amino_acid_deletion	PMID:19713940,PMID:23615450
-SPAC4F8.13c	1-399	rng2	rng2-Ns	Rng2Ns-non-phosphorylatable|rng2Ns	partial_amino_acid_deletion	PMID:19713940,PMID:33131769
 SPAC4F8.13c	1-803	rng2	rng2-C(803-1489)	rng2C	partial_amino_acid_deletion	PMID:19713940
 SPAC4F8.13c	1272-1489	rng2	rng2-pdeltaGAP-C		partial_amino_acid_deletion	PMID:23615450
+SPAC4F8.13c	301-1489	rng2	rng2-Ns	Rng2Ns-non-phosphorylatable|rng2Ns	partial_amino_acid_deletion	PMID:19713940,PMID:33131769
 SPAC4F8.13c	310-712	rng2	rng2-pdeltaIQ		partial_amino_acid_deletion	PMID:23615450
 SPAC4F8.13c	804-1489	rng2	rng2-N(1-803)	rng2N	partial_amino_acid_deletion	PMID:19713940
 SPAC4F8.13c	805-1187	rng2	rng2-pdeltaGRD		partial_amino_acid_deletion	PMID:23615450
@@ -3835,7 +3836,7 @@ SPBC14C8.07c	T4A,T10A,T46A,T60A,T101A,T104A,T134A,T374A	cdc18	cdc18deltaCDK1-6	c
 SPBC14C8.07c	Y347A,T348A	cdc18	cdc18-57		amino_acid_mutation	PMID:11030343
 SPBC14C8.07c	cdc18delta(1-138)-SV40\NLS	cdc18	cdc18-NLSdelta138		fusion_or_chimera	PMID:9177184
 SPBC14C8.07c	cdc18delta(1-138)-SV40\NLS	cdc18	cdc18-NLSdelta183		fusion_or_chimera	PMID:9177184
-SPBC14C8.07c	unknown	cdc18	cdc18-K46		unknown	PMID:10589835,PMID:10888871,PMID:16371652,PMID:18667534,PMID:21971174,PMID:6943408,PMID:7700230,PMID:7916658,PMID:8598285,PMID:8887552,PMID:9353247,PMID:9679144
+SPBC14C8.07c	unknown	cdc18	cdc18-K46		unknown	PMID:10589835,PMID:10888871,PMID:16371652,PMID:18667534,PMID:21971174,PMID:32355220,PMID:6943408,PMID:7700230,PMID:7916658,PMID:8598285,PMID:8887552,PMID:9353247,PMID:9679144
 SPBC14C8.12	rpb8::Tn-seq	rpb8	rpb8::Tn-seq		disruption	PMID:32101745
 SPBC14C8.16c	bot1-GFP	bot1	bot1-GFP		fusion_or_chimera	PMID:18245278
 SPBC14C8.16c	bot1-Myc	bot1	bot1-Myc		fusion_or_chimera	PMID:18245278
@@ -3846,8 +3847,8 @@ SPBC14F5.05c	I24M,E115G	sam1	sam1-4		amino_acid_mutation	PMID:30240645
 SPBC14F5.05c	L292S,R299H	sam1	sam1-3		amino_acid_mutation	PMID:30240645
 SPBC14F5.05c	T90A,Q370R	sam1	sam1-5		amino_acid_mutation	PMID:30240645
 SPBC14F5.08	352-376	med7	med7delta352-376	EWE3	partial_amino_acid_deletion	PMID:28467824
-SPBC14F5.09c		ade8	ade8-106		unknown	PMID:1394510,PMID:499806
 SPBC14F5.09c	unknown	ade8	ade8-		unknown	PMID:17248775,PMID:2743431
+SPBC14F5.09c	unknown	ade8	ade8-106		unknown	PMID:1394510,PMID:499806
 SPBC14F5.09c	unknown	ade8	ade8.106		unknown	PMID:1448066
 SPBC14F5.13c	D311A,H315A	pho8	pho8-m1		amino_acid_mutation	PMID:31239353
 SPBC14F5.13c	D352A,H353A	pho8	pho8-m2		amino_acid_mutation	PMID:31239353
@@ -4460,7 +4461,6 @@ SPBC1A4.03c		top2	top2-110		unknown	PMID:16453724
 SPBC1A4.03c		top2	top2-137		unknown	PMID:8395535
 SPBC1A4.03c		top2	top2-175		unknown	PMID:16453724
 SPBC1A4.03c		top2	top2-4		unknown	PMID:8395535
-SPBC1A4.03c		top2	top2-437		unknown	PMID:16453724
 SPBC1A4.03c		top2	top2-640		unknown	PMID:8395535
 SPBC1A4.03c	1-18	top2	top2delta(1-17)		partial_amino_acid_deletion	PMID:1332977
 SPBC1A4.03c	1-18,1200-1485	top2	top2delta(1-17)-delta-Sph		partial_amino_acid_deletion	PMID:1332977
@@ -4501,6 +4501,7 @@ SPBC1A4.03c	unknown	top2	top2-191		unknown	PMID:10712506,PMID:15957215,PMID:1645
 SPBC1A4.03c	unknown	top2	top2-1913		unknown	PMID:6090122
 SPBC1A4.03c	unknown	top2	top2-250(cs)		unknown	PMID:3040264
 SPBC1A4.03c	unknown	top2	top2-3423		unknown	PMID:6090122
+SPBC1A4.03c	unknown	top2	top2-437		unknown	PMID:16453724
 SPBC1A4.03c	unknown	top2	top2-4373		unknown	PMID:6090122
 SPBC1A4.05	rga4delta(622-760)-blt1	blt1	rga4delta(622-760)-blt1	rga4delta622-760-blt1-fusion	fusion_or_chimera	PMID:21849474
 SPBC1A4.06c	319-393	tam41	tam41-Cdelta74		partial_amino_acid_deletion	PMID:31178220
@@ -4818,7 +4819,7 @@ SPBC25H2.13c	V412L	cdc20	cdc20-V412L		amino_acid_mutation	PMID:36626373
 SPBC25H2.13c	Y1520N,D1625G,L1726S,S1904P	cdc20	cdc20-ct1		amino_acid_mutation	PMID:22718908
 SPBC25H2.13c	cdc20delta::cdc20-Y1520N,D1625G,L1726S,S1904P-dpb2	cdc20	cdc20-ct1-dpb2	cdc20-ct1-dpb2+	fusion_or_chimera	PMID:22718908
 SPBC25H2.13c	cdc20delta::cdc20-dpb2	cdc20	cdc20-dpb2	cdc20+-dpb2+	fusion_or_chimera	PMID:22718908
-SPBC25H2.13c	unknown	cdc20	cdc20-M10		unknown	PMID:10559981,PMID:10888871,PMID:12697806,PMID:18667534,PMID:1934126,PMID:21099360,PMID:26368543,PMID:28481910,PMID:6943408,PMID:7700230,PMID:7796804,PMID:8521500,PMID:9679144
+SPBC25H2.13c	unknown	cdc20	cdc20-M10		unknown	PMID:10559981,PMID:10888871,PMID:12697806,PMID:18667534,PMID:1934126,PMID:21099360,PMID:26368543,PMID:28481910,PMID:32355220,PMID:6943408,PMID:7700230,PMID:7796804,PMID:8521500,PMID:9679144
 SPBC25H2.13c	unknown	cdc20	cdc20-M31		unknown	PMID:6943408
 SPBC25H2.13c	unknown	cdc20	cdc20-P7		unknown	PMID:16738311,PMID:21725325,PMID:23267073,PMID:6943408,PMID:9356477,PMID:9605404
 SPBC25H2.13c	unknown	cdc20	cdc20-deltaNterm		unknown	PMID:21725325
@@ -4908,30 +4909,30 @@ SPBC28F2.07	S26A,S33A,S109A,S155A,S165A	sfr1	sfr1-5A		amino_acid_mutation	PMID:3
 SPBC28F2.07	S26A,S33A,S52A,T73A,S109A,T114A,S135A,S147A,T152A,S155A,S165A,S175A,S253A	sfr1	sfr1-13A		amino_acid_mutation	PMID:34208949
 SPBC28F2.07	S26D,S33D,S52D,T73D,S109D,T114D,S135D,S147D,T152D,S155D,S165D,S175D,S253D	sfr1	sfr1-13D		amino_acid_mutation	PMID:34208949
 SPBC28F2.07	unknown	sfr1	sfr1-delta2		unknown	PMID:22723423
-SPBC28F2.12	(CTD)P3A(alternating)	rpb1	rpb1-CTD-P3.P3A	rpb1-P3.P3A	amino_acid_insertion_and_mutation	PMID:33579781
-SPBC28F2.12	(CTD)P6A(alternating)	rpb1	rpb1-CTD-P6.P6A	rpb1-P6.P6A	amino_acid_mutation	PMID:33579781
-SPBC28F2.12	(CTD)S2A	rpb1	rpb1-CTD-S2A	rpb1-CTD-S2A29|rpb1-S2A	amino_acid_mutation	PMID:20605454,PMID:33579781,PMID:33711009
 SPBC28F2.12	(CTD)S53,S5A	rpb1	rpb1-CTD-S53,S5A11		amino_acid_mutation	PMID:29414789
 SPBC28F2.12	(CTD)S5A	rpb1	rpb1-CTD-S5A		amino_acid_mutation	PMID:20605454
-SPBC28F2.12	(CTD)S5A(alternating)	rpb1	rpb1-CTD-S5.S5A	rpb1-S5.S5A	amino_acid_mutation	PMID:33579781
 SPBC28F2.12	(CTD)S7A	rpb1	rpb1-CTD-S7A	rpb1-CTD-S7A29|rpb1-S7A	amino_acid_mutation	PMID:31276588,PMID:32546512,PMID:33711009,PMID:36882296
 SPBC28F2.12	(CTD)T4A	rpb1	rpb1-CTD-T4A	rpb1-CTD-T4A29|rpb1-T4A	amino_acid_mutation	PMID:31276588,PMID:32546512,PMID:33579781,PMID:33711009,PMID:36882296
 SPBC28F2.12	(CTD)T4A,S7A(5-29)	rpb1	rpb1-CTD-T4A,S7A(5-29)	rpb1-CTD-T4A,S7A	amino_acid_mutation	PMID:29414789
-SPBC28F2.12	(CTD)Y1F	rpb1	rpb1-CTD-Y1F	rpb1-CTD-Y1F29	amino_acid_mutation	PMID:33579781,PMID:33711009
 SPBC28F2.12	1-1675	rpb1	rpb1-CTD.18		partial_amino_acid_deletion	PMID:33579781
 SPBC28F2.12	1548-1752	rpb1	rpb1-deltaCTD		partial_amino_acid_deletion	PMID:20605454
 SPBC28F2.12	All CTD Ser7 mutated to Ala	rpb1	rpb1-S7A(1-29)		amino_acid_mutation	PMID:32282918,PMID:35012333
 SPBC28F2.12	All CTD Thr4 mutated to Ala	rpb1	rpb1-T4A(1-29)		amino_acid_mutation	PMID:30355770
 SPBC28F2.12	All CTD Tyr1 mutated to Phe	rpb1	rpb1-Y1F(1-29)		amino_acid_mutation	PMID:32282918
+SPBC28F2.12	CTD-P3.P3A(alternating)	rpb1	rpb1-CTD-P3.P3A	rpb1-P3.P3A	amino_acid_insertion_and_mutation	PMID:33579781
+SPBC28F2.12	CTD-P6.P6A(alternating)	rpb1	rpb1-CTD-P6.P6A	rpb1-P6.P6A	amino_acid_mutation	PMID:33579781
+SPBC28F2.12	CTD-S2A	rpb1	rpb1-CTD-S2A	rpb1-CTD-S2A29|rpb1-S2A	amino_acid_mutation	PMID:20605454,PMID:33579781,PMID:33711009
 SPBC28F2.12	CTD-S2A(1-12),CTD-delta(13-29)	rpb1	rpb1-CTD-S2A(12)	rpb1-(S2A)12	amino_acid_mutation	PMID:22144909
 SPBC28F2.12	CTD-S2A(5-16),CTDdelta(17-29)	rpb1	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	rpb1-12xS2ACTD	amino_acid_deletion_and_mutation	PMID:17502918
 SPBC28F2.12	CTD-S2A(5-29)	rpb1	rpb1-CTD-S2A(5-29)	rpb1-S2A	amino_acid_mutation	PMID:22771993
 SPBC28F2.12	CTD-S2A,S7A	rpb1	rpb1-CTD-(S2A-S7A)		amino_acid_mutation	PMID:33579781
 SPBC28F2.12	CTD-S2A,S7A(5-29)	rpb1	rpb1-CTD-S2A,S7A(5-29)	rpb1-S2A,S7A	amino_acid_mutation	PMID:22771993
 SPBC28F2.12	CTD-S2E(5-16)	rpb1	rpb1-CTD-S2E(5-16)	rpb1-12xS2ECTD	amino_acid_mutation	PMID:17502918
+SPBC28F2.12	CTD-S5.S5A(alternating)	rpb1	rpb1-CTD-S5.S5A	rpb1-S5.S5A	amino_acid_mutation	PMID:33579781
 SPBC28F2.12	CTD-S7A(5-29)	rpb1	rpb1-CTD-S7A(5-29)	rpb1-CTD-S7A|rpb1-S7A	amino_acid_mutation	PMID:22771993,PMID:29414789,PMID:30652128
 SPBC28F2.12	CTD-T4(25-29)	rpb1	rpb1-CTD-T4(25-29)	rpb1-T4E-CTD	amino_acid_mutation	PMID:30282034
 SPBC28F2.12	CTD-T4A(5,29)	rpb1	rpb1-CTD-T4A(5-29)	rpb1-T4A-CTD	amino_acid_mutation	PMID:29414789,PMID:30282034
+SPBC28F2.12	CTD-Y1F	rpb1	rpb1-CTD-Y1F	rpb1-CTD-Y1F29	amino_acid_mutation	PMID:33579781,PMID:33711009
 SPBC28F2.12	CTDdelta(11-29)	rpb1	rpb1-CTDdelta(11-29)	rpb1-12xCTD	amino_acid_mutation	PMID:17502918
 SPBC28F2.12	N494D	rpb1	rpb1-N494D		amino_acid_mutation	PMID:32499400
 SPBC28F2.12	P3-P3A(1-29)	rpb1	rpb1-P3-P3A(1-29)		amino_acid_mutation	PMID:32282918
@@ -5236,7 +5237,7 @@ SPBC336.04	unknown	cdc6	cdc6-121		unknown	PMID:12697806,PMID:958201,PMID:9891047
 SPBC336.04	unknown	cdc6	cdc6-123		unknown	PMID:958201
 SPBC336.04	unknown	cdc6	mis10-421		unknown	PMID:7865880
 SPBC336.06c	D129N	rnh1	rnh1-D129N		amino_acid_mutation	PMID:25392932
-SPBC336.07		sfc3	sfc3-1		unknown	PMID:24945319,PMID:31833215
+SPBC336.07	unknown	sfc3	sfc3-1		unknown	PMID:24945319,PMID:31833215
 SPBC336.09c	T67A	rrn7	rrn7-T67A		amino_acid_mutation	PMID:25410910
 SPBC336.12c	A393T	cdc10	cdc10-M17	cdc10-M15|cdc10-M4|cdc10-M71	amino_acid_mutation	PMID:1406591,PMID:9392077
 SPBC336.12c	A487T	cdc10	cdc10-M47		amino_acid_mutation	PMID:1406591
@@ -5534,8 +5535,8 @@ SPBC4.07c		rpt2	rpt2-ts		unknown	PMID:11683390
 SPBC4.07c	rpt2::Tn-seq	rpt2	rpt2::Tn-seq		disruption	PMID:32101745
 SPBC4.07c	unknown	rpt2	mts2-1	rpt2-1	unknown	PMID:11084332,PMID:12006658,PMID:12553909,PMID:12615927,PMID:18023413,PMID:21324894,PMID:23209828,PMID:24497846,PMID:24741065,PMID:28841135,PMID:34608864,PMID:8247131,PMID:8918598,PMID:9653157
 SPBC405.01		ade1	ade1-		unknown	PMID:17248775
-SPBC405.01		ade1	ade1-40		unknown	PMID:1394510,PMID:499806,PMID:7565608
 SPBC405.01		ade1	min4-83		unknown	PMID:499806
+SPBC405.01	unknown	ade1	ade1-40		unknown	PMID:1394510,PMID:499806,PMID:7565608
 SPBC405.01	unknown	ade1	ade1-51		unknown	PMID:1394510
 SPBC405.01	unknown	ade1	ade1A		unknown	PMID:967158
 SPBC405.01	unknown	ade1	ade1B		unknown	PMID:967158
@@ -6663,10 +6664,10 @@ SPCC1840.01c	L9H	mog1	mog1-4		amino_acid_mutation	PMID:17651922
 SPCC1840.01c	S150C,S151T,V152A,L183R	mog1	mog1-1		amino_acid_mutation	PMID:11290708,PMID:17651922,PMID:23658229
 SPCC1840.01c	S180P	mog1	mog1-2		amino_acid_mutation	PMID:17651922
 SPCC1840.01c	W79R	mog1	mog1-3		amino_acid_mutation	PMID:17651922
+SPCC1840.02c		bgs4	cwg1-1		unknown	PMID:1828464,PMID:24165938,PMID:26749213,PMID:29689193,PMID:34666001
 SPCC1840.02c	E700V	bgs4	pbr1-8		amino_acid_mutation	PMID:21115488,PMID:34959732,PMID:7592316
 SPCC1840.02c	W760S	bgs4	pbr1-6		amino_acid_mutation	PMID:21115488,PMID:7592316
 SPCC1840.02c	W760S,A914V	bgs4	bgs4-W760S,A914V		amino_acid_mutation	PMID:21115488
-SPCC1840.02c	unknown	bgs4	cwg1-1		unknown	PMID:1828464,PMID:24165938,PMID:26749213,PMID:29689193,PMID:34666001
 SPCC1840.02c	unknown	bgs4	cwg1-2		unknown	PMID:24165938,PMID:25977474
 SPCC1840.02c	unknown	bgs4	orb11-		unknown	PMID:8522609
 SPCC1840.02c	unknown	bgs4	sph1-1		unknown	PMID:2127797
@@ -6788,7 +6789,6 @@ SPCC188.13c	Y1348A	dcr1	dcr1-Y1348A		amino_acid_mutation	PMID:21847092
 SPCC188.13c	Y1348A,N1344A,S1349A	dcr1	dcr1-Y1348A,N1344A,S1349A		amino_acid_mutation	PMID:21847092
 SPCC188.13c	dcr1::Tn-seq	dcr1	dcr1::Tn-seq		disruption	PMID:32101745
 SPCC1884.02		nic1	nic1-1		disruption	PMID:10748059
-SPCC18B5.03		wee1	wee1-1		unknown	PMID:672898
 SPCC18B5.03		wee1	wee1-301		unknown	PMID:7217015
 SPCC18B5.03		wee1	wee1-302		unknown	PMID:7217015
 SPCC18B5.03		wee1	wee1-ts		unknown	PMID:19474789
@@ -6799,6 +6799,7 @@ SPCC18B5.03	K596L	wee1	wee1-K596L		amino_acid_mutation	PMID:1825699
 SPCC18B5.03	M700F	wee1	wee1-as8	wee1.as8	amino_acid_mutation	PMID:23986474
 SPCC18B5.03	S771A,S788A,S794A,S798A	wee1	wee1-4A		amino_acid_mutation	PMID:31644361
 SPCC18B5.03	V644G	wee1	wee1-as1		amino_acid_mutation	PMID:23986474
+SPCC18B5.03	unknown	wee1	wee1-1		unknown	PMID:672898
 SPCC18B5.03	unknown	wee1	wee1-115		unknown	PMID:672898
 SPCC18B5.03	unknown	wee1	wee1-6		unknown	PMID:3442828,PMID:672898,PMID:7217015
 SPCC18B5.03	unknown	wee1	wee1-8		unknown	PMID:672898
@@ -7080,6 +7081,7 @@ SPCC338.08	T79A,T89A	ctp1	ctp1-2TA	ctp1-T79A,T89A	amino_acid_mutation	PMID:19804
 SPCC338.08	T89A	ctp1	ctp1-T89A		amino_acid_mutation	PMID:19804756
 SPCC338.08	W288A	ctp1	ctp1-W288A		amino_acid_mutation	PMID:33836577
 SPCC338.11c	1155-1374	efm2	efm2-5'1155-1374		partial_nucleotide_deletion	PMID:11861905
+SPCC338.16	L148R	pof3	pof3-L148R		amino_acid_mutation	PMID:32355220
 SPCC338.17c		rad21	rad21-K21		unknown	PMID:11069892
 SPCC338.17c	I67F	rad21	rad21-I67F	rad21-K1	amino_acid_mutation	PMID:29735656
 SPCC338.17c	I67T	rad21	rad21-45		amino_acid_mutation	PMID:11726502,PMID:1480481,PMID:166019,PMID:7254221,PMID:7706319,PMID:9487130,PMID:9658208
@@ -7222,6 +7224,7 @@ SPCC553.01c	621-715	dbl2	dbl2(1-620)		partial_amino_acid_deletion	PMID:23628481
 SPCC553.08c	ria1::Tn-seq	ria1	ria1::Tn-seq		disruption	PMID:32101745
 SPCC553.09c	F450L,N527H	spb70	spb70-U03		amino_acid_mutation	PMID:15314153
 SPCC553.09c	G311R,S314P	spb70	spb70-U14		amino_acid_mutation	PMID:15314153
+SPCC553.09c	G529D	spb70	spb70-G529D		amino_acid_mutation	PMID:32355220
 SPCC553.09c	H350L,V523A	spb70	spb70-U05		amino_acid_mutation	PMID:15314153
 SPCC553.09c	L369S,H471Y	spb70	spb70-U02		amino_acid_mutation	PMID:15314153
 SPCC553.09c	L442P,N485S	spb70	spb70-U12		amino_acid_mutation	PMID:15314153
@@ -7230,8 +7233,8 @@ SPCC553.09c	Q469R	spb70	spb70-U01		amino_acid_mutation	PMID:15314153
 SPCC553.09c	unknown	spb70	spb70-U13		unknown	PMID:15314153
 SPCC553.09c	unknown	spb70	spb70-U15		unknown	PMID:15314153
 SPCC569.05c	SPCC569.05c::Tn-seq	SPCC569.05c	SPCC569.05c::Tn-seq		disruption	PMID:32101745
-SPCC569.08c		ade5	ade5-36		unknown	PMID:1394510,PMID:499806
 SPCC569.08c	unknown	ade5	ade5-		unknown	PMID:17248775,PMID:2743431
+SPCC569.08c	unknown	ade5	ade5-36		unknown	PMID:1394510,PMID:499806
 SPCC576.03c	181-192	tpx1	tpx1(1-181)	tpx1_1-181	partial_amino_acid_deletion	PMID:22245228
 SPCC576.03c	C169S	tpx1	tpx1-C169S		amino_acid_mutation	PMID:22245228,PMID:24268782
 SPCC576.10c	Q384*	rpt3	rpt3-1		partial_amino_acid_deletion	PMID:24710126
@@ -7780,7 +7783,7 @@ SPNCRNA.1712	(-240)-(-6)	nc-pho1	pho1(pro2delta-6--240)		partial_nucleotide_dele
 SPNCRNA.1712	472-864	nc-pho1	nc-pho1delta(472-864)		partial_nucleotide_deletion	PMID:30355770
 SPNCRNA.1712	AATAAA-568-GGCGGG	nc-pho1	nc-pho1-PAS-2-mut		nucleotide_mutation	PMID:30355770
 SPNCRNA.1712	ATTTTT-342-CTCGAG	nc-pho1	nc-pho1-PAS-mut		nucleotide_mutation	PMID:30355770
-SPNCRNA.1712	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	nc-pho1	nc-pho1-dual-PAS-mut		nucleotide_mutation	PMID:30355770
+SPNCRNA.1712	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	nc-pho1	nc-pho1-dual-PAS-mut		amino_acid_mutation	PMID:30355770
 SPNCRNA.1712	nc-pho1(1-864)-nc-pho1(472-864)-nc-pho1(472-864)-nc-pho1(864-2560)	nc-pho1	nc-pho1-3x		fusion_or_chimera	PMID:30355770
 SPNCRNA.1712	nc-pho1(1-864)-nc-pho1(472-864)-nc-pho1(864-2560)	nc-pho1	nc-pho1-2x		fusion_or_chimera	PMID:30355770
 SPNCRNA.214		ter1	ter1::his3		disruption	PMID:18157149
@@ -7847,6 +7850,7 @@ SPNCRNA.98	139-144	srp7	srp7delta139-144		partial_nucleotide_deletion	PMID:13159
 SPNCRNA.98	149	srp7	srp7delta149		partial_nucleotide_deletion	PMID:1315954
 SPNCRNA.98	159-161	srp7	srp7delta159-161		partial_nucleotide_deletion	PMID:1315954
 SPNCRNA.98	70-87,137-204	srp7	srp7delta-domIII		partial_nucleotide_deletion	PMID:8041618
+SPNCRNA.98	A146U,G159U,148-150	srp7	srp7-A146U,G159U,delta148-150		nucleotide_deletion_and_mutation	PMID:1315954
 SPNCRNA.98	A154C,G155A	srp7	srp7-A154C,G155A		nucleotide_mutation	PMID:8382769
 SPNCRNA.98	A154G,G155A	srp7	srp7-A154G,G155A		nucleotide_mutation	PMID:8382769
 SPNCRNA.98	A154T	srp7	srp7-A154U		nucleotide_mutation	PMID:8041618,PMID:8382769
@@ -7873,6 +7877,7 @@ SPNCRNA.98	C164A	srp7	srp7-C164A		nucleotide_mutation	PMID:8390662
 SPNCRNA.98	C164G	srp7	srp7-C164G	srp7-G-164	nucleotide_mutation	PMID:2657742
 SPNCRNA.98	C164T	srp7	srp7-C164T	srp7-T-164	nucleotide_mutation	PMID:2657742
 SPNCRNA.98	C174G	srp7	srp7-C174G		nucleotide_mutation	PMID:1315954
+SPNCRNA.98	C176-T,C180T	srp7	srp7-C180U,omega176U		nucleotide_deletion_and_mutation	PMID:1315954
 SPNCRNA.98	C179T,C180T	srp7	srp7-C179U,C180U		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	C180A	srp7	srp7-C180A		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	C180A,G181A	srp7	srp7-C180A,G181A		nucleotide_mutation	PMID:1315954
@@ -7916,6 +7921,7 @@ SPNCRNA.98	G15A	srp7	srp7-G15A		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	G160A	srp7	srp7-G160A	srp7-A-160	nucleotide_mutation	PMID:2657742,PMID:8382769
 SPNCRNA.98	G160A,C164A	srp7	srp7-G160A,C164A		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	G160C	srp7	srp7-G160C	srp7-C-160	nucleotide_mutation	PMID:2657742
+SPNCRNA.98	G160C,GC inserted after nt 158,GC inserted after nt 164	srp7	srp7-D4E-2		nucleotide_insertion_and_mutation	PMID:8390662
 SPNCRNA.98	G160T	srp7	srp7-G160T	srp7-T-160	nucleotide_mutation	PMID:2657742
 SPNCRNA.98	G181C	srp7	srp7-G181C		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	G182A	srp7	srp7-G182A		nucleotide_mutation	PMID:1315954
@@ -7958,6 +7964,8 @@ SPNCRNA.98	T57C,T62C,T90C	srp7	srp7-U57C,U62C,U90C		nucleotide_mutation	PMID:131
 SPNCRNA.98	T70C	srp7	srp7-U70C		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	T88G	srp7	srp7-U88G		nucleotide_mutation	PMID:1315954
 SPNCRNA.98	T88G,T133C,A135C	srp7	srp7-U88G,U133C,A135C		nucleotide_mutation	PMID:1315954
+SPNCRNA.98	U88G,UCGA inserted after nt84	srp7	srp7-U88G,omegaUCGA		nucleotide_insertion_and_mutation	PMID:1315954
+SPNCRNA.98	U88G,nt84 deletion,8 nucleotides inserted after nt83	srp7	srp7-U88G,delta84-88,omega8nt		nucleotide_insertion_and_mutation	PMID:1315954
 SPNCRNA.98	U88G,nt84-88 deletion,131 nucleotides inserted after nt83	srp7	srp7-U88G,delta84-88,omega131nt		other	PMID:1315954
 SPNCRNA.98	srp7::ura4	srp7	srp7::ura4+		disruption	PMID:2837648
 SPNCRNA.996	I:4531070..4531631	SPNCRNA.996	SPNCRNA.996((-74)-487)	SPNCRNA.248OE	other	PMID:34984977
