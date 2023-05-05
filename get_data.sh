@@ -14,7 +14,7 @@ gzip -fd data/phenotype_annotations.phaf.gz
 # Get unique lines with allele types, and remove deletion and wild-type alleles
 cut -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format.tsv
 python format_alleles.py data/alleles_pre_format.tsv data/alleles.tsv
-rm data/alleles_pre_format.tsv data/phenotype_annotations.phaf
+
 
 echo -e "${GREEN}Getting contig files${NC}"
 # Get genome sequence with annotations
