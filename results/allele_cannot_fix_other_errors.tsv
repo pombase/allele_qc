@@ -83,13 +83,13 @@ SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S5.S5A	(CTD)S5A(alternating)	pattern_error	(CTD),(alternating)
 SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	pattern_error	(CTD)S5
 SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	pattern_error	(CTD)
-SPBC28F2.12	rpb1-CTD-S7A	(CTD)S7A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S7A(5-29)	CTD-S7A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4(25-29)	CTD-T4(25-29)	pattern_error	CTD-T4(
-SPBC28F2.12	rpb1-CTD-T4A	(CTD)T4A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-T4A	CTD-T4A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5,29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A,S7A(5-29)	(CTD)T4A,S7A(5-29)	pattern_error	(CTD)
-SPBC28F2.12	rpb1-CTD-Y1F	(CTD)Y1F	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-Y1F	CTD-Y1F	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	pattern_error	CTDdelta(
 SPBC28F2.12	rpb1-P3-P3A(1-29)	P3-P3A(1-29)	pattern_error	P3-
 SPBC28F2.12	rpb1-P6-P6A	P6-P6A	pattern_error	P6-
@@ -118,6 +118,7 @@ SPCC188.06c	srp54::LEU2	disruption	pattern_error	disruption
 SPCC285.07c	wtf18+rep	332LGNAFGG	pattern_error	2LGNAFGG
 SPCC285.07c	wtf18-2	exon 6 of wtf18-2 is identical to the last exon of wtf13	pattern_error	exon , of wtf1, is identical to the last exon of wtf1
 SPCC285.09c	cgs2-2	1366-T	pattern_error	1366-T
+SPCC330.05c	ura4-D18	unknown	pattern_error	unknown
 SPCC338.08	ctp1-30	I110N with frameshift at T197 truncating at position 208	pattern_error	I110N with frameshift at T197 truncating at position 208
 SPCC613.04c	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
 SPCC757.07c	ctt1-G4BS	ATGACGT-435CGGAAGACTCTCCTCCG	invalid_error	lengths don't match: ATGACGT-CGGAAGACTCTCCTCCG
