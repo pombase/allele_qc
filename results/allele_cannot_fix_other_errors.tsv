@@ -16,7 +16,7 @@ SPAC22F3.09c	res2-G1	ntG16590A	invalid_error	lengths don't match: ntG-A
 SPAC22F3.09c	res2-J3	ntG16597A	invalid_error	lengths don't match: ntG-A
 SPAC22G7.06c	ura1-61	ntG16857A	invalid_error	lengths don't match: ntG-A
 SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	pattern_error	(CTD)
-SPAC23C4.19	spt5-(T1A)7	T1A mutations within the CTR	pattern_error	 mutations within the CTR
+SPAC23C4.19	spt5-(T1A)7	CTD-T1A	pattern_error	CTD-
 SPAC23C4.19	spt5-CTD-T1E(17)	CTD-T1E	pattern_error	CTD-
 SPAC25G10.04c	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
 SPAC2G11.12	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
@@ -72,19 +72,19 @@ SPBC216.07c	tor2-ts6	asked	pattern_error	asked
 SPBC23E6.07c	rfc1-47	676-HLGAP	pattern_error	-HLGAP
 SPBC23E6.07c	rfc1-50	871-VGVPH	pattern_error	-VGVPH
 SPBC28F2.12	rpb1-CTD-(S2A-S7A)	CTD-S2A,S7A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-P3.P3A	(CTD)P3A(alternating)	pattern_error	(CTD),(alternating)
-SPBC28F2.12	rpb1-CTD-P6.P6A	(CTD)P6A(alternating)	pattern_error	(CTD),(alternating)
-SPBC28F2.12	rpb1-CTD-S2A	(CTD)S2A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-P3.P3A	CTD-P3.P3A(alternating)	pattern_error	CTD-P3.,(alternating)
+SPBC28F2.12	rpb1-CTD-P6.P6A	CTD-P6.P6A(alternating)	pattern_error	CTD-P6.,(alternating)
+SPBC28F2.12	rpb1-CTD-S2A	CTD-S2A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A(12)	CTD-S2A(1-12),CTD-delta(13-29)	pattern_error	CTD-,),CTD-delta(
 SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	pattern_error	CTD-,),CTDdelta(
 SPBC28F2.12	rpb1-CTD-S2A(5-29)	CTD-S2A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A,S7A(5-29)	CTD-S2A,S7A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-S5.S5A	(CTD)S5A(alternating)	pattern_error	(CTD),(alternating)
+SPBC28F2.12	rpb1-CTD-S5.S5A	CTD-S5.S5A(alternating)	pattern_error	CTD-S5.,(alternating)
 SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	pattern_error	(CTD)S5
 SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	pattern_error	(CTD)
 SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-S7A(5-29)	CTD-S7A(5-29)	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-S7A(5-29)	rpb1-CTD-S7A(5-29)	pattern_error	rpb,-CTD-
 SPBC28F2.12	rpb1-CTD-T4(25-29)	CTD-T4(25-29)	pattern_error	CTD-T4(
 SPBC28F2.12	rpb1-CTD-T4A	CTD-T4A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5,29)	pattern_error	CTD-
@@ -137,6 +137,7 @@ SPNCRNA.103	sme2deltaF	1425-1586	invalid_error	Nucleotide sequence of SPNCRNA.10
 SPNCRNA.1343	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
+SPNCRNA.1712	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	Peptide sequence of SPNCRNA.1712 missing (perhaps multiple transcripts)
 SPNCRNA.214	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
 SPNCRNA.214	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
 SPNCRNA.214	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
