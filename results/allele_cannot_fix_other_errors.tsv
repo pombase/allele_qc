@@ -16,7 +16,7 @@ SPAC22F3.09c	res2-G1	ntG16590A	invalid_error	lengths don't match: ntG-A
 SPAC22F3.09c	res2-J3	ntG16597A	invalid_error	lengths don't match: ntG-A
 SPAC22G7.06c	ura1-61	ntG16857A	invalid_error	lengths don't match: ntG-A
 SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	pattern_error	(CTD)
-SPAC23C4.19	spt5-(T1A)7	T1A mutations within the CTR	pattern_error	 mutations within the CTR
+SPAC23C4.19	spt5-(T1A)7	CTD-T1A	pattern_error	CTD-
 SPAC23C4.19	spt5-CTD-T1E(17)	CTD-T1E	pattern_error	CTD-
 SPAC25G10.04c	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
 SPAC2G11.12	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
@@ -117,6 +117,7 @@ SPCC162.04c	wtf13::Tn-seq	wtf13::Tn-seq	invalid_error	systematic_id SPCC162.04c 
 SPCC188.06c	srp54::LEU2	disruption	pattern_error	disruption
 SPCC285.07c	wtf18+rep	332LGNAFGG	pattern_error	2LGNAFGG
 SPCC285.07c	wtf18-2	exon 6 of wtf18-2 is identical to the last exon of wtf13	pattern_error	exon , of wtf1, is identical to the last exon of wtf1
+SPCC330.05c	ura4-D18	unknown	pattern_error	unknown
 SPCC338.08	ctp1-30	I110N with frameshift at T197 truncating at position 208	pattern_error	I110N with frameshift at T197 truncating at position 208
 SPCC613.04c	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
 SPCC757.07c	ctt1-G4BS	ATGACGT-435CGGAAGACTCTCCTCCG	invalid_error	lengths don't match: ATGACGT-CGGAAGACTCTCCTCCG
