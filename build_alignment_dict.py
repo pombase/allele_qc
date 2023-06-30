@@ -104,18 +104,20 @@ def choose_old_genome(previous_coordinate, latest_genome_seq, old_genomes_dict, 
     # All revisions where changes were made are newer, use the oldest genome (they are sorted)
     chromosome_revisions_dictionary = old_genomes_dict[contig]
     if all(newer_genome_sequences):
-        return SeqRecord(chromosome_revisions_dictionary[changes_this_contig['previous_revision'].iloc[-1]])
+        return SeqRecord(chromosome_revisions_dictionary[changes_this_contig['revision'].iloc[-1]])
     # All revisions where changes were made are older, use the newest genome
     elif all(~newer_genome_sequences):
         return latest_genome_seq
 
-    # previous_revision of the next version
-    chosen_revision = changes_this_contig.loc[newer_genome_sequences, 'previous_revision'].iloc[-1]
+    # revision of the next version
+    chosen_revision = changes_this_contig.loc[newer_genome_sequences, 'revision'].iloc[-1]
     return SeqRecord(chromosome_revisions_dictionary[chosen_revision])
 
 
 # Load info about changes in genome sequence
 genome_seq_changes = pandas.read_csv('data/genome_sequence_changes.tsv', sep='\t', na_filter=False, dtype=str)
+# We skip current versions
+genome_seq_changes = genome_seq_changes[genome_seq_changes['chromosome'].duplicated()].copy()
 
 print('\033[0;32mreading old genomes...\033[0m')
 old_genomes_dict = read_old_genomes(glob.glob('data/old_genome_versions/*/*.contig'), 'embl')

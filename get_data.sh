@@ -45,22 +45,27 @@ curl -k https://raw.githubusercontent.com/pombase/genome_changelog/master/result
 mkdir -p data/old_genome_versions/
 
 # Download those versions
+# We only want to download the old versions, so we skip the most recent ones
+skip_recent_version=""
 while read row; do
-    year=$(echo "$row"|cut -f3 -d$'\t'|cut -f1 -d'-')
-    old_revision=$(echo "$row"|cut -f1 -d$'\t')
-    contig=$(echo "$row"|cut -f4 -d$'\t')
+    year=$(echo "$row"|cut -f2 -d$'\t'|cut -f1 -d'-')
+    revision=$(echo "$row"|cut -f1 -d$'\t')
+    contig=$(echo "$row"|cut -f3 -d$'\t')
     output_folder="data/old_genome_versions/$contig"
-    output_file="${output_folder}/${old_revision}.contig"
+    output_file="${output_folder}/${revision}.contig"
+    if [[ $skip_recent_version != *"$contig"* ]]; then
+        skip_recent_version="$skip_recent_version $contig"
+        continue
+    fi
     mkdir -p $output_folder
     if test -s $output_file;then
         continue
     fi
-
     # We know last change in pre_svn was in 2007
     if (( $year < 2008)); then
-        curl -k https://www.pombase.org/data/genome_sequence_and_features/artemis_files/OLD/${old_revision}/${contig}.contig > $output_file
+        curl -k https://www.pombase.org/data/genome_sequence_and_features/artemis_files/OLD/${revision}/${contig}.contig > $output_file
     else
-        svn export --force -r ${old_revision} https://curation.pombase.org/pombe-embl-repo/trunk/${contig}.contig $output_file
+        svn export --force -r ${revision} https://curation.pombase.org/pombe-embl-repo/trunk/${contig}.contig $output_file
     fi
 
 done < <(tail -n +2 data/genome_sequence_changes.tsv)
