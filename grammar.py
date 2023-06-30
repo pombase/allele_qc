@@ -49,6 +49,8 @@ def check_value_at_pos(indicated_value, pos, gene, seq_type):
     # Check if the position is valid
     check_pos = check_position_doesnt_exist(pos, gene, seq_type)
     if check_pos:
+        if pos < 0:
+            return f'{indicated_value}({pos})'
         return f'{indicated_value}{pos}'
     if seq_type == 'dna':
         indicated_value = indicated_value.replace('u', 't').replace('U', 'T')
@@ -63,9 +65,9 @@ def check_value_at_pos(indicated_value, pos, gene, seq_type):
     if get_value_at_pos(pos) == indicated_value:
         return ''
 
-    out_str = f'{indicated_value}{pos}'
-
-    return out_str
+    if pos < 0:
+        return f'{indicated_value}({pos})'
+    return f'{indicated_value}{pos}'
 
 
 def check_sequence_single_pos(groups: list[str], gene, seq_type):

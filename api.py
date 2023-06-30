@@ -263,7 +263,7 @@ async def root():
 
 
 @ app.get("/check_allele", response_model=CheckAlleleDescriptionResponse)
-async def check_allele_get(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
+async def check_allele(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
     systematic_id = process_systematic_id(systematic_id, genome, 'first')
