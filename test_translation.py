@@ -34,4 +34,4 @@ class TranslationTest(unittest.TestCase):
             if systematic_id not in genome or 'peptide' not in genome[systematic_id] or systematic_id in known_exceptions:
                 continue
 
-            self.assertEqual(genome[systematic_id]['peptide'], seq.seq)
+            self.assertEqual(genome[systematic_id]['peptide'], seq.seq, systematic_id + ' fails')

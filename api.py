@@ -54,21 +54,6 @@ class AlleleType(str, Enum):
     nucleotide_insertion_and_mutation = 'nucleotide_insertion_and_mutation'
 
 
-class PrimerRequest(BaseModel):
-    systematic_id: str
-    primer: str
-    max_mismatch: int
-
-    class Config:
-        schema_extra = {
-            "example": {
-                "systematic_id": "SPAPB1A10.09",
-                "primer": 'TTAGAGGTTATTAATTCCTAAGAAGAAGAAATTTTGG',
-                'max_mismatch': 3
-            }
-        }
-
-
 class CheckAlleleDescriptionResponse(BaseModel):
 
     allele_parts: str
@@ -291,25 +276,31 @@ async def check_modification(systematic_id: str = Query(example="SPBC359.03c", d
     response_data.user_friendly_fields = get_modification_user_friendly_fields(response_data)
     return response_data
 
-
-@ app.post("/primer")
-async def primer_mutagenesis(request: PrimerRequest):
+@app.get("/primer")
+async def primer_mutagenesis(systematic_id: str = Query(example="SPAPB1A10.09", description=systematic_id_description),
+                             primer: str = Query(example="TTAGAGGTTATTAATTCCTAAGAAGAAGAAATTTTGG"),
+                             max_mismatch: int = Query(description='The maximum amount of residues that are allowed to change'),
+                             dna_or_protein: DNAorProtein = Query(), upstream: int = 0, downstream: int = 0
+                             ):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    gene = genome[request.systematic_id]
-    if 'CDS' in gene:
+    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    if dna_or_protein == 'protein':
         has_peptide = True
+        gene = genome[systematic_id]
         seq = gene['CDS'].extract(gene['contig'])
     else:
         has_peptide = False
-        if len(gene) != 2:
-            # Error, we cannot read this position
-            raise ValueError('cannot read sequence, alternative splicing?')
-        # The key is the one that is not 'contig'
-        key = next(k for k in gene if k != 'contig')
-        seq = gene[key].extract(gene['contig'])
+        seq = extract_main_feature_and_strand(genome[systematic_id], downstream, upstream)[0]
 
-    return PlainTextResponse(primer_mutagenesis_func(seq.seq, request.primer, request.max_mismatch, has_peptide))
+    resp_str = primer_mutagenesis_func(seq.seq, primer, max_mismatch, has_peptide)
+    if upstream != 0 and dna_or_protein == 'dna':
+        substitutions = re.findall(r'[A-Z]-?\d+[A-Z]', resp_str)
+        for substitution in substitutions:
+            substitution_shifted = substitution.replace(substitution[1:-1],str(int(substitution[1:-1])-1))
+            resp_str = resp_str.replace(substitution, substitution_shifted)
+
+    return PlainTextResponse(resp_str)
 
 
 # The same endpoint as above as a get endpoint
@@ -390,7 +381,9 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
     gene = genome[systematic_id]
     if dna_or_protein == 'dna':
         seq, strand = extract_main_feature_and_strand(gene, 0, 0, get_utrs=False)
-        return PlainTextResponse(seq.seq[position - 1])
+        if position > 0:
+            return PlainTextResponse(seq.seq[position - 1])
+        return PlainTextResponse(seq.seq[position])
     elif dna_or_protein == 'protein':
         if 'peptide' not in gene:
             raise ValueError('cannot read sequence, no peptide')

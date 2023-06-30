@@ -45,7 +45,8 @@ class SequenceIndexingTest(unittest.TestCase):
                 self.assertEqual(get_nt_at_genome_position(i + 1, gene, gene['contig']), value)
 
             # Check that 5'UTR matches
-            for i, value in enumerate(g['upstream'][::-1]):
+            # We start at 1 because the first negative index is -1
+            for i, value in enumerate(g['upstream'][::-1], start=1):
                 self.assertEqual(get_nt_at_genome_position(-i, gene, gene['contig']), value)
 
     def test_aas(self):

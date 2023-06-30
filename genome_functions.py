@@ -22,7 +22,9 @@ def gene_coords2genome_coords(pos: int, gene: dict) -> str:
         key = next(k for k in gene if k != 'contig')
         loc = gene[key].location
 
-    # Passed coordinates are one-based
+    # Passed coordinates are one-based, but only if they are positive
+    if pos < 0:
+        pos += 1
 
     if loc.strand == 1:
         pos = loc.start + (pos - 1)
