@@ -1,10 +1,6 @@
-systematic_id	allele_name	allele_description	allele_type	reference	change_description_to	change_name_to	change_type_to	comment
-SPCC188.06c	srp54-G408I	G408I	amino_acid_mutation	PMID:10079327	G407I			
-SPCC188.06c	srp54-G408P	G408P	amino_acid_mutation	PMID:10079327	G407P			
-SPCC794.12c	mae2-UAS1	T-359G,C-358T,C-357T,C-356A,T-354C	nucleotide_mutation	PMID:10187772				
-SPCC794.12c	mae2-URS1	C-243G,A-242G,T-240C,C-239A,A-238C,T-237C	nucleotide_mutation	PMID:10187772				
-SPCC794.12c	mae2-URS3	G-185A,G-184C,C-182T,T-181A,A-180C,A-179G	nucleotide_mutation	PMID:10187772				
-SPCC794.12c	mae2-promoter(TATA)	T-88G,A-86C,T-85A,T-84C,T-83C	nucleotide_mutation	PMID:10187772				
+systematic_id	allele_name	allele_description	allele_type	reference	change_description_to	change_name_to	change_type_to	comment_on_change
+SPCC188.06c	srp54-G408I	G408I	amino_acid_mutation	PMID:10079327	G407I			checked primer mutagenesis in silico
+SPCC188.06c	srp54-G408P	G408P	amino_acid_mutation	PMID:10079327	G407P			checked primer mutagenesis in silico
 SPSNRNA.02	snu2-M1	CTTCTTCT187TACTAGTG	nucleotide_mutation	PMID:10445882				
 SPSNRNA.02	snu2-M2	GTTGACAG195TACTAGTA	nucleotide_mutation	PMID:10445882				
 SPSNRNA.02	snu2-M3	ATTTGTGA203GACTAGTC	nucleotide_mutation	PMID:10445882				
@@ -40,14 +36,11 @@ SPBC1685.01	pmp1-M13	A1288U,A1300U	nucleotide_mutation	PMID:12931193
 SPBC1685.01	pmp1-M2	A1293U	nucleotide_mutation	PMID:12931193				
 SPBC1685.01	pmp1-M23	A1293U,A1300U	nucleotide_mutation	PMID:12931193				
 SPBC1685.01	pmp1-M3	A1300U	nucleotide_mutation	PMID:12931193				
-SPNCRNA.98	srp7-T(-5)C,T(-3)C,U88C	T(-5)C,T(-3)C,U88C	nucleotide_mutation	PMID:1315954				
-SPNCRNA.98	srp7-T(-61)C,G(-75)C,U62C,U101C	T(-61)C,G(-75)C,U62C,U101C	nucleotide_mutation	PMID:1315954				
 SPSNRNA.04	snu4-4	TTTTG104ACGTC	nucleotide_mutation	PMID:1441744				
 SPSNRNA.04	snu4-6	AAAACT87CCCGGG	nucleotide_mutation	PMID:1441744				
 SPSNRNA.04	snu4-7	CGTAGT59GCATCG	nucleotide_mutation	PMID:1441744				
 SPCC5E4.04	ptr4-1	T3487A,T3505A	nucleotide_mutation	PMID:14511667,PMID:9168469				
 SPAC57A10.10c	sla1-R266E,R267L	R266E,R267L	amino_acid_mutation	PMID:14665462				
-SPAC8C9.03	cgs1-10	C-95A	nucleotide_mutation	PMID:15189983				
 SPCC285.09c	cgs2-CRE promoter binding site mutant	-G67T,-C68A	nucleotide_mutation	PMID:15448137				
 SPAC12G12.14c	pfs2-209	G398A	nucleotide_mutation	PMID:15466421				
 SPAC13C5.02	dre4-54	G350A	nucleotide_mutation	PMID:15466421				
@@ -64,13 +57,11 @@ SPAC1834.06c	pmo25-2	T613G	nucleotide_mutation	PMID:16325501
 SPBC14C8.01c	cut2(81-207)	1-80,208-301	partial_amino_acid_deletion	PMID:16483313				
 SPAC27D7.03c	mei2--G1512T	-G1512T	nucleotide_mutation	PMID:1657709				
 SPAC27D7.03c	mei2--G1512T,-G1692T	-G1512T,-G1692T	nucleotide_mutation	PMID:1657709				
-SPBC1683.10c	pcl1-CCAAT promoter mutant -205AACCG-201	C-205A,C-204A,A-203C,A-202C,T-201G	nucleotide_mutation	PMID:16963626				
 SPAP8A3.06	ods2-1	C301A	nucleotide_mutation	PMID:17130122				
 SPAC2G11.15c	tgs1-D140A	D140A	amino_acid_mutation	PMID:17284461				
 SPAC2G11.15c	tgs1-N103A	N103A	amino_acid_mutation	PMID:17284461				
 SPAC2G11.15c	tgs1-T40A	T40A	amino_acid_mutation	PMID:17284461				
 SPCC777.09c	arg1-1	E136K,S187N	amino_acid_mutation	PMID:17622533				
-SPAC23E2.01	fep1 CCAAT promoter mutant	C-188A,C-187A,A-186C,A-185C,T-184G	nucleotide_mutation	PMID:18223116				
 SPAC19A8.12	dcp2-D21A	D21A	amino_acid_mutation	PMID:18280239				
 SPAC19A8.12	dcp2-N29A	N29A	amino_acid_mutation	PMID:18280239				
 SPAC19A8.12	dcp2-V24A,I28A	V24A,I28A	amino_acid_mutation	PMID:18280239				
@@ -86,18 +77,14 @@ SPAC19B12.05c	fcp1-W405S	W405S	amino_acid_mutation	PMID:19026779
 SPBC409.12c	stn1-H486D	H486D	amino_acid_mutation	PMID:19884503				
 SPBC409.12c	stn1-W466E	W466E	amino_acid_mutation	PMID:19884503				
 SPBC409.12c	stn1-Y489A	Y489A	amino_acid_mutation	PMID:19884503				
-SPBC359.05	abc3-M1 GATA promoter mutant	T-202G,T-201A,A-200C,T-199G,C-198G,A-197C	nucleotide_mutation	PMID:19915076				
-SPBC359.05	abc3-M1,M2 GATA promoter mutant	T-202G,T-201A,A-200C,T-199G,C-198G,A-197C,T-120C,G-119C,A-118T,T-117G,A-116T,T-115C	nucleotide_mutation	PMID:19915076				
-SPBC359.05	abc3-M2 GATA promoter mutant	T-120C,G-119C,A-118T,T-117G,A-116T,T-115C	nucleotide_mutation	PMID:19915076				
 SPAC4F8.14c	hcs1-Q364R	Q364R	amino_acid_mutation	PMID:20089861				
 SPAC4F8.14c	hcs1-R288K	R288K	amino_acid_mutation	PMID:20089861				
 SPSNRNA.03	snu3+41	GUG296ACA	nucleotide_mutation	PMID:20609363				
 SPSNRNA.03	snu3+46	AA301UU	nucleotide_mutation	PMID:20609363				
 SPSNRNA.03	snu3+50	UGU305ACA	nucleotide_mutation	PMID:20609363				
 SPSNRNA.03	snu3+56	AA311UU	nucleotide_mutation	PMID:20609363				
-SPAC144.13c	srw1-MutPste9	AAAGTGCATTACCCTTCCCGGTTTCTC-(-198)-CCCGGTACCGCAAAGGAAATTGGGAGC	nucleotide_mutation	PMID:21118960				
 SPAC19E9.02	fin1-KD	K63R,N165A	amino_acid_mutation	PMID:22684255				
-SPAC24B11.11c	sid2-as4	M285A,T384A	amino_acid_mutation	PMID:22684255,PMID:23333317				
+SPAC24B11.11c	sid2-as4	M285A,T384A	amino_acid_insertion_and_mutation	PMID:22684255,PMID:23333317				
 SPAC22A12.15c	bip1-G373C	G373C	nucleotide_mutation	PMID:23066505				
 SPAC22A12.15c	bip1-G373U	G373U	nucleotide_mutation	PMID:23066505				
 SPBC23G7.11	mag2-A56S	A56S	amino_acid_mutation	PMID:23273506				
@@ -110,12 +97,9 @@ SPBC1604.10	srb7-L76P	L76P	amino_acid_insertion_and_mutation	PMID:28467824
 SPBC36B7.09	gcn2-Y1119L,R1120L	Y1119L,R1120L	amino_acid_mutation	PMID:28771613				
 SPBC1718.07c	zfs1-S164A,T1645A	S164A,T164A	amino_acid_mutation	PMID:29084823				
 SPBC8E4.01c	pho84-TATA box mutant	T-33C,A-32G,T-31C,A-30G,T-29C,A-28G,T-27C,A-26G	nucleotide_mutation	PMID:29414789				
-SPNCRNA.9001	prt2-HomoID-like sequence mutant	A-61G,G-59A,T-58C,C-57T,A-56C,C-55A	nucleotide_mutation	PMID:29414789				
-SPNCRNA.9001	prt2-TATA box mutant	T-38G,A-37C,T-36G,A-35C,T-34G,A-33C	nucleotide_mutation	PMID:29414789				
 SPCC285.07c	wtf18-2D366NN	D366N,D366-N	amino_acid_insertion_and_mutation	PMID:30475921				
 SPNCRNA.1698	nc-tgp-+5_seb1_bs	G521T,T543A,A554T,C569G,C578G	nucleotide_mutation	PMID:32499400				
 SPBC26H8.07c	nda3noD	U1347A,U1349C	nucleotide_mutation	PMID:34798057				
-SPAC8E11.02c	rad24-5'-UTR-uAUG	C-33T	nucleotide_mutation	PMID:34967420				
 SPAPB1E7.05	gde1-(met1)E845A,D847A	L1M,E845A,D847A	amino_acid_mutation	PMID:35012333				
 SPAPB1E7.05	gde1-(met1)H810A,R811A	L1M,H810A,R811A	amino_acid_mutation	PMID:35012333				
 SPAPB1E7.05	gde1-(met1)H860A	L1M,H860A	amino_acid_mutation	PMID:35012333				
@@ -128,11 +112,6 @@ SPNCRNA.82	mrp1-LoopB	U339A,A340C,U343G	nucleotide_mutation	PMID:8948095
 SPNCRNA.82	mrp1-Pt1-9	U359A,C356A	nucleotide_mutation	PMID:8948095				
 SPNCRNA.82	mrp1-U359A	U359A	nucleotide_mutation	PMID:8948095				
 SPBC1604.21c	ptr3-1	C1892A	nucleotide_mutation	PMID:9168469				
-SPAPB8E5.05	mfm1-promoter(M-box-mut1)	C-177A	nucleotide_mutation	PMID:9233811				
-SPAPB8E5.05	mfm1-promoter(M-box-mut2)	G-173A	nucleotide_mutation	PMID:9233811				
-SPAPB8E5.05	mfm1-promoter(TR-mut1)	C-161A	nucleotide_mutation	PMID:9233811				
-SPAPB8E5.05	mfm1-promoter(TR-mut2)	G-154A	nucleotide_mutation	PMID:9233811				
-SPAPB8E5.05	mfm1-promoter(TR-mut3)	C-165A,C-164A,G-154A	nucleotide_mutation	PMID:9233811				
 SPBC16H5.06	rip1-I23G	I23G	amino_acid_mutation	PMID:9535840				
 SPBC16D10.09	pcn1-20	E232A	amino_acid_mutation	PMID:9563836				
 SPBC800.05c	alp2-996	G1065A	nucleotide_mutation	PMID:9658169				

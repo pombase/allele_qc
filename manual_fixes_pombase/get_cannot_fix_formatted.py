@@ -1,7 +1,7 @@
 import pandas
 
 all_alleles = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
-data = pandas.read_csv('../results/allele_cannot_fix_other_errors.tsv', sep='\t', na_filter=False)
+data = pandas.read_csv('../results/allele_cannot_fix_sequence_errors.tsv', sep='\t', na_filter=False)
 
 # merge on systematic_id and allele_name
 data = pandas.merge(data, all_alleles, on=['systematic_id', 'allele_name', 'allele_description'], how='left')
