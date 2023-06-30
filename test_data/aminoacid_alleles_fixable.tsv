@@ -25,13 +25,13 @@ partial_amino_acid_deletion	AA23VV	AA-23-VV	amino_acid_mutation
 
 ## nonsense_mutation
 
-nonsense_mutation	A123stop	A123*
-nonsense_mutation	A123ochre	A123*
-nonsense_mutation	A123amber	A123*
-nonsense_mutation	A123opal	A123*
-nonsense_mutation	A123-opal	A123*
-nonsense_mutation	A123->opal	A123*
-nonsense_mutation	A123*
+nonsense_mutation	A123stop	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123ochre	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123amber	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123opal	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123-opal	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123->opal	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123*		partial_amino_acid_deletion
 
 ## partial_amino_acid_deletion:multiple_aa
 
