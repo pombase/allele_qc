@@ -3,15 +3,15 @@ SPAC11E3.03	csm1	MOD:00696	Inferred from Direct Assay	S47	added_during(GO:000008
 SPAC17G8.10c	dma1	MOD:01148	Inferred from Direct Assay	K3, K26, K54, K82, K124, K164, K174, K237, K262	added_by(PomBase:SPAC17G8.10c)	PMID:29975113	4896	2018-07-19		K3,K26,K54,K82,K124,K164,K174,K237,K262	syntax_error	
 SPAC17G8.10c	dma1	MOD:00046	Inferred from Direct Assay	S4, S20, S166, S251, S266		PMID:34674264	4896	2022-01-11		S4,S20,S166,S251,S266	syntax_error	
 SPAC1834.03c	hhf1	MOD:00663	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
-SPAC1834.04	hht1	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
 SPAC1834.04	hht1	MOD:00663		K14	present_during(GO:0031508)	PMID:14561399	4896	2010-03-11	K14	K15	histone_fix	
+SPAC1834.04	hht1	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
 SPAC1834.04	hht1	MOD:00663	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K4	added_by(PomBase:SPAC637.12c)	PMID:20299449	4896	2014-12-23	K4	K5	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K4	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K4	K5	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K56	K57	histone_fix	
 SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_by(PomBase:SPBC342.06c)	PMID:17369611	4896	2011-08-08	K56	K57	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K9		PMID:20299449	4896	2014-12-23	K9	K10	histone_fix	
+SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K56	K57	histone_fix	
 SPAC1834.04	hht1	MOD:00663		K9	present_during(GO:0031508)	PMID:14561399	4896	2010-03-11	K9	K10	histone_fix	
+SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K9		PMID:20299449	4896	2014-12-23	K9	K10	histone_fix	
 SPAC1834.04	hht1	MOD:00046	Inferred from Direct Assay	S10	added_by(PomBase:SPCC320.13c),present_during(GO:0000087)	PMID:11792803	4896	2016-10-12	S10	S11	histone_fix	
 SPAC1834.04	hht1	MOD:00696	Inferred from Direct Assay	Y41	present_during(GO:0000087)	PMID:29136238	4896	2018-02-12	Y41	Y42	histone_fix	
 SPAC19G12.06c	hta2	MOD:00046	Inferred from Direct Assay	S121	added_by(PomBase:SPCC1322.12c)	PMID:19965387	4896	2018-03-22	S121	S122	histone_fix	
@@ -62,14 +62,14 @@ SPCC338.17c	rad21	MOD:00046	Inferred from Direct Assay	S163, S164,S165, S174, S2
 SPCC4E9.01c	rec11	MOD:00696	Inferred from Direct Assay	S10|S22|S43|S150|S439|S496	added_during(GO:0098762)	PMID:25993311	4896	2017-04-11		S10,S22,S43,S150,S439,S496	syntax_error	
 SPCC4E9.01c	rec11	MOD:00696	Inferred from Direct Assay	T60|T70	added_during(GO:0098762)	PMID:25993311	4896	2017-04-11		T60,T70	syntax_error	
 SPCC622.08c	hta1	MOD:00046	Inferred from Direct Assay	S121	added_by(PomBase:SPCC1322.12c)	PMID:19965387	4896	2018-03-22	S121	S122	histone_fix	
+SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0001789)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0001799)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001798)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0000186)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
+SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0000186),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001789),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001799),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001798)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0000186),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0001789)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
 SPCC622.09	htb1	MOD:01148	Inferred from Direct Assay	K119		PMID:17374714	4896	2007-07-16	K119	K120	histone_fix	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S202A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S202	syntax_error	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S229A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S229	syntax_error	

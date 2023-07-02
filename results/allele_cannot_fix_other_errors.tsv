@@ -16,7 +16,7 @@ SPAC22F3.09c	res2-G1	ntG16590A	invalid_error	lengths don't match: ntG-A
 SPAC22F3.09c	res2-J3	ntG16597A	invalid_error	lengths don't match: ntG-A
 SPAC22G7.06c	ura1-61	ntG16857A	invalid_error	lengths don't match: ntG-A
 SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	pattern_error	(CTD)
-SPAC23C4.19	spt5-(T1A)7	T1A mutations within the CTR	pattern_error	 mutations within the CTR
+SPAC23C4.19	spt5-(T1A)7	CTD-T1A	pattern_error	CTD-
 SPAC23C4.19	spt5-CTD-T1E(17)	CTD-T1E	pattern_error	CTD-
 SPAC25G10.04c	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
 SPAC2G11.12	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
@@ -83,11 +83,11 @@ SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S5.S5A	CTD-S5.S5A(alternating)	pattern_error	CTD-S5.,(alternating)
 SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	pattern_error	(CTD)S5
 SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	pattern_error	(CTD)
-SPBC28F2.12	rpb1-CTD-S7A	(CTD)S7A	pattern_error	(CTD)
-SPBC28F2.12	rpb1-CTD-S7A(5-29)	rpb1-CTD-S7A(5-29)	pattern_error	rpb,-CTD-
+SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A(1-29)	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-S7A(5-29)	CTD-S7A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4(25-29)	CTD-T4(25-29)	pattern_error	CTD-T4(
-SPBC28F2.12	rpb1-CTD-T4A	(CTD)T4A	pattern_error	(CTD)
-SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5-29)	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-T4A	CTD-T4A	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5,29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A,S7A(5-29)	(CTD)T4A,S7A(5-29)	pattern_error	(CTD)
 SPBC28F2.12	rpb1-CTD-Y1F	CTD-Y1F	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	pattern_error	CTDdelta(

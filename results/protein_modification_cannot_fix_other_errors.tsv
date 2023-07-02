@@ -10,8 +10,8 @@ SPBC28F2.07	sfr1	MOD:00046	Inferred from Direct Assay	S147 (or T146	present_duri
 SPBC28F2.07	sfr1	MOD:00046	Inferred from Direct Assay	S52 (or S48	present_during(GO:0098762)	PMID:34208949	4896	2021-07-06	pattern_error
 SPBC28F2.07	sfr1	MOD:00047	Inferred from Direct Assay	T114 (or S116	present_during(GO:0098762)	PMID:34208949	4896	2021-07-06	pattern_error
 SPBC28F2.07	sfr1	MOD:00047	Inferred from Direct Assay	T152 (or T151	present_during(GO:0098762)	PMID:34208949	4896	2021-07-06	pattern_error
-SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPAC2F3.15)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2009-07-12	pattern_error
+SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPAC2F3.15)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC19F8.07)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPAC24B11.06c)	PMID:33410907	4896	2021-01-12	pattern_error
