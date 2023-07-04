@@ -228,7 +228,7 @@ def process_systematic_id(systematic_id: str, genome: dict, when_several_transcr
     longest_transcript_systematic_id = None
     longest_transcript_length = 0
     while systematic_id + '.' + str(i) in genome:
-        transcript_seq_record = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
+        transcript_seq_record, _ = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
         if len(transcript_seq_record) > longest_transcript_length:
             longest_transcript_length = len(transcript_seq_record)
             longest_transcript_systematic_id = systematic_id + '.' + str(i)
@@ -291,8 +291,11 @@ async def primer_mutagenesis(systematic_id: str = Query(example="SPAPB1A10.09", 
         seq = gene['CDS'].extract(gene['contig'])
     else:
         has_peptide = False
-        seq = extract_main_feature_and_strand(genome[systematic_id], downstream, upstream)[0]
-
+        seq, strand = extract_main_feature_and_strand(genome[systematic_id], downstream, upstream)
+        if strand == -1:
+            seq = seq.reverse_complement()
+    primer = re.sub('\s+', '', primer.upper())
+    print(primer)
     resp_str = primer_mutagenesis_func(seq.seq, primer, max_mismatch, has_peptide)
     if upstream != 0 and dna_or_protein == 'dna':
         substitutions = re.findall(r'[A-Z]-?\d+[A-Z]', resp_str)

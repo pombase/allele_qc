@@ -130,7 +130,7 @@ def primer_mutagenesis(main_seq, primer_seq, allowed_mismatches, has_peptide):
     out_str = ''
 
     for reverse_the_primer in [True, False]:
-        for i in range(1, allowed_mismatches):
+        for i in range(1, allowed_mismatches + 1):
             primer = str(primer_seq) if not reverse_the_primer else str(primer_seq.reverse_complement())
             pattern = f'({primer})' + '{s<=' + str(i) + '}'
             matches = list(regex.finditer(pattern, main_seq))
@@ -140,6 +140,7 @@ def primer_mutagenesis(main_seq, primer_seq, allowed_mismatches, has_peptide):
                 start = match.start()
                 end = start + len(primer)
                 primer_DNA = main_seq[:start] + primer + main_seq[end:]
+                encountered_mismatches = i
             if len(matches) > 0:
                 break
         else:
@@ -153,9 +154,9 @@ def primer_mutagenesis(main_seq, primer_seq, allowed_mismatches, has_peptide):
                 mutations += f'{main_seq[i]}{i+1}{primer_DNA[i]},'
 
         if reverse_the_primer:
-            out_str = out_str + f'> with the reverse primer and {i} mistmatches\n'
+            out_str = out_str + f'> with the reverse primer and {encountered_mismatches} mistmatches\n'
         else:
-            out_str = out_str + f'> with the forward primer and {i} mistmatches\n'
+            out_str = out_str + f'> with the forward primer and {encountered_mismatches} mistmatches\n'
 
         out_str = out_str + f'mutations observed at DNA level: {mutations}\n'
         out_str = out_str + f'original_sequence:  {main_seq}\n'
