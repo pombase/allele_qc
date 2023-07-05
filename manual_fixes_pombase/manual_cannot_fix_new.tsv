@@ -80,14 +80,15 @@ SPAPB1E7.05	gde1-(met1)WT	L1M	amino_acid_mutation	PMID:35012333	?
 SPAPB1E7.05	gde1-(met1)Y21F,K25A,N139A	L1M,Y21F,K25A,N139A	amino_acid_mutation	PMID:35012333	Y22F,K26A,N140A			
 SPAC926.04c	hsp90-EATA	E34A,T179A	amino_acid_mutation	PMID:37120429	E34A,T172A			coordinates were on the human protein, see Supp. Table 1
 SPAC926.04c	hsp90-EATK	E34A,E384K	amino_acid_mutation	PMID:37120429	E34A,E367K			coordinates were on the human protein, see Supp. Table 1
-SPNCRNA.82	mrp1-B7	A370G	nucleotide_mutation	PMID:8887563				
-SPNCRNA.82	mrp1-LoopB	U339A,A340C,U343G	nucleotide_mutation	PMID:8948095				
-SPNCRNA.82	mrp1-Pt1-9	U359A,C356A	nucleotide_mutation	PMID:8948095				
-SPNCRNA.82	mrp1-U359A	U359A	nucleotide_mutation	PMID:8948095				
-SPBC1604.21c	ptr3-1	C1892A	nucleotide_mutation	PMID:9168469				
-SPBC16D10.09	pcn1-20	E232A	amino_acid_mutation	PMID:9563836				
-SPBC800.05c	alp2-996	G1065A	nucleotide_mutation	PMID:9658169				
-SPAC3H5.06c	pol1-L471A	L471A	amino_acid_mutation	PMID:9693370				
-SPAC3H5.06c	pol1-S470A	S470A	amino_acid_mutation	PMID:9693370				
-SPAC3H5.06c	pol1-ts17	C1388T,C1870T,G3547A	nucleotide_mutation	PMID:9693370				
-SPBC15D4.02	gsf1-AAD-1	C22T	amino_acid_mutation	PMID:9973368				
+SPNCRNA.82	mrp1-B7	A370G	nucleotide_mutation	PMID:8887563	A371G			
+SPNCRNA.82	mrp1-LoopB	U339A,A340C,U343G	nucleotide_mutation	PMID:8948095	T340A,A341C,T344G			simulated primer mutagenesis
+SPNCRNA.82	mrp1-Pt1-9	U359A,C356A	nucleotide_mutation	PMID:8948095	C357A,360A			drawing
+SPNCRNA.82	mrp1-U359A	U359A	nucleotide_mutation	PMID:8948095	C357A			drawing
+SPNCRNA.82	mrp1-LoopA	T372A,C373A,C375-G,T378G	fusion_or_chimera	PMID:8948095			nucleotide_insertion_and_mutation
+SPBC1604.21c	ptr3-1	C1892A	nucleotide_mutation	PMID:9168469	C1894A			From drawing, Thr576 to Lys
+SPBC800.05c	alp2-996	G1065A	nucleotide_mutation	PMID:9658169	G1067A			From drawing Fig. 4 C356Y
+SPBC800.05c	ban5-996		unknown	PMID:8876193	G1067A			From drawing Fig. 4 C356Y in PMID:9658169
+SPBC26H8.07c	alp12-1828	unknown	unknown	PMID:9658169	T1615C			Text description
+SPAC3H5.06c	pol1-L471A	L471A	amino_acid_mutation	PMID:9693370	S471A			typo in paper
+SPAC3H5.06c	pol1-S470A	S470A	amino_acid_mutation	PMID:9693370	L470A			typo in paper
+SPAC3H5.06c	pol1-ts17	C1388T,C1870T,G3547A	nucleotide_mutation	PMID:9693370	A463V,H624Y,D1183N		amino_acid_mutation	

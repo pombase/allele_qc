@@ -9,3 +9,5 @@ SPAC1834.06c	pmo25-2	text: "miss-sense mutation in the pmo25 ORF (TTT to GTT), w
 SPCC777.09c	arg1-1	E136 is mentioned in the paper, but does not exist in the sequence
 SPAC19E9.02	fin1-KD	no N165 in sequence, two subsequent NN close by
 SPCC285.07c	wtf18-2D366NN	I think the reference sequence might be a different allele
+SPBC16D10.09	pcn1-20	probably D232A, since no E is so close and all the rest of mutations are correct.
+SPBC15D4.02	gsf1-AAD-1	could be C22T at the nucleotide level? sequence is not mentioned in the paper.
