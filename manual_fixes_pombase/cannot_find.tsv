@@ -7,4 +7,5 @@ SPBC428.16c	rhb1-RD24-1	D111 cannot be found in the paper sequence
 SPBC428.16c	rhb1-RD72-1	P72 cannot be found in the paper sequence
 SPAC1834.06c	pmo25-2	text: "miss-sense mutation in the pmo25 ORF (TTT to GTT), which changed the Phe in position 205 to Val". Several TTT Phenylalanines around position 205, cannot tell which.
 SPCC777.09c	arg1-1	E136 is mentioned in the paper, but does not exist in the sequence
-
+SPAC19E9.02	fin1-KD	no N165 in sequence, two subsequent NN close by
+SPCC285.07c	wtf18-2D366NN	I think the reference sequence might be a different allele
