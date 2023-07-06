@@ -1,5 +1,5 @@
 systematic_id	allele_name	comment
-SPAC27F1.09c	prp10-1
+SPAC27F1.09c	prp10-1	cannot find information
 SPBC685.09	orc2-T159A,S162A,T196A,T209A,T214A,T217A	text from paper: cells with orp2-T4A and also mutated at two additional (S/T)P sites (T1593A and S1623A) were also viable and healthy
 SPCC18B5.06	dom34-R11	alleles are described as part of complementation groups, and the used sequences are not mentioned
 SPCC584.04	sup35-R13	alleles are described as part of complementation groups, and the used sequences are not mentioned
@@ -11,3 +11,6 @@ SPAC19E9.02	fin1-KD	no N165 in sequence, two subsequent NN close by
 SPCC285.07c	wtf18-2D366NN	I think the reference sequence might be a different allele
 SPBC16D10.09	pcn1-20	probably D232A, since no E is so close and all the rest of mutations are correct.
 SPBC15D4.02	gsf1-AAD-1	could be C22T at the nucleotide level? sequence is not mentioned in the paper.
+SPAC644.14c	loh4-1	there is no E at position 344. Position 344 is flanked by two Glutamates, so likely it's one of the two
+SPBC216.07c	tor2-ts10	no A at position 1399, and there are several surrounding alanines
+SPBC216.07c	tor2-ts6	no K711, most likely this refers to K710.
