@@ -211,7 +211,7 @@ nt = f'[{nt}]'
 # We favour formatting negative numbers with parenthesis
 # this regex captures both positive and negative numbers without parenthesis, and
 # negative numbers with parenthesis
-num = '(\(-\d+\)|-?\d+)'
+num = '(\(-\d+\)|(?<!\()-?\d+(?!\)))'
 
 nucleotide_grammar = [
     {
@@ -247,6 +247,14 @@ nucleotide_grammar = [
         'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=lambda x: int(x.replace('(', '').replace(')', ''))), [0, 1])).upper(),
         'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
+    },
+    {
+        'type': 'partial_nucleotide_deletion',
+        'rule_name': 'single_nt',
+        'regex': f'(?<!{nt}){num}(?!{nt})',
+        'apply_syntax': lambda g: format_negatives(g, [0])[0],
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
+        'coordinate_indexes': (0,)
     },
     # We split the insertion into two cases, one where a single nt is inserted, in which the dash
     # is compulsory, and one where the dash is optional, for more than one. Otherwise A123T would match

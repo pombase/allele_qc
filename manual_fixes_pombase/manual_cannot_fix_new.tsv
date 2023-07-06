@@ -94,3 +94,18 @@ SPAC3H5.06c	pol1-S470A	S470A	amino_acid_mutation	PMID:9693370	L470A			typo in pa
 SPAC3H5.06c	pol1-ts17	C1388T,C1870T,G3547A	nucleotide_mutation	PMID:9693370	A463V,H624Y,D1183N		amino_acid_mutation	
 SPBC216.07c	tor2-ts10	asked	amino_acid_mutation	PMID:17261596,PMID:20144990,PMID:22976295,PMID:26152587,PMID:27165118,PMID:29079657	A1399E,F2198L
 SPBC216.07c	tor2-ts6	asked	amino_acid_mutation	PMID:17261596,PMID:19620394,PMID:20144990,PMID:22976295,PMID:24741065,PMID:27165118,PMID:28671615,PMID:29330317,PMID:33574613	S550P,K711M
+SPBC660.13c	rad11A	unknown	unknown	PMID:10888871,PMID:9111307	R339H		amino_acid_mutation	from PMID:37200372
+SPNCRNA.98	srp7-A163U,C169U6	A163U,C169U6	nucleotide_mutation	PMID:1315954	A163U,C169U	srp7-A163T,C169T		
+SPNCRNA.98	srp7-G72A,G78A,G100A,G107A,Gl12A,G141A	G72A,G78A,G100A,G107A,Gl12A,G141A	nucleotide_mutation	PMID:1315954	G72A,G78A,G100A,G107A,G112A,G141A	srp7-G72A,G78A,G100A,G107A,G112A,G141A		
+SPNCRNA.98	srp7-U88G,delta84-88,omega8nt	U88G,nt84 deletion,8 nucleotides inserted after nt83	nucleotide_insertion_and_mutation	PMID:1315954	T-84-GCTGCAGC,T88G		srp7-U88G,delta84,omega8nt	
+SPNCRNA.98	srp7-U88G,omegaUCGA	U88G,UCGA inserted after nt84	nucleotide_insertion_and_mutation	PMID:1315954	T88G,T84-TCGA			
+SPBC1A4.03c	top2-1-40/SV	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977	2-41,M1-PKKKRKV		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-1-40/SV-delta-Sph	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977	2-41,M1-PKKKRKV,1200-1485		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-1-40/SV-delta-Xba	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977	2-41,M1-PKKKRKV,1221-1485		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-1-74/SV	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977	2-75,M1-PKKKRKV		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-1-74/SV-delta-Sph	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977	2-75,M1-PKKKRKV,1200-1485		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-1-74/SV-delta-Xba	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977	2-75,M1-PKKKRKV,1221-1485		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-26-40/SV	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977	27-41,T26-PKKKRKV		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-26-40/SV-delta-Sph	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977	27-41,T26-PKKKRKV,1200-1485		amino_acid_insertion_and_mutation	
+SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977	27-41,T26-PKKKRKV,1221-1485		amino_acid_insertion_and_mutation	
+
