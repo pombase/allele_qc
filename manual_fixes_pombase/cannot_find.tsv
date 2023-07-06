@@ -1,16 +1,17 @@
-systematic_id	allele_name	comment
-SPAC27F1.09c	prp10-1	cannot find information
-SPBC685.09	orc2-T159A,S162A,T196A,T209A,T214A,T217A	text from paper: cells with orp2-T4A and also mutated at two additional (S/T)P sites (T1593A and S1623A) were also viable and healthy
-SPCC18B5.06	dom34-R11	alleles are described as part of complementation groups, and the used sequences are not mentioned
-SPCC584.04	sup35-R13	alleles are described as part of complementation groups, and the used sequences are not mentioned
-SPBC428.16c	rhb1-RD24-1	D111 cannot be found in the paper sequence
-SPBC428.16c	rhb1-RD72-1	P72 cannot be found in the paper sequence
-SPAC1834.06c	pmo25-2	text: "miss-sense mutation in the pmo25 ORF (TTT to GTT), which changed the Phe in position 205 to Val". Several TTT Phenylalanines around position 205, cannot tell which.
-SPCC777.09c	arg1-1	E136 is mentioned in the paper, but does not exist in the sequence
-SPAC19E9.02	fin1-KD	no N165 in sequence, two subsequent NN close by
-SPCC285.07c	wtf18-2D366NN	I think the reference sequence might be a different allele
-SPBC16D10.09	pcn1-20	probably D232A, since no E is so close and all the rest of mutations are correct.
-SPBC15D4.02	gsf1-AAD-1	could be C22T at the nucleotide level? sequence is not mentioned in the paper.
-SPAC644.14c	loh4-1	there is no E at position 344. Position 344 is flanked by two Glutamates, so likely it's one of the two
-SPBC216.07c	tor2-ts10	no A at position 1399, and there are several surrounding alanines
-SPBC216.07c	tor2-ts6	no K711, most likely this refers to K710.
+systematic_id	allele_name	allele_description	comment
+SPAC27F1.09c	prp10-1	A1089V,S1097F	cannot find information
+SPBC685.09	orc2-T159A,S162A,T196A,T209A,T214A,T217A	T159A,S162A,T196A,T209A,T214A,T217A	text from paper: cells with orp2-T4A and also mutated at two additional (S/T)P sites (T1593A and S1623A) were also viable and healthy
+SPCC18B5.06	dom34-R11	C1198A	alleles are described as part of complementation groups, and the used sequences are not mentioned
+SPCC584.04	sup35-R13	C876A	alleles are described as part of complementation groups, and the used sequences are not mentioned
+SPBC428.16c	rhb1-RD24-1	D111G,E168G,K120R	D111 cannot be found in the paper sequence
+SPBC428.16c	rhb1-RD72-1	P72S,I76V,I98K,N153S	P72 cannot be found in the paper sequence
+SPAC1834.06c	pmo25-2	T613G	"text: ""miss-sense mutation in the pmo25 ORF (TTT to GTT), which changed the Phe in position 205 to Val"". Several TTT Phenylalanines around position 205, cannot tell which."
+SPCC777.09c	arg1-1	E136K,S187N	E136 is mentioned in the paper, but does not exist in the sequence
+SPAC19E9.02	fin1-KD	K63R,N165A	no N165 in sequence, two subsequent NN close by
+SPCC285.07c	wtf18-2D366NN	D366N,D366-N	I think the reference sequence might be a different allele
+SPBC16D10.09	pcn1-20	E232A	probably D232A, since no E is so close and all the rest of mutations are correct.
+SPBC15D4.02	gsf1-AAD-1	C22T	could be C22T at the nucleotide level? sequence is not mentioned in the paper.
+SPAC644.14c	loh4-1	asked	there is no E at position 344. Position 344 is flanked by two Glutamates, so likely it's one of the two
+SPBC216.07c	tor2-ts10	asked	no A at position 1399, and there are several surrounding alanines
+SPBC216.07c	tor2-ts6	asked	no K711, most likely this refers to K710.
+SPAC19E9.02	fin1-KD	K63R,N165A	No N165, but there is a N156. I suspect that this could be scrambled numbers
