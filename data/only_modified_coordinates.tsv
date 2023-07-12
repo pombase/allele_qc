@@ -1,4 +1,8 @@
 revision	user	date	chromosome	systematic_id	primary_name	feature_type	added_or_removed	value
+9030	vw253	2023-07-11	II	SPNCRNA.105		ncRNA	added	4071111..4071312
+9030	vw253	2023-07-11	II	SPNCRNA.105		snRNA	removed	4071111..4071312
+9023	vw253	2023-07-06	I	SPNCRNA.530	sno530	snoRNA	added	complement(1966483..1966635)
+9023	vw253	2023-07-06	I	SPNCRNA.530		lncRNA	removed	complement(1966483..1966635)
 8920	vw253	2023-05-03	I	SPAC1F8.07c	pdc101	CDS	added	complement(join(101836..101872,101872..103544))
 8920	vw253	2023-05-03	I	SPAC1F8.07c	pdc101	CDS	removed	complement(join(101836..101869,101872..103544))
 8658	kmr44	2023-01-16	I	SPNCRNA.03	prl3	lncRNA	added	complement(237074..237848)
