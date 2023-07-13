@@ -71,23 +71,23 @@ def get_preferred_fix(row):
 
 
 def format_auto_fix(row, target_column, syntax_error_column):
-
     syntax_error = row[syntax_error_column] != ''
-    sequence_position = row[target_column] if not syntax_error else row[syntax_error_column]
 
     # Cases where there was no error in the sequence, but there might be a syntax error that needs fixing
     if not row['auto_fix_to']:
         return (row[syntax_error_column], 'syntax_error') if syntax_error else ('', '')
 
+    current_sequence_position = (row[target_column] if not syntax_error else row[syntax_error_column]).split(',')
+
     # There are cases where multiple fixes could be possible, and cases where changes were made
     # and reverted several times, so the same coordinate (or updated depending on genome sequence)
     # may exist
     possible_fixes = list()
-    for all_change_to in row['auto_fix_to'].split('|'):
-        this_fix = sequence_position
-        for change_from, change_to in zip(row['auto_fix_from'].split(','), all_change_to.split(',')):
-            this_fix = this_fix.replace(change_from, change_to)
-        possible_fixes.append(this_fix)
+    for this_auto_fix_to in row['auto_fix_to'].split('|'):
+        # A dictionary mapping old coordinate to new coordinate
+        fix_dict = {change_from: change_to for change_from, change_to in zip(row['auto_fix_from'].split(','), this_auto_fix_to.split(','))}
+        fixed_sequence_positions = [fix_dict.get(i, i) for i in current_sequence_position]
+        possible_fixes.append(','.join(fixed_sequence_positions))
 
     # Case 1 -> all old coordinates give the same residue
     if len(set(possible_fixes)) == 1:

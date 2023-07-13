@@ -78,12 +78,25 @@ def old_coords_fix(coordinate_changes, targets):
                 break
 
             # We now remap from old coordinates to new ones. It may return None if the position in the old sequence
-            # does not exist in the new one. We also checked whether the new value matches the new sequence.
+            # does not exist in the new one.
             target_remapped = change_to_new_indexes_from_old_coordinates(old_alignment, new_alignment, t)
-            if target_remapped is None or not position_or_index_exists(target_remapped, new_sequence):
-                break
 
-            this_revision['values'].append(target_remapped)
+            # Special case where the given position is matched in the old sequence, but there is not an equivalent
+            # position in the new sequence. Example:
+            #
+            # > current sequence
+            # ----------------MLQRLEQL
+            # > old sequence
+            # MPGSPSQEPLAEAESNMLQRLEQL
+            #
+            # For instance, S4 is matched in the old sequence, but there is no equivalent position in the new sequence.
+
+            if target_remapped is None:
+                # this_revision['values'].append('?')
+                # For now, we also break in this case
+                break
+            else:
+                this_revision['values'].append(target_remapped)
         else:
             # Only append the value if break was not triggered
             this_revision['values'] = ','.join(this_revision['values'])
