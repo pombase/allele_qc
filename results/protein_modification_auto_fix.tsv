@@ -23,7 +23,11 @@ SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:
 SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:0001799),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S127	S128	histone_fix	
 SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:0001798)	PMID:20661445	4896	2019-08-02	S127	S128	histone_fix	
 SPAC20H4.06c	gpl1	MOD:00046	Inferred from Direct Assay	S239, S308, S312		PMID:36361590	4896	2022-11-18		S239,S308,S312	syntax_error	
+SPAC3H1.05	ste24	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S12		PMID:30726745	4896	2019-02-05	S12	?	old_coords_fix, revision 8148: join(1938900..1939004,1939075..1940394)	
+SPAC3H1.05	ste24	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S440		PMID:30726745	4896	2019-02-05	S440	S410	old_coords_fix, revision 8148: join(1938900..1939004,1939075..1940394)	
 SPAC4D7.03	pop2	MOD:00047	Inferred from Direct Assay	T657, T666, T669		PMID:36361590	4896	2022-11-28		T657,T666,T669	syntax_error	
+SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S12	?	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
+SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S500	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S500	S484	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
 SPAC6G9.08	ubp6	MOD:00046	Inferred from Direct Assay	S129		PMID:21182284	4896	2014-07-21	S129	S130	old_coords_fix, revision 20110324: 3259704..3261107	
 SPAC6G9.08	ubp6	MOD:00046	Inferred from Direct Assay	S133		PMID:21182284	4896	2014-07-21	S133	S134	old_coords_fix, revision 20110324: 3259704..3261107	
 SPAC6G9.08	ubp6	MOD:00046	Inferred from Direct Assay	S359		PMID:21182284	4896	2014-07-21	S359	S360	old_coords_fix, revision 20110324: 3259704..3261107	
@@ -45,7 +49,55 @@ SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T46A	added_by(PomBase:SP
 SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T60A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29		T60	syntax_error	
 SPBC16G5.15c	fkh2	MOD:00046	Inferred from Direct Assay	S321A	added_by(PomBase:SPCC24B10.07)	PMID:18235227	4896	2015-12-17		S321	syntax_error	
 SPBC1A4.03c	top2	MOD:00046	Inferred from Direct Assay	S1363, S1364	added_by(PomBase:SPAC23C11.11),present_during(GO:0000278)	PMID:30635402	4896	2019-01-25		S1363,S1364	syntax_error	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S200		PMID:29996109	4896	2018-07-10	S200	S184	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S202		PMID:29996109	4896	2018-07-10	S202	S186	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S202		PMID:33823663	4896	2022-03-08	S202	S186	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S212		PMID:29996109	4896	2018-07-10	S212	S196	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S212		PMID:33823663	4896	2022-03-08	S212	S196	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S224		PMID:29996109	4896	2018-07-10	S224	S208	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S229	present_during(GO:0000087)	PMID:29996109	4896	2018-07-10	S229	S213	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S232		PMID:29996109	4896	2018-07-10	S232	S216	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S237		PMID:29996109	4896	2018-07-10	S237	S221	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S239		PMID:29996109	4896	2018-07-10	S239	S223	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S239		PMID:33823663	4896	2022-03-08	S239	S223	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S309		PMID:29996109	4896	2018-07-10	S309	S293	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S309		PMID:33823663	4896	2022-03-08	S309	S293	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S316		PMID:29996109	4896	2018-07-10	S316	S300	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S337		PMID:29996109	4896	2018-07-10	S337	S321	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S337		PMID:33823663	4896	2022-03-08	S337	S321	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S345		PMID:29996109	4896	2018-07-10	S345	S329	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S345		PMID:33823663	4896	2022-03-08	S345	S329	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S354		PMID:29996109	4896	2018-07-10	S354	S338	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S354		PMID:33823663	4896	2022-03-08	S354	S338	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S376		PMID:29996109	4896	2018-07-10	S376	S360	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S381	present_during(GO:0000087)	PMID:29996109	4896	2018-07-10	S381	S365	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S381		PMID:33823663	4896	2022-03-08	S381	S365	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S383		PMID:29996109	4896	2018-07-10	S383	S367	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S383		PMID:33823663	4896	2022-03-08	S383	S367	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S4		PMID:29996109	4896	2018-07-10	S4	?	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S4		PMID:33823663	4896	2022-03-08	S4	?	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S409		PMID:29996109	4896	2018-07-10	S409	S393	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S411		PMID:29996109	4896	2018-07-10	S411	S395	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S419		PMID:29996109	4896	2018-07-10	S419	S403	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S426		PMID:29996109	4896	2018-07-10	S426	S410	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S434		PMID:33823663	4896	2022-03-08	S434	S418	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S445		PMID:29996109	4896	2018-07-10	S445	S429	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S447		PMID:29996109	4896	2018-07-10	S447	S431	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S455	present_during(GO:0000085)	PMID:29996109	4896	2018-07-10	S455	S439	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S6		PMID:29996109	4896	2018-07-10	S6	?	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T129		PMID:29996109	4896	2018-07-10	T129	T113	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T129		PMID:33823663	4896	2022-03-08	T129	T113	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T257		PMID:29996109	4896	2018-07-10	T257	T241	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T257		PMID:33823663	4896	2022-03-08	T257	T241	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T352		PMID:29996109	4896	2018-07-10	T352	T336	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T352		PMID:33823663	4896	2022-03-08	T352	T336	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T375		PMID:29996109	4896	2018-07-10	T375	T359	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T375		PMID:33823663	4896	2022-03-08	T375	T359	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T439		PMID:29996109	4896	2018-07-10	T439	T423	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC2F12.10	mrpl35	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T13		PMID:33823663	4896	2022-03-08	T13	?	old_coords_fix, revision 20110324: complement(1719551..1720663)	
 SPBC4F6.12	pxl1	MOD:00696	Inferred from Direct Assay	S3, S24, S31, T55, T64, S67, S97, S136, T214	added_by(PomBase:SPBC11B10.09),added_during(GO:0000089),removed_during(GO:0000092)	PMID:34133210	4896	2021-07-07		S3,S24,S31,T55,T64,S67,S97,S136,T214	syntax_error	
+SPBC582.07c	rpn7	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S3		PMID:30726745	4896	2019-02-05	S3	?	old_coords_fix, revision 8404: complement(430551..431780)	
+SPBC582.07c	rpn7	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S5		PMID:30726745	4896	2019-02-05	S5	?	old_coords_fix, revision 8404: complement(430551..431780)	
 SPBC8D2.03c	hhf2	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
 SPBC8D2.04	hht2	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
 SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
@@ -71,6 +123,8 @@ SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:00
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001798)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
 SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0000186),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
 SPCC622.09	htb1	MOD:01148	Inferred from Direct Assay	K119		PMID:17374714	4896	2007-07-16	K119	K120	histone_fix	
+SPCC825.04c	naa40	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S11		PMID:30726745	4896	2019-02-05	S11	?	old_coords_fix, revision 8405: complement(1030256..1030870)	
+SPCC825.04c	naa40	MOD:00048	tryptic phosphopeptide mapping assay evidence used in automatic assertion	Y7		PMID:30726745	4896	2019-02-05	Y7	?	old_coords_fix, revision 8405: complement(1030256..1030870)	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S202A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S202	syntax_error	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S229A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S229	syntax_error	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S244A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S244	syntax_error	
@@ -79,3 +133,5 @@ SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S294A	added_by(PomBase:SPB
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	T393A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		T393	syntax_error	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	T831A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		T831	syntax_error	
 SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	T908A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		T908	syntax_error	
+SPCP1E11.06	apl4	MOD:00047	mass spectrometry evidence	T3		PMID:23297348	4896	2013-01-07	T3	?	old_coords_fix, revision 8405: 2401980..2404577	
+SPCP1E11.06	apl4	MOD:00047	mass spectrometry evidence	T4		PMID:23297348	4896	2013-01-07	T4	?	old_coords_fix, revision 8405: 2401980..2404577	

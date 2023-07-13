@@ -92,9 +92,9 @@ def old_coords_fix(coordinate_changes, targets):
             # For instance, S4 is matched in the old sequence, but there is no equivalent position in the new sequence.
 
             if target_remapped is None:
-                # this_revision['values'].append('?')
+                this_revision['values'].append('?')
                 # For now, we also break in this case
-                break
+                # break
             else:
                 this_revision['values'].append(target_remapped)
         else:
