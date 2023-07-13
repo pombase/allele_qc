@@ -16,14 +16,14 @@ SPBC19C2.09	sre1-Q802*	Q802*	nonsense_mutation	PMID:28821619			partial_amino_aci
 SPBC4F6.15c	rad23-1	Q232*	nonsense_mutation	PMID:8621070			partial_amino_acid_deletion			
 SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	amino_acid_deletion_and_mutation	PMID:17502918	CTD-S2A(r5-r16)delta(r17-r29)	rpb1-CTD-S2A(r5-r16)delta(r17-r29)				
 SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	amino_acid_mutation	PMID:17502918	CTD-S2E(r5-r16)	rpb1-CTD-S2E(r5-r16)
-SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	amino_acid_mutation	PMID:17502918	CTD-delta(r11-r29)	rpb1-CTD-delta(r11-r29)
+SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	amino_acid_mutation	PMID:17502918	CTD-delta(r11-r29)	rpb1-CTD-delta(r11-r29)	partial_amino_acid_deletion
 SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	amino_acid_mutation	PMID:20605454	CTD-S5A	rpb1-CTD-S5A
 SPBC28F2.12	rpb1-CTD-S2A	(CTD)S2A	amino_acid_mutation	PMID:20605454,PMID:33579781,PMID:33711009	CTD-S2A	rpb1-CTD-S2A
-SPBC28F2.12	rpb1-CTD-S2A(12)	CTD-S2A(1-12),CTD-delta(13-29)	amino_acid_mutation	PMID:22144909	CTD-S2A(r1-r12)delta(r13-r29)	rpb1-CTD-S2A(r1-r12)delta(r13-r29)
+SPBC28F2.12	rpb1-CTD-S2A(12)	CTD-S2A(1-12),CTD-delta(13-29)	amino_acid_mutation	PMID:22144909	CTD-S2A(r1-r12)delta(r13-r29)	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation
 SPBC28F2.12	rpb1-CTD-S2A(5-29)	CTD-S2A(5-29)	amino_acid_mutation	PMID:22771993	CTD-S2A(r5-r29)	rpb1-S2A(r5-r29)
 SPBC28F2.12	rpb1-CTD-S2A,S7A(5-29)	CTD-S2A,S7A(5-29)	amino_acid_mutation	PMID:22771993	CTD-S2A(r5-r29)S7A(r5-r29)	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)
 SPBC28F2.12	rpb1-CTD-S7A(5-29)	rpb1-CTD-S7A(5-29)	amino_acid_mutation	PMID:22771993,PMID:29414789,PMID:30652128	CTD-S7A(r5-r29)	rpb1-CTD-S7A(r5-r29)
-SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	amino_acid_mutation	PMID:29414789	???
+SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	amino_acid_mutation	PMID:29414789	CTD-S5A(r7-r18),∆(r19-29)	rpb1-CTD-(S5)3(S5A)11	amino_acid_deletion_and_mutation
 SPBC28F2.12	rpb1-CTD-T4A,S7A(5-29)	(CTD)T4A,S7A(5-29)	amino_acid_mutation	PMID:29414789	CTD-T4A,S7A(r5-r29)	rpb1-CTD-T4A,S7A(r5-r29)
 SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5-29)	amino_acid_mutation	PMID:29414789,PMID:30282034	CTD-T4A(r5-r29)	rpb1-CTD-T4A(r5-r29)
 SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	amino_acid_mutation	PMID:29899453	spt5(1-800)-(TPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSK)	spt5(1-800)-(TPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSKTPAWNSGSK)	fusion_or_chimera

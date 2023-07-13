@@ -76,7 +76,6 @@ SPBC26H8.07c	nda3noD	U1347A,U1349C	nucleotide_mutation	PMID:34798057	T803A,T805C
 SPAPB1E7.05	gde1-(met1)E845A,D847A	L1M,E845A,D847A	amino_acid_mutation	PMID:35012333	E846A,D848A			
 SPAPB1E7.05	gde1-(met1)H810A,R811A	L1M,H810A,R811A	amino_acid_mutation	PMID:35012333	H811A,R812A			
 SPAPB1E7.05	gde1-(met1)H860A	L1M,H860A	amino_acid_mutation	PMID:35012333	H861A			
-SPAPB1E7.05	gde1-(met1)WT	L1M	amino_acid_mutation	PMID:35012333	?			
 SPAPB1E7.05	gde1-(met1)Y21F,K25A,N139A	L1M,Y21F,K25A,N139A	amino_acid_mutation	PMID:35012333	Y22F,K26A,N140A			
 SPAC926.04c	hsp90-EATA	E34A,T179A	amino_acid_mutation	PMID:37120429	E34A,T172A			coordinates were on the human protein, see Supp. Table 1
 SPAC926.04c	hsp90-EATK	E34A,E384K	amino_acid_mutation	PMID:37120429	E34A,E367K			coordinates were on the human protein, see Supp. Table 1
