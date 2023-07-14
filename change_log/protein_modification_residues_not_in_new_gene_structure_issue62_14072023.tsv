@@ -1,0 +1,9 @@
+SPAC3H1.05	ste24	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S12		PMID:30726745	4896	2019-02-05	S12	?	old_coords_fix, revision 8148: join(1938900..1939004,1939075..1940394)	
+SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S12	?	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
+SPBC2F12.10	mrpl35	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T13		PMID:33823663	4896	2022-03-08	T13	?	old_coords_fix, revision 20110324: complement(1719551..1720663)	
+SPBC582.07c	rpn7	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S3		PMID:30726745	4896	2019-02-05	S3	?	old_coords_fix, revision 8404: complement(430551..431780)	
+SPBC582.07c	rpn7	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S5		PMID:30726745	4896	2019-02-05	S5	?	old_coords_fix, revision 8404: complement(430551..431780)	
+SPCC825.04c	naa40	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S11		PMID:30726745	4896	2019-02-05	S11	?	old_coords_fix, revision 8405: complement(1030256..1030870)	
+SPCC825.04c	naa40	MOD:00048	tryptic phosphopeptide mapping assay evidence used in automatic assertion	Y7		PMID:30726745	4896	2019-02-05	Y7	?	old_coords_fix, revision 8405: complement(1030256..1030870)	
+SPCP1E11.06	apl4	MOD:00047	mass spectrometry evidence	T3		PMID:23297348	4896	2013-01-07	T3	?	old_coords_fix, revision 8405: 2401980..2404577	
+SPCP1E11.06	apl4	MOD:00047	mass spectrometry evidence	T4		PMID:23297348	4896	2013-01-07	T4	?	old_coords_fix, revision 8405: 2401980..2404577	
