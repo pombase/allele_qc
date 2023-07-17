@@ -7,3 +7,6 @@ SPCC825.04c	naa40	MOD:00046	tryptic phosphopeptide mapping assay evidence used i
 SPCC825.04c	naa40	MOD:00048	tryptic phosphopeptide mapping assay evidence used in automatic assertion	Y7		PMID:30726745	4896	2019-02-05	Y7	?	old_coords_fix, revision 8405: complement(1030256..1030870)	
 SPCP1E11.06	apl4	MOD:00047	mass spectrometry evidence	T3		PMID:23297348	4896	2013-01-07	T3	?	old_coords_fix, revision 8405: 2401980..2404577	
 SPCP1E11.06	apl4	MOD:00047	mass spectrometry evidence	T4		PMID:23297348	4896	2013-01-07	T4	?	old_coords_fix, revision 8405: 2401980..2404577	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S4		PMID:29996109	4896	2018-07-10	S4	?	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S4		PMID:33823663	4896	2022-03-08	S4	?	old_coords_fix, revision 1381: complement(2609038..2610591)	
+SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S6		PMID:29996109	4896	2018-07-10	S6	?	old_coords_fix, revision 1381: complement(2609038..2610591)	
