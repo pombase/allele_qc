@@ -12,8 +12,9 @@ curl -k https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype
 gzip -fd data/phenotype_annotations.phaf.gz
 
 # Get unique lines with allele types, and remove deletion and wild-type alleles
-cut -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format.tsv
-python format_alleles.py data/alleles_pre_format.tsv data/alleles.tsv
+cut -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format_phaf.tsv
+curl -k https://curation.pombase.org/data/pombe-allele-table.tsv --output data/alleles_pre_format_canto.tsv
+python format_alleles.py
 
 
 echo -e "${GREEN}Getting contig files${NC}"

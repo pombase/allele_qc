@@ -1,0 +1,14 @@
+{
+    "amino acid insertion and deletion": "amino_acid_insertion_and_deletion",
+    "amino acid insertion and substitution": "amino_acid_insertion_and_mutation",
+    "amino acid insertion": "amino_acid_insertion",
+    "amino acid substitution(s)": "amino_acid_mutation",
+    "fusion or chimera": "fusion_or_chimera",
+    "nonsense mutation": "nonsense_mutation",
+    "nucleotide insertion": "nucleotide_insertion",
+    "nucleotide substitution(s)": "nucleotide_mutation",
+    "partial deletion and amino acid change": "amino_acid_deletion_and_mutation",
+    "partial deletion, amino acid": "partial_amino_acid_deletion",
+    "partial deletion, nucleotide": "partial_nucleotide_deletion",
+    "wild type": "wild_type"
+}

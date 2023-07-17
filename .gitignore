@@ -6,3 +6,4 @@ manual_fixes_pombase/~*
 manual_fixes_pombase/*.tsv
 test_data/
 svn_protein_modification_files_corrected/
+data/phenotype_annotations.phaf

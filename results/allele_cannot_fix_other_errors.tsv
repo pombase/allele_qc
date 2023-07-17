@@ -1,38 +1,64 @@
 systematic_id	allele_name	allele_description	error_type	error_info
 SPAC1006.08	41X-GFP-etd1-D9	Overexpression of etd1-D9	pattern_error	Overexpression of etd1-D9
-SPAC140.02	gar2::ura4+	Gar2 aa 1-163,Ura4 aa 1-39	pattern_error	Gar2 aa 1-163,Ura4 aa 1-39
+SPAC110.02	pds5-G755V-STOP	AA755->Stop	pattern_error	A
+SPAC110.02	pds5-K686-STOP	AA686->stop	pattern_error	A
+SPAC13C5.07	mre11-TBD	fusion of Nbs1 residues 554-613 (Tel1 binding domain) to C-terminus of Mre11	pattern_error	fusion of Nbs, residues , (Tel, binding domain) to C-terminus of Mre
+SPAC140.02	gar2::ura4+	Gar2 aa 1-163, Ura4 aa 1-39	pattern_error	Gar2 aa 1-163, Ura4 aa 1-39
 SPAC1610.03c	meu5-E33	T386G-primary_transcript	pattern_error	-primary_transcript
+SPAC17H9.04c	dri1-W46X	aa46->stop	pattern_error	a
 SPAC18G6.02c	chp1-alpha-mut1	KKRKK-71-NEHG	invalid_error	lengths don't match: KKRKK-NEHG
 SPAC19G12.02c	pms1-16	insertion of marker at HindIII site 1517bp downstream of start codon	pattern_error	insertion of marker at HindIII site 1517bp downstream of start codon
 SPAC1D4.12	rad15-P	G45D	pattern_error	G4,D
 SPAC1D4.12	rad15delta::LEU2	rad15delta::LEU2(nt483-1668)	pattern_error	rad15delta::LEU2(nt483-1668)
-SPAC1F8.02c	shu1-M1 GATA box mutant	-127AGATA-122,-136AGATAA-131,-136TGATAA-141 ->GCCGTC	pattern_error	7AGATA,2,,6AGATAA,1,,6TGATAA-, ->GCCGTC
+SPAC1F3.02c	mkh1-frameshift	227-CTATGTTCAAG	pattern_error	-CTATGTTCAAG
+SPAC1F8.02c	shu1-M1 GATA box mutant	-127AGATA-122, -136AGATAA-131, -136TGATAA-141 ->GCCGTC	pattern_error	7AGATA,2, ,6AGATAA,1, ,6TGATAA-, ->GCCGTC
+SPAC20G4.02c	Fus1deltaIDR	Fus1delta(492-791)	pattern_error	Fu
 SPAC20G4.02c	fus1::ura4+	ura4+@AA270	pattern_error	ura4+@AA270
+SPAC20G4.02c	fus1delta(492-500)	fus1delta(492-500)	pattern_error	fu
+SPAC20G4.02c	fus1delta(492-749)	fus1delta(492-749)	pattern_error	fu
+SPAC20G4.02c	fus1delta(501-749)	fus1delta(501-749)	pattern_error	fu
+SPAC20G4.02c	fus1delta(501-791)	fus1delta(501-791)	pattern_error	fu
 SPAC20G8.05c	cdc15-27A	non-phosphorylatable	pattern_error	non-phosphorylatable
 SPAC20G8.05c	cdc15-27D	phospho-mimetic	pattern_error	phospho-mimetic
 SPAC22A12.08c	crd1delta41-372	41-372	invalid_error	Peptide sequence of SPAC22A12.08c missing (perhaps multiple transcripts)
 SPAC22A12.08c	crd1deltaRGFH	369-372	invalid_error	Peptide sequence of SPAC22A12.08c missing (perhaps multiple transcripts)
-SPAC22F3.09c	res2-G1	ntG16590A	invalid_error	lengths don't match: ntG-A
-SPAC22F3.09c	res2-J3	ntG16597A	invalid_error	lengths don't match: ntG-A
-SPAC22G7.06c	ura1-61	ntG16857A	invalid_error	lengths don't match: ntG-A
+SPAC23C4.19	spt5(T1E)7	CTD-T1E	pattern_error	CTD-
 SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	pattern_error	(CTD)
+SPAC23C4.19	spt5-(T1A)7	CTD-T1A	pattern_error	CTD-
+SPAC23C4.19	spt5-(T1A)7	CTR-T1A	pattern_error	CTR-
 SPAC23C4.19	spt5-(T1A)7	T1A mutations within the CTR	pattern_error	 mutations within the CTR
+SPAC23C4.19	spt5-CTD-T1A	(CTD)T1A	pattern_error	(CTD)
 SPAC23C4.19	spt5-CTD-T1E(17)	CTD-T1E	pattern_error	CTD-
+SPAC24B11.06c	sty1-G197T	sty1-G197T	pattern_error	sty
 SPAC25G10.04c	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
 SPAC26F1.06	gpm1-R120,121Q	R120,121Q	pattern_error	R1,1Q
+SPAC27F1.09c	prp10-LLLFSLFQ-ins	LLLFSLFQ	pattern_error	LLLFSLFQ
 SPAC2G11.12	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
-SPAC2G11.12	rqh1-h2	ntC28520T	invalid_error	lengths don't match: ntC-T
+SPAC343.13	gta2-T-intron	212-T-primary_transcript	pattern_error	-T-primary_transcript
+SPAC3G9.04	ssu72-Gln57Stop	aa57->stop	pattern_error	a
+SPAC3H5.06c	swi7-1	unknown	pattern_error	unknown
 SPAC56E4.04c	Pcut6MUT	disrupted Cbf11 binding site in promoter (GTGGGA to cTcGag)	pattern_error	disrupted Cbf, binding site in promoter (GTGGGA to cTcGag)
+SPAC56F8.06c	alg10-183-stop	183-stop	pattern_error	-stop
+SPAC57A10.02	cdr2-S755A-758A	S755A,758A	pattern_error	8A
 SPAC5D6.08c	mes1-K0	K7R,K16R,K46R,K54R,K86R,K90RK55R,K57R,K58R,	pattern_error	,K90RK55R,
 SPAC5D6.08c	mes1-K1	K16R,K46R,K54R,K86R,K90RK55R,K57R,K58R,	pattern_error	,K90RK55R,
+SPAC644.06c	nim1-Cat	aa 1-354	pattern_error	aa 
 SPAC6F12.03c	stx8(A+G)	152-224 substituted by a hinge of A+G	pattern_error	 substituted by a hinge of A+G
 SPAC6F6.17	rif1::ura4+	ura4+ @ 5' HindIII site	pattern_error	ura4+ @ 5' HindIII site
-SPAC7D4.04	atg11(522-583)F526AY527A	522-583,F526AY527A	pattern_error	,F5,6AY5,7A
-SPAC821.11	pro1-1	ntG30304A	invalid_error	lengths don't match: ntG-A
+SPAC7D4.04	atg11(522-583)F526AY527A	522-583, F526AY527A	pattern_error	, F5,6AY5,7A
+SPAC890.02c	alp7-5A(K341,Y344,R346,K347,Y348)	K341,Y344,R346,K347,Y348	pattern_error	K3,,Y3,,R3,,K3,,Y3
 SPAC977.10	nhe1-REL6	EIEKSIYE-390-QSSGNSHIKE	invalid_error	lengths don't match: EIEKSIYE-QSSGNSHIKE
-SPACUNK4.07c	sev4-L5	ntG1844A	invalid_error	lengths don't match: ntG-A
+SPAPB2B4.03	Pcig2-96--12-LacZ	cig2-96---12-LacZ fusion	pattern_error	cig2,-LacZ fusion
+SPAPB2B4.03	Pcig2-mut1	cig2 promoter region -64--44-LacZ fusion	pattern_error	cig2 promoter region ,-LacZ fusion
+SPAPB2B4.03	Pcig2delta-147--40-LacZ	cig2-170--148, -39-+1-LacZ fusion	pattern_error	cig2,-LacZ fusion
+SPAPB2B4.03	nmt1-cig2-I	cig2-3000-1912	pattern_error	cig2
+SPAPB2B4.03	nmt1-cig2-II	cig2-3000-1880	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-III	cig2 -3000--1248	pattern_error	cig2 
+SPBC119.04	mei3-C	1-75,149-412	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
 SPBC119.04	mei3-RA3	S29A,T30A,S31A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
+SPBC119.04	mei3-SM1	K77A,R78A,K80A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
+SPBC119.04	mei3-SM8	D117A,N120A,E121A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
+SPBC119.04	mei3-promoter-d3	T-92A,C-90T, A-89C,G-87CATCC-88	invalid_error	Nucleotide sequence of SPBC119.04 missing
 SPBC119.04	mei3-promoter-d3	T-92A,C-90T,A-89C,G-87CATCC-88	invalid_error	Nucleotide sequence of SPBC119.04 missing
 SPBC119.04	mei3-promoter-delta14	-74--60	invalid_error	Nucleotide sequence of SPBC119.04 missing
 SPBC119.04	mei3-promoter-delta5	-328--251	invalid_error	Nucleotide sequence of SPBC119.04 missing
@@ -40,6 +66,7 @@ SPBC119.04	mei3-promoter-delta7	-113--163	invalid_error	Nucleotide sequence of S
 SPBC119.04	mei3-rxt	T30A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
 SPBC119.04	pmei3.14delta1-delta4	128-148	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
 SPBC119.04	pmei3.14delta5	105-148	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
+SPBC119.08	pmk1-153+A	pmk1-153+A	pattern_error	pmk,+A
 SPBC1198.04c	zas1-1-274	326-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
 SPBC1198.04c	zas1-1-289	341-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
 SPBC1198.04c	zas1-1-360	412-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
@@ -50,54 +77,72 @@ SPBC1198.04c	zas1-a1	W761*	invalid_error	Peptide sequence of SPBC1198.04c missin
 SPBC1198.04c	zas1-aj3	K833*	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
 SPBC1198.04c	zas1-deltaaj3	885-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
 SPBC1198.04c	zas1-w5	E549K	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1::Tn-seq	zas1::Tn-seq	invalid_error	systematic_id SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC17A3.07	pgr1-M1V	M1V	invalid_error	Peptide sequence of SPBC17A3.07 missing (perhaps multiple transcripts)
+SPBC14C8.01c	cut2-N121	delta122-301	pattern_error	delta1
+SPBC14C8.07c	cdc18-T6A-TAP	T10A,T46A,T60A,T104A,T134A,T374A-TAP	pattern_error	-TAP
+SPBC16A3.09c	ufd1-I210HRLstop	210->stop	pattern_error	->stop
+SPBC1734.02c	cdc27-R5	1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT	pattern_error	-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT
+SPBC1778.02	rap1-BBM,S496E	1-489,496E	pattern_error	6E
+SPBC1778.02	rap1-BBM,S497E	1-489,497E	pattern_error	7E
+SPBC17A3.07	M1V	M1V	invalid_error	Peptide sequence of SPBC17A3.07 missing (perhaps multiple transcripts)
+SPBC17F3.02	nak1-125	unknown	pattern_error	unknown
 SPBC19G7.01c	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
-SPBC1A4.03c	top2-1-40/SV	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV
-SPBC1A4.03c	top2-1-40/SV-delta-Sph	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-1-40/SV-delta-Xba	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-1-74/SV	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV	pattern_error	amino acids , replaced by SV4, NLS sequence PKKKRKV
-SPBC1A4.03c	top2-1-74/SV-delta-Sph	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV4, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-1-74/SV-delta-Xba	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV4, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-26-40/SV	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV
-SPBC1A4.03c	top2-26-40/SV-delta-Sph	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
+SPBC1A4.03c	top2-12KR	K1228,K1254,K1255,K1269,K1280,K1284,K1292,K1309,K1376,K1398,K1399,K1437	pattern_error	K1,,K1,,K1,,K1,,K1,,K1,,K1,,K1,,K1,,K1,,K1,,K1
 SPBC215.05	gpd1-G4BS	TTACGTCA-329CGGAAGACTCTCCTCCG	invalid_error	lengths don't match: TTACGTCA-CGGAAGACTCTCCTCCG
 SPBC216.07c	tor2-ts10	asked	pattern_error	asked
 SPBC216.07c	tor2-ts6	asked	pattern_error	asked
 SPBC23E6.07c	rfc1-47	676-HLGAP	pattern_error	-HLGAP
 SPBC23E6.07c	rfc1-50	871-VGVPH	pattern_error	-VGVPH
 SPBC28F2.12	rpb1-CTD-(S2A-S7A)	CTD-S2A,S7A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-P3.P3A	(CTD)P3A(alternating)	pattern_error	(CTD),(alternating)
+SPBC28F2.12	rpb1-CTD-P3.P3A	CTD-P3.P3A(alternating)	pattern_error	CTD-P3.,(alternating)
 SPBC28F2.12	rpb1-CTD-P6.P6A	(CTD)P6A(alternating)	pattern_error	(CTD),(alternating)
+SPBC28F2.12	rpb1-CTD-P6.P6A	CTD-P6.P6A(alternating)	pattern_error	CTD-P6.,(alternating)
 SPBC28F2.12	rpb1-CTD-S2A	(CTD)S2A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-S2A	CTD-S2A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A(12)	CTD-S2A(1-12),CTD-delta(13-29)	pattern_error	CTD-,),CTD-delta(
 SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	pattern_error	CTD-,),CTDdelta(
 SPBC28F2.12	rpb1-CTD-S2A(5-29)	CTD-S2A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A,S7A(5-29)	CTD-S2A,S7A(5-29)	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-S2A29	all CTD S2 residues mutated to A	pattern_error	all CTD S2 residues mutated to A
 SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S5.S5A	(CTD)S5A(alternating)	pattern_error	(CTD),(alternating)
+SPBC28F2.12	rpb1-CTD-S5.S5A	-CTD-S5.S5A(alternating)	pattern_error	-CTD-S5.,(alternating)
+SPBC28F2.12	rpb1-CTD-S5.S5A	CTD-S5.S5A(alternating)	pattern_error	CTD-S5.,(alternating)
 SPBC28F2.12	rpb1-CTD-S53,S5A11	(CTD)S53,S5A	pattern_error	(CTD)S5
 SPBC28F2.12	rpb1-CTD-S5A	(CTD)S5A	pattern_error	(CTD)
 SPBC28F2.12	rpb1-CTD-S7A	(CTD)S7A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A(1-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S7A(5-29)	CTD-S7A(5-29)	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-S7A(5-29)	rpb1-CTD-S7A(5-29)	pattern_error	rpb,-CTD-
+SPBC28F2.12	rpb1-CTD-S7A29	all CTD S7 residues mutated to A	pattern_error	all CTD S7 residues mutated to A
 SPBC28F2.12	rpb1-CTD-T4(25-29)	CTD-T4(25-29)	pattern_error	CTD-T4(
 SPBC28F2.12	rpb1-CTD-T4A	(CTD)T4A	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-T4A	CTD-T4A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5,29)	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-T4A(5-29)	CTD-T4A(5-29)	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A,S7A(5-29)	(CTD)T4A,S7A(5-29)	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-T4A29	all CTD T4 residues mutated to A	pattern_error	all CTD T4 residues mutated to A
 SPBC28F2.12	rpb1-CTD-Y1F	(CTD)Y1F	pattern_error	(CTD)
+SPBC28F2.12	rpb1-CTD-Y1F	CTD-Y1F	pattern_error	CTD-
+SPBC28F2.12	rpb1-CTD-Y1F29	all CTD Y1 residues mutated to F	pattern_error	all CTD Y1 residues mutated to F
+SPBC28F2.12	rpb1-CTD-delta(r17-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2
+SPBC28F2.12	rpb1-CTD-delta(r19-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2
+SPBC28F2.12	rpb1-CTD-delta(r19-r29),S7A	CTD-delta(r19-r29),S7A	pattern_error	CTD-delta(r1,-r2
 SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	pattern_error	CTDdelta(
 SPBC28F2.12	rpb1-P3-P3A(1-29)	P3-P3A(1-29)	pattern_error	P3-
+SPBC28F2.12	rpb1-P3.P3A	(CDT)P3A(alternating)	pattern_error	(CDT),(alternating)
 SPBC28F2.12	rpb1-P6-P6A	P6-P6A	pattern_error	P6-
 SPBC28F2.12	rpb1-P6-P6A(1-29)	P6-P6A(1-29)	pattern_error	P6-
+SPBC28F2.12	rpb1-S2A(1-29)	All CTD Ser2 mutated to Ala	pattern_error	All CTD Ser2 mutated to Ala
 SPBC28F2.12	rpb1-S5-S5A(1-29)	S5-S5A(1-29)	pattern_error	S5-
 SPBC28F2.12	rpb1-S7A(1-29)	All CTD Ser7 mutated to Ala	pattern_error	All CTD Ser7 mutated to Ala
 SPBC28F2.12	rpb1-T4A(1-29)	All CTD Thr4 mutated to Ala	pattern_error	All CTD Thr4 mutated to Ala
 SPBC28F2.12	rpb1-Y1F(1-29)	All CTD Tyr1 mutated to Phe	pattern_error	All CTD Tyr1 mutated to Phe
 SPBC29A10.14	rec8-17A	unknown	pattern_error	unknown
 SPBC2D10.06	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	pattern_error	lacks the N-terminal 80% of the rep1 coding region
-SPBC2F12.13	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
+SPBC2F12.13	klp5-del	short deletion with a frameshift at codon 772, resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772, resulting in a different 772–814 C-terminus
 SPBC342.05	crb2-(1-520)LZ	521-778 replaced by leucine zipper	pattern_error	 replaced by leucine zipper
+SPBC3B9.11c	ctf1 Tyr260Stop	aa260stop	pattern_error	a
 SPBC3D6.10	apn2::ura4+	nt56-1496	pattern_error	nt56-1496
 SPBC428.08c	clr4-alpha-mut	KRRKR-58-NEHG	invalid_error	lengths don't match: KRRKR-NEHG
 SPBC4F6.09	str1-promoter-mut-CYC1-lacZ	-870AGATAA-865 ->GCCGTC	pattern_error	0AGATAA-, ->GCCGTC
@@ -105,19 +150,24 @@ SPBC649.05	cut12.PDswap	GILKTPTQIKKTVNF-71-ILGHKLEYNYNSHMVYI	invalid_error	lengt
 SPBC725.06c	ppk31--579-T (5'-UTR-uORF)	-579-T	pattern_error	-T
 SPCC11E10.07c	tif221-2	frameshift at L43	pattern_error	frameshift at L43
 SPCC1259.03	pa12delta::ura4+	ura4+@AA39	pattern_error	ura4+@AA39
+SPCC126.04c	sgf73-896+T	sgf73-896+T	pattern_error	sgf,+T
 SPCC1393.08	fil1-uORFs_mutated	6 uORFs in 5'-UTR mutated	pattern_error	 uORFs in ,'-UTR mutated
 SPCC162.04c	wtf13-aa343-349delta	343-349	invalid_error	Nucleotide sequence of SPCC162.04c missing
 SPCC162.04c	wtf13-antidote	A358T,T359A,G360C	invalid_error	Nucleotide sequence of SPCC162.04c missing
 SPCC162.04c	wtf13-poison	M1X,M12X	invalid_error	Peptide sequence of SPCC162.04c missing (perhaps multiple transcripts)
-SPCC162.04c	wtf13::Tn-seq	wtf13::Tn-seq	invalid_error	systematic_id SPCC162.04c missing (perhaps multiple transcripts)
-SPCC188.06c	srp54::LEU2	disruption	pattern_error	disruption
+SPCC188.02	par1-CD	CD fusion	pattern_error	CD fusion
+SPCC18B5.03	wee1-112	opal	pattern_error	opal
 SPCC285.07c	wtf18+rep	332LGNAFGG	pattern_error	2LGNAFGG
 SPCC285.07c	wtf18-2	exon 6 of wtf18-2 is identical to the last exon of wtf13	pattern_error	exon , of wtf1, is identical to the last exon of wtf1
+SPCC285.09c	cgs2-2	1366-T	pattern_error	-T
+SPCC285.11	dsc5-1	Q111X	pattern_error	Q,1X
+SPCC285.11	dsc5-3	T126X	pattern_error	T1,X
 SPCC330.05c	ura4-D18	unknown	pattern_error	unknown
 SPCC338.08	ctp1-30	I110N with frameshift at T197 truncating at position 208	pattern_error	I110N with frameshift at T197 truncating at position 208
 SPCC613.04c	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
 SPCC757.07c	ctt1-G4BS	ATGACGT-435CGGAAGACTCTCCTCCG	invalid_error	lengths don't match: ATGACGT-CGGAAGACTCTCCTCCG
 SPCC970.01	swi9-136	E659K	pattern_error	E,K
+SPCC970.09	sec8-1	unknown	pattern_error	unknown
 SPNCRNA.103	sme2-3'	1-507	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
 SPNCRNA.103	sme2-5'	509-1562	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
 SPNCRNA.103	sme2-DSRless	A1274G,A1467G,A1485G,A1501G,A1527G,A1538G,A1551G,A1560G	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
@@ -132,7 +182,7 @@ SPNCRNA.103	sme2deltaF	1425-1586	invalid_error	Nucleotide sequence of SPNCRNA.10
 SPNCRNA.1343	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
-SPNCRNA.1712	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	Peptide sequence of SPNCRNA.1712 missing (perhaps multiple transcripts)
+SPNCRNA.1712	nc-pho1-DSR	DSR domain mutated	pattern_error	DSR domain mutated
 SPNCRNA.214	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
 SPNCRNA.214	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
 SPNCRNA.214	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
@@ -141,10 +191,3 @@ SPNCRNA.214	ter1-m3	TTT_823-825_CCC	pattern_error	TTT_,_CCC
 SPNCRNA.214	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
 SPNCRNA.9001	prt2delta-1	231 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
 SPNCRNA.9001	prt2delta-2	749 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
-SPNCRNA.98	srp7-A162	A162	pattern_error	A1
-SPNCRNA.98	srp7-A163U,C169U6	A163U,C169U6	pattern_error	,C1,9U
-SPNCRNA.98	srp7-D4E-1	GC inserted after nt 158,GC inserted after nt 164	pattern_error	GC inserted after nt ,,GC inserted after nt 
-SPNCRNA.98	srp7-D4E-2	G160C,GC inserted after nt 158,GC inserted after nt 164	pattern_error	,GC inserted after nt ,,GC inserted after nt 
-SPNCRNA.98	srp7-G72A,G78A,G100A,G107A,Gl12A,G141A	G72A,G78A,G100A,G107A,Gl12A,G141A	pattern_error	,Gl,2A,
-SPNCRNA.98	srp7-U88G,delta84-88,omega8nt	U88G,nt84 deletion,8 nucleotides inserted after nt83	pattern_error	,nt, deletion,, nucleotides inserted after nt
-SPNCRNA.98	srp7-U88G,omegaUCGA	U88G,UCGA inserted after nt84	pattern_error	,UCGA inserted after nt8
