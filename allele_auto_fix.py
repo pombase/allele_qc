@@ -117,7 +117,7 @@ data_for_fixing.drop_duplicates(inplace=True)
 
 # Sort again by first number in the string (concat step may mess up the order,
 # which is important for the next aggregation)
-data_for_fixing.loc[:, 'sorting_col'] = data_for_fixing['auto_fix_to'].apply(lambda x: int(re.search(r'\d+', x).group()))
+data_for_fixing.loc[:, 'sorting_col'] = data_for_fixing['auto_fix_to'].apply(lambda x: int(re.search(r'\d+', x).group()) if x != '?' else 0)
 data_for_fixing.sort_values('sorting_col', inplace=True)
 data_for_fixing.drop(columns='sorting_col', inplace=True)
 
