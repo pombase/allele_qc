@@ -1,6 +1,6 @@
 systematic_id	allele_name	allele_description	allele_type	reference	change_description_to	change_name_to	change_type_to	comment_on_change
-SPCC188.06c	srp54-G408I	G408I	amino_acid_mutation	PMID:10079327	G407I			checked primer mutagenesis in silico
-SPCC188.06c	srp54-G408P	G408P	amino_acid_mutation	PMID:10079327	G407P			checked primer mutagenesis in silico
+SPCC188.06c	srp54-G408I	G408I	amino_acid_mutation	PMID:10079327	G407I	srp54-G407I		checked primer mutagenesis in silico
+SPCC188.06c	srp54-G408P	G408P	amino_acid_mutation	PMID:10079327	G407P	srp54-G407P		checked primer mutagenesis in silico
 SPSNRNA.02	snu2-M1	CTTCTTCT187TACTAGTG	nucleotide_mutation	PMID:10445882	CTTCTTCT-189-TACTAGTG			coords were shifted by 2
 SPSNRNA.02	snu2-M2	GTTGACAG195TACTAGTA	nucleotide_mutation	PMID:10445882	GTTGACAG-197-TACTAGTA			coords were shifted by 2
 SPSNRNA.02	snu2-M3	ATTTGTGA203GACTAGTC	nucleotide_mutation	PMID:10445882	ATTTGTGA-205-GACTAGTC			coords were shifted by 2
@@ -21,9 +21,9 @@ SPAC644.14c	rad51-ATGTG	G-188T,G-237T	nucleotide_mutation	PMID:11073995	G(-231)T
 SPAC644.14c	rad51-CT2CA	AGGTG-236CTTCA,AGGTA187CTTCG	nucleotide_mutation	PMID:11073995	AGGTG-(-232)-CTTCA,AGGTA-(-211)-CTTCG			
 SPAC3H5.06c	pol1-ts11	C2519T	nucleotide_mutation	PMID:11581276,PMID:12697806,PMID:9693370,PMID:9891047	T840I		amino_acid_mutation	
 SPCC736.14	dis1-203	Q265*	partial_amino_acid_deletion	PMID:11683390	S265*			
-SPCC645.03c	isa1-C136A	C136A	amino_acid_mutation	PMID:11941510	C180A			checked primer mutagenesis in silico
-SPCC645.03c	isa1-C138A	C138A	amino_acid_mutation	PMID:11941510	C182A			checked primer mutagenesis in silico
-SPCC645.03c	isa1-C72A	C72A	amino_acid_mutation	PMID:11941510	C116A			checked primer mutagenesis in silico
+SPCC645.03c	isa1-C136A	C136A	amino_acid_mutation	PMID:11941510	C180A	isa1-C180A		checked primer mutagenesis in silico
+SPCC645.03c	isa1-C138A	C138A	amino_acid_mutation	PMID:11941510	C182A	isa1-C182A		checked primer mutagenesis in silico
+SPCC645.03c	isa1-C72A	C72A	amino_acid_mutation	PMID:11941510	C116A	isa1-C116A		checked primer mutagenesis in silico
 SPBC336.04	cdc6-ts3	G3191A	nucleotide_mutation	PMID:12697806,PMID:7700230,PMID:8367300,PMID:9135148,PMID:9154809,PMID:9348105,PMID:9794798,PMID:9891047	R1064Q		amino_acid_mutation	
 SPBC336.04	cdc6-ts1	C428U,C430U	nucleotide_mutation	PMID:12697806,PMID:7700230,PMID:8367300,PMID:9794798,PMID:9891047	AP-143-VS		amino_acid_mutation	
 SPBC336.04	cdc6-ts2	G811A	nucleotide_mutation	PMID:12697806,PMID:7700230,PMID:8367300,PMID:9891047	E271K		amino_acid_mutation	
@@ -34,11 +34,11 @@ SPBC1685.01	pmp1-M13	A1288U,A1300U	nucleotide_mutation	PMID:12931193	A1009T,A102
 SPBC1685.01	pmp1-M2	A1293U	nucleotide_mutation	PMID:12931193	A1014T			
 SPBC1685.01	pmp1-M23	A1293U,A1300U	nucleotide_mutation	PMID:12931193	A1014T,A1021T			
 SPBC1685.01	pmp1-M3	A1300U	nucleotide_mutation	PMID:12931193	A1021T			
-SPSNRNA.04	snu4-4	TTTTG104ACGTC	nucleotide_mutation	PMID:1441744	T105A,T106C,T107G,G109C		
+SPSNRNA.04	snu4-4	TTTTG104ACGTC	nucleotide_mutation	PMID:1441744	T105A,T106C,T107G,G109C			
 SPSNRNA.04	snu4-6	AAAACT87CCCGGG	nucleotide_mutation	PMID:1441744	AAAACT-67-CCCGGG			
 SPSNRNA.04	snu4-7	CGTAGT59GCATCG	nucleotide_mutation	PMID:1441744	GCTAGT-59-CGATCG			
 SPCC5E4.04	ptr4-1	T3487A,T3505A	nucleotide_mutation	PMID:14511667,PMID:9168469	T1099A,T1117A			
-SPAC57A10.10c	sla1-R266E,R267L	R266E,R267L	amino_acid_mutation	PMID:14665462	R256E,R257L			
+SPAC57A10.10c	sla1-R266E,R267L	R266E,R267L	amino_acid_mutation	PMID:14665462	R256E,R257L	sla1-R256E,R257L		
 SPCC285.09c	cgs2-CRE promoter binding site mutant	-G67T,-C68A	nucleotide_mutation	PMID:15448137	C(-68)A,G(-67)T			
 SPBC1734.02c	cdc27-R39	A837-TCGACAATCGATAAGACTGACA	nucleotide_insertion	PMID:15576681	A827-TCGACAATCGATAAGACTGACA			
 SPBC336.04	cdc6-R18	C2905T	nucleotide_mutation	PMID:15576681	C2957T			
@@ -60,15 +60,15 @@ SPBP19A11.06	lid2-H512A	H512A	amino_acid_mutation	PMID:18957202	H542A	lid2-H542A
 SPAC19B12.05c	fcp1-W405S	W405S	amino_acid_mutation	PMID:19026779	W305S	fcp1-W305S		typo in pombase
 SPAC19E9.02	fin1-KD	K63R,N165A	amino_acid_mutation	PMID:22684255	K33R,N165A			typo in PomBase
 SPAC24B11.11c	sid2-as4	M285A,T384A	amino_acid_insertion_and_mutation	PMID:22684255,PMID:23333317	M285A,T348A		amino_acid_mutation	typo in PomBase
-SPAC22A12.15c	bip1-G373C	G373C	nucleotide_mutation	PMID:23066505	G2365C			
-SPAC22A12.15c	bip1-G373U	G373U	nucleotide_mutation	PMID:23066505	G2365T			
-SPAC22A12.15c	bip1-deltaTTAACTGGTG\C	364-374	partial_nucleotide_deletion	PMID:23066505	2356-2366
-SPBC23G7.11	mag2-A56S	A56S	amino_acid_mutation	PMID:23273506	D56A			typo in PomBase
-SPCC825.02	gbs1-W409A	W409A	amino_acid_mutation	PMID:23609449	W432A			simulated primer mutagenesis
-SPCC825.02	gbs1-W409F	W409F	amino_acid_mutation	PMID:23609449	W432F			simulated primer mutagenesis
+SPAC22A12.15c	bip1-G373C	G373C	nucleotide_mutation	PMID:23066505	G2365C	bip1-G2365C		
+SPAC22A12.15c	bip1-G373U	G373U	nucleotide_mutation	PMID:23066505	G2365T	bip1-G2365T		
+SPAC22A12.15c	bip1-deltaTTAACTGGTG\C	364-374	partial_nucleotide_deletion	PMID:23066505	2356-2366			
+SPBC23G7.11	mag2-A56S	A56S	amino_acid_mutation	PMID:23273506	D56A	mag2-D56A		typo in PomBase
+SPCC825.02	gbs1-W409A	W409A	amino_acid_mutation	PMID:23609449	W432A	gbs1-W432A		simulated primer mutagenesis
+SPCC825.02	gbs1-W409F	W409F	amino_acid_mutation	PMID:23609449	W432F	gbs1-W432F		simulated primer mutagenesis
 SPNCRNA.214	ter1-STEloop	UUUU1071AAAA	nucleotide_mutation	PMID:26305931	TTTT-1065-AAAA			
 SPNCRNA.98	srp7-A163C,C164A	A163C,G164A	nucleotide_mutation	PMID:2657742	A163C,C164A			
-SPBC36B7.09	gcn2-Y1119L,R1120L	Y1119L,R1120L	amino_acid_mutation	PMID:28771613	F1066A,R1067L			PomBase value was the cerevisiae coords
+SPBC36B7.09	gcn2-Y1119L,R1120L	Y1119L,R1120L	amino_acid_mutation	PMID:28771613	F1066A,R1067L	gcn2-F1066A,R1067L		PomBase value was the cerevisiae coords
 SPBC1718.07c	zfs1-S164A,T1645A	S164A,T164A	amino_acid_mutation	PMID:29084823	S164A,T165A	zfs1-S164A,T1645A		typo in PomBase
 SPBC8E4.01c	pho84-TATA box mutant	T-33C,A-32G,T-31C,A-30G,T-29C,A-28G,T-27C,A-26G	nucleotide_mutation	PMID:29414789	TATATATA-(-184)-CGCGCGCG			negative coords in paper refer to the 5UTR, not the transcription start
 SPNCRNA.1698	nc-tgp-+5_seb1_bs	G521T,T543A,A554T,C569G,C578G	nucleotide_mutation	PMID:32499400	T543A,G549C,A554T,A560-T,T561A,C570G,G573A,C579G,T582A		nucleotide_insertion_and_mutation	
@@ -83,17 +83,17 @@ SPAC926.04c	hsp90-EATK	E34A,E384K	amino_acid_mutation	PMID:37120429	E34A,E367K		
 SPNCRNA.82	mrp1-B7	A370G	nucleotide_mutation	PMID:8887563	A371G			
 SPNCRNA.82	mrp1-LoopB	U339A,A340C,U343G	nucleotide_mutation	PMID:8948095	T340A,A341C,T344G			simulated primer mutagenesis
 SPNCRNA.82	mrp1-Pt1-9	U359A,C356A	nucleotide_mutation	PMID:8948095	C357A,T360A			drawing
-SPNCRNA.82	mrp1-U359A	U359A	nucleotide_mutation	PMID:8948095	C357A			drawing
-SPNCRNA.82	mrp1-LoopA	T372A,C373A,C375-G,T378G	fusion_or_chimera	PMID:8948095			nucleotide_insertion_and_mutation
+SPNCRNA.82	mrp1-U359A	U359A	nucleotide_mutation	PMID:8948095	C357A	mrp1-C357A		drawing
+SPNCRNA.82	mrp1-LoopA	T372A,C373A,C375-G,T378G	fusion_or_chimera	PMID:8948095			nucleotide_insertion_and_mutation	
 SPBC1604.21c	ptr3-1	C1892A	nucleotide_mutation	PMID:9168469	C1893A			From drawing, Thr576 to Lys
 SPBC800.05c	alp2-996	G1065A	nucleotide_mutation	PMID:9658169	G1067A			From drawing Fig. 4 C356Y
 SPBC800.05c	ban5-996		unknown	PMID:8876193	G1067A		nucleotide_mutation	From drawing Fig. 4 C356Y in PMID:9658169
 SPBC26H8.07c	alp12-1828	unknown	unknown	PMID:9658169	T1566C		nucleotide_mutation	Text description: substitution of Tyr by His at residue 422
-SPAC3H5.06c	pol1-L471A	L471A	amino_acid_mutation	PMID:9693370	S471A			typo in paper
-SPAC3H5.06c	pol1-S470A	S470A	amino_acid_mutation	PMID:9693370	L470A			typo in paper
+SPAC3H5.06c	pol1-L471A	L471A	amino_acid_mutation	PMID:9693370	S471A	pol1-S471A		typo in paper
+SPAC3H5.06c	pol1-S470A	S470A	amino_acid_mutation	PMID:9693370	L470A	pol1-L470A		typo in paper
 SPAC3H5.06c	pol1-ts17	C1388T,C1870T,G3547A	nucleotide_mutation	PMID:9693370	A463V,H624Y,D1183N		amino_acid_mutation	
-SPBC216.07c	tor2-ts10	asked	amino_acid_mutation	PMID:17261596,PMID:20144990,PMID:22976295,PMID:26152587,PMID:27165118,PMID:29079657	A1399E,F2198L
-SPBC216.07c	tor2-ts6	asked	amino_acid_mutation	PMID:17261596,PMID:19620394,PMID:20144990,PMID:22976295,PMID:24741065,PMID:27165118,PMID:28671615,PMID:29330317,PMID:33574613	S550P,K711M
+SPBC216.07c	tor2-ts10	asked	amino_acid_mutation	PMID:17261596,PMID:20144990,PMID:22976295,PMID:26152587,PMID:27165118,PMID:29079657	A1399E,F2198L			
+SPBC216.07c	tor2-ts6	asked	amino_acid_mutation	PMID:17261596,PMID:19620394,PMID:20144990,PMID:22976295,PMID:24741065,PMID:27165118,PMID:28671615,PMID:29330317,PMID:33574613	S550P,K711M			
 SPBC660.13c	rad11A	unknown	unknown	PMID:10888871,PMID:9111307	R339H		amino_acid_mutation	from PMID:37200372
 SPNCRNA.98	srp7-A163U,C169U6	A163U,C169U6	nucleotide_mutation	PMID:1315954	A163U,C169U	srp7-A163T,C169T		
 SPNCRNA.98	srp7-G72A,G78A,G100A,G107A,Gl12A,G141A	G72A,G78A,G100A,G107A,Gl12A,G141A	nucleotide_mutation	PMID:1315954	G72A,G78A,G100A,G107A,G112A,G141A	srp7-G72A,G78A,G100A,G107A,G112A,G141A		
@@ -150,7 +150,7 @@ SPCC306.03c		L318E	amino_acid_mutation	PMID:31072933	K318E	cnd2-K318E		typo in P
 SPCC576.15c		P320R	amino_acid_mutation	PMID:31072933	T320R	ksg1-T320R		typo in PomBase
 SPBC31E1.02c	pmr1-W880->stop	W800->stop	nonsense_mutation	PMID:31201205	W880*	pmr1-W880*		typo in pombase
 SPAC222.14c	sey1-K53A	K53A	amino_acid_mutation	PMID:32023460	K52A	sey1-K52A		Fig. 6 of https://doi.org/10.1016/j.cell.2009.05.025
-SPNCRNA.899	SPNCRNA.899-G754C	G754C	nucleotide_mutation	PMID:32142608	C754G			Wrong orientation in the original description
+SPNCRNA.899	SPNCRNA.899-G754C	G754C	nucleotide_mutation	PMID:32142608	C754G	SPNCRNA.899-C754G		Wrong orientation in the original description
 SPBC31F10.14c	hip3-Q808-stop	Q808stop	amino_acid_mutation	PMID:34580178	C808*	hip3-C808*		typo in pombase
 SPAC6B12.07c	pqr1-I84S	I87S	amino_acid_mutation	PMID:35012333	I84S			typo in pombase
-SPCC16C4.11	pef1-N146S	N146S	amino_acid_mutation	PMID:31895039	N131S			
+SPCC16C4.11	pef1-N146S	N146S	amino_acid_mutation	PMID:31895039	N131S	pef1-N131S		
