@@ -17,3 +17,6 @@ SPBC216.07c	tor2-ts6	asked	no K711, most likely this refers to K710.
 SPAC19E9.02	fin1-KD	K63R,N165A	No N165, but there is a N156. I suspect that this could be scrambled numbers
 SPAC29A4.08c	prp19-W88P	W88P	closest W is at position 80
 SPCC962.05	ast1-ND	D158A,D160A,D179A,D181A	oligonucleotides listed do not really align. They seem to be using a very different sequence. My guess it's maybe it refers to E132,D134 / D152,D154 / D159,D161
+SPCC645.05c	snipID	G1000A	From Jeffares paper, maybe it's outside of the gene?
+SPBC365.06	pmt3-D18R	D18R	I cannot find a mention to this allele in the main text. pmt3 is mentioned only in the abstract.
+SPCC16C4.11	pef1-N146S	N146S	Asked the authors

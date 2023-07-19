@@ -111,15 +111,13 @@ SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS seque
 SPAC17G8.14c	pck1-N(1-400)	401-998	partial_amino_acid_deletion	PMID:11737264	401-988			
 SPCC320.13c	ark1-NT	118-384	partial_amino_acid_deletion	PMID:11950927	89-355			
 SPAC23C11.16	plo1-K65R	K65R	amino_acid_mutation	PMID:12815070	K69R	plo1-K69R		described in cited publication PMID:11250892
-SPNCRNA.214	C7U	C7U	nucleotide_mutation	PMID:18157149	C234T			from figure in paper, perhaps old coords complement(3084610..3086022)
-SPNCRNA.214	U3G,A5U	U3G,A5U	nucleotide_mutation	PMID:18157149	T230G,A232T			from figure in paper, perhaps old coords complement(3084610..3086022)
+SPNCRNA.214	C7U	C7U	nucleotide_mutation	PMID:18157149	C234T	ter1-C234T		from figure in paper, perhaps old coords complement(3084610..3086022)
+SPNCRNA.214	U3G,A5U	U3G,A5U	nucleotide_mutation	PMID:18157149	T230G,A232T	ter1-T230G,A232T		from figure in paper, perhaps old coords complement(3084610..3086022)
 SPCC550.05	nse1-15	120-236	partial_amino_acid_deletion	PMID:21976700	120-232			typo in PomBase
 SPCC550.05	nse1-C216S	C1216S	amino_acid_mutation	PMID:21976700	C216S			typo in PomBase
 SPCC645.07	rgf1-Nes1*	L865A,L866A,I867A	amino_acid_mutation	PMID:24478458	L875A,L876A,I877A			typo in paper (I think), that's the only LLI sequence in the peptide
-SPCC645.05c	snipID	G1000A	nucleotide_mutation	PMID:25665008				
-SPBC365.06	pmt3-D18R	D18R	amino_acid_mutation	PMID:26221037				
-SPNCRNA.214	ter1-CATG/(A)4	CAUG1058AAAA	nucleotide_mutation	PMID:26305931				
-SPAC22G7.08	ppk8'-1	G474C	nucleotide_mutation	PMID:26730850				
+SPNCRNA.214	ter1-CATG/(A)4	CAUG1058AAAA	nucleotide_mutation	PMID:26305931	CATG-1052-AAAA			
+SPAC22G7.08	ppk8'-1	G474C	nucleotide_mutation	PMID:26730850	G67C			
 SPAC22G7.08	ppk8'-4	T471A,C472T,A476T	nucleotide_mutation	PMID:26730850	T64A,C65T,A69T			
 SPAC22G7.08	ppk8'-5	T471A,G473C	nucleotide_mutation	PMID:26730850	T64A,G66C			
 SPAC22G7.08	ppk8'-6	T471C,G473C	nucleotide_mutation	PMID:26730850	T64C,G66C			
@@ -142,23 +140,16 @@ SPBC725.16	res1'-7	T976A,T977A,T979C	nucleotide_mutation	PMID:26730850	T229A,T23
 SPBC725.16	res1'-B	A1087T	nucleotide_mutation	PMID:26730850	A340T			
 SPBC725.16	res1'-D	C1085G	nucleotide_mutation	PMID:26730850	C338G			
 SPBC725.16	res1'-E	C1088G	nucleotide_mutation	PMID:26730850	C341G			
-SPBC354.05c	sre2-MS+ G772L,N773L,Y775L	1-422,G772L,N773L,Y775L	amino_acid_deletion_and_mutation	PMID:27655872				
-SPBC354.05c	sre2-MS+S760L	1-422,E760L	amino_acid_deletion_and_mutation	PMID:27655872				
-SPBC19C2.09	sre1-MP	C-4865A, A-484T, C-483A, C-480A, A-479T, T-478A, C-528A, A-527T, G-526A, C-523A, A-522T, C-521A	nucleotide_mutation	PMID:28202541				
-SPCC31H12.08c	ccr4-	H665A	amino_acid_mutation	PMID:28404620				
-SPAC13A11.04c		Y96C	amino_acid_mutation	PMID:29352077				
-SPAC10F6.09c	psm3-Q1168E	Q1168E	amino_acid_mutation	PMID:29735656				
-SPAC10F6.09c	psm3-R1127I	R1127I	amino_acid_mutation	PMID:29735656				
-SPCC5E4.04	cut1-L739S	L379S	amino_acid_mutation	PMID:29735656				
-SPCC306.03c		L318E	amino_acid_mutation	PMID:31072933				
-SPCC576.15c		P320R	amino_acid_mutation	PMID:31072933				
-SPBC31E1.02c	pmr1-W880->stop	W800->stop	nonsense_mutation	PMID:31201205				
-SPCC16C4.11	pef1-N146S	N146S	amino_acid_mutation	PMID:31895039				
-SPAC222.14c	sey1-K53A	K53A	amino_acid_mutation	PMID:32023460				
-SPNCRNA.899	SPNCRNA.899-G754C	G754C	nucleotide_mutation	PMID:32142608				
-SPAC23C4.19	spt5(WT)7	T1T	amino_acid_mutation	PMID:32496538				
-SPBC31F10.14c	hip3-Q808-stop	Q808stop	amino_acid_mutation	PMID:34580178				
-SPBC8D2.03c	hhf2-L83S	L83S	amino_acid_mutation	PMID:34580178				
-SPAC6B12.07c	pqr1-I84S	I87S	amino_acid_mutation	PMID:35012333				
-
-
+SPBC354.05c	sre2-MS+ G772L,N773L,Y775L	1-422,G772L,N773L,Y775L	amino_acid_deletion_and_mutation	PMID:27655872	1-422,G772L,N773L,Y774L	sre2-MS+G772L,N773L,Y774L		typo in PomBase
+SPBC354.05c	sre2-MS+S760L	1-422,E760L	amino_acid_deletion_and_mutation	PMID:27655872	1-422,S760L			typo in PomBase
+SPBC19C2.09	sre1-MP	C-4865A, A-484T, C-483A, C-480A, A-479T, T-478A, C-528A, A-527T, G-526A, C-523A, A-522T, C-521A	nucleotide_mutation	PMID:28202541	CACCCCAT-(-528)-ATACCATA,CAGTCCAC-(-485)-ATATCATA			
+SPCC31H12.08c	ccr4-	H665A	amino_acid_mutation	PMID:28404620	H664A	ccr4-H665A		looked into the original cerevisiae paper figure (uses and old gene structure)
+SPAC13A11.04c		Y96C	amino_acid_mutation	PMID:29352077	Y95C	ubp8-Y95C		Error in the paper. Most likely refers to this residue, since the other referred Y residue is correct
+SPCC5E4.04	cut1-L739S	L379S	amino_acid_mutation	PMID:29735656	L739S			typo in PomBase
+SPCC306.03c		L318E	amino_acid_mutation	PMID:31072933	K318E	cnd2-K318E		typo in PomBase
+SPCC576.15c		P320R	amino_acid_mutation	PMID:31072933	T320R	ksg1-T320R		typo in PomBase
+SPBC31E1.02c	pmr1-W880->stop	W800->stop	nonsense_mutation	PMID:31201205	W880*	pmr1-W880*		typo in pombase
+SPAC222.14c	sey1-K53A	K53A	amino_acid_mutation	PMID:32023460	K52A	sey1-K52A		Fig. 6 of https://doi.org/10.1016/j.cell.2009.05.025
+SPNCRNA.899	SPNCRNA.899-G754C	G754C	nucleotide_mutation	PMID:32142608	C754G			Wrong orientation in the original description
+SPBC31F10.14c	hip3-Q808-stop	Q808stop	amino_acid_mutation	PMID:34580178	C808*	hip3-C808*		typo in pombase		
+SPAC6B12.07c	pqr1-I84S	I87S	amino_acid_mutation	PMID:35012333	I84S			typo in pombase
