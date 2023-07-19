@@ -308,7 +308,8 @@ async def primer_mutagenesis(systematic_id: str = Query(example="SPAPB1A10.09", 
 
 # The same endpoint as above as a get endpoint
 @ app.get("/multi_shift_fix", response_model=list[AlleleFix])
-async def fix_with_multi_shift(systematic_id: str = Query(example="SPAPB1A10.09", description=systematic_id_description), targets: str = Query(example="S123,A124,N125")):
+async def fix_with_multi_shift(systematic_id: str = Query(example="SPAPB1A10.09", description=systematic_id_description), targets: str = Query(example="S123,A124,N125"), dna_or_protein: DNAorProtein = DNAorProtein('protein')):
+
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
     systematic_id = process_systematic_id(systematic_id, genome, 'first')
@@ -317,7 +318,14 @@ async def fix_with_multi_shift(systematic_id: str = Query(example="SPAPB1A10.09"
     targets = process_fix_targets(targets.split(','))
 
     if len([t for t in targets if t[0].isalpha()]) >= 3:
-        result = multi_shift_fix(gene['peptide'], targets)
+        if dna_or_protein == 'dna':
+            seq, strand = extract_main_feature_and_strand(genome[systematic_id], 0, 0, get_utrs=False)
+            if strand == -1:
+                seq = seq.reverse_complement()
+
+            result = multi_shift_fix(seq.seq, targets)
+        else:
+            result = multi_shift_fix(gene['peptide'], targets)
         return [AlleleFix.parse_obj({'values': i}) for i in result]
     else:
         return []

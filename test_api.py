@@ -139,6 +139,11 @@ class FixTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), [])
 
+        # With the DNA case
+        response = client.get("/multi_shift_fix", params={'systematic_id': 'SPAPB1A10.09', 'targets': 'GTATGTAATCGT-424-AAAAAAAAAAAA', 'dna_or_protein': 'dna'})
+        self.assertTrue(response.json()[0]['values'].startswith('G425A'))
+        self.assertEqual(response.status_code, 200)
+
     def test_old_coords(self):
         response = client.get("/old_coords_fix", params={'systematic_id': 'SPBC1706.01', 'targets': 'P170A,V223A,F225A,AEY-171-LLL'})
 
