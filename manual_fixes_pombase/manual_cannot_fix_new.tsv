@@ -151,5 +151,6 @@ SPCC576.15c		P320R	amino_acid_mutation	PMID:31072933	T320R	ksg1-T320R		typo in P
 SPBC31E1.02c	pmr1-W880->stop	W800->stop	nonsense_mutation	PMID:31201205	W880*	pmr1-W880*		typo in pombase
 SPAC222.14c	sey1-K53A	K53A	amino_acid_mutation	PMID:32023460	K52A	sey1-K52A		Fig. 6 of https://doi.org/10.1016/j.cell.2009.05.025
 SPNCRNA.899	SPNCRNA.899-G754C	G754C	nucleotide_mutation	PMID:32142608	C754G			Wrong orientation in the original description
-SPBC31F10.14c	hip3-Q808-stop	Q808stop	amino_acid_mutation	PMID:34580178	C808*	hip3-C808*		typo in pombase		
+SPBC31F10.14c	hip3-Q808-stop	Q808stop	amino_acid_mutation	PMID:34580178	C808*	hip3-C808*		typo in pombase
 SPAC6B12.07c	pqr1-I84S	I87S	amino_acid_mutation	PMID:35012333	I84S			typo in pombase
+SPCC16C4.11	pef1-N146S	N146S	amino_acid_mutation	PMID:31895039	N131S			
