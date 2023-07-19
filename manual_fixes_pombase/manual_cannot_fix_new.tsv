@@ -73,10 +73,11 @@ SPBC1718.07c	zfs1-S164A,T1645A	S164A,T164A	amino_acid_mutation	PMID:29084823	S16
 SPBC8E4.01c	pho84-TATA box mutant	T-33C,A-32G,T-31C,A-30G,T-29C,A-28G,T-27C,A-26G	nucleotide_mutation	PMID:29414789	TATATATA-(-184)-CGCGCGCG			negative coords in paper refer to the 5UTR, not the transcription start
 SPNCRNA.1698	nc-tgp-+5_seb1_bs	G521T,T543A,A554T,C569G,C578G	nucleotide_mutation	PMID:32499400	T543A,G549C,A554T,A560-T,T561A,C570G,G573A,C579G,T582A		nucleotide_insertion_and_mutation	
 SPBC26H8.07c	nda3noD	U1347A,U1349C	nucleotide_mutation	PMID:34798057	T803A,T805C			Serine 196 codon to Threo
-SPAPB1E7.05	gde1-(met1)E845A,D847A	L1M,E845A,D847A	amino_acid_mutation	PMID:35012333	E846A,D848A			
-SPAPB1E7.05	gde1-(met1)H810A,R811A	L1M,H810A,R811A	amino_acid_mutation	PMID:35012333	H811A,R812A			
-SPAPB1E7.05	gde1-(met1)H860A	L1M,H860A	amino_acid_mutation	PMID:35012333	H861A			
-SPAPB1E7.05	gde1-(met1)Y21F,K25A,N139A	L1M,Y21F,K25A,N139A	amino_acid_mutation	PMID:35012333	Y22F,K26A,N140A			
+SPAPB1E7.05	gde1-E845A,D847A	L1M,E845A,D847A	amino_acid_mutation	PMID:35012333	E846A,D848A			
+SPAPB1E7.05	gde1-H810A,R811A	L1M,H810A,R811A	amino_acid_mutation	PMID:35012333	H811A,R812A			
+SPAPB1E7.05	gde1-H860A	L1M,H860A	amino_acid_mutation	PMID:35012333	H861A			
+SPAPB1E7.05	gde1-Y21F,K25A,N139A	L1M,Y21F,K25A,N139A	amino_acid_mutation	PMID:35012333	Y22F,K26A,N140A			
+SPAPB1E7.05	gde1-R501G,G502V,Y503F,L504T,H505P,L506S,A507R(1-507)	508-1134,R501G,G502V,Y503F,L504T,H505P,L506S,A507R	amino_acid_deletion_and_mutation	PMID:35012333	510-1136,R503G,G504V,Y505F,L506T,H507P,L508S,A509R			
 SPAC926.04c	hsp90-EATA	E34A,T179A	amino_acid_mutation	PMID:37120429	E34A,T172A			coordinates were on the human protein, see Supp. Table 1
 SPAC926.04c	hsp90-EATK	E34A,E384K	amino_acid_mutation	PMID:37120429	E34A,E367K			coordinates were on the human protein, see Supp. Table 1
 SPNCRNA.82	mrp1-B7	A370G	nucleotide_mutation	PMID:8887563	A371G			
@@ -107,4 +108,57 @@ SPBC1A4.03c	top2-1-74/SV-delta-Xba	amino acids 1-74 replaced by SV40 NLS sequenc
 SPBC1A4.03c	top2-26-40/SV	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV	amino_acid_mutation	PMID:1332977	27-41,T26-PKKKRKV		amino_acid_insertion_and_mutation	
 SPBC1A4.03c	top2-26-40/SV-delta-Sph	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	amino_acid_mutation	PMID:1332977	27-41,T26-PKKKRKV,1200-1485		amino_acid_insertion_and_mutation	
 SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	amino_acid_mutation	PMID:1332977	27-41,T26-PKKKRKV,1221-1485		amino_acid_insertion_and_mutation	
+SPAC17G8.14c	pck1-N(1-400)	401-998	partial_amino_acid_deletion	PMID:11737264	401-988			
+SPCC320.13c	ark1-NT	118-384	partial_amino_acid_deletion	PMID:11950927	89-355			
+SPAC23C11.16	plo1-K65R	K65R	amino_acid_mutation	PMID:12815070	K69R	plo1-K69R		described in cited publication PMID:11250892
+SPNCRNA.214	C7U	C7U	nucleotide_mutation	PMID:18157149	C234T			from figure in paper, perhaps old coords complement(3084610..3086022)
+SPNCRNA.214	U3G,A5U	U3G,A5U	nucleotide_mutation	PMID:18157149	T230G,A232T			from figure in paper, perhaps old coords complement(3084610..3086022)
+SPCC550.05	nse1-15	120-236	partial_amino_acid_deletion	PMID:21976700	120-232			typo in PomBase
+SPCC550.05	nse1-C216S	C1216S	amino_acid_mutation	PMID:21976700	C216S			typo in PomBase
+SPCC645.07	rgf1-Nes1*	L865A,L866A,I867A	amino_acid_mutation	PMID:24478458	L875A,L876A,I877A			typo in paper (I think), that's the only LLI sequence in the peptide
+SPCC645.05c	snipID	G1000A	nucleotide_mutation	PMID:25665008				
+SPBC365.06	pmt3-D18R	D18R	amino_acid_mutation	PMID:26221037				
+SPNCRNA.214	ter1-CATG/(A)4	CAUG1058AAAA	nucleotide_mutation	PMID:26305931				
+SPAC22G7.08	ppk8'-1	G474C	nucleotide_mutation	PMID:26730850				
+SPAC22G7.08	ppk8'-4	T471A,C472T,A476T	nucleotide_mutation	PMID:26730850	T64A,C65T,A69T			
+SPAC22G7.08	ppk8'-5	T471A,G473C	nucleotide_mutation	PMID:26730850	T64A,G66C			
+SPAC22G7.08	ppk8'-6	T471C,G473C	nucleotide_mutation	PMID:26730850	T64C,G66C			
+SPAC22G7.08	ppk8'-7	T471A,C472A,G473C	nucleotide_mutation	PMID:26730850	T64A,C65A,G66C			
+SPAC22G7.08	ppk8'-8	T471A	nucleotide_mutation	PMID:26730850	T64A			
+SPBC725.16	res1'-10	G973C,T976A,T977A	nucleotide_mutation	PMID:26730850	G226C,T229A,T230A			
+SPBC725.16	res1'-11	A972T,T976A,T977A	nucleotide_mutation	PMID:26730850	A225T,T229A,T230A			
+SPBC725.16	res1'-12	A971T,A972T,G973C,T976A,T977A	nucleotide_mutation	PMID:26730850	A224T,A225T,G226C,T229A,T230A			
+SPBC725.16	res1'-13	A972T,G973C,T976A,T977A	nucleotide_mutation	PMID:26730850	A225T,G226C,T229A,T230A			
+SPBC725.16	res1'-2	T976A,T977A	nucleotide_mutation	PMID:26730850	T229A,T230A			
+SPBC725.16	res1'-2A	T976A,T977A,A1088T	nucleotide_mutation	PMID:26730850	T229A,T230A,A341T			
+SPBC725.16	res1'-2B	T976A,T977A,A1087T	nucleotide_mutation	PMID:26730850	T229A,T230A,A340T			
+SPBC725.16	res1'-2C	T976A,T977A,T1086G	nucleotide_mutation	PMID:26730850	T229A,T230A,T339G			
+SPBC725.16	res1'-2D	T976A,T977A,C1085G	nucleotide_mutation	PMID:26730850	T229A,T230A,C338G			
+SPBC725.16	res1'-2E	T976A,T977A,C1088G	nucleotide_mutation	PMID:26730850	T229A,T230A,C341G			
+SPBC725.16	res1'-3	G974C,T976A,T977A	nucleotide_mutation	PMID:26730850	G227C,T229A,T230A			
+SPBC725.16	res1'-4	T976A	nucleotide_mutation	PMID:26730850	T229A			
+SPBC725.16	res1'-6	T976A,T977A,G978A	nucleotide_mutation	PMID:26730850	T229A,T230A,G231A			
+SPBC725.16	res1'-7	T976A,T977A,T979C	nucleotide_mutation	PMID:26730850	T229A,T230A,T232C			
+SPBC725.16	res1'-B	A1087T	nucleotide_mutation	PMID:26730850	A340T			
+SPBC725.16	res1'-D	C1085G	nucleotide_mutation	PMID:26730850	C338G			
+SPBC725.16	res1'-E	C1088G	nucleotide_mutation	PMID:26730850	C341G			
+SPBC354.05c	sre2-MS+ G772L,N773L,Y775L	1-422,G772L,N773L,Y775L	amino_acid_deletion_and_mutation	PMID:27655872				
+SPBC354.05c	sre2-MS+S760L	1-422,E760L	amino_acid_deletion_and_mutation	PMID:27655872				
+SPBC19C2.09	sre1-MP	C-4865A, A-484T, C-483A, C-480A, A-479T, T-478A, C-528A, A-527T, G-526A, C-523A, A-522T, C-521A	nucleotide_mutation	PMID:28202541				
+SPCC31H12.08c	ccr4-	H665A	amino_acid_mutation	PMID:28404620				
+SPAC13A11.04c		Y96C	amino_acid_mutation	PMID:29352077				
+SPAC10F6.09c	psm3-Q1168E	Q1168E	amino_acid_mutation	PMID:29735656				
+SPAC10F6.09c	psm3-R1127I	R1127I	amino_acid_mutation	PMID:29735656				
+SPCC5E4.04	cut1-L739S	L379S	amino_acid_mutation	PMID:29735656				
+SPCC306.03c		L318E	amino_acid_mutation	PMID:31072933				
+SPCC576.15c		P320R	amino_acid_mutation	PMID:31072933				
+SPBC31E1.02c	pmr1-W880->stop	W800->stop	nonsense_mutation	PMID:31201205				
+SPCC16C4.11	pef1-N146S	N146S	amino_acid_mutation	PMID:31895039				
+SPAC222.14c	sey1-K53A	K53A	amino_acid_mutation	PMID:32023460				
+SPNCRNA.899	SPNCRNA.899-G754C	G754C	nucleotide_mutation	PMID:32142608				
+SPAC23C4.19	spt5(WT)7	T1T	amino_acid_mutation	PMID:32496538				
+SPBC31F10.14c	hip3-Q808-stop	Q808stop	amino_acid_mutation	PMID:34580178				
+SPBC8D2.03c	hhf2-L83S	L83S	amino_acid_mutation	PMID:34580178				
+SPAC6B12.07c	pqr1-I84S	I87S	amino_acid_mutation	PMID:35012333				
+
 
