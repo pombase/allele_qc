@@ -3,7 +3,11 @@ import pandas
 all_alleles = pandas.read_csv('../data/alleles.tsv', sep='\t', na_filter=False)
 data = pandas.read_csv('../results/allele_cannot_fix_sequence_errors.tsv', sep='\t', na_filter=False)
 
-already_fixed = pandas.read_csv('manual_cannot_fix_new.tsv', sep='\t', na_filter=False)
+already_fixed = pandas.concat([
+    pandas.read_csv('manual_cannot_fix_new.tsv', sep='\t', na_filter=False),
+    pandas.read_csv('allele_manual_changes_formatted.tsv', sep='\t', na_filter=False),
+    pandas.read_csv('cannot_find.tsv', sep='\t', na_filter=False),
+    ])
 
 data = data[~data['allele_name'].isin(already_fixed['allele_name'])].copy()
 
