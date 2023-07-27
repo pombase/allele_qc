@@ -12,13 +12,12 @@ from common_autofix_functions import apply_histone_fix
 from protein_modification_qc import check_func as check_modification_description
 import re
 from typing import Optional
-from Bio.SeqRecord import SeqRecord
-from Bio.SeqFeature import SeqFeature
 from Bio import SeqIO
 import tempfile
 import os
 from starlette.background import BackgroundTask
-
+from genome_functions import extract_main_feature_and_strand, process_systematic_id
+from Bio.SeqRecord import SeqRecord
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
@@ -157,37 +156,6 @@ def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> Chec
     return new_obj
 
 
-def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int, get_utrs: bool = True) -> tuple[SeqRecord, int]:
-    if 'CDS' not in gene:
-
-        if len(gene) == 2:
-            features = list(gene.keys())
-            features.remove('contig')
-            start_feature = features[0]
-            end_feature = features[0]
-            strand = gene[start_feature].location.strand
-        else:
-            raise HTTPException(400, 'Only supports genes with CDS or RNA genes with a single feature for now')
-    else:
-        strand = gene["CDS"].location.strand
-        start_feature = "5'UTR" if ("5'UTR" in gene and get_utrs) else "CDS"
-        end_feature = "3'UTR" if ("3'UTR" in gene and get_utrs) else "CDS"
-
-    if strand == 1:
-        end = gene[end_feature].location.end + downstream
-        start = gene[start_feature].location.start - upstream
-    else:
-        end = gene[start_feature].location.end + upstream
-        start = gene[end_feature].location.start - downstream
-
-    # Add translation if it exists
-    if 'CDS' in gene:
-        feat: SeqFeature = gene['CDS']
-        feat.qualifiers['translation'] = gene['peptide']
-
-    return gene['contig'][start:end], strand
-
-
 def process_fix_targets(input_targets: list[str]):
 
     accepted_syntax = [r'[A-Z]?\d+[A-Z]?', r'\d+-\d+']
@@ -207,36 +175,18 @@ def process_fix_targets(input_targets: list[str]):
     return targets
 
 
-def process_systematic_id(systematic_id: str, genome: dict, when_several_transcripts: str) -> str:
-    """
-    If no multiple transcripts exist, return the systematic id, else
-    return the transcript id of the longest transcript or the .1 transcript, depending
-    on the value of when_several_transcripts
-    """
+def process_systematic_id_http_errors(systematic_id: str, genome: dict, when_several_transcripts: str) -> str:
+    try:
+        return process_systematic_id(systematic_id, genome, when_several_transcripts)
+    except ValueError as e:
+        raise HTTPException(404, str(e)) if 'Systematic id' in str(e) else HTTPException(400, str(e))
 
-    if systematic_id in genome:
-        return systematic_id
 
-    if when_several_transcripts not in ('longest', 'first'):
-        return ValueError('when_several_transcripts must be either "longest" or "first"')
-
-    if when_several_transcripts == 'first' and systematic_id + '.1' in genome:
-        return systematic_id + '.1'
-
-    # For loci with multiple transcripts, we need to find the one that is the longest
-    i = 1
-    longest_transcript_systematic_id = None
-    longest_transcript_length = 0
-    while systematic_id + '.' + str(i) in genome:
-        transcript_seq_record, _ = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
-        if len(transcript_seq_record) > longest_transcript_length:
-            longest_transcript_length = len(transcript_seq_record)
-            longest_transcript_systematic_id = systematic_id + '.' + str(i)
-        i += 1
-    if longest_transcript_systematic_id is None:
-        raise HTTPException(404, 'Systematic id does not exist')
-    else:
-        return longest_transcript_systematic_id
+def extract_main_feature_and_strand_http_errors(gene: dict, downstream: int, upstream: int, get_utrs: bool = True) -> tuple[SeqRecord, int]:
+    try:
+        return extract_main_feature_and_strand(gene, downstream, upstream, get_utrs)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
 
 
 app = FastAPI()
@@ -251,7 +201,7 @@ async def root():
 async def check_allele(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
     if 'amino' in allele_type:
         response_data = CheckAlleleDescriptionResponse.parse_obj(
             check_allele_description(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, genome[systematic_id])
@@ -269,7 +219,7 @@ async def check_allele(systematic_id: str = Query(example="SPBC359.03c", descrip
 async def check_modification(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), sequence_position: str = Query(example="V123; V124,V125")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
     errors, change_sequence_position_to = check_modification_description({'systematic_id': systematic_id, 'sequence_position': sequence_position}, genome)
     needs_fixing = errors != '' or change_sequence_position_to != ''
     response_data = CheckModificationResponse(sequence_error=errors, change_sequence_position_to=change_sequence_position_to, needs_fixing=needs_fixing)
@@ -284,7 +234,7 @@ async def primer_mutagenesis(systematic_id: str = Query(example="SPAPB1A10.09", 
                              ):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
     if dna_or_protein == 'protein':
         has_peptide = True
         gene = genome[systematic_id]
@@ -312,7 +262,7 @@ async def fix_with_multi_shift(systematic_id: str = Query(example="SPAPB1A10.09"
 
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
 
     gene = genome[systematic_id]
     targets = process_fix_targets(targets.split(','))
@@ -338,7 +288,7 @@ async def fix_with_old_coords(systematic_id: str = Query(example="SPBC1706.01", 
     # We load the genome just to check if the systematic ID is valid
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
     targets = process_fix_targets(targets.split(','))
     if systematic_id not in coordinate_changes_dict:
         return []
@@ -350,7 +300,7 @@ async def fix_with_old_coords(systematic_id: str = Query(example="SPBC1706.01", 
 async def fix_histone(systematic_id: str = Query(example="SPAC1834.04", description=systematic_id_description), targets: str = Query(example="ART-1-LLL,K9A,K14R,K14A")):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'first')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
     targets = process_fix_targets(targets.split(','))
     result = apply_histone_fix({'systematic_id': systematic_id, 'targets': ','.join(targets)}, genome, 'targets')
     return [AlleleFix.parse_obj({'values': result})] if result != '' else []
@@ -361,7 +311,7 @@ async def get_genome_region(systematic_id: str = Query(example="SPAC1834.04", de
 
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id(systematic_id, genome, 'longest')
+    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'longest')
 
     seq_record, strand = extract_main_feature_and_strand(genome[systematic_id], downstream, upstream)
     seq_record.annotations['accession'] = systematic_id

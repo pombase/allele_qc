@@ -63,6 +63,7 @@ SPAC977.14c		MOD:00046	tryptic phosphopeptide mapping assay evidence used in aut
 SPAC977.14c		MOD:00048	tryptic phosphopeptide mapping assay evidence used in automatic assertion	Y290,Y264		PMID:30726745	4896	2019-02-05	|Y264
 SPAPB8E5.05	mfm1	MOD:00111	Inferred from Direct Assay	C9		PMID:1547790	4896	2011-10-13	C9
 SPAPB8E5.05	mfm1	MOD:00114	Inferred from Direct Assay	C9		PMID:1547790	4896	2011-10-13	C9
+SPBC1198.04c	zas1	MOD:01149	mass spectrometry evidence	K886		PMID:26537787	4896	2020-11-06	K886
 SPBC11B10.05c	rsp1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S145,S154		PMID:30726745	4896	2019-02-05	|S154
 SPBC11B10.05c	rsp1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S147,S156		PMID:30726745	4896	2019-02-05	|S156
 SPBC11C11.02	imp2	MOD:00046	Inferred from Direct Assay	S346	added_by(PomBase:SPBC11B10.09)	PMID:34402513	4896	2021-07-26	S346

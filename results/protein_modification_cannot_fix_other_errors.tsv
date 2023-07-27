@@ -1,11 +1,6 @@
 systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	error
 SPAC17G8.12	sec3	MOD:00046	Inferred from Direct Assay	201	added_by(PomBase:SPAC821.12),required_for(GO:0045921)	PMID:30726745	4896	2019-08-29	pattern_error
-SPAC22A12.08c	crd1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S332	present_during(GO:0072713)	PMID:18257517	4896	2014-04-30	systematic_id not in genome
 SPAC24B11.06c	sty1	MOD:00047	Inferred from Direct Assay	Thr171	present_during(GO:0120306)	PMID:27746023	4896	2020-11-17	pattern_error
-SPBC1198.04c	zas1	MOD:01149	mass spectrometry evidence	K834		PMID:26537787	4896	2020-11-06	systematic_id not in genome
-SPBC1198.04c	zas1	MOD:01149	mass spectrometry evidence	K886		PMID:26537787	4896	2020-11-06	systematic_id not in genome
-SPBC1198.04c	zas1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S2		PMID:29996109	4896	2018-07-10	systematic_id not in genome
-SPBC1198.04c	zas1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S6	present_during(GO:0000087)	PMID:29996109	4896	2018-07-10	systematic_id not in genome
 SPBC28F2.07	sfr1	MOD:00046	Inferred from Direct Assay	S147 (or T146	present_during(GO:0098762)	PMID:34208949	4896	2021-07-06	pattern_error
 SPBC28F2.07	sfr1	MOD:00046	Inferred from Direct Assay	S52 (or S48	present_during(GO:0098762)	PMID:34208949	4896	2021-07-06	pattern_error
 SPBC28F2.07	sfr1	MOD:00047	Inferred from Direct Assay	T114 (or S116	present_during(GO:0098762)	PMID:34208949	4896	2021-07-06	pattern_error
@@ -16,12 +11,3 @@ SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SP
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPAC24B11.06c)	PMID:33410907	4896	2021-01-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	removed_by(PomBase:SPAC3G9.04)	PMID:33410907	4896	2021-01-22	pattern_error
-SPCC162.04c	wtf13	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S10		PMID:30726745	4896	2019-02-05	systematic_id not in genome
-SPCC162.04c	wtf13	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S11		PMID:25720772	4896	2016-06-27	systematic_id not in genome
-SPCC162.04c	wtf13	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S16		PMID:30726745	4896	2019-02-05	systematic_id not in genome
-SPCC162.04c	wtf13	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S55		PMID:33823663	4896	2022-03-08	systematic_id not in genome
-SPCC162.04c	wtf13	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S58		PMID:33823663	4896	2022-03-08	systematic_id not in genome
-SPCC1620.02	wtf23	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S16		PMID:30726745	4896	2019-02-05	systematic_id not in genome
-SPCC1906.03	wtf19	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S16		PMID:30726745	4896	2019-02-05	systematic_id not in genome
-SPCC548.03c	wtf4	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S10		PMID:30726745	4896	2019-02-05	systematic_id not in genome
-SPCC548.03c	wtf4	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S16		PMID:30726745	4896	2019-02-05	systematic_id not in genome

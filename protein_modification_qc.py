@@ -1,14 +1,19 @@
 import pandas
 from grammar import check_sequence_single_pos, aa
 from refinement_functions import replace_allele_features, sort_result
+from genome_functions import process_systematic_id
 import pickle
 
 
 def check_func(row, genome):
-    if row['systematic_id'] not in genome:
+
+    # Handle multiple transcripts, we pick the first (.1) by default
+    try:
+        systematic_id = process_systematic_id(row['systematic_id'], genome, 'first')
+    except ValueError:
         return 'systematic_id not in genome', ''
 
-    gene = genome[row['systematic_id']]
+    gene = genome[systematic_id]
 
     if 'CDS' not in gene:
         return 'missing_CDS', ''
