@@ -34,37 +34,34 @@ def empty_dict():
     }
 
 
-def main(allele_data, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types):
-    output_data_list = list()
-    for i, row in allele_data.iterrows():
-        if 'amino_acid' in row['allele_type'] or 'nonsense_mutation' == row['allele_type']:
-            if row.systematic_id not in genome or 'peptide' not in genome[row.systematic_id]:
-                output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'Peptide sequence of {row.systematic_id} missing (perhaps multiple transcripts)'})
-            else:
-                output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, genome[row.systematic_id]))
-        elif 'nucleotide' in row['allele_type']:
-            if row.systematic_id not in genome:
-                output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'Nucleotide sequence of {row.systematic_id} missing'})
-            else:
-                output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, genome[row.systematic_id]))
-        elif 'disruption' == row['allele_type']:
-            # TODO: handle this better and refactor
-            if row.systematic_id not in genome:
-                output_data_list.append(dict(row) | empty_dict() | {'needs_fixing': True, 'invalid_error': f'systematic_id {row.systematic_id} missing (perhaps multiple transcripts)'})
-            elif row['allele_description'] != '':
-                output_data_list.append(dict(row) | check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id]))
-            # Special case where the description  is empty
-            else:
-                out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id])
-                # The name matches the pattern
-                if out_dict['change_description_to'] != '':
-                    output_data_list.append(dict(row) | out_dict)
-                else:
-                    output_data_list.append(dict(row) | empty_dict())
-        else:
-            output_data_list.append(dict(row) | empty_dict())
+def check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types):
 
-    return pandas.DataFrame.from_records(output_data_list)
+    if 'amino_acid' in row['allele_type'] or 'nonsense_mutation' == row['allele_type']:
+        if row.systematic_id not in genome or 'peptide' not in genome[row.systematic_id]:
+            return empty_dict() | {'needs_fixing': True, 'invalid_error': f'Peptide sequence of {row.systematic_id} missing (perhaps multiple transcripts)'}
+        else:
+            return check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, genome[row.systematic_id])
+    elif 'nucleotide' in row['allele_type']:
+        if row.systematic_id not in genome:
+            return empty_dict() | {'needs_fixing': True, 'invalid_error': f'Nucleotide sequence of {row.systematic_id} missing'}
+        else:
+            return check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, genome[row.systematic_id])
+    elif 'disruption' == row['allele_type']:
+        # TODO: handle this better and refactor
+        if row.systematic_id not in genome:
+            return empty_dict() | {'needs_fixing': True, 'invalid_error': f'systematic_id {row.systematic_id} missing (perhaps multiple transcripts)'}
+        elif row['allele_description'] != '':
+            return check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id])
+        # Special case where the description  is empty
+        else:
+            out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id])
+            # The name matches the pattern
+            if out_dict['change_description_to'] != '':
+                return out_dict
+            else:
+                return empty_dict()
+    else:
+        return empty_dict()
 
 
 if __name__ == '__main__':
@@ -85,7 +82,11 @@ if __name__ == '__main__':
     syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
     syntax_rules_disruption = [SyntaxRule.parse_obj(r) for r in disruption_grammar]
 
-    output_data = main(allele_data, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types)
+    extra_cols = allele_data.apply(lambda row: check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types), axis=1, result_type='expand')
+    output_data = pandas.concat([allele_data, extra_cols], axis=1)
+    column_order = ['systematic_id', 'allele_description', 'gene_name', 'allele_name', 'allele_synonym', 'allele_type', 'reference', 'allele_parts', 'needs_fixing', 'change_description_to', 'rules_applied', 'pattern_error', 'invalid_error', 'sequence_error', 'change_type_to']
+    output_data = output_data[column_order]
+
     print_warnings(output_data[(output_data['needs_fixing'] == True) & (output_data['pattern_error'] == '') & (output_data['allele_type'].str.contains('nucleot') | output_data['allele_type'].str.contains('amino'))])
     output_data.to_csv(args.output, sep='\t', index=False)
 
