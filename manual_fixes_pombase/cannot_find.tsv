@@ -20,3 +20,9 @@ SPCC962.05	ast1-ND	D158A,D160A,D179A,D181A	oligonucleotides listed do not really
 SPCC645.05c	snipID	G1000A	From Jeffares paper, maybe it's outside of the gene?
 SPBC365.06	pmt3-D18R	D18R	I cannot find a mention to this allele in the main text. pmt3 is mentioned only in the abstract.
 SPCC16C4.11	pef1-N146S	N146S	Asked the authors
+SPAC2G11.12	rqh1-h2	ntC28520T	uses the cosmid coordinates, cannot find which cosmid it refers to
+SPAC22F3.09c	res2-G1	ntG16590A	uses the cosmid coordinates, cannot find which cosmid it refers to
+SPAC22F3.09c	res2-J3	ntG16597A	uses the cosmid coordinates, cannot find which cosmid it refers to
+SPAC22G7.06c	ura1-61	ntG16857A	uses the cosmid coordinates, cannot find which cosmid it refers to
+SPAC821.11	pro1-1	ntG30304A	uses the cosmid coordinates, cannot find which cosmid it refers to
+SPBC649.05	cut12.PDswap	GILKTPTQIKKTVNF-71-ILGHKLEYNYNSHMVYI	the indicated sequence is not in the protein. The mutant replaces 17 aa that bind to PP1/dis2 by 17aa from GFP that bind to the GBP.
