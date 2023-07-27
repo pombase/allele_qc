@@ -14,6 +14,14 @@ SPBC6B1.05c	atg7-m1	W227*	nonsense_mutation	PMID:26696398			partial_amino_acid_d
 SPAC1486.02c	dsc2-V160*	V160*	nonsense_mutation	PMID:28821619			partial_amino_acid_deletion			
 SPBC19C2.09	sre1-Q802*	Q802*	nonsense_mutation	PMID:28821619			partial_amino_acid_deletion			
 SPBC4F6.15c	rad23-1	Q232*	nonsense_mutation	PMID:8621070			partial_amino_acid_deletion			
+SPBC16A3.09c	ufd1-I210HRLstop	210->stop	nonsense_mutation	PMID:25658828	I210*		partial_amino_acid_deletion	
+SPAC110.02	pds5-G755V-STOP	AA755->Stop	nonsense_mutation	PMID:28438891	G755*		partial_amino_acid_deletion	
+SPAC110.02	pds5-K686-STOP	AA686->stop	nonsense_mutation	PMID:28438891	K686*		partial_amino_acid_deletion	
+SPAC56F8.06c	alg10-183-stop	183-stop	nonsense_mutation	PMID:30389790	N184*		partial_amino_acid_deletion	
+SPAC17H9.04c	dri1-W46X	aa46->stop	nonsense_mutation	PMID:33946513	W38*		partial_amino_acid_deletion	revision 8403, complement(2009905..2011719)
+SPAC3G9.04	ssu72-Gln57Stop	aa57->stop	nonsense_mutation	PMID:34967420	Q57*		partial_amino_acid_deletion	
+SPBC3B9.11c	ctf1 Tyr260Stop	aa260stop	nonsense_mutation	PMID:34967420	Y260*		partial_amino_acid_deletion	
+SPCC18B5.03	wee1-112	opal	nonsense_mutation	PMID:7262540,PMID:10392445	unknown opal		partial_amino_acid_deletion	very special case, in which they know that it is a nonsense mutation, because they crossed "the original mutants with sup3-5, an efficient suppressor of opal nonsense alleles"
 SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	amino_acid_deletion_and_mutation	PMID:17502918	CTD-S2A(r5-r16)delta(r17-r29)	rpb1-CTD-S2A(r5-r16)delta(r17-r29)				
 SPBC28F2.12	rpb1-CTD-S2E(5-16)	CTD-S2E(5-16)	amino_acid_mutation	PMID:17502918	CTD-S2E(r5-r16)	rpb1-CTD-S2E(r5-r16)
 SPBC28F2.12	rpb1-CTDdelta(11-29)	CTDdelta(11-29)	amino_acid_mutation	PMID:17502918	CTD-delta(r11-r29)	rpb1-CTD-delta(r11-r29)	partial_amino_acid_deletion
