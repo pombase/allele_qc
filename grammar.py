@@ -135,7 +135,7 @@ aminoacid_grammar = [
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
         'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
-        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
+        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
         'coordinate_indexes': (1,)
     },
@@ -237,7 +237,7 @@ nucleotide_grammar = [
         # Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
         'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)(?=\\b)',
         'apply_syntax': lambda g: ('-'.join(format_negatives(g, [1]))).upper().replace('U', 'T'),
-        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
+        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
     },
     {
