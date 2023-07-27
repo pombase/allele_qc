@@ -44,12 +44,12 @@ def handle_systematic_id_for_qc(row, genome: dict) -> str:
     """
 
     # If it's in the genome dictionary, return it
-    if row.systematic_id in genome:
-        return row.systematic_id
+    if row['systematic_id'] in genome:
+        return row['systematic_id']
 
     # Get the first multiple transcript id, if it is a multi-transcript gene
     try:
-        first_multi_transcript = process_systematic_id(row.systematic_id, genome, 'first')
+        first_multi_transcript = process_systematic_id(row['systematic_id'], genome, 'first')
     except ValueError:
         return None
 
@@ -57,10 +57,10 @@ def handle_systematic_id_for_qc(row, genome: dict) -> str:
     # If the allele name contains the primary name .1, .2, etc, (e.g. zas1.2) then we pick that transcript (SPBC1198.04c.2).
     # Otherwise, we pick the first transcript
 
-    transcript_id_regex = '^' + row.gene_name + '\.(\d+)'
-    match = re.search(transcript_id_regex, row.allele_name)
+    transcript_id_regex = '^' + row['gene_name'] + '\.(\d+)'
+    match = re.search(transcript_id_regex, row['allele_name'])
     if match:
-        return row.systematic_id + '.' + match.groups()[0]
+        return row['systematic_id'] + '.' + match.groups()[0]
     return first_multi_transcript
 
 

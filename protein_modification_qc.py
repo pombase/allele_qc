@@ -9,7 +9,7 @@ def check_func(row, genome):
 
     # Handle multiple transcripts, we pick the first (.1) by default
     try:
-        systematic_id = process_systematic_id(row.systematic_id, genome, 'first')
+        systematic_id = process_systematic_id(row['systematic_id'], genome, 'first')
     except ValueError:
         return 'systematic_id not in genome', ''
 
