@@ -1,6 +1,7 @@
-from Bio.SeqFeature import FeatureLocation
+from Bio.SeqFeature import FeatureLocation, SeqFeature
 from Bio.Seq import reverse_complement
 from Bio.GenBank import _FeatureConsumer
+from Bio.SeqRecord import SeqRecord
 
 
 def get_nt_at_genome_position(pos: int, gene: dict, contig):
@@ -80,3 +81,66 @@ def get_other_index_from_alignment(this_alignment, other_alignment, this_index):
             return count_other
     # The coordinate does not exist in old one (new one is longer)
     return None
+
+
+def extract_main_feature_and_strand(gene: dict, downstream: int, upstream: int, get_utrs: bool = True) -> tuple[SeqRecord, int]:
+    if 'CDS' not in gene:
+
+        if len(gene) == 2:
+            features = list(gene.keys())
+            features.remove('contig')
+            start_feature = features[0]
+            end_feature = features[0]
+            strand = gene[start_feature].location.strand
+        else:
+            raise ValueError('Only supports genes with CDS or RNA genes with a single feature for now')
+    else:
+        strand = gene["CDS"].location.strand
+        start_feature = "5'UTR" if ("5'UTR" in gene and get_utrs) else "CDS"
+        end_feature = "3'UTR" if ("3'UTR" in gene and get_utrs) else "CDS"
+
+    if strand == 1:
+        end = gene[end_feature].location.end + downstream
+        start = gene[start_feature].location.start - upstream
+    else:
+        end = gene[start_feature].location.end + upstream
+        start = gene[end_feature].location.start - downstream
+
+    # Add translation if it exists
+    if 'CDS' in gene:
+        feat: SeqFeature = gene['CDS']
+        feat.qualifiers['translation'] = gene['peptide']
+
+    return gene['contig'][start:end], strand
+
+
+def process_systematic_id(systematic_id: str, genome: dict, when_several_transcripts: str) -> str:
+    """
+    If no multiple transcripts exist, return the systematic id, else
+    return the transcript id of the longest transcript or the .1 transcript, depending
+    on the value of when_several_transcripts
+    """
+
+    if systematic_id in genome:
+        return systematic_id
+
+    if when_several_transcripts not in ('longest', 'first'):
+        return ValueError('when_several_transcripts must be either "longest" or "first"')
+
+    if when_several_transcripts == 'first' and systematic_id + '.1' in genome:
+        return systematic_id + '.1'
+
+    # For loci with multiple transcripts, we need to find the one that is the longest
+    i = 1
+    longest_transcript_systematic_id = None
+    longest_transcript_length = 0
+    while systematic_id + '.' + str(i) in genome:
+        transcript_seq_record, _ = extract_main_feature_and_strand(genome[systematic_id + '.' + str(i)], 0, 0)
+        if len(transcript_seq_record) > longest_transcript_length:
+            longest_transcript_length = len(transcript_seq_record)
+            longest_transcript_systematic_id = systematic_id + '.' + str(i)
+        i += 1
+    if longest_transcript_systematic_id is None:
+        raise ValueError('Systematic id does not exist')
+    else:
+        return longest_transcript_systematic_id
