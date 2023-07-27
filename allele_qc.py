@@ -37,7 +37,10 @@ def empty_dict():
 
 def handle_systematic_id_for_qc(row, genome: dict) -> str:
     """
-
+    Returns the right systematic_id for the allele:
+    - For no multi-transcript (row.systematic_id in genome), return row.systematic_id
+    - For multi-transcript in which the allele name starts with the primary name + .1, .2, etc, (e.g. zas1.2-V123A) return that transcript (SPBC1198.04c.2).
+    - For other multi-transcript genes, return the first transcript, ending in .1 (SPBC1198.04c.1).
     """
 
     # If it's in the genome dictionary, return it
@@ -48,14 +51,13 @@ def handle_systematic_id_for_qc(row, genome: dict) -> str:
     try:
         first_multi_transcript = process_systematic_id(row.systematic_id, genome, 'first')
     except ValueError:
-
         return None
 
     # If we have reached here, it means that the systematic_id is from a multi-transcript gene
     # If the allele name contains the primary name .1, .2, etc, (e.g. zas1.2) then we pick that transcript (SPBC1198.04c.2).
     # Otherwise, we pick the first transcript
 
-    transcript_id_regex = row.gene_name + '\.(\d+)'
+    transcript_id_regex = '^' + row.gene_name + '\.(\d+)'
     match = re.search(transcript_id_regex, row.allele_name)
     if match:
         return row.systematic_id + '.' + match.groups()[0]
@@ -64,25 +66,26 @@ def handle_systematic_id_for_qc(row, genome: dict) -> str:
 
 def check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types):
 
+    systematic_id = handle_systematic_id_for_qc(row, genome)
+    if systematic_id is None:
+        return empty_dict() | {'needs_fixing': True, 'invalid_error': 'systematic_id not in genome'}
+
+    gene = genome[systematic_id]
+
     if 'amino_acid' in row['allele_type'] or 'nonsense_mutation' == row['allele_type']:
-        if row.systematic_id not in genome or 'peptide' not in genome[row.systematic_id]:
-            return empty_dict() | {'needs_fixing': True, 'invalid_error': f'Peptide sequence of {row.systematic_id} missing (perhaps multiple transcripts)'}
+        if 'peptide' not in gene:
+            return empty_dict() | {'needs_fixing': True, 'invalid_error': 'peptide sequence missing'}
         else:
-            return check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, genome[row.systematic_id])
+            return check_allele_description(row.allele_description, syntax_rules_aminoacids, row.allele_type, allowed_types, gene)
     elif 'nucleotide' in row['allele_type']:
-        if row.systematic_id not in genome:
-            return empty_dict() | {'needs_fixing': True, 'invalid_error': f'Nucleotide sequence of {row.systematic_id} missing'}
-        else:
-            return check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, genome[row.systematic_id])
+        return check_allele_description(row.allele_description, syntax_rules_nucleotides, row.allele_type, allowed_types, gene)
     elif 'disruption' == row['allele_type']:
         # TODO: handle this better and refactor
-        if row.systematic_id not in genome:
-            return empty_dict() | {'needs_fixing': True, 'invalid_error': f'systematic_id {row.systematic_id} missing (perhaps multiple transcripts)'}
-        elif row['allele_description'] != '':
-            return check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id])
+        if row['allele_description'] != '':
+            return check_allele_description(row.allele_description, syntax_rules_disruption, row.allele_type, allowed_types, gene)
         # Special case where the description  is empty
         else:
-            out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, genome[row.systematic_id])
+            out_dict = check_allele_description(row.allele_name, syntax_rules_disruption, row.allele_type, allowed_types, gene)
             # The name matches the pattern
             if out_dict['change_description_to'] != '':
                 return out_dict

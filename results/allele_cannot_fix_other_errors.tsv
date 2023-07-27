@@ -21,8 +21,6 @@ SPAC20G4.02c	fus1delta(501-749)	fus1delta(501-749)	pattern_error	fu
 SPAC20G4.02c	fus1delta(501-791)	fus1delta(501-791)	pattern_error	fu
 SPAC20G8.05c	cdc15-27A	non-phosphorylatable	pattern_error	non-phosphorylatable
 SPAC20G8.05c	cdc15-27D	phospho-mimetic	pattern_error	phospho-mimetic
-SPAC22A12.08c	crd1delta41-372	41-372	invalid_error	Peptide sequence of SPAC22A12.08c missing (perhaps multiple transcripts)
-SPAC22A12.08c	crd1deltaRGFH	369-372	invalid_error	Peptide sequence of SPAC22A12.08c missing (perhaps multiple transcripts)
 SPAC23C4.19	spt5-(CTD)T1A(7)	(CTD)T1A(7)	pattern_error	(CTD)
 SPAC23C4.19	spt5-(T1A)7	CTD-T1A	pattern_error	CTD-
 SPAC23C4.19	spt5-(T1A)7	CTR-T1A	pattern_error	CTR-
@@ -53,37 +51,13 @@ SPAPB2B4.03	Pcig2delta-147--40-LacZ	cig2-170--148, -39-+1-LacZ fusion	pattern_er
 SPAPB2B4.03	nmt1-cig2-I	cig2-3000-1912	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-II	cig2-3000-1880	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-III	cig2 -3000--1248	pattern_error	cig2 
-SPBC119.04	mei3-C	1-75,149-412	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
-SPBC119.04	mei3-RA3	S29A,T30A,S31A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
-SPBC119.04	mei3-SM1	K77A,R78A,K80A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
-SPBC119.04	mei3-SM8	D117A,N120A,E121A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
-SPBC119.04	mei3-promoter-d3	T-92A,C-90T, A-89C,G-87CATCC-88	invalid_error	Nucleotide sequence of SPBC119.04 missing
-SPBC119.04	mei3-promoter-d3	T-92A,C-90T,A-89C,G-87CATCC-88	invalid_error	Nucleotide sequence of SPBC119.04 missing
-SPBC119.04	mei3-promoter-delta14	-74--60	invalid_error	Nucleotide sequence of SPBC119.04 missing
-SPBC119.04	mei3-promoter-delta5	-328--251	invalid_error	Nucleotide sequence of SPBC119.04 missing
-SPBC119.04	mei3-promoter-delta7	-113--163	invalid_error	Nucleotide sequence of SPBC119.04 missing
-SPBC119.04	mei3-rxt	T30A	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
-SPBC119.04	pmei3.14delta1-delta4	128-148	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
-SPBC119.04	pmei3.14delta5	105-148	invalid_error	Peptide sequence of SPBC119.04 missing (perhaps multiple transcripts)
 SPBC119.08	pmk1-153+A	pmk1-153+A	pattern_error	pmk,+A
-SPBC1198.04c	zas1-1-274	326-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-1-289	341-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-1-360	412-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-1-470	522-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-1-590	642-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-1-712	764-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-a1	W761*	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-aj3	K833*	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-deltaaj3	885-897	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1-w5	E549K	invalid_error	Peptide sequence of SPBC1198.04c missing (perhaps multiple transcripts)
-SPBC1198.04c	zas1::Tn-seq	zas1::Tn-seq	invalid_error	systematic_id SPBC1198.04c missing (perhaps multiple transcripts)
 SPBC14C8.01c	cut2-N121	delta122-301	pattern_error	delta1
 SPBC14C8.07c	cdc18-T6A-TAP	T10A,T46A,T60A,T104A,T134A,T374A-TAP	pattern_error	-TAP
 SPBC16A3.09c	ufd1-I210HRLstop	210->stop	pattern_error	->stop
 SPBC1734.02c	cdc27-R5	1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT	pattern_error	-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT
 SPBC1778.02	rap1-BBM,S496E	1-489,496E	pattern_error	6E
 SPBC1778.02	rap1-BBM,S497E	1-489,497E	pattern_error	7E
-SPBC17A3.07	pgr1-M1V	M1V	invalid_error	Peptide sequence of SPBC17A3.07 missing (perhaps multiple transcripts)
 SPBC17F3.02	nak1-125	unknown	pattern_error	unknown
 SPBC19G7.01c	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
 SPBC1A4.03c	top2-1-40/SV	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV
@@ -160,10 +134,7 @@ SPCC11E10.07c	tif221-2	frameshift at L43	pattern_error	frameshift at L43
 SPCC1259.03	pa12delta::ura4+	ura4+@AA39	pattern_error	ura4+@AA39
 SPCC126.04c	sgf73-896+T	sgf73-896+T	pattern_error	sgf,+T
 SPCC1393.08	fil1-uORFs_mutated	6 uORFs in 5'-UTR mutated	pattern_error	 uORFs in ,'-UTR mutated
-SPCC162.04c	wtf13-aa343-349delta	343-349	invalid_error	Nucleotide sequence of SPCC162.04c missing
-SPCC162.04c	wtf13-antidote	A358T,T359A,G360C	invalid_error	Nucleotide sequence of SPCC162.04c missing
-SPCC162.04c	wtf13-poison	M1X,M12X	invalid_error	Peptide sequence of SPCC162.04c missing (perhaps multiple transcripts)
-SPCC162.04c	wtf13::Tn-seq	wtf13::Tn-seq	invalid_error	systematic_id SPCC162.04c missing (perhaps multiple transcripts)
+SPCC162.04c	wtf13-poison	M1X,M12X	pattern_error	M1X,M1,X
 SPCC188.02	par1-CD	CD fusion	pattern_error	CD fusion
 SPCC188.06c	srp54::LEU2	disruption	pattern_error	disruption
 SPCC18B5.03	wee1-112	opal	pattern_error	opal
@@ -177,17 +148,7 @@ SPCC338.08	ctp1-30	I110N with frameshift at T197 truncating at position 208	patt
 SPCC613.04c	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
 SPCC970.01	swi9-136	E659K	pattern_error	E,K
 SPCC970.09	sec8-1	unknown	pattern_error	unknown
-SPNCRNA.103	sme2-3'	1-507	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2-5'	509-1562	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2-DSRless	A1274G,A1467G,A1485G,A1501G,A1527G,A1538G,A1551G,A1560G	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2delta1-574	1-574	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2deltaA	-1030-1586	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2deltaB	-1030-582	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2deltaC	-925--54	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2deltaD	-925--144	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2deltaE	1058-1586	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
-SPNCRNA.103	sme2deltaF	1425-1586	invalid_error	Nucleotide sequence of SPNCRNA.103 missing
+SPNCRNA.103	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	pattern_error	CU3,:g.,2T>C,CU3,:g.,0T>C,CU3,:g.,5T>C,CU3,:g.,0A>G
 SPNCRNA.1343	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
