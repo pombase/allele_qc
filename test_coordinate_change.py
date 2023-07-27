@@ -95,6 +95,8 @@ class SequenceIndexingTest(unittest.TestCase):
         ]
 
         solutions = old_coords_fix(coordinate_changes, ['A1', 'P2'])
-        self.assertEqual(len(solutions), 2)
+        self.assertEqual(len(solutions), 4)
         self.assertEqual(solutions[0]['values'], 'A1,P4')
         self.assertEqual(solutions[1]['values'], 'A1,P3')
+        self.assertEqual(solutions[2]['values'], '?,P4')
+        self.assertEqual(solutions[3]['values'], '?,P3')

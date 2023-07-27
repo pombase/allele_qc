@@ -80,20 +80,29 @@ def old_coords_fix(coordinate_changes, targets):
             # We now remap from old coordinates to new ones. It may return None if the position in the old sequence
             # does not exist in the new one.
             target_remapped = change_to_new_indexes_from_old_coordinates(old_alignment, new_alignment, t)
-
             # Special case where the given position is matched in the old sequence, but there is not an equivalent
             # position in the new sequence. Example:
             #
             # > current sequence
             # ----------------MLQRLEQL
+            #    ^
             # > old sequence
             # MPGSPSQEPLAEAESNMLQRLEQL
+            #    ^
             #
             # For instance, S4 is matched in the old sequence, but there is no equivalent position in the new sequence.
+            #
+            # This does not have to necessarily on a dash, it can be on a different aminoacid, e.g.:
+            #
+            # > current sequence
+            # MAAA------------MLQRLEQL
+            #    ^
+            # > old sequence
+            # MPGSPSQEPLAEAESNMLQRLEQL
+            #    ^
 
-            if target_remapped is None:
+            if target_remapped is None or not position_or_index_exists(target_remapped, new_sequence):
                 this_revision['values'].append('?')
-                # For now, we also break in this case
                 # break
             else:
                 this_revision['values'].append(target_remapped)
