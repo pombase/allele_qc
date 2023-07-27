@@ -16,7 +16,8 @@ import pickle
 import pandas
 import argparse
 from common_autofix_functions import print_warnings
-
+from genome_functions import process_systematic_id
+import re
 
 def empty_dict():
     """
@@ -32,6 +33,33 @@ def empty_dict():
         'sequence_error': '',
         'change_type_to': ''
     }
+
+
+def handle_systematic_id_for_qc(row, genome: dict) -> str:
+    """
+
+    """
+
+    # If it's in the genome dictionary, return it
+    if row.systematic_id in genome:
+        return row.systematic_id
+
+    # Get the first multiple transcript id, if it is a multi-transcript gene
+    try:
+        first_multi_transcript = process_systematic_id(row.systematic_id, genome, 'first')
+    except ValueError:
+
+        return None
+
+    # If we have reached here, it means that the systematic_id is from a multi-transcript gene
+    # If the allele name contains the primary name .1, .2, etc, (e.g. zas1.2) then we pick that transcript (SPBC1198.04c.2).
+    # Otherwise, we pick the first transcript
+
+    transcript_id_regex = row.gene_name + '\.(\d+)'
+    match = re.search(transcript_id_regex, row.allele_name)
+    if match:
+        return row.systematic_id + '.' + match.groups()[0]
+    return first_multi_transcript
 
 
 def check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types):
