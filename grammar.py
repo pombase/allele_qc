@@ -287,3 +287,97 @@ disruption_grammar = [
         'apply_syntax': lambda g: f'{g[0]}::{g[1]}',
     }
 ]
+
+
+# Transition grammars ==================================================
+
+# This grammar recognises the old syntax, and apply_syntax applies the new style
+transition_aminoacid_grammar = [
+
+    {
+        'type': 'amino_acid_mutation',
+        'rule_name': 'multiple_aa',
+        # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
+        'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
+        'apply_syntax': lambda g: ''.join(g).upper(),
+        'check_invalid': lambda g: '',
+        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
+        'coordinate_indexes': (1,)
+    },
+
+    # We split the insertion into two cases, one where a single aminoacid is inserted, in which the dash
+    # is compulsory, and one where the dash is optional, for more than one. Otherwise A123V would match
+    # this and the amino_acid_mutation.
+    {
+        'type': 'amino_acid_insertion',
+        'rule_name': 'single',
+        'regex': f'({aa})(\d+)-({aa})(?=\\b)',
+        'apply_syntax': lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper(),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
+        'coordinate_indexes': (1,)
+    },
+    {
+        'type': 'amino_acid_insertion',
+        'rule_name': 'multiple',
+        'regex': f'({aa})(\d+)-?({aa}{aa}+)(?=\\b)',
+        'apply_syntax': lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper(),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
+        'coordinate_indexes': (1,)
+    }
+]
+
+# Fill it with the rest of rules that have not changed
+rules_in_transition_grammar = [f'{r["type"]}:{r["rule_name"]}' for r in transition_aminoacid_grammar]
+
+for rule in aminoacid_grammar:
+    if f'{rule["type"]}:{rule["rule_name"]}' not in rules_in_transition_grammar:
+        transition_aminoacid_grammar.append(rule)
+
+
+# Same for nucleotides
+
+transition_nucleotide_grammar = [
+    {
+        'type': 'nucleotide_mutation',
+        'rule_name': 'multiple_nt',
+        # This is only valid for cases with two nts or more (not to clash with nucleotide_insertion:usual)
+        # Cases contemplated here:
+        # AA-23-TT (positive number correctly formatted)
+        # AA-(-23)-TT (negative number correctly formatted)
+        # AA23TT (positive number without dashes)
+        # AA-23TT (negative number without dashes nor parenthesis)
+        # AA(-23)TT (negative number without dashes)
+        # AA--23-TT (negative number without parenthesis)
+        # Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
+        'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)(?=\\b)',
+        'apply_syntax': lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T'),
+        'check_invalid': lambda g: '',
+        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
+    },
+    # We split the insertion into two cases, one where a single nt is inserted, in which the dash
+    # is compulsory, and one where the dash is optional, for more than one. Otherwise A123T would match
+    # this and the nucleotide_mutation.
+    {
+        'type': 'nucleotide_insertion',
+        'rule_name': 'single',
+        'regex': f'({nt}){num}-({nt})(?=\\b)',
+        'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T'),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
+        'coordinate_indexes': (1,)
+    },
+    {
+        'type': 'nucleotide_insertion',
+        'rule_name': 'multiple',
+        'regex': f'({nt}){num}-?({nt}{nt}+)(?=\\b)',
+        'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T'),
+        'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
+        'coordinate_indexes': (1,)
+    },
+]
+
+# Fill it with the rest of rules that have not changed
+rules_in_transition_grammar = [f'{r["type"]}:{r["rule_name"]}' for r in transition_nucleotide_grammar]
+
+for rule in nucleotide_grammar:
+    if f'{rule["type"]}:{rule["rule_name"]}' not in rules_in_transition_grammar:
+        transition_nucleotide_grammar.append(rule)
