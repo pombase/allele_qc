@@ -127,7 +127,6 @@ aminoacid_grammar = [
         'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'amino_acid_mutation',
@@ -136,7 +135,6 @@ aminoacid_grammar = [
         'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'nonsense_mutation',
@@ -144,7 +142,6 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'nonsense_mutation',
@@ -152,7 +149,6 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -160,7 +156,6 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(sorted(g[:2], key=int)).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide'),
-        'coordinate_indexes': (0, 1)
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -168,7 +163,6 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide'),
-        'coordinate_indexes': (0,)
     },
     # We split the insertion into two cases, one where a single aminoacid is inserted, in which the dash
     # is compulsory, and one where the dash is optional, for more than one. Otherwise A123V would match
@@ -179,7 +173,6 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)-({aa})(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{g[1]}-{g[2]}'.upper(),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'amino_acid_insertion',
@@ -187,7 +180,6 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)-?({aa}{aa}+)(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{g[1]}-{g[2]}'.upper(),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
-        'coordinate_indexes': (1,)
     }
 ]
 
@@ -249,7 +241,6 @@ nucleotide_grammar = [
         'regex': f'(?<!{nt}){num}(?!{nt})',
         'apply_syntax': lambda g: format_negatives(g, [0])[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
-        'coordinate_indexes': (0,)
     },
     # We split the insertion into two cases, one where a single nt is inserted, in which the dash
     # is compulsory, and one where the dash is optional, for more than one. Otherwise A123T would match
@@ -260,7 +251,6 @@ nucleotide_grammar = [
         'regex': f'({nt}){num}-({nt})(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}-{g[2]}'.upper().replace('U', 'T'),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'nucleotide_insertion',
@@ -268,7 +258,6 @@ nucleotide_grammar = [
         'regex': f'({nt}){num}-?({nt}{nt}+)(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}-{g[2]}'.upper().replace('U', 'T'),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
-        'coordinate_indexes': (1,)
     },
 
 ]
@@ -295,7 +284,6 @@ transition_aminoacid_grammar = [
         'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
 
     # We split the insertion into two cases, one where a single aminoacid is inserted, in which the dash
@@ -307,7 +295,6 @@ transition_aminoacid_grammar = [
         'regex': f'({aa})(\d+)-({aa})(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper(),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'amino_acid_insertion',
@@ -315,7 +302,6 @@ transition_aminoacid_grammar = [
         'regex': f'({aa})(\d+)-?({aa}{aa}+)(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper(),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'peptide'),
-        'coordinate_indexes': (1,)
     }
 ]
 
@@ -355,7 +341,6 @@ transition_nucleotide_grammar = [
         'regex': f'({nt}){num}-({nt})(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T'),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
-        'coordinate_indexes': (1,)
     },
     {
         'type': 'nucleotide_insertion',
@@ -363,7 +348,6 @@ transition_nucleotide_grammar = [
         'regex': f'({nt}){num}-?({nt}{nt}+)(?=\\b)',
         'apply_syntax': lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T'),
         'check_sequence': lambda groups, gene: check_sequence_single_pos(groups, gene, 'dna'),
-        'coordinate_indexes': (1,)
     },
 ]
 

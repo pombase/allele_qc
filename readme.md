@@ -90,7 +90,6 @@ aa = f'[{aa}]'
         'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
 ```
 
@@ -107,8 +106,6 @@ aa = f'[{aa}]'
   * A "gene dictionary", see `load_genome.py`
 
     The function verifies that the proposed mutation is compatible with gene DNA or peptide sequence, and returns an error string otherwise (see examples in `grammar.py`).
-
-* `coordinate_indexes`: a tuple with the indexes of the regex groups that contain coordinates. This is used to update the allele coordinates if allele sequence changes.
 
 ### Defining allele categories
 
