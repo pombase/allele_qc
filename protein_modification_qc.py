@@ -1,8 +1,9 @@
 import pandas
 from grammar import check_sequence_single_pos, aa
-from refinement_functions import replace_allele_features, sort_result
+from refinement_functions import replace_allele_features
 from genome_functions import process_systematic_id
 import pickle
+import re
 
 
 def check_func(row, genome):
@@ -21,7 +22,9 @@ def check_func(row, genome):
     result = replace_allele_features([f'(?<!{aa})({aa})(\d+){aa}?'], [row['sequence_position']], [])
 
     # Extract the matched and unmatched elements
-    matches, unmatched = sort_result(result)
+    matches = filter(result, lambda x: type(x) != str)
+    # The regex excludes non-digit non-letter characters
+    unmatched = filter(result, lambda x: type(x) == str and not re.match('^[^a-zA-Z\d]+$', x))
 
     if len(unmatched):
         return 'pattern_error', ''

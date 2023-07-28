@@ -1,7 +1,7 @@
 from genome_functions import get_nt_at_genome_position, gene_coords2genome_coords
 
 
-allowed_types = {
+allowed_types_dict = {
     frozenset({'amino_acid_mutation'}): 'amino_acid_mutation',
     frozenset({'partial_amino_acid_deletion'}): 'partial_amino_acid_deletion',
     frozenset({'amino_acid_mutation', 'partial_amino_acid_deletion'}): 'amino_acid_deletion_and_mutation',
@@ -18,6 +18,11 @@ allowed_types = {
     frozenset({'nucleotide_mutation', 'partial_nucleotide_deletion'}): 'nucleotide_deletion_and_mutation',
     frozenset({'nucleotide_mutation', 'nucleotide_insertion'}): 'nucleotide_insertion_and_mutation',
     frozenset({'nucleotide_insertion', 'partial_nucleotide_deletion', 'nucleotide_mutation'}): 'nucleotide_insertion_and_deletion_and_mutation',
+}
+
+composed_types_dict = {
+    'amino_acid_insertion_and_mutation': ['amino_acid_insertion', 'amino_acid_mutation'],
+    'amino_acid_deletion_and_mutation': ['amino_acid_mutation', 'partial_amino_acid_deletion'],
 }
 
 
@@ -361,8 +366,9 @@ for rule in nucleotide_grammar:
 # New grammars - here there are a lot of re-used regex, so we use variables to avoid repetition
 
 multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
-multi_aa_apply_syntax = lambda g: ''.join(g).upper()
+multi_residue_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
+multi_nt_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
 
 aminoacid_grammar_new = [
     {
@@ -371,43 +377,43 @@ aminoacid_grammar_new = [
         'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'further_check': lambda g, gg: g[0] != g[2]
+        'further_check': lambda g: g[0] != g[2]
     },
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'multiple_aa',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_aa_apply_syntax,
+        'apply_syntax': multi_residue_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # It is only a mutation if the number of aminoacids before and after is the same
-        'further_check': lambda g, gg: (len(g[0]) == len(g[2])) & (g[0] != g[2])
+        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2])
     },
     {
         'type': 'amino_acid_deletion_and_mutation',
         'rule_name': 'multiple_aa',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_aa_apply_syntax,
+        'apply_syntax': multi_residue_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
-        'further_check': lambda g, gg: len(g[0]) > len(g[2])
+        'further_check': lambda g: len(g[0]) > len(g[2])
     },
     {
         'type': 'amino_acid_insertion_and_mutation',
         'rule_name': 'multiple_aa',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_aa_apply_syntax,
+        'apply_syntax': multi_residue_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # We don't want to account insertions here
-        'further_check': lambda g, gg: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0]))
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0]))
     },
     {
         'type': 'amino_acid_insertion',
         'rule_name': 'standard',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_aa_apply_syntax,
+        'apply_syntax': multi_residue_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # We don't want to account insertions here
-        'further_check': lambda g, gg: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0]))
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0]))
     },
     {
         'type': 'nonsense_mutation',

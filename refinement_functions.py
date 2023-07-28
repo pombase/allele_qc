@@ -1,8 +1,9 @@
 import re
 from models import SyntaxRule
+from typing import Union
 
 
-def replace_substring_by_match(input_str: str, match: re.Match) -> list[str, re.Match]:
+def replace_substring_by_match_group(input_str: str, match_group: tuple[re.Match, SyntaxRule]) -> list[tuple[re.Match, SyntaxRule]]:
     """
     Convert string into splitted list using match. E.g.:
 
@@ -10,9 +11,9 @@ def replace_substring_by_match(input_str: str, match: re.Match) -> list[str, re.
     match = <re.Match for '321'>
     returns: ['A', <re.Match for '321'>, 'B']
     """
-    start = input_str.find(match.group())
-    end = start + len(match.group())
-    this_list = [input_str[:start], match, input_str[end:]]
+    start = input_str.find(match_group[0].group())
+    end = start + len(match_group[0].group())
+    this_list = [input_str[:start], match_group, input_str[end:]]
     # Remove empty strings
     return list(filter(lambda x: x != '', this_list))
 
@@ -54,10 +55,60 @@ def replace_allele_features(regex_patterns: list[str], input_list: list[str, re.
 
         for match in matches:
             if match.group() in allele_substring:
-                this_list = replace_substring_by_match(allele_substring, match)
+                this_list = replace_substring_by_match_group(allele_substring, match)
                 # Recursion
                 this_list = replace_allele_features(
                     regex_patterns, this_list, matches)
+                break
+        else:
+            # If none of the matches is in the allele_substring, we just return it as is.
+            this_list = [allele_substring]
+
+        out_list += this_list
+
+    return out_list
+
+
+def replace_allele_features_with_syntax_rules(syntax_rules: list[SyntaxRule], input_list: list[str, re.Match], match_groups: list[tuple[re.Match, SyntaxRule]]) -> list[Union[str, tuple[re.Match, SyntaxRule]]]:
+    """
+    Looks for matches to the regex patterns in `regex_patterns` in the strings in `input_list`,
+    if `matches` is an empty list. If `matches` is not empty, it uses those matches.
+
+    Then, for each match, starting from the longest one, it splits the strings of `input_list` into substrings
+    and a match object. For example, for regex: \d+ applied to `input_list` ['V320A'], it would return ['V', Match Object matching 320, 'A'].
+
+    The function is recursive, since `input_list` changes every time that a match is substituted.
+
+    Example input:
+
+    regex_patterns = ['\d+', '[a-zA-Z]']
+    input_list = ['A321B**']
+    matches = []
+
+    returns: [<re.Match for 'A'>, <re.Match for '321'>, <re.Match for 'B'>, '**']
+    """
+    # The output, that will be identical to input_list if no pattern is found.
+    out_list = list()
+    for allele_substring in input_list:
+
+        # If the element is not a string, we include it as is.
+        if type(allele_substring) != str:
+            out_list.append(allele_substring)
+            continue
+
+        # If matches are not provided, we find them with regex, not only the match, but also we check the syntax rule further_check function.
+        if len(match_groups) == 0:
+            for syntax_rule in syntax_rules:
+                match_groups += [(match, syntax_rule) for match in re.finditer(syntax_rule.regex, allele_substring) if syntax_rule.further_check(match.groups())]
+            # We sort the matches, to replace the longest matching ones first.
+            match_groups.sort(key=lambda match_group: len(match_group[0].group()), reverse=True)
+
+        for match_group in match_groups:
+            if match_group[0].group() in allele_substring:
+                this_list = replace_substring_by_match_group(allele_substring, match_group)
+                # Recursion
+                this_list = replace_allele_features_with_syntax_rules(
+                    syntax_rules, this_list, match_groups)
                 break
         else:
             # If none of the matches is in the allele_substring, we just return it as is.
@@ -79,32 +130,6 @@ def build_regex2syntax_rule(syntax_rules: list[SyntaxRule]) -> dict[str, SyntaxR
     return out_dict
 
 
-def sort_result(input_list: list[str, re.Match]) -> tuple[list[re.Match], list[str]]:
-    """
-    See docstring of `replace_allele_features` for relevant example. From the output of that function:
-
-    input_list = [<re.Match for 'A'>, <re.Match for '321'>, <re.Match for 'B'>, '**']
-
-    Returns two lists:
-        * matches: list of re.matches only, in their appearing order
-        * unmatched: list of unmatched strings, excluding those that are only made of symbols (matched by regex ^[^a-zA-Z\d]+$)
-
-    For the example, it would return:
-    matches = [<re.Match for 'A'>, <re.Match for '321'>, <re.Match for 'B'>]
-    unmatched = [] # because '**' matches '^[^a-zA-Z\d]+$'
-    """
-    matches = list()
-    unmatched = list()
-    for r in input_list:
-        # This is a match
-        if type(r) != str:
-            matches.append(r)
-        # This is a string that has letters or digits in it, so we can't skip it
-        elif not re.match('^[^a-zA-Z\d]+$', r):
-            unmatched.append(r)
-    return matches, unmatched
-
-
 def get_allele_parts_from_result(result):
     """The result parts, excluding non-digit non-letter characters."""
     allele_parts = list()
@@ -113,25 +138,25 @@ def get_allele_parts_from_result(result):
             if not re.match('^[^a-zA-Z\d]+$', r):
                 allele_parts.append(r)
         else:
-            allele_parts.append(r.group())
+            allele_parts.append(r[0].group())
 
     return allele_parts
 
 
-def check_allele_description(allele_description, syntax_rules, allele_type, allowed_types, gene):
+def check_allele_description(allele_description, syntax_rules: list[SyntaxRule], allele_type, allowed_types, gene):
     """
     Use replace_allele_features to identify patterns based on syntax rules, then validate
     the content of those patterns based on the grammar rules, and return output. See the
     example from test_data/allele_expected_results.tsv
     """
-    regex2syntax_rule = build_regex2syntax_rule(syntax_rules)
 
-    result = replace_allele_features(list(regex2syntax_rule.keys()), [allele_description], [])
-
+    result = replace_allele_features_with_syntax_rules(syntax_rules, [allele_description], [])
     allele_parts = get_allele_parts_from_result(result)
 
     # Extract the matched and unmatched elements
-    matches, unmatched = sort_result(result)
+    match_groups: list[tuple[re.Match, SyntaxRule]] = list(filter(lambda x: type(x) != str, result))
+    # The regex excludes non-digit non-letter characters
+    unmatched = list(filter(lambda x: type(x) == str and not re.match('^[^a-zA-Z\d]+$', x), result))
 
     output_dict = {
         'allele_parts': '',
@@ -150,27 +175,25 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
 
     # Very special case, in which the allele description contains no alphanumeric characters
     # and therefore both matches and unmatched are empty (see sort_result function)
-    if len(matches) == 0:
+    if len(match_groups) == 0:
         output_dict['pattern_error'] = allele_description
         return output_dict
 
     # By default empty strings
-    allele_part_types = ['' for m in matches]
-    correct_name_list = ['' for m in matches]
-    sequence_error_list = ['' for m in matches]
-    rules_applied = ['' for m in matches]
+    allele_part_types = ['' for m in match_groups]
+    correct_name_list = ['' for m in match_groups]
+    sequence_error_list = ['' for m in match_groups]
+    rules_applied = ['' for m in match_groups]
 
-    # Debug line
-    # print(allele_description, matches[0].groups())
-    for i, match in enumerate(matches):
-
-        syntax_rule = regex2syntax_rule[match.re.pattern]
+    for i, match_group in enumerate(match_groups):
+        syntax_rule = match_group[1]
+        groups_from_match = match_group[0].groups()
         allele_part_types[i] = syntax_rule.type
 
         rules_applied[i] = f'{syntax_rule.type}:{syntax_rule.rule_name}'
 
-        sequence_error_list[i] = syntax_rule.check_sequence(match.groups(), gene)
-        correct_name_list[i] = syntax_rule.apply_syntax(match.groups())
+        sequence_error_list[i] = syntax_rule.check_sequence(groups_from_match, gene)
+        correct_name_list[i] = syntax_rule.apply_syntax(groups_from_match)
 
     encountered_types = frozenset(allele_part_types)
     correct_type = allowed_types[encountered_types]

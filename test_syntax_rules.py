@@ -1,8 +1,10 @@
-from models import SyntaxRule
-from grammar import aminoacid_grammar, allowed_types, nucleotide_grammar, aminoacid_grammar_new, transition_aminoacid_grammar, transition_nucleotide_grammar
+from models import SyntaxRule, AllowedTypes
+from grammar import aminoacid_grammar, allowed_types_dict, composed_types_dict, nucleotide_grammar, aminoacid_grammar_new, transition_aminoacid_grammar, transition_nucleotide_grammar
 from refinement_functions import check_allele_description
 
 import unittest
+
+allowed_types = AllowedTypes(allowed_types=allowed_types_dict, composed_types=composed_types_dict)
 
 
 class SyntaxRulesTest(unittest.TestCase):
@@ -47,5 +49,5 @@ class SyntaxRulesTest(unittest.TestCase):
                         print(output)
                         red='\033[0;31m'
                         no_color='\033[0m'
-                        print(red + f'> error in file {f} line {line_nb}:' + line.strip() + no_color)
+                        print(red + f'> error in file {f} line {line_nb + 2}:' + line.strip() + no_color)
                         raise
