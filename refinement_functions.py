@@ -157,7 +157,6 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
     # By default empty strings
     allele_part_types = ['' for m in matches]
     correct_name_list = ['' for m in matches]
-    invalid_error_list = ['' for m in matches]
     sequence_error_list = ['' for m in matches]
     rules_applied = ['' for m in matches]
 
@@ -169,10 +168,6 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
         allele_part_types[i] = syntax_rule.type
 
         rules_applied[i] = f'{syntax_rule.type}:{syntax_rule.rule_name}'
-
-        invalid_error_list[i] = syntax_rule.check_invalid(match.groups())
-        if invalid_error_list[i]:
-            continue
 
         sequence_error_list[i] = syntax_rule.check_sequence(match.groups(), gene)
         correct_name_list[i] = syntax_rule.apply_syntax(match.groups())
@@ -188,7 +183,6 @@ def check_allele_description(allele_description, syntax_rules, allele_type, allo
         output_dict['change_description_to'] = correct_name
 
     output_dict['rules_applied'] = '|'.join(rules_applied) if any(rules_applied) else ''
-    output_dict['invalid_error'] = '|'.join(invalid_error_list) if any(invalid_error_list) else ''
     output_dict['sequence_error'] = '|'.join(sequence_error_list) if any(sequence_error_list) else ''
     output_dict['allele_parts'] = '|'.join(allele_parts) if any(allele_parts) else ''
 

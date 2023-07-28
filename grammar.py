@@ -126,7 +126,6 @@ aminoacid_grammar = [
         'rule_name': 'single_aa',
         'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
         'coordinate_indexes': (1,)
     },
@@ -136,7 +135,6 @@ aminoacid_grammar = [
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
         'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
         'coordinate_indexes': (1,)
     },
@@ -145,7 +143,6 @@ aminoacid_grammar = [
         'rule_name': 'stop_codon_text',
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
         'coordinate_indexes': (1,)
     },
@@ -221,7 +218,6 @@ nucleotide_grammar = [
         # Negative numbers are common
         'regex': f'(?<=\\b)({nt}){num}({nt})(?=\\b)',
         'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna')
     },
     {
@@ -238,7 +234,6 @@ nucleotide_grammar = [
         # Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
         'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)(?=\\b)',
         'apply_syntax': lambda g: ('-'.join(format_negatives(g, [1]))).upper().replace('U', 'T'),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
     },
     {
@@ -246,7 +241,6 @@ nucleotide_grammar = [
         'rule_name': 'usual',
         'regex': f'(?<!{nt}){num}\s*[-–]\s*{num}(?!{nt})',
         'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=lambda x: int(x.replace('(', '').replace(')', ''))), [0, 1])).upper(),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
     },
     {
@@ -300,7 +294,6 @@ transition_aminoacid_grammar = [
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion)
         'regex': f'(?<=\\b)({aa}{aa}+)-?(\d+)-?({aa}+)(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
         'coordinate_indexes': (1,)
     },
@@ -351,7 +344,6 @@ transition_nucleotide_grammar = [
         # Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
         'regex': f'({nt}{nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)(?=\\b)',
         'apply_syntax': lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T'),
-        'check_invalid': lambda g: '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
     },
     # We split the insertion into two cases, one where a single nt is inserted, in which the dash

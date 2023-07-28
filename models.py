@@ -12,7 +12,6 @@ class SyntaxRule(BaseModel):
     rule_name: str
     regex: str
     apply_syntax: Callable[[list[str]], str] = lambda g: ''
-    check_invalid: Callable[[list[str]], str] = lambda g: ''
     check_sequence: Callable[[list[str], dict], str] = lambda g, gg: ''
     coordinate_indexes: tuple[int, ...] = ()
 
