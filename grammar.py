@@ -23,6 +23,8 @@ allowed_types_dict = {
 composed_types_dict = {
     'amino_acid_insertion_and_mutation': ['amino_acid_insertion', 'amino_acid_mutation'],
     'amino_acid_deletion_and_mutation': ['amino_acid_mutation', 'partial_amino_acid_deletion'],
+    'nucleotide_insertion_and_mutation': ['nucleotide_insertion', 'nucleotide_mutation'],
+    'nucleotide_deletion_and_mutation': ['nucleotide_mutation', 'partial_nucleotide_deletion'],
 }
 
 
@@ -366,9 +368,8 @@ for rule in nucleotide_grammar:
 # New grammars - here there are a lot of re-used regex, so we use variables to avoid repetition
 
 multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
-multi_residue_apply_syntax = lambda g: ''.join(g).upper()
+multi_aa_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
-multi_nt_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
 
 aminoacid_grammar_new = [
     {
@@ -383,7 +384,7 @@ aminoacid_grammar_new = [
         'type': 'amino_acid_mutation',
         'rule_name': 'multiple_aa',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_residue_apply_syntax,
+        'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # It is only a mutation if the number of aminoacids before and after is the same
         'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2])
@@ -392,7 +393,7 @@ aminoacid_grammar_new = [
         'type': 'amino_acid_deletion_and_mutation',
         'rule_name': 'multiple_aa',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_residue_apply_syntax,
+        'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
         'further_check': lambda g: len(g[0]) > len(g[2])
@@ -401,7 +402,7 @@ aminoacid_grammar_new = [
         'type': 'amino_acid_insertion_and_mutation',
         'rule_name': 'multiple_aa',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_residue_apply_syntax,
+        'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # We don't want to account insertions here
         'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0]))
@@ -410,9 +411,8 @@ aminoacid_grammar_new = [
         'type': 'amino_acid_insertion',
         'rule_name': 'standard',
         'regex': multi_aa_regex,
-        'apply_syntax': multi_residue_apply_syntax,
+        'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
-        # We don't want to account insertions here
         'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0]))
     },
     {
@@ -443,4 +443,77 @@ aminoacid_grammar_new = [
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide'),
     }
+]
+
+
+# Cases contemplated in the below regex:
+# AA-23-TT (positive number correctly formatted)
+# AA-(-23)-TT (negative number correctly formatted)
+# AA23TT (positive number without dashes)
+# AA-23TT (negative number without dashes nor parenthesis)
+# AA(-23)TT (negative number without dashes)
+# AA--23-TT (negative number without parenthesis)
+# Note the use of positive and negative lookahead / lookbehind for dashes to include both cases
+multi_nt_regex = f'({nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+\))(?!-))-?({nt}+)(?=\\b)'
+multi_nt_apply_syntax = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
+multi_nt_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
+
+nucleotide_grammar_new = [
+    {
+        'type': 'nucleotide_mutation',
+        'rule_name': 'single_nt',
+        # Negative numbers are common
+        'regex': f'(?<=\\b)({nt}){num}({nt})(?=\\b)',
+        'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna')
+    },
+    {
+        'type': 'nucleotide_mutation',
+        'rule_name': 'multiple_nt',
+        'regex': multi_nt_regex,
+        'apply_syntax': multi_nt_apply_syntax,
+        'check_sequence': multi_nt_check_sequence,
+        # It is only a mutation if the number of nts before and after is the same
+        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2])
+    },
+    {
+        'type': 'nucleotide_deletion_and_mutation',
+        'rule_name': 'multiple_nt',
+        'regex': multi_nt_regex,
+        'apply_syntax': multi_nt_apply_syntax,
+        'check_sequence': multi_nt_check_sequence,
+        # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
+        'further_check': lambda g: len(g[0]) > len(g[2])
+    },
+    {
+        'type': 'nucleotide_insertion_and_mutation',
+        'rule_name': 'multiple_nt',
+        'regex': multi_nt_regex,
+        'apply_syntax': multi_nt_apply_syntax,
+        'check_sequence': multi_nt_check_sequence,
+        # We don't want to account insertions here
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0]))
+    },
+    {
+        'type': 'nucleotide_insertion',
+        'rule_name': 'standard',
+        'regex': multi_nt_regex,
+        'apply_syntax': multi_nt_apply_syntax,
+        'check_sequence': multi_nt_check_sequence,
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0]))
+    },
+    {
+        'type': 'partial_nucleotide_deletion',
+        'rule_name': 'usual',
+        'regex': f'(?<!{nt}){num}\s*[-–]\s*{num}(?!{nt})',
+        'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=lambda x: int(x.replace('(', '').replace(')', ''))), [0, 1])).upper(),
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
+    },
+    {
+        'type': 'partial_nucleotide_deletion',
+        'rule_name': 'single_nt',
+        'regex': f'(?<!{nt}){num}(?!{nt})',
+        'apply_syntax': lambda g: format_negatives(g, [0])[0],
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
+    },
 ]

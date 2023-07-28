@@ -1,5 +1,5 @@
 from models import SyntaxRule, AllowedTypes
-from grammar import aminoacid_grammar, allowed_types_dict, composed_types_dict, nucleotide_grammar, aminoacid_grammar_new, transition_aminoacid_grammar, transition_nucleotide_grammar
+from grammar import aminoacid_grammar, allowed_types_dict, composed_types_dict, nucleotide_grammar, aminoacid_grammar_new, transition_aminoacid_grammar, transition_nucleotide_grammar, nucleotide_grammar_new
 from refinement_functions import check_allele_description
 
 import unittest
@@ -15,7 +15,8 @@ class SyntaxRulesTest(unittest.TestCase):
             ('test_data/aminoacid_alleles_transition.tsv', transition_aminoacid_grammar),
             ('test_data/aminoacid_alleles_new.tsv', aminoacid_grammar_new),
             ('test_data/nucleotide_alleles_fixable.tsv', nucleotide_grammar),
-            ('test_data/nucleotide_alleles_transition.tsv', transition_nucleotide_grammar)
+            ('test_data/nucleotide_alleles_transition.tsv', transition_nucleotide_grammar),
+            ('test_data/nucleotide_alleles_new.tsv', nucleotide_grammar_new)
         ]
         for f, grammar in file_grammar_pairs:
             syntax_rules = [SyntaxRule.parse_obj(r) for r in grammar]
