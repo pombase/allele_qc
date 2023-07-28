@@ -13,6 +13,7 @@ class SyntaxRule(BaseModel):
     regex: str
     apply_syntax: Callable[[list[str]], str] = lambda g: ''
     check_sequence: Callable[[list[str], dict], str] = lambda g, gg: ''
+    further_check: Callable[[list[str], dict], str] = lambda g, gg: ''
 
 
 def find_rule(grammar: list[SyntaxRule], rule_type, rule_name) -> SyntaxRule:
