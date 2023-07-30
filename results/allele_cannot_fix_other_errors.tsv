@@ -75,7 +75,6 @@ SPBC216.07c	tor2-ts6	asked	pattern_error	asked
 SPBC23E6.07c	rfc1-47	676-HLGAP	pattern_error	-HLGAP
 SPBC23E6.07c	rfc1-50	871-VGVPH	pattern_error	-VGVPH
 SPBC28F2.12	rpb1-CTD-(S2A-S7A)	CTD-S2A,S7A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-P3.P3A	(CTD)P3A(alternating)	pattern_error	(CTD),(alternating)
 SPBC28F2.12	rpb1-CTD-P3.P3A	CTD-P3.P3A(alternating)	pattern_error	CTD-P3.,(alternating)
 SPBC28F2.12	rpb1-CTD-P6.P6A	(CTD)P6A(alternating)	pattern_error	(CTD),(alternating)
 SPBC28F2.12	rpb1-CTD-P6.P6A	CTD-P6.P6A(alternating)	pattern_error	CTD-P6.,(alternating)
