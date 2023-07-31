@@ -30,7 +30,7 @@ class TransitionGrammarsTest(unittest.TestCase):
 
         extra_cols = allele_data.apply(lambda row: check_fun(row, genome, syntax_rules_aminoacids_old2new, syntax_rules_nucleotides_old2new, syntax_rules_disruption, allowed_types), axis=1, result_type='expand')
         new_fixes = pandas.concat([allele_data, extra_cols], axis=1)
-        
+
         # Keep only those with corrections
         new_fixes = new_fixes[(new_fixes['change_description_to'] != '') & (new_fixes['pattern_error'] == '') & (new_fixes['invalid_error'] == '')]
         original_names = new_fixes['allele_description']
@@ -40,5 +40,4 @@ class TransitionGrammarsTest(unittest.TestCase):
         # revert the transition
         new_fixes.fillna('', inplace=True)
         extra_cols = new_fixes.apply(lambda row: check_fun(row, genome, syntax_rules_aminoacids_new2old, syntax_rules_nucleotides_new2old, syntax_rules_disruption, allowed_types), axis=1, result_type='expand')
-        pandas.concat([new_fixes, extra_cols], axis=1).to_csv('dummy.tsv', sep='\t', index=False)
         self.assertEqual(list(extra_cols['change_description_to']), list(original_names))

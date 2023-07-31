@@ -1,7 +1,7 @@
 import sys
 import pandas
 from refinement_functions import check_allele_description
-from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar
+from grammar import allowed_types, aminoacid_grammar_old, nucleotide_grammar_old
 from models import SyntaxRule
 import pickle
 
@@ -9,8 +9,8 @@ import pickle
 def main(input_file):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
-    syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
+    syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar_old]
+    syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar_old]
     data = pandas.read_csv(input_file, sep='\t')
     data.fillna('', inplace=True)
     for i, line in data.iterrows():

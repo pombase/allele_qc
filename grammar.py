@@ -127,7 +127,7 @@ aa = 'GPAVLIMCFYWHKRQNEDST'
 aa = aa + aa.lower()
 aa = f'[{aa}]'
 
-aminoacid_grammar = [
+aminoacid_grammar_old = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'single_aa',
@@ -210,7 +210,7 @@ nt = f'[{nt}]'
 # negative numbers with parenthesis
 num = '(\(-\d+\)|(?<!\()-?\d+(?!\)))'
 
-nucleotide_grammar = [
+nucleotide_grammar_old = [
     {
         'type': 'nucleotide_mutation',
         'rule_name': 'single_nt',
@@ -285,7 +285,7 @@ multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
 multi_aa_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
 
-aminoacid_grammar_new = [
+aminoacid_grammar = [
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'single_aa',
@@ -372,7 +372,7 @@ multi_nt_regex = f'({nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+
 multi_nt_apply_syntax = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
 multi_nt_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
 
-nucleotide_grammar_new = [
+nucleotide_grammar = [
     {
         'type': 'nucleotide_mutation',
         'rule_name': 'single_nt',
@@ -435,7 +435,7 @@ nucleotide_grammar_new = [
 # Transition grammars ==================================================
 
 # This grammar recognises the old syntax, and apply_syntax applies the new style
-transition_old2new_aminoacid_grammar = copy.deepcopy(aminoacid_grammar)
+transition_old2new_aminoacid_grammar = copy.deepcopy(aminoacid_grammar_old)
 
 for rule in transition_old2new_aminoacid_grammar:
     if rule['type'] == 'amino_acid_mutation' and rule['rule_name'] == 'multiple_aa':
@@ -445,7 +445,7 @@ for rule in transition_old2new_aminoacid_grammar:
 
 
 # Same for nucleotides
-transition_old2new_nucleotide_grammar = copy.deepcopy(nucleotide_grammar)
+transition_old2new_nucleotide_grammar = copy.deepcopy(nucleotide_grammar_old)
 for rule in transition_old2new_nucleotide_grammar:
     if rule['type'] == 'nucleotide_mutation' and rule['rule_name'] == 'multiple_nt':
         rule['apply_syntax'] = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
@@ -453,14 +453,14 @@ for rule in transition_old2new_nucleotide_grammar:
         rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
 
 
-transition_new2old_aminoacid_grammar = copy.deepcopy(aminoacid_grammar_new)
+transition_new2old_aminoacid_grammar = copy.deepcopy(aminoacid_grammar)
 for rule in transition_new2old_aminoacid_grammar:
     if rule['rule_name'] == 'multiple_aa':
         rule['apply_syntax'] = lambda g: '-'.join(g).upper()
     elif rule['type'] == 'amino_acid_insertion':
         rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}-{g[2][1:]}'.upper()
 
-transition_new2old_nucleotide_grammar = copy.deepcopy(nucleotide_grammar_new)
+transition_new2old_nucleotide_grammar = copy.deepcopy(nucleotide_grammar)
 for rule in transition_new2old_nucleotide_grammar:
     if rule['rule_name'] == 'multiple_nt':
         rule['apply_syntax'] = lambda g: ('-'.join(format_negatives(g, [1]))).upper().replace('U', 'T')
