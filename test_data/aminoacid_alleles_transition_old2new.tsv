@@ -1,0 +1,63 @@
+allele_type	allele_description	change_description_to	change_type_to	invalid_error
+
+## amino_acid_mutation:single_aa
+
+amino_acid_mutation	A23V
+
+partial_amino_acid_deletion	A23V		amino_acid_mutation
+
+
+## amino_acid_mutation:multiple_aa
+
+amino_acid_mutation	AA-23-VV	AA23VV
+amino_acid_mutation	AA23VV
+amino_acid_mutation	AA-23VV	AA23VV
+amino_acid_mutation	AA23-VV	AA23VV
+
+# This should change the type, but it does not on the first run
+amino_acid_mutation	AA-23-VVV	AA23VVV
+amino_acid_mutation	AA23VVV
+amino_acid_mutation	AAA-23-VV	AAA23VV
+amino_acid_mutation	AAA23VV
+
+# It can fix both the syntax and the type
+partial_amino_acid_deletion	AA-23-VV	AA23VV	amino_acid_mutation
+
+## nonsense_mutation
+
+nonsense_mutation	A123stop	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123ochre	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123amber	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123opal	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123-opal	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123->opal	A123*	partial_amino_acid_deletion
+nonsense_mutation	A123*		partial_amino_acid_deletion
+
+## partial_amino_acid_deletion:multiple_aa
+
+partial_amino_acid_deletion	196-245
+partial_amino_acid_deletion	196 -245	196-245
+# fix the weird dash character
+partial_amino_acid_deletion	196–245	196-245
+
+## partial_amino_acid_deletion:single_aa
+partial_amino_acid_deletion	196
+
+## amino_acid_insertion
+amino_acid_insertion	A123VVVV	A123AVVVV
+amino_acid_insertion	A123-VVVV	A123AVVVV
+
+## single insertion is not messed up
+amino_acid_mutation	A123V
+amino_acid_insertion	A123-V	A123AV
+
+## combined types
+amino_acid_deletion_and_mutation	196-245,A123V
+amino_acid_deletion_and_mutation	196-245 A123V	196-245,A123V
+amino_acid_deletion_and_mutation	196-245, A123V	196-245,A123V
+
+amino_acid_insertion_and_deletion	A123-VVVV,196-245	A123AVVVV,196-245
+
+amino_acid_insertion_and_mutation	A123-VVVV,A421V	A123AVVVV,A421V
+
+unknown	unknown				unknown

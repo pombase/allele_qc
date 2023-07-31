@@ -1,5 +1,8 @@
 from models import SyntaxRule, AllowedTypes
-from grammar import aminoacid_grammar, allowed_types_dict, composed_types_dict, nucleotide_grammar, aminoacid_grammar_new, transition_old2new_aminoacid_grammar, transition_old2new_nucleotide_grammar, nucleotide_grammar_new
+from grammar import aminoacid_grammar, allowed_types_dict, composed_types_dict, nucleotide_grammar,\
+    aminoacid_grammar_new, transition_old2new_aminoacid_grammar, transition_old2new_nucleotide_grammar, nucleotide_grammar_new,\
+    transition_new2old_aminoacid_grammar, transition_new2old_nucleotide_grammar
+
 from refinement_functions import check_allele_description
 
 import unittest
@@ -12,10 +15,12 @@ class SyntaxRulesTest(unittest.TestCase):
     def test_syntax_rules(self):
         file_grammar_pairs = [
             ('test_data/aminoacid_alleles_fixable.tsv', aminoacid_grammar),
-            ('test_data/aminoacid_alleles_transition.tsv', transition_old2new_aminoacid_grammar),
+            ('test_data/aminoacid_alleles_transition_old2new.tsv', transition_old2new_aminoacid_grammar),
+            ('test_data/aminoacid_alleles_transition_new2old.tsv', transition_new2old_aminoacid_grammar),
             ('test_data/aminoacid_alleles_new.tsv', aminoacid_grammar_new),
             ('test_data/nucleotide_alleles_fixable.tsv', nucleotide_grammar),
-            ('test_data/nucleotide_alleles_transition.tsv', transition_old2new_nucleotide_grammar),
+            ('test_data/nucleotide_alleles_transition_old2new.tsv', transition_old2new_nucleotide_grammar),
+            ('test_data/nucleotide_alleles_transition_new2old.tsv', transition_new2old_nucleotide_grammar),
             ('test_data/nucleotide_alleles_new.tsv', nucleotide_grammar_new)
         ]
         for f, grammar in file_grammar_pairs:

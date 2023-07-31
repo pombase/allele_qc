@@ -160,16 +160,16 @@ aminoacid_grammar = [
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'multiple_aa',
-        'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
-        'apply_syntax': lambda g: '-'.join(sorted(g[:2], key=int)).upper(),
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide'),
+        'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(?:\s+Δaa)?',
+        'apply_syntax': lambda g: '-'.join(sorted(g, key=int)).upper(),
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
     },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'single_aa',
-        'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
+        'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide'),
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
     },
     # We split the insertion into two cases, one where a single aminoacid is inserted, in which the dash
     # is compulsory, and one where the dash is optional, for more than one. Otherwise A123V would match
@@ -346,16 +346,16 @@ aminoacid_grammar_new = [
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'multiple_aa',
-        'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(\s+Δaa)?',
-        'apply_syntax': lambda g: '-'.join(sorted(g[:2], key=int)).upper(),
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:2], gene, 'peptide'),
+        'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(?:\s+Δaa)?',
+        'apply_syntax': lambda g: '-'.join(sorted(g, key=int)).upper(),
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
     },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'single_aa',
-        'regex': f'(?<!{aa})(\d+)(?!{aa})(\s+Δaa)?',
+        'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'peptide'),
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
     }
 ]
 
@@ -440,9 +440,7 @@ transition_old2new_aminoacid_grammar = copy.deepcopy(aminoacid_grammar)
 for rule in transition_old2new_aminoacid_grammar:
     if rule['type'] == 'amino_acid_mutation' and rule['rule_name'] == 'multiple_aa':
         rule['apply_syntax'] = lambda g: ''.join(g).upper()
-    elif rule['type'] == 'amino_acid_insertion' and rule['rule_name'] == 'single':
-        rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper()
-    elif rule['type'] == 'amino_acid_insertion' and rule['rule_name'] == 'multiple':
+    elif rule['type'] == 'amino_acid_insertion':
         rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper()
 
 
@@ -451,7 +449,21 @@ transition_old2new_nucleotide_grammar = copy.deepcopy(nucleotide_grammar)
 for rule in transition_old2new_nucleotide_grammar:
     if rule['type'] == 'nucleotide_mutation' and rule['rule_name'] == 'multiple_nt':
         rule['apply_syntax'] = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
-    elif rule['type'] == 'nucleotide_insertion' and rule['rule_name'] == 'single':
+    elif rule['type'] == 'nucleotide_insertion':
         rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
-    elif rule['type'] == 'nucleotide_insertion' and rule['rule_name'] == 'multiple':
-        rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
+
+
+transition_new2old_aminoacid_grammar = copy.deepcopy(aminoacid_grammar_new)
+for rule in transition_new2old_aminoacid_grammar:
+    if rule['rule_name'] == 'multiple_aa':
+        rule['apply_syntax'] = lambda g: '-'.join(g).upper()
+    elif rule['type'] == 'amino_acid_insertion':
+        rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}-{g[2][1:]}'.upper()
+
+transition_new2old_nucleotide_grammar = copy.deepcopy(nucleotide_grammar_new)
+for rule in transition_new2old_nucleotide_grammar:
+    if rule['rule_name'] == 'multiple_nt':
+        rule['apply_syntax'] = lambda g: ('-'.join(format_negatives(g, [1]))).upper().replace('U', 'T')
+    elif (rule['type'] == 'nucleotide_insertion'):
+        rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}-{g[2][1:]}'.upper().replace('U', 'T')
+
