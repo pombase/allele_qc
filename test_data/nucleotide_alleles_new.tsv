@@ -1,0 +1,64 @@
+allele_type	allele_description	change_description_to	change_type_to	invalid_error	pattern_error
+
+## nucleotide_mutation:single_aa
+
+nucleotide_mutation	T23A
+nucleotide_mutation	U23A	T23A
+nucleotide_mutation	T-23A	T(-23)A
+nucleotide_mutation	T(-23)A
+nucleotide_mutation	T(23)A				T(23)A
+partial_nucleotide_deletion	U23A	T23A	nucleotide_mutation
+
+## nucleotide_mutation:mutiple_nt
+
+nucleotide_mutation	AA-23-TT	AA23TT
+nucleotide_mutation	AA-(-23)-TT	AA(-23)TT
+nucleotide_mutation	AA23TT
+nucleotide_mutation	AA-23TT	AA(-23)TT
+nucleotide_mutation	AA(-23)TT
+nucleotide_mutation	AA--23-TT	AA(-23)TT
+nucleotide_mutation	AA23UU	AA23TT
+
+nucleotide_mutation	AA-23-TTT	AA23TTT	nucleotide_insertion_and_mutation
+nucleotide_mutation	AA-(-23)-TTT	AA(-23)TTT	nucleotide_insertion_and_mutation
+nucleotide_mutation	AA23TTT		nucleotide_insertion_and_mutation
+nucleotide_mutation	AA-23TTT	AA(-23)TTT	nucleotide_insertion_and_mutation
+nucleotide_mutation	AA(-23)TTT		nucleotide_insertion_and_mutation
+nucleotide_mutation	AA--23-TTT	AA(-23)TTT	nucleotide_insertion_and_mutation
+nucleotide_mutation	AA23UUU	AA23TTT	nucleotide_insertion_and_mutation
+
+nucleotide_mutation	AAA-23-TT	AAA23TT	nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA-(-23)-TT	AAA(-23)TT	nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA23TT		nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA-23TT	AAA(-23)TT	nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA(-23)TT		nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA--23-TT	AAA(-23)TT	nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA23UU	AAA23TT	nucleotide_deletion_and_mutation
+
+## deletions
+
+partial_nucleotide_deletion	123-140
+partial_nucleotide_deletion	(-123)-140
+partial_nucleotide_deletion	(-140)-123
+partial_nucleotide_deletion	(-140)-(-123)
+partial_nucleotide_deletion	-123-140	(-123)-140
+partial_nucleotide_deletion	123--140	(-140)-123
+partial_nucleotide_deletion	-123--140	(-140)-(-123)
+partial_nucleotide_deletion	(-123)-(-140)	(-140)-(-123)
+partial_nucleotide_deletion	123-(-140)	(-140)-123
+
+## nucleotide_insertion:usual -> some of these descriptions are no longer allowed, they could be confusing with minus symbols
+
+nucleotide_insertion	A123-AAAATT				A1,-AAAATT
+nucleotide_insertion	A123-AAAAUU				A1,-AAAAUU
+nucleotide_insertion	A(-123)-AAAATT				A(-,3)-AAAATT
+nucleotide_insertion	A123-AA				A1,-AA
+nucleotide_insertion	A(-123)-AA				A(-,3)-AA
+nucleotide_insertion	A-123-AA	A123AA
+nucleotide_insertion	A-123AA	A(-123)AA
+
+# Different number of residues before and after
+nucleotide_mutation	AA-23-TTT	AA23TTT	nucleotide_insertion_and_mutation
+nucleotide_mutation	AA23TTT		nucleotide_insertion_and_mutation
+nucleotide_mutation	AAA-23-TT	AAA23TT	nucleotide_deletion_and_mutation
+nucleotide_mutation	AAA23TT		nucleotide_deletion_and_mutation

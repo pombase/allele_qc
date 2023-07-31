@@ -9,15 +9,16 @@ Only the subset of alleles that needs fixing, only the columns 'allele_descripti
 results/allele_results_errors_summarised.tsv
 """
 
-from models import SyntaxRule
+from models import SyntaxRule, AllowedTypes
 from refinement_functions import check_allele_description
-from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar, disruption_grammar
+from grammar import allowed_types_dict, composed_types_dict, aminoacid_grammar_old, nucleotide_grammar_old, disruption_grammar
 import pickle
 import pandas
 import argparse
 from common_autofix_functions import print_warnings
 from genome_functions import process_systematic_id
 import re
+
 
 def empty_dict():
     """
@@ -109,9 +110,10 @@ if __name__ == '__main__':
         genome = pickle.load(ins)
 
     allele_data = pandas.read_csv(args.alleles, delimiter='\t', na_filter=False)
-    syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
-    syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
+    syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar_old]
+    syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar_old]
     syntax_rules_disruption = [SyntaxRule.parse_obj(r) for r in disruption_grammar]
+    allowed_types = AllowedTypes(allowed_types=allowed_types_dict, composed_types=composed_types_dict)
 
     extra_cols = allele_data.apply(lambda row: check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types), axis=1, result_type='expand')
     output_data = pandas.concat([allele_data, extra_cols], axis=1)

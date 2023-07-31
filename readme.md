@@ -89,9 +89,7 @@ aa = f'[{aa}]'
         # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
         'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
         'apply_syntax': lambda g: '-'.join(g).upper(),
-        'check_invalid': lambda g: f'lengths don\'t match: {g[0]}-{g[2]}' if len(g[0]) != len(g[2]) else '',
         'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
-        'coordinate_indexes': (1,)
     },
 ```
 
@@ -103,15 +101,11 @@ aa = f'[{aa}]'
 * `apply_syntax`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns the correctly-formatted mutation.
   * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP-120-AA`.
   * The function can be defined inline using `lambda`, or outside of the dictionary.
-* `check_invalid`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns a string describing an error, if a formatting error exists.
-  * In the example of `amino_acid_mutation:multiple_aa` an error is returned if the number of aminoacids before and after the number does not match, e.g. `CP120AAA`.
 * `check_sequence`: a function that takes two arguments:
   * A tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`
   * A "gene dictionary", see `load_genome.py`
 
     The function verifies that the proposed mutation is compatible with gene DNA or peptide sequence, and returns an error string otherwise (see examples in `grammar.py`).
-
-* `coordinate_indexes`: a tuple with the indexes of the regex groups that contain coordinates. This is used to update the allele coordinates if allele sequence changes.
 
 ### Defining allele categories
 
@@ -146,7 +140,7 @@ Takes the allele file as input (by default `data/alleles.tsv`), and generates a 
 * `change_description_to`: if the correct nomenclature differs from `allele_description`, `change_description_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
 * `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP-120-AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
 * `pattern_error`: contains the parts of the allele that are not picked up by any regular expression in the grammar.
-* `invalid_error`: output of the function `check_invalid` of each of the rules applied. E.g. for `KKRKK-71-NEHG` contains `lengths don't match: KKRKK-NEHG`.
+* `invalid_error`: if the systematic_id or sequence of a gene product is missing.
 * `sequence_error`: contains an error if the indicated position does not exist or if the aminoacid indicated at a certain position is not correct. Values to be homogenised in the future.
 * `change_type_to`: if `allele_type` is not right, contains the right type. This comes from using the `frozenset` in `grammar.py`.
 * `auto_fix_comment`: for alleles that can be auto-fixed, contains some info (e.g.):

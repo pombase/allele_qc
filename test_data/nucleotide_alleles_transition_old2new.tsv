@@ -1,0 +1,42 @@
+allele_type	allele_description	change_description_to	change_type_to	invalid_error	pattern_error
+
+## nucleotide_mutation:single_aa
+
+nucleotide_mutation	T23A
+nucleotide_mutation	U23A	T23A
+nucleotide_mutation	T-23A	T(-23)A
+nucleotide_mutation	T(-23)A
+nucleotide_mutation	T(23)A				T(23)A
+partial_nucleotide_deletion	U23A	T23A	nucleotide_mutation
+
+## nucleotide_mutation:mutiple_nt
+
+nucleotide_mutation	AA-23-TT	AA23TT
+nucleotide_mutation	AA-(-23)-TT	AA(-23)TT
+nucleotide_mutation	AA23TT
+nucleotide_mutation	AA-23TT	AA(-23)TT
+nucleotide_mutation	AA(-23)TT
+nucleotide_mutation	AA--23-TT	AA(-23)TT
+nucleotide_mutation	AA23UU	AA23TT
+
+## nucleotide_mutation:mutiple_nt
+
+partial_nucleotide_deletion	123-140
+partial_nucleotide_deletion	(-123)-140
+partial_nucleotide_deletion	(-140)-123
+partial_nucleotide_deletion	(-140)-(-123)
+partial_nucleotide_deletion	-123-140	(-123)-140
+partial_nucleotide_deletion	123--140	(-140)-123
+partial_nucleotide_deletion	-123--140	(-140)-(-123)
+partial_nucleotide_deletion	(-123)-(-140)	(-140)-(-123)
+partial_nucleotide_deletion	123-(-140)	(-140)-123
+
+## nucleotide_insertion:usual
+
+nucleotide_insertion	A123-AAATT	A123AAAATT
+nucleotide_insertion	A123-AAAUU	A123AAAATT
+nucleotide_insertion	A(-123)-AAATT	A(-123)AAAATT
+nucleotide_insertion	A-123-AAATT	A(-123)AAAATT
+nucleotide_insertion	A123-A	A123AA
+nucleotide_insertion	A(-123)-A	A(-123)AA
+nucleotide_insertion	A-123-A	A(-123)AA
