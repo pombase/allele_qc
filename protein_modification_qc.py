@@ -1,6 +1,7 @@
 import pandas
+from models import SyntaxRule
 from grammar import check_sequence_single_pos, aa
-from refinement_functions import replace_allele_features
+from refinement_functions import replace_allele_features_with_syntax_rules
 from genome_functions import process_systematic_id
 import pickle
 import re
@@ -19,23 +20,31 @@ def check_func(row, genome):
     if 'CDS' not in gene:
         return 'missing_CDS', ''
 
-    result = replace_allele_features([f'(?<!{aa})({aa})(\d+){aa}?'], [row['sequence_position']], [])
+    # We create a dummy syntax rule for the aa modifications (single aminoacid not preceded with an aminoacid, followed
+    # by number, and optionally followed by another aminoacid -sometimes people would write S123A to indicate that S123
+    # is phosphorylated- )
+    dummy_rule = SyntaxRule(
+        type='dummy',
+        rule_name='dummy',
+        regex=f'(?<!{aa})({aa})(\d+){aa}?',
+    )
+    result = replace_allele_features_with_syntax_rules([dummy_rule], [row['sequence_position']], [])
 
     # Extract the matched and unmatched elements
-    matches = filter(result, lambda x: type(x) != str)
+    match_groups: list[tuple[re.Match, SyntaxRule]] = list(filter(lambda x: type(x) != str, result))
     # The regex excludes non-digit non-letter characters
-    unmatched = filter(result, lambda x: type(x) == str and not re.match('^[^a-zA-Z\d]+$', x))
+    unmatched = list(filter(lambda x: type(x) == str and not re.match('^[^a-zA-Z\d]+$', x), result))
 
     if len(unmatched):
         return 'pattern_error', ''
 
-    correct_name = ','.join(''.join(match.groups()) for match in matches)
+    correct_name = ','.join(''.join(match_group[0].groups()) for match_group in match_groups)
 
     change_sequence_position_to = ''
     if correct_name != row['sequence_position']:
         change_sequence_position_to = correct_name
 
-    errors = [check_sequence_single_pos(match.groups(), gene, 'peptide') for match in matches]
+    errors = [check_sequence_single_pos(match_group[0].groups(), gene, 'peptide') for match_group in match_groups]
     return '|'.join(errors) if any(errors) else '', change_sequence_position_to
 
 

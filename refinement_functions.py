@@ -18,57 +18,6 @@ def replace_substring_by_match_group(input_str: str, match_group: tuple[re.Match
     return list(filter(lambda x: x != '', this_list))
 
 
-def replace_allele_features(regex_patterns: list[str], input_list: list[str, re.Match], matches: list[re.Match]) -> list[str, re.Match]:
-    """
-    Looks for matches to the regex patterns in `regex_patterns` in the strings in `input_list`,
-    if `matches` is an empty list. If `matches` is not empty, it uses those matches.
-
-    Then, for each match, starting from the longest one, it splits the strings of `input_list` into substrings
-    and a match object. For example, for regex: \d+ applied to `input_list` ['V320A'], it would return ['V', Match Object matching 320, 'A'].
-
-    The function is recursive, since `input_list` changes every time that a match is substituted.
-
-    Example input:
-
-    regex_patterns = ['\d+', '[a-zA-Z]']
-    input_list = ['A321B**']
-    matches = []
-
-    returns: [<re.Match for 'A'>, <re.Match for '321'>, <re.Match for 'B'>, '**']
-    """
-    # The output, that will be identical to input_list if no pattern is found.
-    out_list = list()
-    for allele_substring in input_list:
-
-        # If the element is a re.Match, we include it as is.
-        if type(allele_substring) == re.Match:
-            out_list.append(allele_substring)
-            continue
-
-        # If matches are not provided, we find them with regex
-        if len(matches) == 0:
-            for regex_pattern in regex_patterns:
-                matches += [*re.finditer(regex_pattern, allele_substring)]
-
-            # We sort the matches, to replace the longest matching ones first.
-            matches.sort(key=lambda match: len(match.group()), reverse=True)
-
-        for match in matches:
-            if match.group() in allele_substring:
-                this_list = replace_substring_by_match_group(allele_substring, match)
-                # Recursion
-                this_list = replace_allele_features(
-                    regex_patterns, this_list, matches)
-                break
-        else:
-            # If none of the matches is in the allele_substring, we just return it as is.
-            this_list = [allele_substring]
-
-        out_list += this_list
-
-    return out_list
-
-
 def replace_allele_features_with_syntax_rules(syntax_rules: list[SyntaxRule], input_list: list[str, re.Match], match_groups: list[tuple[re.Match, SyntaxRule]]) -> list[Union[str, tuple[re.Match, SyntaxRule]]]:
     """
     Looks for matches to the regex patterns in `regex_patterns` in the strings in `input_list`,

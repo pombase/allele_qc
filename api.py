@@ -3,8 +3,8 @@ import json
 from starlette.responses import RedirectResponse, PlainTextResponse, FileResponse
 from pydantic import BaseModel
 import pickle
-from grammar import allowed_types, aminoacid_grammar, nucleotide_grammar, disruption_grammar
-from models import SyntaxRule, find_rule
+from grammar import allowed_types_dict, composed_types_dict, aminoacid_grammar, nucleotide_grammar, disruption_grammar
+from models import SyntaxRule, find_rule, AllowedTypes
 from refinement_functions import check_allele_description, split_multiple_aa
 from enum import Enum
 from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as primer_mutagenesis_func
@@ -23,6 +23,7 @@ syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
 syntax_rules_disruption = [SyntaxRule.parse_obj(r) for r in disruption_grammar]
 multi_aa_rule = find_rule(syntax_rules_aminoacids, 'amino_acid_mutation', 'multiple_aa')
+allowed_types = AllowedTypes(allowed_types=allowed_types_dict, composed_types=composed_types_dict)
 
 
 class DNAorProtein(str, Enum):
