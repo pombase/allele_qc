@@ -279,31 +279,6 @@ disruption_grammar = [
 ]
 
 
-# Transition grammars ==================================================
-
-# This grammar recognises the old syntax, and apply_syntax applies the new style
-transition_old2new_aminoacid_grammar = copy.deepcopy(aminoacid_grammar)
-
-for rule in transition_old2new_aminoacid_grammar:
-    if rule['type'] == 'amino_acid_mutation' and rule['rule_name'] == 'multiple_aa':
-        rule['apply_syntax'] = lambda g: ''.join(g).upper()
-    elif rule['type'] == 'amino_acid_insertion' and rule['rule_name'] == 'single':
-        rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper()
-    elif rule['type'] == 'amino_acid_insertion' and rule['rule_name'] == 'multiple':
-        rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper()
-
-
-# Same for nucleotides
-transition_old2new_nucleotide_grammar = copy.deepcopy(aminoacid_grammar)
-for rule in transition_old2new_nucleotide_grammar:
-    if rule['type'] == 'nucleotide_mutation' and rule['rule_name'] == 'multiple_nt':
-        rule['apply_syntax'] = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
-    elif rule['type'] == 'nucleotide_insertion' and rule['rule_name'] == 'single':
-        rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
-    elif rule['type'] == 'nucleotide_insertion' and rule['rule_name'] == 'multiple':
-        rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
-
-
 # New grammars - here there are a lot of re-used regex, so we use variables to avoid repetition
 
 multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
@@ -456,3 +431,27 @@ nucleotide_grammar_new = [
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
     },
 ]
+
+# Transition grammars ==================================================
+
+# This grammar recognises the old syntax, and apply_syntax applies the new style
+transition_old2new_aminoacid_grammar = copy.deepcopy(aminoacid_grammar)
+
+for rule in transition_old2new_aminoacid_grammar:
+    if rule['type'] == 'amino_acid_mutation' and rule['rule_name'] == 'multiple_aa':
+        rule['apply_syntax'] = lambda g: ''.join(g).upper()
+    elif rule['type'] == 'amino_acid_insertion' and rule['rule_name'] == 'single':
+        rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper()
+    elif rule['type'] == 'amino_acid_insertion' and rule['rule_name'] == 'multiple':
+        rule['apply_syntax'] = lambda g: f'{g[0]}{g[1]}{g[0]}{g[2]}'.upper()
+
+
+# Same for nucleotides
+transition_old2new_nucleotide_grammar = copy.deepcopy(nucleotide_grammar)
+for rule in transition_old2new_nucleotide_grammar:
+    if rule['type'] == 'nucleotide_mutation' and rule['rule_name'] == 'multiple_nt':
+        rule['apply_syntax'] = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
+    elif rule['type'] == 'nucleotide_insertion' and rule['rule_name'] == 'single':
+        rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
+    elif rule['type'] == 'nucleotide_insertion' and rule['rule_name'] == 'multiple':
+        rule['apply_syntax'] = lambda g: f'{g[0]}{format_negatives(g[1:2],[0])[0]}{g[0]}{g[2]}'.upper().replace('U', 'T')
