@@ -121,36 +121,6 @@ SPAC30.03c	R210G	tsn1-R210G	amino_acid_mutation	R194G	tsn1-R194G		old_coords_fix
 SPAC30.03c	R211G	tsn1-R211G	amino_acid_mutation	R195G	tsn1-R195G		old_coords_fix, revision 20080123: complement(join(4394707..4394741,4394799..4394967,4395010..4395092,4395131..4395491,4395530..4395592))	R211		R211G	amino_acid_mutation:single_aa	PMID:20081200
 SPAC328.01c		msn5::ura4+	disruption	msn5::ura4			syntax_error			msn5::ura4+	disruption:usual	PMID:22496451
 SPAC343.08c	G31D	mrp17-810	amino_acid_mutation	G33D			old_coords_fix, revision 20110324: complement(join(1653288..1653306,1653356..1653606,1653724..1653783))	G31		G31D	amino_acid_mutation:single_aa	PMID:33823662
-SPAC3A12.14	E31V,E67V,E104V,E140V	cam1-E0	amino_acid_mutation	E13V,E49V,E86V,E122V			multi_shift_fix	E31|E67|E104|E140	0	E31V|E67V|E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V,E104V,E140V	cam1-E0	amino_acid_mutation	E33V,E69V,E106V,E142V			multi_shift_fix	E31|E67|E104|E140	1	E31V|E67V|E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V,E104V,E140V	cam1-E1	amino_acid_mutation	E49V,E86V,E122V			multi_shift_fix	E67|E104|E140	0	E67V|E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V,E104V,E140V	cam1-E1	amino_acid_mutation	E69V,E106V,E142V			multi_shift_fix	E67|E104|E140	1	E67V|E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E104V,E140V	cam1-E12	amino_acid_mutation	E86V,E122V			multi_shift_fix	E104|E140	0	E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E104V,E140V	cam1-E12	amino_acid_mutation	E106V,E142V			multi_shift_fix	E104|E140	1	E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E140V	cam1-E123	amino_acid_mutation	E122V			multi_shift_fix	E140	0	E140V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E140V	cam1-E123	amino_acid_mutation	E142V			multi_shift_fix	E140	1	E140V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E104V	cam1-E124	amino_acid_mutation	E86V			multi_shift_fix	E104	0	E104V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E104V	cam1-E124	amino_acid_mutation	E106V			multi_shift_fix	E104	1	E104V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V,E140V	cam1-E13	amino_acid_mutation	E49V,E122V			multi_shift_fix	E67|E140	0	E67V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V,E140V	cam1-E13	amino_acid_mutation	E69V,E142V			multi_shift_fix	E67|E140	1	E67V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V	cam1-E134	amino_acid_mutation	E49V			multi_shift_fix	E67	0	E67V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V	cam1-E134	amino_acid_mutation	E69V			multi_shift_fix	E67	1	E67V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E67V,E104V	cam1-E14	amino_acid_mutation	E49V,E86V			multi_shift_fix	E67|E104	0	E67V|E104V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644,PMID:9264467
-SPAC3A12.14	E67V,E104V	cam1-E14	amino_acid_mutation	E69V,E106V			multi_shift_fix	E67|E104	1	E67V|E104V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644,PMID:9264467
-SPAC3A12.14	E31V,E104V,E140V	cam1-E2	amino_acid_mutation	E13V,E86V,E122V			multi_shift_fix	E31|E104|E140	0	E31V|E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E104V,E140V	cam1-E2	amino_acid_mutation	E33V,E106V,E142V			multi_shift_fix	E31|E104|E140	1	E31V|E104V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E140V	cam1-E23	amino_acid_mutation	E13V,E122V			multi_shift_fix	E31|E140	0	E31V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E140V	cam1-E23	amino_acid_mutation	E33V,E142V			multi_shift_fix	E31|E140	1	E31V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V	cam1-E234	amino_acid_mutation	E13V			multi_shift_fix	E31	0	E31V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V	cam1-E234	amino_acid_mutation	E33V			multi_shift_fix	E31	1	E31V	amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E104V	cam1-E24	amino_acid_mutation	E13V,E86V			multi_shift_fix	E31|E104	0	E31V|E104V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E104V	cam1-E24	amino_acid_mutation	E33V,E106V			multi_shift_fix	E31|E104	1	E31V|E104V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V,E140V	cam1-E3	amino_acid_mutation	E13V,E49V,E122V			multi_shift_fix	E31|E67|E140	0	E31V|E67V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V,E140V	cam1-E3	amino_acid_mutation	E33V,E69V,E142V			multi_shift_fix	E31|E67|E140	1	E31V|E67V|E140V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V	cam1-E34	amino_acid_mutation	E13V,E49V			multi_shift_fix	E31|E67	0	E31V|E67V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V	cam1-E34	amino_acid_mutation	E33V,E69V			multi_shift_fix	E31|E67	1	E31V|E67V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V,E104V	cam1-E4	amino_acid_mutation	E13V,E49V,E86V			multi_shift_fix	E31|E67|E104	0	E31V|E67V|E104V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
-SPAC3A12.14	E31V,E67V,E104V	cam1-E4	amino_acid_mutation	E33V,E69V,E106V			multi_shift_fix	E31|E67|E104	1	E31V|E67V|E104V	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:7657644
 SPAC3C7.11c		cnx1::ura4+	disruption	cnx1::ura4			syntax_error			cnx1::ura4+	disruption:usual	PMID:7876257
 SPAC3F10.04	-365--234	gsa1--365--234	partial_nucleotide_deletion	(-365)-(-234)			syntax_error			-365--234	partial_nucleotide_deletion:usual	PMID:15529002
 SPAC3G6.01	994–1049	hrp3-deltaSANT	partial_amino_acid_deletion	994-1049			syntax_error			994–1049	partial_amino_acid_deletion:multiple_aa	PMID:33670267
