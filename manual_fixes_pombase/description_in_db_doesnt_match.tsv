@@ -14,13 +14,20 @@ SPBC28F2.12	rpb1-CTD-S2A29	all CTD S2 residues mutated to A	amino_acid_mutation	
 SPBC28F2.12	rpb1-CTD-S7A29	all CTD S7 residues mutated to A	amino_acid_mutation	PMID:33711009	rpb1-CTD-S7A	rpb1-CTD-S7A		
 SPBC28F2.12	rpb1-CTD-T4A29	all CTD T4 residues mutated to A	amino_acid_mutation	PMID:33711009	rpb1-CTD-T4A	rpb1-CTD-T4A		
 SPBC28F2.12	rpb1-CTD-Y1F29	all CTD Y1 residues mutated to F	amino_acid_mutation	PMID:33711009	rpb1-CTD-Y1F	rpb1-CTD-Y1F		
-SPCC970.01	swi9-136	E659K	nucleotide_mutation	PMID:8114734				
-SPNCRNA.98	srp7-A162	A162	nucleotide_mutation	PMID:8390662				
-SPAC644.06c	nim1-Cat	aa 1-354	partial_amino_acid_deletion	PMID:8515818				
-SPAC57A10.02	cdr2-S755A-758A	S755A,758A	amino_acid_mutation	PMID:24316795				
-SPAC20G4.02c	Fus1deltaIDR	Fus1delta(492-791)	partial_amino_acid_deletion	PMID:36202103				
-SPAC20G4.02c	fus1delta(492-500)	fus1delta(492-500)	partial_amino_acid_deletion	PMID:36202103				
-SPAC20G4.02c	fus1delta(492-749)	fus1delta(492-749)	partial_amino_acid_deletion	PMID:36202103				
-SPAC20G4.02c	fus1delta(501-749)	fus1delta(501-749)	partial_amino_acid_deletion	PMID:36202103				
-SPAC20G4.02c	fus1delta(501-791)	fus1delta(501-791)	partial_amino_acid_deletion	PMID:36202103			
-SPBC1A4.03c	top2-12KR	K1228,K1254,K1255,K1269,K1280,K1284,K1292,K1309,K1376,K1398,K1399,K1437	amino_acid_mutation	PMID:28343969
+SPCC970.01	swi9-136	E659K	nucleotide_mutation	PMID:8114734			amino_acid_mutation	
+SPNCRNA.98	srp7-A162	A162	nucleotide_mutation	PMID:8390662	A162C			
+SPAC644.06c	nim1-Cat	aa 1-354	partial_amino_acid_deletion	PMID:8515818	1-354			
+SPAC57A10.02	cdr2-S755A-758A	S755A,758A	amino_acid_mutation	PMID:24316795	S755A,S758A			
+SPAC20G4.02c	Fus1deltaIDR	Fus1delta(492-791)	partial_amino_acid_deletion	PMID:36202103	492-791			
+SPAC20G4.02c	fus1delta(492-500)	fus1delta(492-500)	partial_amino_acid_deletion	PMID:36202103	492-500			
+SPAC20G4.02c	fus1delta(492-749)	fus1delta(492-749)	partial_amino_acid_deletion	PMID:36202103	492-749			
+SPAC20G4.02c	fus1delta(501-749)	fus1delta(501-749)	partial_amino_acid_deletion	PMID:36202103	501-749			
+SPAC20G4.02c	fus1delta(501-791)	fus1delta(501-791)	partial_amino_acid_deletion	PMID:36202103	501-791			
+SPBC1A4.03c	top2-12KR	K1228,K1254,K1255,K1269,K1280,K1284,K1292,K1309,K1376,K1398,K1399,K1437	amino_acid_mutation	PMID:28343969	K1228R,K1254R,K1255R,K1269R,K1280R,K1284R,K1292R,K1309R,K1376R,K1398R,K1399R,K1437R
+SPBC28F2.12	rpb1-P3-P3A(1-29)	P3-P3A(1-29)	amino_acid_mutation	PMID:32282918	CTD-P3A(r2-r29-2)	rpb1-CTD-P3A(r2-r29-2)			
+SPBC28F2.12	rpb1-P6-P6A(1-29)	P6-P6A(1-29)	amino_acid_mutation	PMID:32282918	CTD-P6A(r2-r29-2)	rpb1-CTD-P6A(r2-r29-2)			
+SPAC27F1.09c	prp10-LLLFSLFQ-ins	LLLFSLFQ	amino_acid_insertion	PMID:32168916	K435-LLLFSLFQ			
+SPAC890.02c	alp7-5A(K341,Y344,R346,K347,Y348)	K341,Y344,R346,K347,Y348	amino_acid_mutation	PMID:29021344	K341A,Y344A,R346A,K347A,Y348A	alp7-5A		
+SPBC1778.02	rap1-BBM,S496E	1-489,496E	amino_acid_deletion_and_mutation	PMID:30462301	1-489,S496E			
+SPBC1778.02	rap1-BBM,S497E	1-489,497E	amino_acid_deletion_and_mutation	PMID:30462301	1-489,S497E			
+SPAC23C4.19	spt5-(T1A)7	CTR-T1A	amino_acid_mutation	PMID:32366382	CTD-T1A	spt5-CTD-T1A		
