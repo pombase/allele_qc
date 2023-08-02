@@ -162,8 +162,6 @@ SPNCRNA.9001	prt2delta-1	231 nt promoter and transcription start site deletion	p
 SPNCRNA.9001	prt2delta-2	749 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
 SPNCRNA.98	srp7-A162	A162	pattern_error	A1
 SPNCRNA.98	srp7-A163U,C169U6	A163U,C169U6	pattern_error	,C1,9U
-SPNCRNA.98	srp7-D4E-1	GC inserted after nt 158,GC inserted after nt 164	pattern_error	GC inserted after nt ,,GC inserted after nt 
-SPNCRNA.98	srp7-D4E-2	G160C,GC inserted after nt 158,GC inserted after nt 164	pattern_error	,GC inserted after nt ,,GC inserted after nt 
 SPNCRNA.98	srp7-G72A,G78A,G100A,G107A,Gl12A,G141A	G72A,G78A,G100A,G107A,Gl12A,G141A	pattern_error	,Gl,2A,
 SPNCRNA.98	srp7-U88G,delta84-88,omega8nt	U88G,nt84 deletion,8 nucleotides inserted after nt83	pattern_error	,nt, deletion,, nucleotides inserted after nt
 SPNCRNA.98	srp7-U88G,omegaUCGA	U88G,UCGA inserted after nt84	pattern_error	,UCGA inserted after nt8
