@@ -1,0 +1,6 @@
+systematic_id	allele_name	allele_description	allele_type	reference	change_description_to	change_name_to	change_type_to	comment_on_change	add_synonym	add_comment
+SPBC14C8.07c	cdc18-46	E521A,D524A	unknown	PMID:1934126			amino_acid_mutation
+SPBC409.05	skp1-A2	V102A	unknown	PMID:15147872			amino_acid_mutation
+SPBC409.05	skp1-A3	L113F	unknown	PMID:15147872			amino_acid_mutation
+SPCC576.15c	ksg1-208	G159E	unknown	PMID:10071224,PMID:12805221,PMID:14625898,PMID:22976295,PMID:24247430,PMID:35082773			amino_acid_mutation
+SPCC5E4.04	cut1-474	R977Q,G1042D	unknown	PMID:8395535			amino_acid_mutation
