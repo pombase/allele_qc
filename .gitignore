@@ -7,3 +7,12 @@ manual_fixes_pombase/*.tsv
 test_data/
 svn_protein_modification_files_corrected/
 data/phenotype_annotations.phaf
+lib_src/
+lib/
+transvar_main_script.py
+__pycache__/
+
+# Transvar database files
+data/pombe_genome.gtf.*
+data/pombe_genome.fa.fai
+data/transvar.cfg
