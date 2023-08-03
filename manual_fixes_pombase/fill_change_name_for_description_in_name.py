@@ -5,6 +5,7 @@ manual_changes = pandas.read_csv(sys.argv[1], sep="\t", na_filter=False)
 original_dataset = manual_changes.copy()
 column_order = list(original_dataset.columns)
 manual_changes.fillna('', inplace=True)
+manual_changes.to_csv('names_not_filled.tsv', sep="\t", index=False)
 
 # only the ones that did not have a value in change_name_to
 manual_changes = manual_changes[(manual_changes['change_name_to'] == '') & (manual_changes['change_description_to'] != '') & (manual_changes['allele_description'] != '')].copy()
