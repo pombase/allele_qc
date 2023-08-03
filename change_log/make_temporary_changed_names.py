@@ -4,7 +4,10 @@ import glob
 data_list = list()
 
 for f in glob.glob('allele_*.tsv'):
+    print(f)
     d = pandas.read_csv(f, sep='\t', na_filter=False)
+    if 'change_type_to' not in d:
+        d['change_type_to'] = ''
     if 'change_name_to' in d:
         data_list.append(d[['systematic_id', 'allele_name', 'change_name_to', 'change_type_to']])
 
