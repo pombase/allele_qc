@@ -30,6 +30,19 @@ def parse_transvar_string(transvar_str: str) -> list[TransvarAnnotation]:
     return [TransvarAnnotation.from_list(t.split('\t')) for t in transvar_list]
 
 
+class TransvarCustomString(str):
+    """Hacky class to circunvent https://github.com/zwdzwd/transvar/issues/59
+    """
+    def upper(self):
+        return self
+
+    def strip(self, __chars=None):
+        return TransvarCustomString(str.strip(self, __chars))
+
+    def split(self, __sep=None, __maxsplit=-1):
+        return [TransvarCustomString(x) for x in str.split(self, __sep, __maxsplit)]
+
+
 def get_transvar_str_annotation(variant_type: str, variant_description: str) -> str:
 
     if variant_type not in ['ganno', 'canno', 'panno']:
@@ -56,6 +69,7 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
     p.set_defaults(func=partial(main_anno, at='p'))
 
     args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa'])
+    args.i = TransvarCustomString(args.i)
 
     output_stream = io.StringIO()
     with redirect_stdout(output_stream):
