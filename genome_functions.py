@@ -4,14 +4,16 @@ from Bio.GenBank import _FeatureConsumer
 from Bio.SeqRecord import SeqRecord
 
 
-def get_nt_at_genome_position(pos: int, gene: dict, contig):
+def get_nt_at_gene_coord(pos: int, gene: dict, contig):
+    # genome_coord is one-based
     genome_coord, strand = gene_coords2genome_coords(pos, gene)
     if strand == 1:
-        return contig[genome_coord]
-    return reverse_complement(contig[genome_coord])
+        return contig[genome_coord - 1]
+    return reverse_complement(contig[genome_coord - 1])
 
 
-def gene_coords2genome_coords(pos: int, gene: dict) -> str:
+def gene_coords2genome_coords(pos: int, gene: dict) -> tuple[int, int]:
+
     loc: FeatureLocation
     if 'CDS' in gene:
         loc = gene['CDS'].location
@@ -32,7 +34,8 @@ def gene_coords2genome_coords(pos: int, gene: dict) -> str:
     else:
         pos = loc.end - pos
 
-    return pos, loc.strand
+    # We return one-based coordinates as well
+    return pos + 1, loc.strand
 
 
 def get_feature_location_from_string(location_str: str) -> FeatureLocation:

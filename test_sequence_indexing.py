@@ -3,7 +3,7 @@ These tests only work with PomBase data.
 """
 import unittest
 import pickle
-from grammar import get_nt_at_genome_position
+from grammar import get_nt_at_gene_coord
 from Bio.SeqIO import parse
 
 with open('data/genome.pickle', 'rb') as ins:
@@ -42,12 +42,12 @@ class SequenceIndexingTest(unittest.TestCase):
 
             # Check that downstream matches
             for i, value in enumerate(g['downstream']):
-                self.assertEqual(get_nt_at_genome_position(i + 1, gene, gene['contig']), value)
+                self.assertEqual(get_nt_at_gene_coord(i + 1, gene, gene['contig']), value)
 
             # Check that 5'UTR matches
             # We start at 1 because the first negative index is -1
             for i, value in enumerate(g['upstream'][::-1], start=1):
-                self.assertEqual(get_nt_at_genome_position(-i, gene, gene['contig']), value)
+                self.assertEqual(get_nt_at_gene_coord(-i, gene, gene['contig']), value)
 
     def test_aas(self):
         for seq in parse('test_data/test_peptides.fasta', 'fasta'):
