@@ -23,5 +23,6 @@ jobs:
       - name: Run tests
         run: |
           . transvar_env_vars.sh
+          bash install_transvar_dependencies.sh
           bash set_up_transvar.sh
           python -m unittest -v
