@@ -14,13 +14,13 @@ RUN rm poetry.lock pyproject.toml
 RUN pip uninstall --yes poetry
 
 # Install bash (not included by default in alpine image)
-
-# This line is required to be able to use apk
 RUN apt-get update
 RUN apt-get install bash
 
 COPY ./*.sh /api/
 COPY ./config.json /api/
 COPY ./data /api/data
+
+RUN bash install_transvar_dependencies.sh
 
 CMD ["bash", "docker_start.sh"]

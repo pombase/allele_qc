@@ -18,6 +18,7 @@ import os
 from starlette.background import BackgroundTask
 from genome_functions import extract_main_feature_and_strand, process_systematic_id
 from Bio.SeqRecord import SeqRecord
+from transvar_functions import get_transvar_str_annotation, parse_transvar_string, TransvarAnnotation
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar_old]
 syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar_old]
@@ -350,3 +351,27 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
         if 'peptide' not in gene:
             raise ValueError('cannot read sequence, no peptide')
         return PlainTextResponse(gene['peptide'][position - 1])
+
+
+@ app.get("/ganno", summary='Variant described at the genome level (gDNA)', response_model=list[TransvarAnnotation])
+async def ganno(variant_description: str = Query(example="II:g.178497T>A", description='Variant described at the genome level (gDNA)')) -> list[TransvarAnnotation]:
+    try:
+        return parse_transvar_string(get_transvar_str_annotation('ganno', variant_description))
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@ app.get("/canno", summary='Variant described at the coding DNA level (cDNA)', response_model=list[TransvarAnnotation])
+async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", description='Variant described at the coding DNA level (cDNA)')) -> list[TransvarAnnotation]:
+    try:
+        return parse_transvar_string(get_transvar_str_annotation('canno', variant_description))
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+
+
+@ app.get("/panno", summary='Variant described at the protein level', response_model=list[TransvarAnnotation])
+async def panno(variant_description: str = Query(example="SPBC1198.04c:p.N3A", description='Variant described at the protein level')) -> list[TransvarAnnotation]:
+    try:
+        return parse_transvar_string(get_transvar_str_annotation('panno', variant_description))
+    except ValueError as e:
+        raise HTTPException(400, str(e))
