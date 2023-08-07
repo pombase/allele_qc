@@ -21,7 +21,7 @@ jobs:
           poetry config virtualenvs.create false
           poetry install --no-dev
       - name: Run tests
-        # Copy the transvar script to the current directory, needed for api import  
         run: |
-          cp $(which transvar) ./transvar_main_script.py
+          . transvar_env_vars.sh
+          bash set_up_transvar.sh
           python -m unittest -v

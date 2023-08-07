@@ -27,7 +27,13 @@ def parse_transvar_string(transvar_str: str) -> list[TransvarAnnotation]:
     if len(transvar_list) == 0:
         raise ValueError("Invalid variant description")
 
-    return [TransvarAnnotation.from_list(t.split('\t')) for t in transvar_list]
+    result = [TransvarAnnotation.from_list(t.split('\t')) for t in transvar_list]
+    # Scan for errors
+    # for t in result:
+    #     if 'Error=' in t.info:
+    #         raise ValueError(t.info)
+
+    return result
 
 
 class TransvarCustomString(str):
@@ -68,11 +74,29 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
     parser_add_general(p)
     p.set_defaults(func=partial(main_anno, at='p'))
 
-    args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa'])
+    # We set the -v argument to 2 (verbose), to raise errors
+    args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa', '-v', '2'])
+
+    # We include this to pause on errors
+    args.suspend = True
     args.i = TransvarCustomString(args.i)
 
     output_stream = io.StringIO()
     with redirect_stdout(output_stream):
         args.func(args)
-    return output_stream.getvalue()
+
+    output_str = output_stream.getvalue()
+    # Extra error handling
+    if variant_type == 'panno':
+        # In the case where the indicated positions don't match any transcript of the gene, transvar returns coordinates(gDNA/cDNA/protein) = `././.`
+        # and info = 'no_valid_transcript_found'. Maybe there is a special case where the info is different?
+
+        transvar_fields_first_row = output_str.split('\n')[1].split('\t')
+        if transvar_fields_first_row[-3] == '././.':
+            if transvar_fields_first_row[-1] == 'no_valid_transcript_found':
+                raise ValueError('no_valid_transcript_found')
+            else:
+                raise ValueError('Unknown error: ', transvar_fields_first_row[-1])
+
+    return output_str
 
