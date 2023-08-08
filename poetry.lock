@@ -870,6 +870,27 @@ files = [
 ]
 
 [[package]]
+name = "tqdm"
+version = "4.65.1"
+description = "Fast, Extensible Progress Meter"
+category = "main"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "tqdm-4.65.1-py3-none-any.whl", hash = "sha256:16181c62ad2c6f8f6f29876e66322faad1c7fd3cc70aa9cc25ff63e50d1da031"},
+    {file = "tqdm-4.65.1.tar.gz", hash = "sha256:2cb0075cc5269f8edac40bdeb757cc36ab5b6648caf014822b67e1a49fba141d"},
+]
+
+[package.dependencies]
+colorama = {version = "*", markers = "platform_system == \"Windows\""}
+
+[package.extras]
+dev = ["pytest (>=6)", "pytest-cov", "pytest-timeout", "pytest-xdist"]
+notebook = ["ipywidgets (>=6)"]
+slack = ["slack-sdk"]
+telegram = ["requests"]
+
+[[package]]
 name = "transvar"
 version = "2.5.10.20211024"
 description = "Transcript-based Variant annotator"
@@ -1096,4 +1117,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "6624036dc75a7f4282adac7db4bc6ab937848fdda2d34e1546b1f3f154b667c6"
+content-hash = "909cdb3aafb5d5ed94d520ab302ace9477f55463d6b712bd699d4ba2997b3985"

@@ -16,6 +16,7 @@ regex = "^2022.10.31"
 requests = "^2.28.2"
 httpx = "^0.24.0"
 transvar = "^2.5.10.20211024"
+tqdm = "^4.65.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"

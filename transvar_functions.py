@@ -1,5 +1,5 @@
 from transvar_main_script import parser_add_annotation, parser_add_mutation, parser_add_general
-from transvar.anno import main_anno
+from transvar.anno import read_config, main_one, AnnoDB, print_header
 import argparse
 from functools import partial
 import io
@@ -49,7 +49,18 @@ class TransvarCustomString(str):
         return [TransvarCustomString(x) for x in str.split(self, __sep, __maxsplit)]
 
 
-def get_transvar_str_annotation(variant_type: str, variant_description: str) -> str:
+def get_anno_db() -> AnnoDB:
+    annotation_parser = argparse.ArgumentParser(description=__doc__)
+    parser_add_annotation(annotation_parser)
+    annotation_args = annotation_parser.parse_args(['--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa'])
+    config = read_config()
+    return AnnoDB(annotation_args, config)
+
+
+def get_transvar_str_annotation(variant_type: str, variant_description: str, db: AnnoDB = None) -> str:
+
+    if db is None:
+        db = get_anno_db()
 
     if variant_type not in ['ganno', 'canno', 'panno']:
         raise ValueError("variant_type must be one of 'ganno', 'canno', 'panno'")
@@ -60,19 +71,19 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
     parser_add_annotation(p)
     parser_add_mutation(p)
     parser_add_general(p)
-    p.set_defaults(func=partial(main_anno, at='g'))
+    p.set_defaults(func=partial(main_one, db=db, at='g'))
 
     p = subparsers.add_parser("canno", help='annotate cDNA elements')
     parser_add_annotation(p)
     parser_add_mutation(p)
     parser_add_general(p)
-    p.set_defaults(func=partial(main_anno, at='c'))
+    p.set_defaults(func=partial(main_one, db=db, at='c'))
 
     p = subparsers.add_parser("panno", help='annotate protein element')
     parser_add_annotation(p)
     parser_add_mutation(p)
     parser_add_general(p)
-    p.set_defaults(func=partial(main_anno, at='p'))
+    p.set_defaults(func=partial(main_one, db=db, at='p'))
 
     # We set the -v argument to 2 (verbose), to raise errors
     args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa', '-v', '2'])
@@ -85,6 +96,8 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
     error_stream = io.StringIO()
     with redirect_stderr(error_stream):
         with redirect_stdout(output_stream):
+            if (not args.vcf) and (not args.noheader):
+                print(print_header(args))
             args.func(args)
 
     output_str = output_stream.getvalue()
@@ -93,7 +106,6 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
     if variant_type == 'panno':
         # In the case where the indicated positions don't match any transcript of the gene, transvar returns coordinates(gDNA/cDNA/protein) = `././.`
         # and info = 'no_valid_transcript_found'. Maybe there is a special case where the info is different?
-
         transvar_fields_first_row = output_str.split('\n')[1].split('\t')
         if transvar_fields_first_row[-3] == '././.':
             if transvar_fields_first_row[-1] == 'no_valid_transcript_found':

@@ -287,7 +287,7 @@ multi_aa_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
 
 
-def multi_aa_format_for_transvar(g: list[str]):
+def multi_aa_format_for_transvar(g: list[str], gg=None):
     # First aminoacid + first position
     first_residue = g[0][0] + g[1]
     # Last aminoacid + last position
@@ -296,7 +296,7 @@ def multi_aa_format_for_transvar(g: list[str]):
     return f'p.{first_residue}_{last_residue}delins{g[2]}'
 
 
-def insertion_aa_format_for_transvar(g: list[str]):
+def insertion_aa_format_for_transvar(g: list[str], gg=None):
     # Last aminoacid + last position
     last_pos = int(g[1]) + len(g[0]) - 1
     last_residue = g[0][-1] + str(last_pos)
@@ -312,7 +312,7 @@ aminoacid_grammar = [
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
         'further_check': lambda g: g[0] != g[2],
-        'format_for_transvar': lambda g: f'p.{g[0]}{g[1]}{g[2]}'
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}{g[2]}'
     },
     {
         'type': 'amino_acid_mutation',
@@ -359,7 +359,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'format_for_transvar': lambda g: f'p.{g[0]}{g[1]}*'
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}*'
     },
     {
         'type': 'nonsense_mutation',
@@ -367,7 +367,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'format_for_transvar': lambda g: f'p.{g[0]}{g[1]}*'
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}*'
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -375,7 +375,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(sorted(g, key=int)).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
-        'format_for_transvar': lambda g: f'p.{g[0]}_{g[1]}del',
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}_{g[1]}del',
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -383,7 +383,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
-        'format_for_transvar': lambda g: f'p.{g[0]}del',
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}del',
     }
 ]
 
