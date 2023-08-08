@@ -175,7 +175,26 @@ class ResidueAtPositionTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.text, 'M')
 
-        # Request DNA
-        response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.09', 'position': 1, 'dna_or_protein': 'dna'})
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.text, 'A')
+        # Request DNA on +1 strand, positive residues
+        for i, res in enumerate('ATGCAAACAG'):
+            response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.09', 'position': i + 1, 'dna_or_protein': 'dna'})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.text, res)
+
+        # Negative residues
+        for i, res in enumerate('TCAACCGGTTCA'[::-1]):
+            response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.09', 'position': -(i + 1), 'dna_or_protein': 'dna'})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.text, res)
+
+        # Request DNA on -1 strand, positive residues
+        for i, res in enumerate('ATGTCGGCTCAG'):
+            response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.10c', 'position': i + 1, 'dna_or_protein': 'dna'})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.text, res)
+
+        # Negative residues GACAGAATATACTTCA
+        for i, res in enumerate('GACAGAATATACTTCA'[::-1]):
+            response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.10c', 'position': -(i + 1), 'dna_or_protein': 'dna'})
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.text, res)
