@@ -26,6 +26,7 @@ jobs:
           bash install_transvar_dependencies.sh
           bash set_up_transvar.sh
       - name: Run tests
+        # -W because of transvar
         run: |
           . transvar_env_vars.sh
-          python -m unittest -v
+          python -W ignore:ResourceWarning -m unittest

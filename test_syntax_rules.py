@@ -16,71 +16,143 @@ with open('data/genome.pickle', 'rb') as ins:
 
 class SyntaxRulesTest(unittest.TestCase):
 
+    def test_find_syntax_rule(self):
+        syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
+        syntax_rule = find_rule(syntax_rules, 'amino_acid_mutation', 'multiple_aa')
+        self.assertEqual(syntax_rule.type, 'amino_acid_mutation')
+        self.assertEqual(syntax_rule.rule_name, 'multiple_aa')
+
+        syntax_rules = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
+        syntax_rule = find_rule(syntax_rules, 'nucleotide_mutation', 'multiple_nt')
+        self.assertEqual(syntax_rule.type, 'nucleotide_mutation')
+        self.assertEqual(syntax_rule.rule_name, 'multiple_nt')
+
     def test_class_methods_amino_acids(self):
         syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 
         syntax_rule = find_rule(syntax_rules, 'amino_acid_mutation', 'multiple_aa')
-        self.assertEqual(syntax_rule.type, 'amino_acid_mutation')
-        self.assertEqual(syntax_rule.rule_name, 'multiple_aa')
         groups = syntax_rule.get_groups('AP123VL')
         self.assertEqual(groups, ('AP', '123', 'VL'))
         self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.A123_P124delinsVL')
 
         syntax_rule = find_rule(syntax_rules, 'amino_acid_insertion', 'standard')
-        self.assertEqual(syntax_rule.type, 'amino_acid_insertion')
-        self.assertEqual(syntax_rule.rule_name, 'standard')
         groups = syntax_rule.get_groups('E2EVTA')
         self.assertEqual(groups, ('E', '2', 'EVTA'))
         self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.E2_3insEVTA')
 
         syntax_rule = find_rule(syntax_rules, 'nonsense_mutation', 'stop_codon_star')
-        self.assertEqual(syntax_rule.type, 'nonsense_mutation')
-        self.assertEqual(syntax_rule.rule_name, 'stop_codon_star')
         groups = syntax_rule.get_groups('E2*')
         self.assertEqual(groups, ('E', '2', '*'))
         self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.E2*')
 
         syntax_rule = find_rule(syntax_rules, 'partial_amino_acid_deletion', 'multiple_aa')
-        self.assertEqual(syntax_rule.type, 'partial_amino_acid_deletion')
-        self.assertEqual(syntax_rule.rule_name, 'multiple_aa')
         groups = syntax_rule.get_groups('2-100')
         self.assertEqual(groups, ('2', '100'))
         self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.2_100del')
 
         syntax_rule = find_rule(syntax_rules, 'partial_amino_acid_deletion', 'single_aa')
-        self.assertEqual(syntax_rule.type, 'partial_amino_acid_deletion')
-        self.assertEqual(syntax_rule.rule_name, 'single_aa')
         groups = syntax_rule.get_groups('2')
         self.assertEqual(groups, ('2',))
         self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.2del')
 
     def test_class_methods_nucleotides(self):
+
         syntax_rules = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
+        syntax_rule_multi_nt = find_rule(syntax_rules, 'nucleotide_mutation', 'multiple_nt')
 
         # Gene in the +1 strand
         ase1_gene = genome['SPAPB1A10.09']
-        syntax_rule = find_rule(syntax_rules, 'nucleotide_mutation', 'multiple_nt')
-        self.assertEqual(syntax_rule.type, 'nucleotide_mutation')
-        self.assertEqual(syntax_rule.rule_name, 'multiple_nt')
         # Should be Q2M at the protein level
-        groups = syntax_rule.get_groups('CAA4ATG')
+        groups = syntax_rule_multi_nt.get_groups('CAA4ATG')
         self.assertEqual(groups, ('CAA', '4', 'ATG'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups, ase1_gene), 'g.1878365_1878367delCAAinsATG')
+        self.assertEqual(syntax_rule_multi_nt.format_for_transvar(groups, ase1_gene), 'g.1878365_1878367delCAAinsATG')
 
-        # In the 5UTR
-        groups = syntax_rule.get_groups('CAA(-4)ATG')
-        self.assertEqual(groups, ('CAA', '(-4)', 'ATG'))
-        # self.assertEqual(syntax_rule.format_for_transvar(groups, ase1_gene), 'g.1878365_1878367delCAAinsATG')
+        # In the 5UTR (negative number)
+        groups = syntax_rule_multi_nt.get_groups('GTTCA(-5)CCCAC')
+        self.assertEqual(groups, ('GTTCA', '(-5)', 'CCCAC'))
+        self.assertEqual(syntax_rule_multi_nt.format_for_transvar(groups, ase1_gene), 'g.1878357_1878361delGTTCAinsCCCAC')
 
         # Gene in the -1 strand
         mse1_gene = genome['SPAPB1A10.11c']
-        syntax_rule = find_rule(syntax_rules, 'nucleotide_mutation', 'multiple_nt')
-        self.assertEqual(syntax_rule.type, 'nucleotide_mutation')
-        self.assertEqual(syntax_rule.rule_name, 'multiple_nt')
         # Should be T5Y at the protein level
-        groups = syntax_rule.get_groups('ACC4TAT')
+        groups = syntax_rule_multi_nt.get_groups('ACC4TAT')
         self.assertEqual(groups, ('ACC', '4', 'TAT'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups, mse1_gene), 'g.1884046_1884048delGGTinsATA')
+        self.assertEqual(syntax_rule_multi_nt.format_for_transvar(groups, mse1_gene), 'g.1884046_1884048delGGTinsATA')
+
+        # In the 5UTR (negative number)
+        groups = syntax_rule_multi_nt.get_groups('TTTTGG(-6)CCCAAA')
+        self.assertEqual(groups, ('TTTTGG', '(-6)', 'CCCAAA'))
+        self.assertEqual(syntax_rule_multi_nt.format_for_transvar(groups, mse1_gene), 'g.1884052_1884057delCCAAAAinsTTTGGG')
+
+        # Single nucleotide substitution
+        syntax_rule_single_nt = find_rule(syntax_rules, 'nucleotide_mutation', 'single_nt')
+
+        groups = syntax_rule_single_nt.get_groups('A1G')
+        self.assertEqual(groups, ('A', '1', 'G'))
+        self.assertEqual(syntax_rule_single_nt.format_for_transvar(groups, ase1_gene), 'g.1878362A>G')
+
+        groups = syntax_rule_single_nt.get_groups('A(-1)G')
+        self.assertEqual(groups, ('A', '(-1)', 'G'))
+        self.assertEqual(syntax_rule_single_nt.format_for_transvar(groups, ase1_gene), 'g.1878361A>G')
+
+        groups = syntax_rule_single_nt.get_groups('A1G')
+        self.assertEqual(groups, ('A', '1', 'G'))
+        self.assertEqual(syntax_rule_single_nt.format_for_transvar(groups, mse1_gene), 'g.1884051T>C')
+
+        groups = syntax_rule_single_nt.get_groups('G(-1)A')
+        self.assertEqual(groups, ('G', '(-1)', 'A'))
+        self.assertEqual(syntax_rule_single_nt.format_for_transvar(groups, mse1_gene), 'g.1884052C>T')
+
+        # Nucleotide insertion
+        syntax_rule_insertion = find_rule(syntax_rules, 'nucleotide_insertion', 'standard')
+
+        groups = syntax_rule_insertion.get_groups('A1AGGG')
+        self.assertEqual(groups, ('A', '1', 'AGGG'))
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, ase1_gene), 'g.1878362_1878363insAGGG')
+
+        groups = syntax_rule_insertion.get_groups('A(-1)AGGG')
+        self.assertEqual(groups, ('A', '(-1)', 'AGGG'))
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, ase1_gene), 'g.1878361_1878362insAGGG')
+
+        groups = syntax_rule_insertion.get_groups('A1AGGG')
+        self.assertEqual(groups, ('A', '1', 'AGGG'))
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, mse1_gene), 'g.1884050_1884051insCCCT')
+
+        groups = syntax_rule_insertion.get_groups('G(-1)GTTT')
+        self.assertEqual(groups, ('G', '(-1)', 'GTTT'))
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, mse1_gene), 'g.1884051_1884052insAAAC')
+
+        # Single nucleotide deletion
+        syntax_rule_deletion = find_rule(syntax_rules, 'partial_nucleotide_deletion', 'single_nt')
+
+        groups = syntax_rule_deletion.get_groups('1')
+        self.assertEqual(groups, ('1',))
+        self.assertEqual(syntax_rule_deletion.format_for_transvar(groups, ase1_gene), 'g.1878362del')
+
+        groups = syntax_rule_deletion.get_groups('-1')
+        self.assertEqual(groups, ('-1',))
+        self.assertEqual(syntax_rule_deletion.format_for_transvar(groups, ase1_gene), 'g.1878361del')
+
+        # Multi nucleotide deletion
+        syntax_rule_deletion = find_rule(syntax_rules, 'partial_nucleotide_deletion', 'usual')
+
+        groups = syntax_rule_deletion.get_groups('1-10')
+        self.assertEqual(groups, ('1', '10'))
+        self.assertEqual(syntax_rule_deletion.format_for_transvar(groups, ase1_gene), 'g.1878362_1878371del')
+
+        # Note that this function would not work if the order was inverted, so we should only run on descriptions
+        # that have been corrected if needed.
+        groups = syntax_rule_deletion.get_groups('(-10)-(-1)')
+        self.assertEqual(groups, ('(-10)', '(-1)'))
+        self.assertEqual(syntax_rule_deletion.format_for_transvar(groups, ase1_gene), 'g.1878352_1878361del')
+
+        groups = syntax_rule_deletion.get_groups('1-10')
+        self.assertEqual(groups, ('1', '10'))
+        self.assertEqual(syntax_rule_deletion.format_for_transvar(groups, mse1_gene), 'g.1884042_1884051del')
+
+        groups = syntax_rule_deletion.get_groups('(-10)-(-1)')
+        self.assertEqual(groups, ('(-10)', '(-1)'))
+        self.assertEqual(syntax_rule_deletion.format_for_transvar(groups, mse1_gene), 'g.1884052_1884061del')
 
     def test_syntax_rules(self):
         file_grammar_pairs = [
