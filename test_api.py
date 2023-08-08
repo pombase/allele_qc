@@ -35,12 +35,12 @@ class CheckAlleleTest(unittest.TestCase):
 
     def test_dummy_id(self):
         # Should return 404
-        response = client.get("/check_allele", params={'systematic_id': 'dummy', 'allele_description': 'V123A,PLR-140-AAA,150-600', 'allele_type': 'partial_amino_acid_deletion'})
+        response = client.get("/check_allele", params={'systematic_id': 'dummy', 'allele_description': 'V123A,PLR140AAA,150-600', 'allele_type': 'partial_amino_acid_deletion'})
         self.assertEqual(response.status_code, 404)
 
     def test_valid_id(self):
         # Should contain a valid response
-        response = client.get("/check_allele", params={'systematic_id': 'SPBC359.03c', 'allele_description': 'V123A,PLR-140-AAA,150-600', 'allele_type': 'partial_amino_acid_deletion'})
+        response = client.get("/check_allele", params={'systematic_id': 'SPBC359.03c', 'allele_description': 'V123A,PLR140AAA,150-600', 'allele_type': 'partial_amino_acid_deletion'})
         self.assertEqual(response.status_code, 200)
 
         try:
