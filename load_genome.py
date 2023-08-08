@@ -30,6 +30,8 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
 with open('config.json') as ins:
     config = json.load(ins)
 
+filename2chromosome_dict = {v: k for k, v in config['chromosome2file'].items()}
+
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('files', metavar='N', type=str, nargs='+',
                     help='files to be read')
@@ -57,6 +59,8 @@ for f in args.files:
             genome[gene_id] = dict()
             # assigned only once
             genome[gene_id]['contig'] = contig
+            file_name = f.split('/')[-1].split('.')[0]
+            genome[gene_id]['contig_name'] = filename2chromosome_dict[file_name]
 
         if feature_type in genome[gene_id]:
             raise ValueError(f'several features of {feature_type} for {gene_id}')

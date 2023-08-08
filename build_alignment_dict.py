@@ -50,13 +50,7 @@ parser.add_argument('--coords', default='data/only_modified_coordinates.tsv')
 parser.add_argument('--output', default='data/coordinate_changes_dict.json')
 args = parser.parse_args()
 
-chromosome_dictionary = {
-    'I': 'chromosome1',
-    'II': 'chromosome2',
-    'III': 'chromosome3',
-    'mating_type_region': 'mating_type_region',
-    'mitochondrial': 'pMIT',
-}
+
 with open('config.json') as ins:
     config = json.load(ins)
 
@@ -97,7 +91,7 @@ def choose_old_genome(previous_coordinate, latest_genome_seq, old_genomes_dict, 
     genome_seq_changes = genome_seq_changes.sort_values(['date'], ascending=False).copy()
 
     # Select which genome should be used
-    contig = chromosome_dictionary[previous_coordinate['chromosome']]
+    contig = config['chromosome2file'][previous_coordinate['chromosome']]
     changes_this_contig = genome_seq_changes[genome_seq_changes['chromosome'] == contig]
     newer_genome_sequences = previous_coordinate['date'] <= changes_this_contig['date']
 
