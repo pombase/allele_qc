@@ -58,9 +58,10 @@ for f in args.files:
         if gene_id not in genome:
             genome[gene_id] = dict()
             # assigned only once
-            genome[gene_id]['contig'] = contig
             file_name = f.split('/')[-1].split('.')[0]
-            genome[gene_id]['contig_name'] = filename2chromosome_dict[file_name]
+            # We set the id to the value in the filename2chromosome_dict
+            contig.id = filename2chromosome_dict[file_name]
+            genome[gene_id]['contig'] = contig
 
         if feature_type in genome[gene_id]:
             raise ValueError(f'several features of {feature_type} for {gene_id}')
