@@ -3,7 +3,7 @@ from transvar.anno import main_anno
 import argparse
 from functools import partial
 import io
-from contextlib import redirect_stdout
+from contextlib import redirect_stdout, redirect_stderr
 from pydantic import BaseModel
 
 
@@ -82,10 +82,13 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
     args.i = TransvarCustomString(args.i)
 
     output_stream = io.StringIO()
-    with redirect_stdout(output_stream):
-        args.func(args)
+    error_stream = io.StringIO()
+    with redirect_stderr(error_stream):
+        with redirect_stdout(output_stream):
+            args.func(args)
 
     output_str = output_stream.getvalue()
+    output_stream.close()
     # Extra error handling
     if variant_type == 'panno':
         # In the case where the indicated positions don't match any transcript of the gene, transvar returns coordinates(gDNA/cDNA/protein) = `././.`
@@ -97,6 +100,12 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str) -> 
                 raise ValueError('no_valid_transcript_found')
             else:
                 raise ValueError('Unknown error: ', transvar_fields_first_row[-1])
+
+    # Some cases are printed to stderr but not raised... (err_warn with I:g.1878352_1878357delCCAAAAinsTTTGGG)
+    error_str = error_stream.getvalue()
+    error_stream.close()
+    if error_str != '':
+        raise ValueError(error_str)
 
     return output_str
 
