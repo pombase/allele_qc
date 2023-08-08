@@ -16,7 +16,7 @@ from Bio import SeqIO
 import tempfile
 import os
 from starlette.background import BackgroundTask
-from genome_functions import extract_main_feature_and_strand, process_systematic_id, get_nt_at_genome_position
+from genome_functions import extract_main_feature_and_strand, process_systematic_id, get_nt_at_gene_coord
 from Bio.SeqRecord import SeqRecord
 from transvar_functions import get_transvar_str_annotation, parse_transvar_string, TransvarAnnotation
 
@@ -343,7 +343,7 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
         raise HTTPException(404, 'Systematic id does not exist')
     gene = genome[systematic_id]
     if dna_or_protein == 'dna':
-        return PlainTextResponse(get_nt_at_genome_position(position, gene, gene['contig']))
+        return PlainTextResponse(get_nt_at_gene_coord(position, gene, gene['contig']))
     elif dna_or_protein == 'protein':
         if 'peptide' not in gene:
             raise ValueError('cannot read sequence, no peptide')
