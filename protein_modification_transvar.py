@@ -45,25 +45,15 @@ def get_transvar_coordinates(row, db, genome, exclude_transcripts):
             raise e
 
 
-if __name__ == '__main__':
-    class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
-        pass
+def main(genome_file, protein_modification_results_file, exclude_transcripts_file, output_file):
 
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--protein_modification_results', default='results/protein_modification_results.tsv')
-    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
-    parser.add_argument('--output', default='results/protein_modification_results_transvar.tsv')
-
-    args = parser.parse_args()
-
-    with open(args.genome, 'rb') as ins:
+    with open(genome_file, 'rb') as ins:
         genome = pickle.load(ins)
 
-    with open(args.exclude_transcripts) as ins:
+    with open(exclude_transcripts_file) as ins:
         exclude_transcripts = set(map(str.strip, ins.readlines()))
 
-    data = pandas.read_csv(args.protein_modification_results, sep='\t', na_filter=False)
+    data = pandas.read_csv(protein_modification_results_file, sep='\t', na_filter=False)
 
     # Remove sequence errors
     data = data[data['sequence_error'] == ''].copy()
@@ -89,4 +79,19 @@ if __name__ == '__main__':
 
     data = data.merge(aggregated_data, on=['systematic_id', 'sequence_position'], how='left')
     data.drop(columns=['exploded_sequence_position'], inplace=True)
-    data.to_csv(args.output, sep='\t', index=False)
+    data.to_csv(output_file, sep='\t', index=False)
+
+
+if __name__ == '__main__':
+    class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+        pass
+
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
+    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
+    parser.add_argument('--protein_modification_results', default='results/protein_modification_results.tsv')
+    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
+    parser.add_argument('--output', default='results/protein_modification_results_transvar.tsv')
+
+    args = parser.parse_args()
+    main(args.genome, args.protein_modification_results, args.exclude_transcripts, args.output)
+

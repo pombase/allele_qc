@@ -228,9 +228,9 @@ SPAC1486.02c	298-372	dsc2	dsc2-UBAtruncation		partial_amino_acid_deletion	PMID:2
 SPAC1486.02c	V160*	dsc2	dsc2-V160*	dsc2-G160*	partial_amino_acid_deletion	PMID:28821619	V160*	False		nonsense_mutation:stop_codon_star					I:g.3187394_3187395delGTinsTA/c.478_479delGTinsTA/p.V160*
 SPAC1486.02c	W52*	dsc2	dsc2-W52*		partial_amino_acid_deletion	PMID:28821619	W52*	False		nonsense_mutation:stop_codon_star					I:g.3187718C>T/c.155G>A/p.W52*
 SPAC1486.05	S964A	nup189	nup189(uncleavable)	nup98-nup96 (uncleavable)	amino_acid_mutation	PMID:26137436	S964A	False		amino_acid_mutation:single_aa					
-SPAC1486.05	G2969A,T2972C,A3032T	nup189	nup189(unspliced)	nup98-nup96 (unspliced)	nucleotide_mutation	PMID:26137436	G2969A|T2972C|A3032T	False		nucleotide_mutation:single_nt|nucleotide_mutation:single_nt|nucleotide_mutation:single_nt					||
-SPAC1486.05	964-1807	nup189	nup189-deltaC		partial_amino_acid_deletion	PMID:24637836	964-1807	False		partial_amino_acid_deletion:multiple_aa					
-SPAC1486.05	1-964	nup189	nup189-deltaN		partial_amino_acid_deletion	PMID:24637836	1-964	False		partial_amino_acid_deletion:multiple_aa					
+SPAC1486.05	G2969A,T2972C,A3032T	nup189	nup189(unspliced)	nup98-nup96 (unspliced)	nucleotide_mutation	PMID:26137436	G2969A|T2972C|A3032T	False		nucleotide_mutation:single_nt|nucleotide_mutation:single_nt|nucleotide_mutation:single_nt					I:g.3199996G>A/c.2969G>A/p.S990N|I:g.3199999T>C/c.2972T>C/p.M991T|I:g.3200059A>T/c.3032A>T/p.Q1011L
+SPAC1486.05	964-1807	nup189	nup189-deltaC		partial_amino_acid_deletion	PMID:24637836	964-1807	False		partial_amino_acid_deletion:multiple_aa					I:g.3199917_3202448del2532/c.2890_5421del2532/p.L964_F1807del844
+SPAC1486.05	1-964	nup189	nup189-deltaN		partial_amino_acid_deletion	PMID:24637836	1-964	False		partial_amino_acid_deletion:multiple_aa					I:g.3197028_3199919del2892/c.1_2892del2892/p.M1_L964del964
 SPAC14C4.01c	185-244	atg43	atg43-1-184		partial_amino_acid_deletion	PMID:33138913	185-244	False		partial_amino_acid_deletion:multiple_aa					I:g.5225242_5225421del180/c.553_732del180/p.G185_D244del60
 SPAC14C4.01c	41-244	atg43	atg43-1-40		partial_amino_acid_deletion	PMID:33138913	41-244	False		partial_amino_acid_deletion:multiple_aa					I:g.5225240_5225851del612/c.121_732del612/p.Q41_D244del204
 SPAC14C4.01c	Y28A,I31A	atg43	atg43-deltaAIM		amino_acid_mutation	PMID:33138913	Y28A|I31A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					I:g.5225889_5225890delTAinsGC/c.82_83delTAinsGC/p.Y28A|I:g.5225880_5225881delATinsGC/c.91_92delATinsGC/p.I31A

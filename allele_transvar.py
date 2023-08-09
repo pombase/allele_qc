@@ -58,29 +58,18 @@ def get_transvar_coordinates(row, db, genome, exclude_transcripts):
         else:
             raise e
 
-
-if __name__ == '__main__':
-    class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
-        pass
-
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--allele_results', default='results/allele_results.tsv')
-    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
-    parser.add_argument('--output', default='results/allele_results_transvar.tsv')
-
-    args = parser.parse_args()
-
-    with open(args.genome, 'rb') as ins:
+def main(genome_file, allele_results_file, exclude_transcripts_file, output_file):
+    
+    with open(genome_file, 'rb') as ins:
         genome = pickle.load(ins)
 
-    with open(args.exclude_transcripts) as ins:
+    with open(exclude_transcripts_file) as ins:
         exclude_transcripts = set(map(str.strip, ins.readlines()))
 
     syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
     syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
 
-    data = pandas.read_csv(args.allele_results, sep='\t', na_filter=False)
+    data = pandas.read_csv(allele_results_file, sep='\t', na_filter=False)
 
     # Remove all errors
     data = data[~data['needs_fixing']].copy()
@@ -103,4 +92,19 @@ if __name__ == '__main__':
 
     aggregated_data = data_exploded[['systematic_id', 'allele_description', 'allele_type', 'transvar_coordinates']].groupby(['systematic_id', 'allele_description', 'allele_type'], as_index=False).agg({'transvar_coordinates': '|'.join})
 
-    data.merge(aggregated_data, on=['systematic_id', 'allele_description', 'allele_type'], how='left').to_csv(args.output, sep='\t', index=False)
+    data.merge(aggregated_data, on=['systematic_id', 'allele_description', 'allele_type'], how='left').to_csv(output_file, sep='\t', index=False)
+
+
+if __name__ == '__main__':
+    class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionHelpFormatter):
+        pass
+
+    parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
+    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
+    parser.add_argument('--allele_results', default='results/allele_results.tsv')
+    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
+    parser.add_argument('--output', default='results/allele_results_transvar.tsv')
+
+    args = parser.parse_args()
+
+    main(args.genome, args.allele_results, args.exclude_transcripts, args.output)

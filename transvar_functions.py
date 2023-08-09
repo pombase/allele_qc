@@ -50,6 +50,10 @@ class TransvarCustomString(str):
 
 
 def get_anno_db() -> AnnoDB:
+    """
+    Load the transvar database, we define it here so that it does not get loaded everytime get_transvar_str_annotation is called, and it
+    can be passed as an argument to it
+    """
     annotation_parser = argparse.ArgumentParser(description=__doc__)
     parser_add_annotation(annotation_parser)
     annotation_args = annotation_parser.parse_args(['--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa'])
