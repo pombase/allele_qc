@@ -1,4 +1,12 @@
 {
   "mitochondrial_prefix": "SPMIT",
-  "mitochondrial_table": 4
+  "mitochondrial_table": 4,
+  "chromosome2file": {
+    "I": "chromosome1",
+    "II": "chromosome2",
+    "III": "chromosome3",
+    "mating_type_region": "mating_type_region",
+    "mitochondrial": "pMIT",
+    "chr_II_telomeric_gap": "telomeric"
+  }
 }

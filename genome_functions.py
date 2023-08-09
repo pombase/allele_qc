@@ -2,16 +2,19 @@ from Bio.SeqFeature import FeatureLocation, SeqFeature
 from Bio.Seq import reverse_complement
 from Bio.GenBank import _FeatureConsumer
 from Bio.SeqRecord import SeqRecord
+import re
 
 
-def get_nt_at_genome_position(pos: int, gene: dict, contig):
+def get_nt_at_gene_coord(pos: int, gene: dict, contig):
+    # genome_coord is one-based
     genome_coord, strand = gene_coords2genome_coords(pos, gene)
     if strand == 1:
-        return contig[genome_coord]
-    return reverse_complement(contig[genome_coord])
+        return contig[genome_coord - 1]
+    return reverse_complement(contig[genome_coord - 1])
 
 
-def gene_coords2genome_coords(pos: int, gene: dict) -> str:
+def gene_coords2genome_coords(pos: int, gene: dict) -> tuple[int, int]:
+
     loc: FeatureLocation
     if 'CDS' in gene:
         loc = gene['CDS'].location
@@ -32,7 +35,8 @@ def gene_coords2genome_coords(pos: int, gene: dict) -> str:
     else:
         pos = loc.end - pos
 
-    return pos, loc.strand
+    # We return one-based coordinates as well
+    return pos + 1, loc.strand
 
 
 def get_feature_location_from_string(location_str: str) -> FeatureLocation:
@@ -144,3 +148,32 @@ def process_systematic_id(systematic_id: str, genome: dict, when_several_transcr
         raise ValueError('Systematic id does not exist')
     else:
         return longest_transcript_systematic_id
+
+
+def handle_systematic_id_for_qc(row, genome: dict) -> str:
+    """
+    Returns the right systematic_id for the allele:
+    - For no multi-transcript (row.systematic_id in genome), return row.systematic_id
+    - For multi-transcript in which the allele name starts with the primary name + .1, .2, etc, (e.g. zas1.2-V123A) return that transcript (SPBC1198.04c.2).
+    - For other multi-transcript genes, return the first transcript, ending in .1 (SPBC1198.04c.1).
+    """
+
+    # If it's in the genome dictionary, return it
+    if row['systematic_id'] in genome:
+        return row['systematic_id']
+
+    # Get the first multiple transcript id, if it is a multi-transcript gene
+    try:
+        first_multi_transcript = process_systematic_id(row['systematic_id'], genome, 'first')
+    except ValueError:
+        return None
+
+    # If we have reached here, it means that the systematic_id is from a multi-transcript gene
+    # If the allele name contains the primary name .1, .2, etc, (e.g. zas1.2) then we pick that transcript (SPBC1198.04c.2).
+    # Otherwise, we pick the first transcript
+
+    transcript_id_regex = '^' + row['gene_name'] + '\.(\d+)'
+    match = re.search(transcript_id_regex, row['allele_name'])
+    if match:
+        return row['systematic_id'] + '.' + match.groups()[0]
+    return first_multi_transcript

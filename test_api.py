@@ -198,3 +198,23 @@ class ResidueAtPositionTest(unittest.TestCase):
             response = client.get("/residue_at_position", params={'systematic_id': 'SPAPB1A10.10c', 'position': -(i + 1), 'dna_or_protein': 'dna'})
             self.assertEqual(response.status_code, 200)
             self.assertEqual(response.text, res)
+
+class TransvarEntryPointsTest(unittest.TestCase):
+
+    def test_allele_entrypoint(self):
+
+        response = client.get("/allele_transvar_coordinates", params={'systematic_id': 'SPBC359.03c', 'allele_description': 'A3V,SEA23PPP,150-200', 'allele_type': 'amino_acid_deletion_and_mutation', 'allele_name': 'blah'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.text, 'II:g.113041G>A/c.8C>T/p.A3V|II:g.112974_112982delinsAGGAGGAGG/c.67_75delinsCCTCCTCCT/p.S23_A25delinsPPP|II:g.112449_112601del153/c.452_604del153/p.D151_I201del51')
+
+        response = client.get("/allele_transvar_coordinates", params={'systematic_id': 'SPAC688.08', 'allele_description': 'S1137A', 'allele_type': 'amino_acid_mutation', 'allele_name': 'blah'})
+        self.assertEqual(response.status_code, 400)
+
+    def test_modification_entrypoint(self):
+
+        response = client.get('/protein_modification_transvar_coordinates', params={'systematic_id': 'SPBC359.03c', 'sequence_position': 'A3,K4'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.text, 'II:g.113040_113042/c.7_9/p.3A|II:g.113037_113039/c.10_12/p.4K')
+
+        response = client.get('/protein_modification_transvar_coordinates', params={'systematic_id': 'SPAC688.08', 'sequence_position': 'S1137'})
+        self.assertEqual(response.status_code, 400)

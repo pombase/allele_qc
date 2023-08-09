@@ -30,6 +30,8 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
 with open('config.json') as ins:
     config = json.load(ins)
 
+filename2chromosome_dict = {v: k for k, v in config['chromosome2file'].items()}
+
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('files', metavar='N', type=str, nargs='+',
                     help='files to be read')
@@ -56,6 +58,9 @@ for f in args.files:
         if gene_id not in genome:
             genome[gene_id] = dict()
             # assigned only once
+            file_name = f.split('/')[-1].split('.')[0]
+            # We set the id to the value in the filename2chromosome_dict
+            contig.id = filename2chromosome_dict[file_name]
             genome[gene_id]['contig'] = contig
 
         if feature_type in genome[gene_id]:

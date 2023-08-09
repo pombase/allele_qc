@@ -5,6 +5,7 @@ We define a grammar as a list of SyntaxRule objects, see the readme.
 """
 from typing import Callable
 from pydantic import BaseModel
+import re
 
 
 class SyntaxRule(BaseModel):
@@ -14,6 +15,21 @@ class SyntaxRule(BaseModel):
     apply_syntax: Callable[[list[str]], str] = lambda g: ''
     check_sequence: Callable[[list[str], dict], str] = lambda g, gg: ''
     further_check: Callable[[list[str]], bool] = lambda g: True
+    format_for_transvar: Callable[[list[str]], dict] = lambda g, gg: None
+
+    def get_groups(self, allele_sub_string: str) -> list[str]:
+        """
+        Match an allele description with the regex of this syntax rule (should match entire string), and further_checks.
+        Returns the match.groups().
+        """
+        match = re.match(self.regex, allele_sub_string)
+        if match is None:
+            raise ValueError(f'allele_substring {allele_sub_string} does not match regex of {self.type}:{self.rule_name}')
+
+        groups = match.groups()
+        if self.further_check(groups):
+            return groups
+        raise ValueError(f'allele_substring {allele_sub_string} does not match further_check rule {self.type}:{self.rule_name}')
 
 
 class AllowedTypes(BaseModel):
@@ -35,7 +51,6 @@ class AllowedTypes(BaseModel):
     def __getitem__(self, types: frozenset) -> str:
         splitted_types = self.split_composed_types(types)
         return self.allowed_types[splitted_types]
-
 
 
 def find_rule(grammar: list[SyntaxRule], rule_type, rule_name) -> SyntaxRule:

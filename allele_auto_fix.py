@@ -1,5 +1,5 @@
 import pandas
-from grammar import aminoacid_grammar_old
+from grammar import aminoacid_grammar
 from models import SyntaxRule
 from refinement_functions import split_multiple_aa, join_multiple_aa
 import pickle
@@ -15,7 +15,7 @@ with open('data/genome.pickle', 'rb') as ins:
 with open('data/coordinate_changes_dict.json') as ins:
     coordinate_changes_dict = json.load(ins)
 
-syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar_old]
+syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 syntax_rules_dict = {f'{r.type}:{r.rule_name}': r for r in syntax_rules}
 
 data = pandas.read_csv('results/allele_results_errors.tsv', sep='\t', na_filter=False)

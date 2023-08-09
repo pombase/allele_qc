@@ -1,5 +1,6 @@
-from genome_functions import get_nt_at_genome_position, gene_coords2genome_coords
+from genome_functions import get_nt_at_gene_coord, gene_coords2genome_coords
 import copy
+from Bio.Seq import reverse_complement
 
 allowed_types_dict = {
     frozenset({'amino_acid_mutation'}): 'amino_acid_mutation',
@@ -68,7 +69,7 @@ def check_value_at_pos(indicated_value, pos, gene, seq_type):
             return gene['peptide'][p - 1]
     else:
         def get_value_at_pos(p):
-            return get_nt_at_genome_position(p, gene, gene['contig'])
+            return get_nt_at_gene_coord(p, gene, gene['contig'])
 
     if get_value_at_pos(pos) == indicated_value:
         return ''
@@ -285,6 +286,24 @@ multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
 multi_aa_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
 
+
+def multi_aa_format_for_transvar(g: list[str], gg=None):
+    # First aminoacid + first position
+    first_residue = g[0][0] + g[1]
+    # Last aminoacid + last position
+    last_residue = g[0][-1] + str(int(g[1]) + len(g[0]) - 1)
+
+    return f'p.{first_residue}_{last_residue}delins{g[2]}'
+
+
+def insertion_aa_format_for_transvar(g: list[str], gg=None):
+    # Last aminoacid + last position
+    last_pos = int(g[1]) + len(g[0]) - 1
+    last_residue = g[0][-1] + str(last_pos)
+
+    return f'p.{last_residue}_{last_pos + 1}ins{g[2]}'
+
+
 aminoacid_grammar = [
     {
         'type': 'amino_acid_mutation',
@@ -292,7 +311,8 @@ aminoacid_grammar = [
         'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'further_check': lambda g: g[0] != g[2]
+        'further_check': lambda g: g[0] != g[2],
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}{g[2]}'
     },
     {
         'type': 'amino_acid_mutation',
@@ -301,7 +321,8 @@ aminoacid_grammar = [
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # It is only a mutation if the number of aminoacids before and after is the same
-        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2])
+        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2]),
+        'format_for_transvar': multi_aa_format_for_transvar
     },
     {
         'type': 'amino_acid_deletion_and_mutation',
@@ -310,7 +331,8 @@ aminoacid_grammar = [
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
-        'further_check': lambda g: len(g[0]) > len(g[2])
+        'further_check': lambda g: len(g[0]) > len(g[2]),
+        'format_for_transvar': multi_aa_format_for_transvar
     },
     {
         'type': 'amino_acid_insertion_and_mutation',
@@ -319,7 +341,8 @@ aminoacid_grammar = [
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # We don't want to account insertions here
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0]))
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0])),
+        'format_for_transvar': multi_aa_format_for_transvar
     },
     {
         'type': 'amino_acid_insertion',
@@ -327,7 +350,8 @@ aminoacid_grammar = [
         'regex': multi_aa_regex,
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0]))
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0])),
+        'format_for_transvar': insertion_aa_format_for_transvar
     },
     {
         'type': 'nonsense_mutation',
@@ -335,6 +359,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}*'
     },
     {
         'type': 'nonsense_mutation',
@@ -342,6 +367,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}*'
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -349,6 +375,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(sorted(g, key=int)).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}_{g[1]}del',
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -356,6 +383,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
+        'format_for_transvar': lambda g, gg: f'p.{g[0]}del',
     }
 ]
 
@@ -372,6 +400,56 @@ multi_nt_regex = f'({nt}+)-?((?<=-)(?:-?\d+|\(-\d+\))(?=-)|(?<!-)(?:-?\d+|\(-\d+
 multi_nt_apply_syntax = lambda g: (''.join(format_negatives(g, [1]))).upper().replace('U', 'T')
 multi_nt_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
 
+
+def multi_nt_format_for_transvar(g: list[str], gene: dict) -> str:
+    # There might be parenthesis around negative numbers
+    gene_pos = int(g[1].replace('(', '').replace(')', ''))
+    # First aminoacid + first position
+    first_genome_pos, strand = gene_coords2genome_coords(gene_pos, gene)
+    last_genome_pos, _ = gene_coords2genome_coords(gene_pos + len(g[0]) - 1, gene)
+    if strand == 1:
+        return f'g.{first_genome_pos}_{last_genome_pos}del{g[0]}ins{g[2]}'
+    return f'g.{last_genome_pos}_{first_genome_pos}del{reverse_complement(g[0])}ins{reverse_complement(g[2])}'
+
+
+def single_nt_format_for_transvar(g: list[str], gene: dict) -> str:
+    # There might be parenthesis around negative numbers
+    gene_pos = int(g[1].replace('(', '').replace(')', ''))
+    # First aminoacid + first position
+    genome_pos, strand = gene_coords2genome_coords(gene_pos, gene)
+
+    if strand == 1:
+        return f'g.{genome_pos}{g[0]}>{g[2]}'
+    return f'g.{genome_pos}{reverse_complement(g[0])}>{reverse_complement(g[2])}'
+
+
+def insertion_nt_format_for_transvar(g: list[str], gene: dict) -> str:
+    # Last nt + last position (it could be written AV23AVLLLL, not ideal maybe, but it passes the regex)
+    gene_last_pos = int(g[1].replace('(', '').replace(')', '')) + len(g[0]) - 1
+    genome_pos, strand = gene_coords2genome_coords(gene_last_pos, gene)
+
+    if strand == 1:
+        return f'g.{genome_pos}_{genome_pos+1}ins{g[2]}'
+    return f'g.{genome_pos - 1}_{genome_pos}ins{reverse_complement(g[2])}'
+
+
+def deletion_nt_format_single_for_transvar(g: list[str], gene: dict) -> str:
+    gene_pos = int(g[0].replace('(', '').replace(')', ''))
+    genome_pos, strand = gene_coords2genome_coords(gene_pos, gene)
+    return f'g.{genome_pos}del'
+
+
+def deletion_nt_format_multi_for_transvar(g: list[str], gene: dict) -> str:
+    gene_pos_start = int(g[0].replace('(', '').replace(')', ''))
+    gene_pos_end = int(g[1].replace('(', '').replace(')', ''))
+    genome_pos_start, strand = gene_coords2genome_coords(gene_pos_start, gene)
+    genome_pos_end, _ = gene_coords2genome_coords(gene_pos_end, gene)
+
+    if strand == 1:
+        return f'g.{genome_pos_start}_{genome_pos_end}del'
+    return f'g.{genome_pos_end}_{genome_pos_start}del'
+
+
 nucleotide_grammar = [
     {
         'type': 'nucleotide_mutation',
@@ -379,7 +457,8 @@ nucleotide_grammar = [
         # Negative numbers are common
         'regex': f'(?<=\\b)({nt}){num}({nt})(?=\\b)',
         'apply_syntax': lambda g: ''.join(format_negatives(g, [1])).upper().replace('U', 'T'),
-        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna')
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'dna'),
+        'format_for_transvar': single_nt_format_for_transvar,
     },
     {
         'type': 'nucleotide_mutation',
@@ -388,7 +467,8 @@ nucleotide_grammar = [
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
         # It is only a mutation if the number of nts before and after is the same
-        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2])
+        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2]),
+        'format_for_transvar': multi_nt_format_for_transvar,
     },
     {
         'type': 'nucleotide_deletion_and_mutation',
@@ -397,7 +477,8 @@ nucleotide_grammar = [
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
         # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
-        'further_check': lambda g: len(g[0]) > len(g[2])
+        'further_check': lambda g: len(g[0]) > len(g[2]),
+        'format_for_transvar': multi_nt_format_for_transvar,
     },
     {
         'type': 'nucleotide_insertion_and_mutation',
@@ -406,7 +487,8 @@ nucleotide_grammar = [
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
         # We don't want to account insertions here
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0]))
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0])),
+        'format_for_transvar': multi_nt_format_for_transvar,
     },
     {
         'type': 'nucleotide_insertion',
@@ -414,14 +496,16 @@ nucleotide_grammar = [
         'regex': multi_nt_regex,
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0]))
+        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0])),
+        'format_for_transvar': insertion_nt_format_for_transvar,
     },
     {
         'type': 'partial_nucleotide_deletion',
         'rule_name': 'usual',
         'regex': f'(?<!{nt}){num}\s*[-–]\s*{num}(?!{nt})',
         'apply_syntax': lambda g: '-'.join(format_negatives(sorted(g, key=lambda x: int(x.replace('(', '').replace(')', ''))), [0, 1])).upper(),
-        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna')
+        'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'dna'),
+        'format_for_transvar': deletion_nt_format_multi_for_transvar,
     },
     {
         'type': 'partial_nucleotide_deletion',
@@ -429,6 +513,7 @@ nucleotide_grammar = [
         'regex': f'(?<!{nt}){num}(?!{nt})',
         'apply_syntax': lambda g: format_negatives(g, [0])[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
+        'format_for_transvar': deletion_nt_format_single_for_transvar,
     },
 ]
 

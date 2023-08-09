@@ -10,15 +10,17 @@ from enum import Enum
 from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as primer_mutagenesis_func
 from common_autofix_functions import apply_histone_fix
 from protein_modification_qc import check_func as check_modification_description
+from protein_modification_transvar import get_transvar_coordinates as get_transvar_coordinates_modification, format_for_transvar as format_for_transvar_modification
+from allele_transvar import get_transvar_coordinates as get_transvar_coordinates_allele, format_for_transvar as format_for_transvar_allele
 import re
 from typing import Optional
 from Bio import SeqIO
 import tempfile
 import os
 from starlette.background import BackgroundTask
-from genome_functions import extract_main_feature_and_strand, process_systematic_id, get_nt_at_genome_position
+from genome_functions import extract_main_feature_and_strand, process_systematic_id, get_nt_at_gene_coord
 from Bio.SeqRecord import SeqRecord
-from transvar_functions import get_transvar_str_annotation, parse_transvar_string, TransvarAnnotation
+from transvar_functions import get_transvar_str_annotation, parse_transvar_string, TransvarAnnotation, get_anno_db
 
 syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
 syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
@@ -335,7 +337,7 @@ async def get_genome_region(systematic_id: str = Query(example="SPAC1834.04", de
         return FileResponse(fp.name, background=BackgroundTask(lambda: os.remove(fp.name)), filename=f'{systematic_id}.{extension}')
 
 
-@app.get('/residue_at_position')
+@app.get('/residue_at_position', response_class=PlainTextResponse)
 async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.09', description=systematic_id_description), position: int = Query(example=1), dna_or_protein: DNAorProtein = Query(example='protein')):
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
@@ -343,7 +345,7 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
         raise HTTPException(404, 'Systematic id does not exist')
     gene = genome[systematic_id]
     if dna_or_protein == 'dna':
-        return PlainTextResponse(get_nt_at_genome_position(position, gene, gene['contig']))
+        return PlainTextResponse(get_nt_at_gene_coord(position, gene, gene['contig']))
     elif dna_or_protein == 'protein':
         if 'peptide' not in gene:
             raise ValueError('cannot read sequence, no peptide')
@@ -354,7 +356,7 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
 async def ganno(variant_description: str = Query(example="II:g.178497T>A", description='Variant described at the genome level (gDNA)')) -> list[TransvarAnnotation]:
     try:
         return parse_transvar_string(get_transvar_str_annotation('ganno', variant_description))
-    except ValueError as e:
+    except Exception as e:
         raise HTTPException(400, str(e))
 
 
@@ -362,7 +364,7 @@ async def ganno(variant_description: str = Query(example="II:g.178497T>A", descr
 async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", description='Variant described at the coding DNA level (cDNA)')) -> list[TransvarAnnotation]:
     try:
         return parse_transvar_string(get_transvar_str_annotation('canno', variant_description))
-    except ValueError as e:
+    except Exception as e:
         raise HTTPException(400, str(e))
 
 
@@ -370,5 +372,56 @@ async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", d
 async def panno(variant_description: str = Query(example="SPBC1198.04c:p.N3A", description='Variant described at the protein level')) -> list[TransvarAnnotation]:
     try:
         return parse_transvar_string(get_transvar_str_annotation('panno', variant_description))
-    except ValueError as e:
+    except Exception as e:
         raise HTTPException(400, str(e))
+
+
+@ app.get("/allele_transvar_coordinates", response_class=PlainTextResponse)
+async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="A3V,SEA23PPP,150-200"), allele_type: AlleleType = Query(example="amino_acid_deletion_and_mutation"), allele_name: str = Query(example="aat1-1")):
+    check_allele_resp = await check_allele(systematic_id, allele_description, allele_type)
+
+    if check_allele_resp.needs_fixing:
+        raise HTTPException(400, 'Please fix the allele description first')
+
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+
+    db = get_anno_db()
+
+    out_list = list()
+    for allele_part, rule_applied in zip(check_allele_resp.allele_parts.split('|'), check_allele_resp.rules_applied.split('|')):
+        input_dict = {'systematic_id': systematic_id, 'allele_description': allele_description, 'allele_type': allele_type, 'allele_name': allele_name, 'allele_parts': allele_part, 'rules_applied': rule_applied}
+        input_dict['transvar_input'] = format_for_transvar_allele(input_dict, genome, syntax_rules_aminoacids, syntax_rules_nucleotides)
+        # Can give errors for certain transcripts, e.g. it was giving error for frame-shifted transcripts such as SPAC688.08 S1137
+        try:
+            out_list.append(get_transvar_coordinates_allele(input_dict, db, genome, []))
+        except ValueError as e:
+            raise HTTPException(400, str(e))
+
+    return '|'.join(out_list)
+
+
+@ app.get("/protein_modification_transvar_coordinates", response_class=PlainTextResponse)
+async def protein_modification_coordinates(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), sequence_position: str = Query(example="A3,K4")):
+
+    check_modification_resp = await check_modification(systematic_id, sequence_position)
+
+    if check_modification_resp.needs_fixing:
+        raise HTTPException(400, 'Please fix the modification description first')
+
+    with open('data/genome.pickle', 'rb') as ins:
+        genome = pickle.load(ins)
+
+    db = get_anno_db()
+
+    out_list = list()
+    for sequence_position_i in sequence_position.split(','):
+        input_dict = {'systematic_id': systematic_id, 'exploded_sequence_position': sequence_position_i}
+        input_dict['transvar_input'] = format_for_transvar_modification(input_dict, genome)
+        try:
+            out_list.append(get_transvar_coordinates_modification(input_dict, db, genome, []))
+        # Can give errors for certain transcripts, e.g. it was giving error for frame-shifted transcripts such as SPAC688.08 S1137
+        except ValueError as e:
+            raise HTTPException(400, str(e))
+
+    return '|'.join(out_list)
