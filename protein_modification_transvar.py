@@ -30,15 +30,19 @@ def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], g
     raise ValueError('Cannot find annotation for {} {}'.format(gene_id, transcript_id))
 
 
-def get_transvar_coordinates(row, db, exclude_transcripts):
-    if row['systematic_id'] in exclude_transcripts:
-        return ''
+def get_transvar_coordinates(row, db, genome, exclude_transcripts):
+
     # print(row['systematic_id'], '<<<>>>', row['transvar_input'])
     qc_id = process_systematic_id(row['systematic_id'], genome, 'first')
     transcript_id = None if (qc_id == row['systematic_id']) else qc_id
-    print('panno', row['transvar_input'])
-    transvar_annotation_list = parse_transvar_string(get_transvar_str_annotation('panno', row['transvar_input'], db))
-    return get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id)
+    try:
+        transvar_annotation_list = parse_transvar_string(get_transvar_str_annotation('panno', row['transvar_input'], db))
+        return get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id)
+    except ValueError as e:
+        if e.args[0] == 'no_valid_transcript_found' and row['systematic_id'] in exclude_transcripts:
+            return ''
+        else:
+            raise e
 
 
 if __name__ == '__main__':
@@ -79,7 +83,7 @@ if __name__ == '__main__':
 
     anno_db = get_anno_db()
     print('Running transvar on protein modifications... (will take a while)')
-    data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, exclude_transcripts), axis=1)
+    data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, genome, exclude_transcripts), axis=1)
 
     aggregated_data = data_exploded.groupby(['systematic_id', 'sequence_position'], as_index=False).agg({'transvar_coordinates': '|'.join})
 
