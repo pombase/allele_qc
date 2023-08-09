@@ -33,27 +33,27 @@ class SyntaxRulesTest(unittest.TestCase):
         syntax_rule = find_rule(syntax_rules, 'amino_acid_mutation', 'multiple_aa')
         groups = syntax_rule.get_groups('AP123VL')
         self.assertEqual(groups, ('AP', '123', 'VL'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.A123_P124delinsVL')
+        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.A123_P124delinsVL')
 
         syntax_rule = find_rule(syntax_rules, 'amino_acid_insertion', 'standard')
         groups = syntax_rule.get_groups('E2EVTA')
         self.assertEqual(groups, ('E', '2', 'EVTA'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.E2_3insEVTA')
+        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.E2_3insEVTA')
 
         syntax_rule = find_rule(syntax_rules, 'nonsense_mutation', 'stop_codon_star')
         groups = syntax_rule.get_groups('E2*')
         self.assertEqual(groups, ('E', '2', '*'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.E2*')
+        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.E2*')
 
         syntax_rule = find_rule(syntax_rules, 'partial_amino_acid_deletion', 'multiple_aa')
         groups = syntax_rule.get_groups('2-100')
         self.assertEqual(groups, ('2', '100'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.2_100del')
+        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.2_100del')
 
         syntax_rule = find_rule(syntax_rules, 'partial_amino_acid_deletion', 'single_aa')
         groups = syntax_rule.get_groups('2')
         self.assertEqual(groups, ('2',))
-        self.assertEqual(syntax_rule.format_for_transvar(groups), 'p.2del')
+        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.2del')
 
     def test_class_methods_nucleotides(self):
 
