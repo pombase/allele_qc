@@ -46,7 +46,7 @@ def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], g
 
 
 def get_transvar_coordinates(row, db):
-    if row['systematic_id'] == 'SPAC1486.05':
+    if row['systematic_id'] in ['SPAC1486.05', 'SPAC17G8.01c', 'SPAC29E6.03c']:
         return ''
     # print(row['systematic_id'], '<<<>>>', row['transvar_input'])
     allele_qc_id = handle_systematic_id_for_qc(row, genome)
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     syntax_rules_aminoacids = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
     syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
 
-    data = pandas.read_csv('results/allele_results.tsv', sep='\t', na_filter=False)
+    data = pandas.read_csv(args.allele_results, sep='\t', na_filter=False)
 
     # Remove all errors
     data = data[~data['needs_fixing']].copy()
