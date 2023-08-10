@@ -104,8 +104,8 @@ def check_allele_description(allele_description, syntax_rules: list[SyntaxRule],
 
     # Extract the matched and unmatched elements
     match_groups: list[tuple[re.Match, SyntaxRule]] = list(filter(lambda x: type(x) != str, result))
-    # The regex excludes non-digit non-letter characters
-    unmatched = list(filter(lambda x: type(x) == str and not re.match('^[^a-zA-Z\d]+$', x), result))
+    # We admit any space, comma or semicolon as a valid separator
+    unmatched = list(filter(lambda x: type(x) == str and not re.match('^[;,\s]+$', x), result))
 
     output_dict = {
         'allele_parts': '',
