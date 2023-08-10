@@ -19,6 +19,7 @@ from Bio import SeqIO
 from Bio.SeqFeature import SeqFeature
 import argparse
 import json
+from tqdm import tqdm
 
 genome: dict[str, dict[str, SeqFeature]] = dict()
 
@@ -46,7 +47,7 @@ for f in args.files:
     contig = next(iterator)
     if next(iterator, None) is not None:
         raise ValueError(f'multiple sequences in file {f}')
-    for feature in contig.features:
+    for feature in tqdm(contig.features, desc="Reading sequence features", unit="feature"):
         feature: SeqFeature
         if 'systematic_id' not in feature.qualifiers:
             continue
