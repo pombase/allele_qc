@@ -15,7 +15,7 @@ SPAC20G8.05c	cdc15-27A	non-phosphorylatable	pattern_error	non-phosphorylatable
 SPAC20G8.05c	cdc15-27D	phospho-mimetic	pattern_error	phospho-mimetic
 SPAC23C4.19	spt5-CTD-T1A	CTD-T1A	pattern_error	CTD-
 SPAC23C4.19	spt5-CTD-T1E	CTD-T1E	pattern_error	CTD-
-SPAC24B11.06c	sty1-G197T	sty1-G197T	pattern_error	sty
+SPAC24B11.06c	sty1-G197T	sty1-G197T	pattern_error	sty,-
 SPAC25G10.04c	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
 SPAC2G11.12	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
 SPAC343.13	gta2-T-intron	212-T-primary_transcript	pattern_error	-T-primary_transcript
@@ -24,12 +24,14 @@ SPAC6F12.03c	stx8(A+G)	152-224 substituted by a hinge of A+G	pattern_error	 subs
 SPAC6F6.17	rif1::ura4+	ura4+ @ 5' HindIII site	pattern_error	ura4+ @ 5' HindIII site
 SPAC7D4.04	atg11(522-583)F526AY527A	522-583, F526AY527A	pattern_error	, F5,6AY5,7A
 SPAC7D4.04	atg11(522-583)F526AY527A	522-583,F526AY527A	pattern_error	,F5,6AY5,7A
-SPAPB2B4.03	Pcig2-96--12-LacZ	cig2-96---12-LacZ fusion	pattern_error	cig2,-LacZ fusion
+SPAPB2B4.03	Pcig2-96--12-LacZ	cig2-96---12-LacZ fusion	pattern_error	cig2,--,-LacZ fusion
 SPAPB2B4.03	Pcig2-mut1	cig2 promoter region -64--44-LacZ fusion	pattern_error	cig2 promoter region ,-LacZ fusion
-SPAPB2B4.03	Pcig2delta-147--40-LacZ	cig2-170--148, -39-+1-LacZ fusion	pattern_error	cig2,-LacZ fusion
+SPAPB2B4.03	Pcig2delta-147--40-LacZ	cig2-170--148, -39-+1-LacZ fusion	pattern_error	cig2,-+,-LacZ fusion
 SPAPB2B4.03	nmt1-cig2-I	cig2-3000-1912	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-II	cig2-3000-1880	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-III	cig2 -3000--1248	pattern_error	cig2 
+SPBC119.04	mei3-promoter-d3	T-92A,C-90T, A-89C,G-87CATCC-88	pattern_error	-
+SPBC119.04	mei3-promoter-d3	T-92A,C-90T,A-89C,G-87CATCC-88	pattern_error	-
 SPBC119.08	pmk1-153+A	pmk1-153+A	pattern_error	pmk,+A
 SPBC14C8.01c	cut2-N121	delta122-301	pattern_error	delta1
 SPBC1734.02c	cdc27-R5	1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT	pattern_error	-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT
@@ -41,40 +43,42 @@ SPBC1A4.03c	top2-1-74/SV-delta-Sph	amino acids 1-74 replaced by SV40 NLS sequenc
 SPBC1A4.03c	top2-1-74/SV-delta-Xba	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV4, NLS sequence PKKKRKV,and amino acids , deleted
 SPBC1A4.03c	top2-26-40/SV-delta-Sph	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
 SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC28F2.12	rpb1-CTD-(S5)3(S5A)11	CTD-S5A(r7-r18),∆(r19-29)	pattern_error	CTD-,(r7-r1,),∆(r1
-SPBC28F2.12	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	pattern_error	CTD-,(r,-r
-SPBC28F2.12	rpb1-CTD-P6A(r2-r29-2)	CTD-P6A(r2-r29-2)	pattern_error	CTD-,(r,-r
+SPBC28F2.12	rpb1-CTD-(S5)3(S5A)11	CTD-S5A(r7-r18),∆(r19-29)	pattern_error	CTD-,(r7-r1,),∆(r1,)
+SPBC28F2.12	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
+SPBC28F2.12	rpb1-CTD-P6A(r2-r29-2)	CTD-P6A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
 SPBC28F2.12	rpb1-CTD-S2A	CTD-S2A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A	rpb1-CTD-S2A	pattern_error	rpb,-CTD-
-SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	pattern_error	CTD-,),CTDdelta(
-SPBC28F2.12	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	pattern_error	CTD-,(r1-r1,)delta(r1,-r
-SPBC28F2.12	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	pattern_error	CTD-,(r5-r2,(r5-r2
+SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	pattern_error	CTD-,(,),CTDdelta(,)
+SPBC28F2.12	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	pattern_error	CTD-,(r1-r1,)delta(r1,-r,)
+SPBC28F2.12	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	pattern_error	CTD-,(r5-r2,),(r5-r2,)
 SPBC28F2.12	rpb1-CTD-S2A,S7A	CTD-S2A,S7A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-S2E(r5-r16)	CTD-S2E(r5-r16)	pattern_error	CTD-,(r5-r1
+SPBC28F2.12	rpb1-CTD-S2E(r5-r16)	CTD-S2E(r5-r16)	pattern_error	CTD-,(r5-r1,)
 SPBC28F2.12	rpb1-CTD-S5A	CTD-S5A	pattern_error	CTD-
-SPBC28F2.12	rpb1-CTD-S5A(r2-r29-2)	CTD-S5A(r2-r29-2)	pattern_error	CTD-,(r,-r
+SPBC28F2.12	rpb1-CTD-S5A(r2-r29-2)	CTD-S5A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
 SPBC28F2.12	rpb1-CTD-S7A	CTD-S7A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S7A	rpb1-CTD-S7A	pattern_error	rpb,-CTD-
-SPBC28F2.12	rpb1-CTD-S7A(r5-r29)	CTD-S7A(r5-r29)	pattern_error	CTD-,(r5-r2
+SPBC28F2.12	rpb1-CTD-S7A(r5-r29)	CTD-S7A(r5-r29)	pattern_error	CTD-,(r5-r2,)
 SPBC28F2.12	rpb1-CTD-T4A	CTD-T4A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-T4A	rpb1-CTD-T4A	pattern_error	rpb,-CTD-
-SPBC28F2.12	rpb1-CTD-T4A(r5-r29)	CTD-T4A(r5-r29)	pattern_error	CTD-,(r5-r2
-SPBC28F2.12	rpb1-CTD-T4A,S7A(r5-r29)	CTD-T4A,S7A(r5-r29)	pattern_error	CTD-,(r5-r2
-SPBC28F2.12	rpb1-CTD-T4E(r5-r29)	CTD-T4E(r5-r29)	pattern_error	CTD-,(r5-r2
+SPBC28F2.12	rpb1-CTD-T4A(r5-r29)	CTD-T4A(r5-r29)	pattern_error	CTD-,(r5-r2,)
+SPBC28F2.12	rpb1-CTD-T4A,S7A(r5-r29)	CTD-T4A,S7A(r5-r29)	pattern_error	CTD-,(r5-r2,)
+SPBC28F2.12	rpb1-CTD-T4E(r5-r29)	CTD-T4E(r5-r29)	pattern_error	CTD-,(r5-r2,)
 SPBC28F2.12	rpb1-CTD-Y1F	CTD-Y1F	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-Y1F	rpb1-CTD-Y1F	pattern_error	rpb,-CTD-
-SPBC28F2.12	rpb1-CTD-delta(r11-r29)	CTD-delta(r11-r29)	pattern_error	CTD-delta(r,-r2
-SPBC28F2.12	rpb1-CTD-delta(r17-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2
-SPBC28F2.12	rpb1-CTD-delta(r19-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2
-SPBC28F2.12	rpb1-CTD-delta(r19-r29),S7A	CTD-delta(r19-r29),S7A	pattern_error	CTD-delta(r1,-r2
+SPBC28F2.12	rpb1-CTD-delta(r11-r29)	CTD-delta(r11-r29)	pattern_error	CTD-delta(r,-r2,)
+SPBC28F2.12	rpb1-CTD-delta(r17-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2,)
+SPBC28F2.12	rpb1-CTD-delta(r19-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2,)
+SPBC28F2.12	rpb1-CTD-delta(r19-r29),S7A	CTD-delta(r19-r29),S7A	pattern_error	CTD-delta(r1,-r2,),
 SPBC28F2.12	rpb1-P3.P3A	(CDT)P3A(alternating)	pattern_error	(CDT),(alternating)
-SPBC28F2.12	rpb1-P6-P6A	P6-P6A	pattern_error	P6-
-SPBC28F2.12	rpb1-S2A(r5-r29)	CTD-S2A(r5-r29)	pattern_error	CTD-,(r5-r2
-SPBC28F2.12	rpb1-S5-S5A(1-29)	S5-S5A(1-29)	pattern_error	S5-
+SPBC28F2.12	rpb1-S2A(r5-r29)	CTD-S2A(r5-r29)	pattern_error	CTD-,(r5-r2,)
 SPBC29A10.14	rec8-17A	unknown	pattern_error	unknown
 SPBC2D10.06	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	pattern_error	lacks the N-terminal 80% of the rep1 coding region
 SPBC2F12.13	klp5-del	short deletion with a frameshift at codon 772, resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772, resulting in a different 772–814 C-terminus
 SPBC2F12.13	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
+SPBC32C12.02	ste11-CORE2	-C460T, -C459G,-C458A	pattern_error	-,, -,,-
+SPBC32C12.02	ste11-CORE2	-C460T,-C459G,-C458A	pattern_error	-,,-,,-
+SPBC32C12.02	ste11-Mb2	-C194T, -C193G,-C192A	pattern_error	-,, -,,-
+SPBC32C12.02	ste11-Mb2	-C194T,-C193G,-C192A	pattern_error	-,,-,,-
 SPBC3D6.10	apn2::ura4+	nt56-1496	pattern_error	nt56-1496
 SPBC725.06c	ppk31--579-T (5'-UTR-uORF)	-579-T	pattern_error	-T
 SPCC11E10.07c	tif221-2	frameshift at L43	pattern_error	frameshift at L43
@@ -91,12 +95,11 @@ SPCC330.05c	ura4-D18	unknown	pattern_error	unknown
 SPCC338.08	ctp1-30	I110N with frameshift at T197 truncating at position 208	pattern_error	I110N with frameshift at T197 truncating at position 208
 SPCC613.04c	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
 SPCC970.09	sec8-1	unknown	pattern_error	unknown
-SPNCRNA.103	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	pattern_error	CU3,:g.,2T>C,CU3,:g.,0T>C,CU3,:g.,5T>C,CU3,:g.,0A>G
+SPNCRNA.103	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	pattern_error	CU3,.,:g.,2T>C,CU3,.,:g.,0T>C,CU3,.,:g.,5T>C,CU3,.,:g.,0A>G
 SPNCRNA.1343	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
 SPNCRNA.1712	nc-pho1-DSR	DSR domain mutated	pattern_error	DSR domain mutated
-SPNCRNA.1712	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	peptide sequence missing
 SPNCRNA.214	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
 SPNCRNA.214	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
 SPNCRNA.214	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
