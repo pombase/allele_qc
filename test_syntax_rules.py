@@ -38,7 +38,7 @@ class SyntaxRulesTest(unittest.TestCase):
         syntax_rule = find_rule(syntax_rules, 'amino_acid_insertion', 'standard')
         groups = syntax_rule.get_groups('E2EVTA')
         self.assertEqual(groups, ('E', '2', 'EVTA'))
-        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.E2_3insEVTA')
+        self.assertEqual(syntax_rule.format_for_transvar(groups, None), 'p.E2_3insVTA')
 
         syntax_rule = find_rule(syntax_rules, 'nonsense_mutation', 'stop_codon_star')
         groups = syntax_rule.get_groups('E2*')
@@ -108,19 +108,19 @@ class SyntaxRulesTest(unittest.TestCase):
 
         groups = syntax_rule_insertion.get_groups('A1AGGG')
         self.assertEqual(groups, ('A', '1', 'AGGG'))
-        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, ase1_gene), 'g.1878362_1878363insAGGG')
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, ase1_gene), 'g.1878362_1878363insGGG')
 
         groups = syntax_rule_insertion.get_groups('A(-1)AGGG')
         self.assertEqual(groups, ('A', '(-1)', 'AGGG'))
-        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, ase1_gene), 'g.1878361_1878362insAGGG')
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, ase1_gene), 'g.1878361_1878362insGGG')
 
         groups = syntax_rule_insertion.get_groups('A1AGGG')
         self.assertEqual(groups, ('A', '1', 'AGGG'))
-        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, mse1_gene), 'g.1884050_1884051insCCCT')
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, mse1_gene), 'g.1884050_1884051insCCC')
 
         groups = syntax_rule_insertion.get_groups('G(-1)GTTT')
         self.assertEqual(groups, ('G', '(-1)', 'GTTT'))
-        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, mse1_gene), 'g.1884051_1884052insAAAC')
+        self.assertEqual(syntax_rule_insertion.format_for_transvar(groups, mse1_gene), 'g.1884051_1884052insAAA')
 
         # Single nucleotide deletion
         syntax_rule_deletion = find_rule(syntax_rules, 'partial_nucleotide_deletion', 'single_nt')

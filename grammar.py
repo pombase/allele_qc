@@ -301,7 +301,7 @@ def insertion_aa_format_for_transvar(g: list[str], gg=None):
     last_pos = int(g[1]) + len(g[0]) - 1
     last_residue = g[0][-1] + str(last_pos)
 
-    return f'p.{last_residue}_{last_pos + 1}ins{g[2]}'
+    return f'p.{last_residue}_{last_pos + 1}ins{g[2][1:]}'
 
 
 aminoacid_grammar = [
@@ -429,8 +429,8 @@ def insertion_nt_format_for_transvar(g: list[str], gene: dict) -> str:
     genome_pos, strand = gene_coords2genome_coords(gene_last_pos, gene)
 
     if strand == 1:
-        return f'g.{genome_pos}_{genome_pos+1}ins{g[2]}'
-    return f'g.{genome_pos - 1}_{genome_pos}ins{reverse_complement(g[2])}'
+        return f'g.{genome_pos}_{genome_pos+1}ins{g[2][1:]}'
+    return f'g.{genome_pos - 1}_{genome_pos}ins{reverse_complement(g[2][1:])}'
 
 
 def deletion_nt_format_single_for_transvar(g: list[str], gene: dict) -> str:
