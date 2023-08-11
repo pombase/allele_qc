@@ -18,7 +18,7 @@ from Bio import SeqIO
 import tempfile
 import os
 from starlette.background import BackgroundTask
-from genome_functions import extract_main_feature_and_strand, process_systematic_id, get_nt_at_gene_coord
+from genome_functions import extract_main_feature_and_strand, process_systematic_id, get_nt_at_gene_coord, handle_systematic_id_for_allele_qc
 from Bio.SeqRecord import SeqRecord
 from transvar_functions import get_transvar_str_annotation, parse_transvar_string, TransvarAnnotation, get_anno_db
 
@@ -92,6 +92,7 @@ class OldCoordsFix(AlleleFix):
 # For the query field
 systematic_id_description = 'Gene or transcript systematic id, if a gene that contains multiple transcripts is passed, the first transcript is used, `systematic_id.1`'
 systematic_id_description_longest = 'Gene or transcript systematic id, if a gene that contains multiple transcripts is passed, the longest transcript is used'
+allele_name_description = 'The allele name. It is only used for alleles of genes with multiple transcripts, in case they start by one of the transcripts names, to use that one. E.g. an allele name starting by zas1.2'
 
 
 def get_modification_user_friendly_fields(obj: CheckModificationResponse) -> CheckModificationResponse:
@@ -193,6 +194,13 @@ def extract_main_feature_and_strand_http_errors(gene: dict, downstream: int, ups
         raise HTTPException(400, str(e))
 
 
+def handle_systematic_id_for_allele_qc_http_errors(systematic_id: str, allele_name: str, genome: dict):
+    try:
+        return handle_systematic_id_for_allele_qc(systematic_id, allele_name, genome)
+    except ValueError as e:
+        raise HTTPException(404, str(e)) if 'Systematic id' in str(e) else HTTPException(400, str(e))
+
+
 app = FastAPI()
 
 
@@ -202,10 +210,14 @@ async def root():
 
 
 @ app.get("/check_allele", response_model=CheckAlleleDescriptionResponse)
-async def check_allele(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"), allele_type: AlleleType = Query(example="partial_amino_acid_deletion")):
+async def check_allele(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description),
+                       allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"),
+                       allele_type: AlleleType = Query(example="partial_amino_acid_deletion"),
+                       allele_name: str = Query(example='aat1-blah', description=allele_name_description)):
+
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
-    systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
+    systematic_id = handle_systematic_id_for_allele_qc_http_errors(systematic_id, allele_name, genome)
     if 'amino' in allele_type:
         response_data = CheckAlleleDescriptionResponse.parse_obj(
             check_allele_description(allele_description, syntax_rules_aminoacids, allele_type, allowed_types, genome[systematic_id])
@@ -377,7 +389,11 @@ async def panno(variant_description: str = Query(example="SPBC1198.04c:p.N3A", d
 
 
 @ app.get("/allele_transvar_coordinates", response_class=PlainTextResponse)
-async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), allele_description: str = Query(example="A3V,SEA23PPP,150-200"), allele_type: AlleleType = Query(example="amino_acid_deletion_and_mutation"), allele_name: str = Query(example="aat1-1")):
+async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description),
+                                      allele_description: str = Query(example="A3V,SEA23PPP,150-200"),
+                                      allele_type: AlleleType = Query(example="amino_acid_deletion_and_mutation"),
+                                      allele_name: str = Query(example="aat1-1", description=allele_name_description)):
+
     check_allele_resp = await check_allele(systematic_id, allele_description, allele_type)
 
     if check_allele_resp.needs_fixing:
