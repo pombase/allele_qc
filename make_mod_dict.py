@@ -9,7 +9,7 @@ with open('data/pombase-chado.modifications', 'r') as ins:
         all_mods_in_pombase.add(line.strip().split('\t')[2])
 
 
-pombase_mod_dict = dict()
+allowed_mod_dict = dict()
 
 with open('data/mod.obo', 'r') as ins:
     full_file = ins.read()
@@ -29,10 +29,10 @@ with open('data/mod.obo', 'r') as ins:
         if term_dict['id'][0] not in all_mods_in_pombase:
             continue
 
-        pombase_mod_dict[term_dict['id'][0]] = ""
+        allowed_mod_dict[term_dict['id'][0]] = ""
         if 'Origin' in term_dict:
             # Keep only aminoacids
-            pombase_mod_dict[term_dict['id'][0]] = ''.join(sorted(list(set(x for x in term_dict['Origin'][0].split(', ') if x in 'GPAVLIMCFYWHKRQNEDST'))))
+            allowed_mod_dict[term_dict['id'][0]] = ''.join(sorted(list(set(x for x in term_dict['Origin'][0].split(', ') if x in 'GPAVLIMCFYWHKRQNEDST'))))
 
-with open('data/pombase_mod_dict.json', 'w') as outfile:
-    json.dump(pombase_mod_dict, outfile, indent=4, sort_keys=True)
+with open('data/allowed_mod_dict.json', 'w') as outfile:
+    json.dump(allowed_mod_dict, outfile, indent=4, sort_keys=True)

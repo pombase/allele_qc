@@ -60,12 +60,13 @@ class CheckModificationTest(unittest.TestCase):
 
     def test_dummy_id(self):
         # Should return 404
-        response = client.get("/check_modification", params={'systematic_id': 'dummy', 'sequence_position': 'V123; V124,V125'})
+        # The mod code is not really used in the test
+        response = client.get("/check_modification", params={'systematic_id': 'dummy', 'sequence_position': 'V123; V124,V125', 'mod_code': 'MOD:00046'})
         self.assertEqual(response.status_code, 404)
 
     def test_valid_id(self):
         # Should contain a valid response
-        response = client.get("/check_modification", params={'systematic_id': 'SPBC359.03c', 'sequence_position': 'V123; V124,V125'})
+        response = client.get("/check_modification", params={'systematic_id': 'SPBC359.03c', 'sequence_position': 'V123; V124,V125', 'mod_code': 'MOD:00046'})
         self.assertEqual(response.status_code, 200)
 
         try:

@@ -1,6 +1,5 @@
 from common_autofix_functions import format_auto_fix
 import unittest
-
 from protein_modification_qc import check_func
 
 
@@ -13,35 +12,47 @@ class ProteinModificationFormattingTest(unittest.TestCase):
         example_dict = {
             'systematic_id': 'dummy',
             'sequence_position': 'S4',
+            'modification': 'blah'
         }
-        self.assertEqual(check_func(example_dict, genome), ('', ''))
+
+        allowed_mod_dict = {'blah': '', 'serines_only': 'S', 'serines_or_alanines': 'SA'}
+
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('', ''))
 
         example_dict['sequence_position'] = 'S3'
-        self.assertEqual(check_func(example_dict, genome), ('S3', ''))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('S3', ''))
 
         example_dict['sequence_position'] = 'blah3'
-        self.assertEqual(check_func(example_dict, genome), ('pattern_error', ''))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('pattern_error', ''))
 
         example_dict['sequence_position'] = 'A3S4'
-        self.assertEqual(check_func(example_dict, genome), ('pattern_error', ''))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('pattern_error', ''))
 
         example_dict['sequence_position'] = 'A3,S4'
-        self.assertEqual(check_func(example_dict, genome), ('', ''))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('', ''))
 
         # Repetitions are kept (expected behaviour)
         example_dict['sequence_position'] = 'A3,S4,S4'
-        self.assertEqual(check_func(example_dict, genome), ('', ''))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('', ''))
 
         # Only wrong syntax errors are reported, '|' separated
         example_dict['sequence_position'] = 'A3,S4,T4,T1000'
-        self.assertEqual(check_func(example_dict, genome), ('||T4|T1000', ''))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('||T4|T1000', ''))
 
         example_dict['sequence_position'] = 'A3;S4'
-        self.assertEqual(check_func(example_dict, genome), ('', 'A3,S4'))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('', 'A3,S4'))
 
         # No sorting, but repetitions are kept even when correcting syntax error
         example_dict['sequence_position'] = 'S4 A3 S4;S4;T100'
-        self.assertEqual(check_func(example_dict, genome), ('||||T100', 'S4,A3,S4,S4,T100'))
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('||||T100', 'S4,A3,S4,S4,T100'))
+
+        # Test allowed modifications
+        example_dict['sequence_position'] = 'A3;S4'
+        example_dict['modification'] = 'serines_only'
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('residue_not_allowed', 'A3,S4'))
+
+        example_dict['modification'] = 'serines_or_alanines'
+        self.assertEqual(check_func(example_dict, genome, allowed_mod_dict), ('', 'A3,S4'))
 
     def test_format_auto_fix(self):
 

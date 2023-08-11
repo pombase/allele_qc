@@ -8,7 +8,7 @@ import re
 import json
 
 
-def check_func(row, genome, pombase_mod_dict):
+def check_func(row, genome, allowed_mod_dict):
 
     # Handle multiple transcripts, we pick the first (.1) by default
     try:
@@ -51,10 +51,10 @@ def check_func(row, genome, pombase_mod_dict):
         return '|'.join(errors), change_sequence_position_to
 
     # If there are restriction for this particular MOD, check for those
-    if pombase_mod_dict[row['modification']]:
+    if allowed_mod_dict[row['modification']]:
         # Get all letters in the sequence_position
         residues = set(x for x in re.findall('[a-zA-Z]', row['sequence_position']))
-        if any(residue not in pombase_mod_dict[row['modification']] for residue in residues):
+        if any(residue not in allowed_mod_dict[row['modification']] for residue in residues):
             return 'residue_not_allowed', change_sequence_position_to
 
     return '', change_sequence_position_to
@@ -65,13 +65,13 @@ if __name__ == "__main__":
         genome = pickle.load(ins)
 
     data = pandas.read_csv('data/pombase-chado.modifications', sep='\t', na_filter=False)
-    with open('data/pombase_mod_dict.json', 'r') as ins:
-        pombase_mod_dict = json.load(ins)
+    with open('data/allowed_mod_dict.json', 'r') as ins:
+        allowed_mod_dict = json.load(ins)
 
     data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'taxon', 'date']
     data = data[data['sequence_position'] != '']
 
-    extra_cols = data.apply(check_func, axis=1, result_type='expand', args=[genome, pombase_mod_dict])
+    extra_cols = data.apply(check_func, axis=1, result_type='expand', args=[genome, allowed_mod_dict])
     data.loc[:, 'sequence_error'] = extra_cols.loc[:, 0]
     data.loc[:, 'change_sequence_position_to'] = extra_cols.loc[:, 1]
     # data.loc[:, ['sequence_error', 'change_sequence_position_to']] = data.apply(check_func, axis=1, result_type='expand')

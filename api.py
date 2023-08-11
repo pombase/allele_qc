@@ -95,7 +95,7 @@ systematic_id_description_longest = 'Gene or transcript systematic id, if a gene
 allele_name_description = 'The allele name. It is only used for alleles of genes with multiple transcripts, in case they start by one of the transcripts names, to use that one. E.g. an allele name starting by zas1.2'
 
 
-def get_modification_user_friendly_fields(obj: CheckModificationResponse) -> CheckModificationResponse:
+def get_modification_user_friendly_fields(obj: CheckModificationResponse, allowed_residues) -> CheckModificationResponse:
     new_obj = obj.copy()
 
     if obj.sequence_error:
@@ -115,6 +115,10 @@ def get_modification_user_friendly_fields(obj: CheckModificationResponse) -> Che
             if len(positions_dont_exist):
                 out_str = out_str + '\n'
             out_str = out_str + f'The following sequence positions don\'t contain the indicated residues: {",".join(residues_dont_match)}'
+
+        # Special case that overwrites
+        if obj.sequence_error == 'residue_not_allowed':
+            out_str = f'At least one of the indicated residues is not allowed, allowed residues are: {",".join(allowed_residues)}'
         new_obj.sequence_error = out_str
 
     if obj.change_sequence_position_to:
@@ -232,15 +236,21 @@ async def check_allele(systematic_id: str = Query(example="SPBC359.03c", descrip
 
 
 @ app.get("/check_modification", response_model=CheckModificationResponse)
-async def check_modification(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), sequence_position: str = Query(example="V123; V124,V125")):
+async def check_modification(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description),
+                             sequence_position: str = Query(example="S12; S23,S31"),
+                             mod_code: str = Query(example="MOD:00046", description='MOD:XXXXX id from the PSI-MOD ontology')):
+
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
     systematic_id = process_systematic_id_http_errors(systematic_id, genome, 'first')
-    errors, change_sequence_position_to = check_modification_description({'systematic_id': systematic_id, 'sequence_position': sequence_position}, genome)
+    with open('data/allowed_mod_dict.json', 'r') as ins:
+        allowed_mod_dict = json.load(ins)
+    errors, change_sequence_position_to = check_modification_description({'systematic_id': systematic_id, 'sequence_position': sequence_position, 'modification': mod_code}, genome, allowed_mod_dict)
     needs_fixing = errors != '' or change_sequence_position_to != ''
     response_data = CheckModificationResponse(sequence_error=errors, change_sequence_position_to=change_sequence_position_to, needs_fixing=needs_fixing)
-    response_data.user_friendly_fields = get_modification_user_friendly_fields(response_data)
+    response_data.user_friendly_fields = get_modification_user_friendly_fields(response_data, allowed_mod_dict[mod_code])
     return response_data
+
 
 @app.get("/primer")
 async def primer_mutagenesis(systematic_id: str = Query(example="SPAPB1A10.09", description=systematic_id_description),
@@ -420,7 +430,8 @@ async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC35
 @ app.get("/protein_modification_transvar_coordinates", response_class=PlainTextResponse)
 async def protein_modification_coordinates(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description), sequence_position: str = Query(example="A3,K4")):
 
-    check_modification_resp = await check_modification(systematic_id, sequence_position)
+    # We pass MOD:00000 as mod code, because it allows all aminoacids, we should not check this here
+    check_modification_resp = await check_modification(systematic_id, sequence_position, 'MOD:00000')
 
     if check_modification_resp.needs_fixing:
         raise HTTPException(400, 'Please fix the modification description first')
