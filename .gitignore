@@ -17,3 +17,4 @@ data/pombe_genome.gtf.*
 data/pombe_genome.fa.fai
 data/transvar.cfg
 data/mod.obo
+data/all_protein_variant_sequences.fasta
