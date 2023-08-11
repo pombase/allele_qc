@@ -4,7 +4,7 @@ import argparse
 from grammar import aminoacid_grammar, nucleotide_grammar
 from models import SyntaxRule, find_rule
 from transvar_functions import parse_transvar_string, get_transvar_str_annotation, get_anno_db, TransvarAnnotation
-from genome_functions import handle_systematic_id_for_qc
+from genome_functions import handle_systematic_id_for_allele_qc
 from tqdm import tqdm
 
 tqdm.pandas()
@@ -14,7 +14,7 @@ def format_for_transvar(row, genome, syntax_rules_aminoacids, syntax_rules_nucle
 
     # Transvar uses only gene_ids, while the allele_qc uses a mix to handle multi-transcripts
     gene_systematic_id = row['systematic_id']
-    allele_qc_id = handle_systematic_id_for_qc(row, genome)
+    allele_qc_id = handle_systematic_id_for_allele_qc(row['systematic_id'], row['allele_name'], genome)
     gene = genome[allele_qc_id]
     chromosome = gene['contig'].id
 
@@ -47,7 +47,7 @@ def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], g
 
 def get_transvar_coordinates(row, db, genome, exclude_transcripts):
     # print(row['systematic_id'], '<<<>>>', row['transvar_input'])
-    allele_qc_id = handle_systematic_id_for_qc(row, genome)
+    allele_qc_id = handle_systematic_id_for_allele_qc(row['systematic_id'], row['allele_name'], genome)
     transcript_id = None if (allele_qc_id == row['systematic_id']) else allele_qc_id
     try:
         transvar_annotation_list = parse_transvar_string(get_transvar_str_annotation('panno' if 'amino_acid' in row['allele_type'] else 'ganno', row['transvar_input'], db))

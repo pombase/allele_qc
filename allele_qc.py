@@ -16,7 +16,7 @@ import pickle
 import pandas
 import argparse
 from common_autofix_functions import print_warnings
-from genome_functions import handle_systematic_id_for_qc
+from genome_functions import handle_systematic_id_for_allele_qc
 
 
 def empty_dict():
@@ -37,7 +37,7 @@ def empty_dict():
 
 def check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types):
 
-    systematic_id = handle_systematic_id_for_qc(row, genome)
+    systematic_id = handle_systematic_id_for_allele_qc(row['systematic_id'], row['allele_name'], genome)
     if systematic_id is None:
         return empty_dict() | {'needs_fixing': True, 'invalid_error': 'systematic_id not in genome'}
 
