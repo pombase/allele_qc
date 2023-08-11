@@ -152,7 +152,7 @@ def main():
     # We keep all protein variants (even if they were not described at the protein level)
     allele_data = allele_data[allele_data['transvar_coordinates'].str.contains('/p.')].copy()
     allele_data['variant_sequence'] = allele_data.apply(lambda row: process_row(row, genome), axis=1)
-    with open('data/all_protein_variant_sequences.fasta', 'w') as out_file:
+    with open('results/all_protein_variant_sequences.fasta', 'w') as out_file:
         for i, row in allele_data.iterrows():
             sequence_name = f'{row["systematic_id"]}|{row["allele_name"]}'
             sequence_description = f'{row["allele_type"]}|{row["allele_description"]}'
