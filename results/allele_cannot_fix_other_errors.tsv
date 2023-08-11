@@ -1,6 +1,6 @@
 systematic_id	allele_name	allele_description	error_type	error_info
 SPAC1006.08	41X-GFP-etd1-D9	Overexpression of etd1-D9	pattern_error	Overexpression of etd1-D9
-SPAC105.02c	Ank1(1-155)	aa156-170 deleted	pattern_error	aa1, deleted
+SPAC105.02c	ank1(1-155)	aa156-170 deleted	pattern_error	aa1, deleted
 SPAC13C5.07	mre11-TBD	fusion of Nbs1 residues 554-613 (Tel1 binding domain) to C-terminus of Mre11	pattern_error	fusion of Nbs, residues , (Tel, binding domain) to C-terminus of Mre
 SPAC140.02	gar2::ura4+	Gar2 aa 1-163, Ura4 aa 1-39	pattern_error	Gar2 aa 1-163, Ura4 aa 1-39
 SPAC140.02	gar2::ura4+	Gar2 aa 1-163,Ura4 aa 1-39	pattern_error	Gar2 aa 1-163,Ura4 aa 1-39
@@ -30,25 +30,17 @@ SPAPB2B4.03	Pcig2delta-147--40-LacZ	cig2-170--148, -39-+1-LacZ fusion	pattern_er
 SPAPB2B4.03	nmt1-cig2-I	cig2-3000-1912	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-II	cig2-3000-1880	pattern_error	cig2
 SPAPB2B4.03	nmt1-cig2-III	cig2 -3000--1248	pattern_error	cig2 
-SPBC119.04	mei3-promoter-d3	T-92A,C-90T, A-89C,G-87CATCC-88	pattern_error	-
-SPBC119.04	mei3-promoter-d3	T-92A,C-90T,A-89C,G-87CATCC-88	pattern_error	-
 SPBC119.08	pmk1-153+A	pmk1-153+A	pattern_error	pmk,+A
 SPBC14C8.01c	cut2-N121	delta122-301	pattern_error	delta1
 SPBC1734.02c	cdc27-R5	1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT	pattern_error	-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT
 SPBC17F3.02	nak1-125	unknown	pattern_error	unknown
 SPBC19G7.01c	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
-SPBC1A4.03c	top2-1-40/SV-delta-Sph	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-1-40/SV-delta-Xba	amino acids 1-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-1-74/SV-delta-Sph	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV4, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-1-74/SV-delta-Xba	amino acids 1-74 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV4, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-26-40/SV-delta-Sph	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1200-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
-SPBC1A4.03c	top2-26-40/SV-delta-Xba	amino acids 26-40 replaced by SV40 NLS sequence PKKKRKV,and amino acids 1221-1485 deleted	pattern_error	amino acids , replaced by SV, NLS sequence PKKKRKV,and amino acids , deleted
 SPBC28F2.12	rpb1-CTD-(S5)3(S5A)11	CTD-S5A(r7-r18),∆(r19-29)	pattern_error	CTD-,(r7-r1,),∆(r1,)
 SPBC28F2.12	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
 SPBC28F2.12	rpb1-CTD-P6A(r2-r29-2)	CTD-P6A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
 SPBC28F2.12	rpb1-CTD-S2A	CTD-S2A	pattern_error	CTD-
 SPBC28F2.12	rpb1-CTD-S2A	rpb1-CTD-S2A	pattern_error	rpb,-CTD-
-SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(5-16),CTDdelta(17-29)	pattern_error	CTD-,(,),CTDdelta(,)
+SPBC28F2.12	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(r5-r16),delta(r17-r29)	pattern_error	CTD-,(r5-r1,),delta(r1,-r2,)
 SPBC28F2.12	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	pattern_error	CTD-,(r1-r1,)delta(r1,-r,)
 SPBC28F2.12	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	pattern_error	CTD-,(r5-r2,),(r5-r2,)
 SPBC28F2.12	rpb1-CTD-S2A,S7A	CTD-S2A,S7A	pattern_error	CTD-
@@ -75,10 +67,6 @@ SPBC29A10.14	rec8-17A	unknown	pattern_error	unknown
 SPBC2D10.06	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	pattern_error	lacks the N-terminal 80% of the rep1 coding region
 SPBC2F12.13	klp5-del	short deletion with a frameshift at codon 772, resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772, resulting in a different 772–814 C-terminus
 SPBC2F12.13	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
-SPBC32C12.02	ste11-CORE2	-C460T, -C459G,-C458A	pattern_error	-,, -,,-
-SPBC32C12.02	ste11-CORE2	-C460T,-C459G,-C458A	pattern_error	-,,-,,-
-SPBC32C12.02	ste11-Mb2	-C194T, -C193G,-C192A	pattern_error	-,, -,,-
-SPBC32C12.02	ste11-Mb2	-C194T,-C193G,-C192A	pattern_error	-,,-,,-
 SPBC3D6.10	apn2::ura4+	nt56-1496	pattern_error	nt56-1496
 SPBC725.06c	ppk31--579-T (5'-UTR-uORF)	-579-T	pattern_error	-T
 SPCC11E10.07c	tif221-2	frameshift at L43	pattern_error	frameshift at L43
@@ -100,6 +88,7 @@ SPNCRNA.1343	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
 SPNCRNA.1712	nc-pho1-DSR	DSR domain mutated	pattern_error	DSR domain mutated
+SPNCRNA.1712	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	peptide sequence missing
 SPNCRNA.214	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
 SPNCRNA.214	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
 SPNCRNA.214	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
@@ -108,5 +97,3 @@ SPNCRNA.214	ter1-m3	TTT_823-825_CCC	pattern_error	TTT_,_CCC
 SPNCRNA.214	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
 SPNCRNA.9001	prt2delta-1	231 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
 SPNCRNA.9001	prt2delta-2	749 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
-SPNCRNA.98	srp7-U88G,delta84-88,omega8nt	U88G,nt84 deletion,8 nucleotides inserted after nt83	pattern_error	,nt, deletion,, nucleotides inserted after nt
-SPNCRNA.98	srp7-U88G,omegaUCGA	U88G,UCGA inserted after nt84	pattern_error	,UCGA inserted after nt8

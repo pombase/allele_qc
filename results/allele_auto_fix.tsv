@@ -1,15 +1,8 @@
 systematic_id	allele_description	allele_name	allele_type	change_description_to	change_name_to	change_type_to	auto_fix_comment	sequence_error	solution_index	allele_parts	rules_applied	reference
-SPAC140.02		gar2::ura4+	disruption	gar2::ura4			syntax_error			gar2::ura4+	disruption:usual	PMID:9211982
-SPAC1565.08	G338D		amino_acid_mutation	G332D			old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	G338		G338D	amino_acid_mutation:single_aa	PMID:29352077
+SPAC140.02	gar2::ura4+	gar2::ura4+	disruption	gar2::ura4			syntax_error			gar2::ura4+	disruption:usual	PMID:9211982
 SPAC18G6.02c	KKRKK71NEHG	chp1-alpha-mut1	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			KKRKK71NEHG	amino_acid_deletion_and_mutation:multiple_aa	PMID:22727667
-SPAC57A10.14	Q64->stop		nonsense_mutation	Q64*		partial_amino_acid_deletion	syntax_and_type_error			Q64->stop	nonsense_mutation:stop_codon_text	PMID:29352077
 SPAC977.10	EIEKSIYE390QSSGNSHIKE	nhe1-REL6	amino_acid_mutation			amino_acid_insertion_and_mutation	type_error			EIEKSIYE390QSSGNSHIKE	amino_acid_insertion_and_mutation:multiple_aa	PMID:30996236
-SPBC16D10.04c	K961T		amino_acid_mutation	K960T			old_coords_fix, revision 20110324: complement(join(3592359..3592685,3592733..3593447,3593496..3596292,3596335..3596692))	K961		K961T	amino_acid_mutation:single_aa	PMID:22682245
 SPBC215.05	TTACGTCA(-324)CGGAAGACTCTCCTCCG	gpd1-G4BS	nucleotide_mutation			nucleotide_insertion_and_mutation	type_error			TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_insertion_and_mutation:multiple_nt	PMID:25122751
-SPBC3H7.13		csc1::ura4+	disruption	csc1::ura4			syntax_error			csc1::ura4+	disruption:usual	PMID:23874188
+SPBC3H7.13	csc1::ura4+	csc1::ura4+	disruption	csc1::ura4			syntax_error			csc1::ura4+	disruption:usual	PMID:23874188
 SPBC428.08c	KRRKR58NEHG	clr4-alpha-mut	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			KRRKR58NEHG	amino_acid_deletion_and_mutation:multiple_aa	PMID:22727667
-SPCC306.03c	T117I		amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			T117I	amino_acid_mutation:single_aa	PMID:31072933
-SPCC338.08	60-100	ctp1-delta60-100	amino_acid_mutation			partial_amino_acid_deletion	type_error			60-100	partial_amino_acid_deletion:multiple_aa	PMID:25580577
-SPCC622.09	G52D		amino_acid_mutation	G53D			histone_fix	G52		G52D	amino_acid_mutation:single_aa	PMID:29352077
 SPCC757.07c	ATGACGT(-428)CGGAAGACTCTCCTCCG	ctt1-G4BS	nucleotide_mutation			nucleotide_insertion_and_mutation	type_error			ATGACGT(-428)CGGAAGACTCTCCTCCG	nucleotide_insertion_and_mutation:multiple_nt	PMID:25122751
-SPNCRNA.1712	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	nc-pho1-dual-PAS-mut	nucleotide_mutation	ATTTTT342CTCGAG,AATAAA568GGCGGG			syntax_error			ATTTTT-342-CTCGAG|AATAAA-568-GGCGGG	nucleotide_mutation:multiple_nt|nucleotide_mutation:multiple_nt	PMID:30355770

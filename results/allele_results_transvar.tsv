@@ -15,7 +15,7 @@ SPAC1006.09	K1149R	win1	win1-K1149R		amino_acid_mutation	PMID:9693384	K1149R	Fal
 SPAC1006.09	K1149M	win1	win1KM		amino_acid_mutation	PMID:23389634	K1149M	False		amino_acid_mutation:single_aa					I:g.5093886_5093887delAAinsTG/c.3446_3447delAAinsTG/p.K1149M
 SPAC1006.09	1-317,343-1436	win1	win1deltaCMiN		partial_amino_acid_deletion	PMID:23389634	1-317|343-1436	False		partial_amino_acid_deletion:multiple_aa|partial_amino_acid_deletion:multiple_aa					I:g.5090441_5091391del951/c.1_951del951/p.M1_K317del317|I:g.5091467_5094748del3282/c.1027_4308del3282/p.R343_L1436del1094
 SPAC1039.02	(-913)		SPAC1039.02delta-913		partial_nucleotide_deletion	PMID:32142608	(-913)	False		partial_nucleotide_deletion:single_nt					I:g.5448808delT/./.
-SPAC105.02c	R17E	ank1	Ank1-R17E		amino_acid_mutation	PMID:37531259	R17E	False		amino_acid_mutation:single_aa					I:g.1745494_1745496delCGCinsGAG/c.49_51delCGCinsGAG/p.R17E
+SPAC105.02c	R17E	ank1	ank1-R17E	Ank1-R17E	amino_acid_mutation	PMID:37531259	R17E	False		amino_acid_mutation:single_aa					I:g.1745494_1745496delCGCinsGAG/c.49_51delCGCinsGAG/p.R17E
 SPAC1071.06	Q13*	arp9	arp9-127		partial_amino_acid_deletion	PMID:24362309	Q13*	False		nonsense_mutation:stop_codon_star					I:g.3866624C>T/c.37C>T/p.Q13*
 SPAC1071.10c	G268D	pma1	pma1-1		amino_acid_mutation	PMID:1396704,PMID:1833395,PMID:2832071,PMID:2891694	G268D	False		amino_acid_mutation:single_aa					I:g.3873877C>T/c.803G>A/p.G268D
 SPAC1071.10c	K250T	pma1	pma1-2		amino_acid_mutation	PMID:1396704	K250T	False		amino_acid_mutation:single_aa					I:g.3873931T>G/c.749A>C/p.K250T
@@ -126,6 +126,7 @@ SPAC139.01c	D32A	mkt1	mkt1-D32A		amino_acid_mutation	PMID:31822915	D32A	False		a
 SPAC13A11.02c	G189D	erg11	erg11-1		amino_acid_mutation	PMID:28893786	G189D	False		amino_acid_mutation:single_aa					I:g.576057C>T/c.566G>A/p.G189D
 SPAC13A11.04c	M196I	ubp8			amino_acid_mutation	PMID:29352077	M196I	False		amino_acid_mutation:single_aa					I:g.580625C>G/c.588G>C/p.M196I
 SPAC13A11.04c	R282P	ubp8			amino_acid_mutation	PMID:29352077	R282P	False		amino_acid_mutation:single_aa					I:g.580368C>G/c.845G>C/p.R282P
+SPAC13A11.04c	Y95C	ubp8	ubp8-Y95C	ubp8-Y96C	amino_acid_mutation	PMID:29352077	Y95C	False		amino_acid_mutation:single_aa					I:g.580929T>C/c.284A>G/p.Y95C
 SPAC13C5.02	W117*	dre4	dre4-54		partial_amino_acid_deletion	PMID:15466421	W117*	False		nonsense_mutation:stop_codon_star					I:g.426456G>A/c.350G>A/p.W117*
 SPAC13C5.03	C65A,C78A	tht1	tht1+		amino_acid_mutation	PMID:36650056	C65A|C78A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					I:g.427775_427776delTGinsGC/c.193_194delTGinsGC/p.C65A|I:g.427814_427815delTGinsGC/c.232_233delTGinsGC/p.C78A
 SPAC13C5.03	W541*	tht1	tht1-1		partial_amino_acid_deletion	PMID:9442101	W541*	False		nonsense_mutation:stop_codon_star					I:g.429308G>A/c.1622G>A/p.W541*
@@ -1108,6 +1109,8 @@ SPAC22F3.03c	K241R	rdh54	rdh54-K241R		amino_acid_mutation	PMID:21084840	K241R	Fa
 SPAC22F3.05c	E85K	alp41	alp41-14		amino_acid_mutation	PMID:23576550	E85K	False		amino_acid_mutation:single_aa					I:g.697680G>A/c.253G>A/p.E85K
 SPAC22F3.05c	L36Q	alp41	alp41-5		amino_acid_mutation	PMID:23576550	L36Q	False		amino_acid_mutation:single_aa					I:g.697442T>A/c.107T>A/p.L36Q
 SPAC22F3.05c	R18W	alp41	alp41-8		amino_acid_mutation	PMID:23576550	R18W	False		amino_acid_mutation:single_aa					I:g.697342A>T/c.52A>T/p.R18W
+SPAC22F3.09c	G78E	res2	res2-G1		amino_acid_mutation	PMID:11864600	G78E	False		amino_acid_mutation:single_aa					I:g.686989G>A/c.233G>A/p.G78E
+SPAC22F3.09c	W80*	res2	res2-J3		partial_amino_acid_deletion	PMID:11864600	W80*	False		nonsense_mutation:stop_codon_star					I:g.686995G>A/c.239G>A/p.W80*
 SPAC22F3.12c	321-481	rgs1	rgs1-1-320		partial_amino_acid_deletion	PMID:11554925	321-481	False		partial_amino_acid_deletion:multiple_aa					I:g.681136_681618del483/c.961_1443del483/p.K321_I481del161
 SPAC22F3.12c	1-229	rgs1	rgs1-230-481		partial_amino_acid_deletion	PMID:11554925	1-229	False		partial_amino_acid_deletion:multiple_aa					I:g.680176_680862del687/c.1_687del687/p.M1_L229del229
 SPAC22F3.12c	1-313	rgs1	rgs1-314-481		partial_amino_acid_deletion	PMID:11554925	1-313	False		partial_amino_acid_deletion:multiple_aa					I:g.680178_681116del939/c.3_941del939/p.M1_G313del313
@@ -1125,6 +1128,7 @@ SPAC22F8.07c	S340F	rtf1	rtf1-S340F		amino_acid_mutation	PMID:18723894	S340F	Fals
 SPAC22F8.07c	W405G	rtf1	rtf1-W405G		amino_acid_mutation	PMID:18723894	W405G	False		amino_acid_mutation:single_aa					I:g.4797502A>C/c.1213T>G/p.W405G
 SPAC22G7.04	Q69*	pan2	pan2-Q69Stop		partial_amino_acid_deletion	PMID:30967422	Q69*	False		nonsense_mutation:stop_codon_star					I:g.733172C>T/c.205C>T/p.Q69*
 SPAC22G7.06c	T12801A	ura1	ura1-171		nucleotide_mutation	PMID:9301025	T12801A	False		nucleotide_mutation:single_nt					I:g.733234A>T/./.
+SPAC22G7.06c	W823*	ura1	ura1-61		partial_amino_acid_deletion	PMID:11864600	W823*	False		nonsense_mutation:stop_codon_star					I:g.743567C>T/c.2468G>A/p.W823*
 SPAC22G7.08	G67C	ppk8	ppk8'-1		nucleotide_mutation	PMID:26730850	G67C	False		nucleotide_mutation:single_nt					I:g.749996G>C/c.66+1G>C/.
 SPAC22G7.08	A476T,T477A	ppk8	ppk8'-2		nucleotide_mutation	PMID:26730850	A476T|T477A	False		nucleotide_mutation:single_nt|nucleotide_mutation:single_nt					I:g.750405A>T/c.359A>T/p.N120I|I:g.750406T>A/c.360T>A/p.N120K
 SPAC22G7.08	A476T	ppk8	ppk8'-3		nucleotide_mutation	PMID:26730850	A476T	False		nucleotide_mutation:single_nt					I:g.750405A>T/c.359A>T/p.N120I
@@ -1687,7 +1691,7 @@ SPAC2G11.12	K457I	rqh1	rqh1-K457I		amino_acid_mutation	PMID:12455694	K457I	False
 SPAC2G11.12	K547A	rqh1	rqh1-K547A	rqh1-hd	amino_acid_mutation	PMID:12724426,PMID:22313747	K547A	False		amino_acid_mutation:single_aa					I:g.833665_833666delAAinsGC/c.1639_1640delAAinsGC/p.K547A
 SPAC2G11.12	K547I	rqh1	rqh1-K547I		amino_acid_mutation	PMID:10572171	K547I	False		amino_acid_mutation:single_aa					I:g.833666A>T/c.1640A>T/p.K547I
 SPAC2G11.12	K547R	rqh1	rqh1-K547R		amino_acid_mutation	PMID:12724426	K547R	False		amino_acid_mutation:single_aa					I:g.833666A>G/c.1640A>G/p.K547R
-SPAC2G11.12	Q790*	rqh1	rqh1-h2		partial_amino_acid_deletion	PMID:10497270	Q790*	False		nonsense_mutation:stop_codon_star					I:g.834394C>T/c.2368C>T/p.Q790*
+SPAC2G11.12	Q790*	rqh1	rqh1-h2		partial_amino_acid_deletion	PMID:10497270,PMID:11864600	Q790*	False		nonsense_mutation:stop_codon_star					I:g.834394C>T/c.2368C>T/p.Q790*
 SPAC30.03c	K79A	tsn1	tsn1-K79A	tsn1-K95A	amino_acid_mutation	PMID:20081200	K79A	False		amino_acid_mutation:single_aa					I:g.4395271_4395272delAAinsGC/c.235_236delAAinsGC/p.K79A
 SPAC30.03c	K90A	tsn1	tsn1-K90A	tsn1-K106A	amino_acid_mutation	PMID:20081200,PMID:24382491	K90A	False		amino_acid_mutation:single_aa					I:g.4395238_4395239delAAinsGC/c.268_269delAAinsGC/p.K90A
 SPAC30.03c	Q89A	tsn1	tsn1-Q89A	tsn1-Q105A	amino_acid_mutation	PMID:20081200	Q89A	False		amino_acid_mutation:single_aa					I:g.4395241_4395242delCAinsGC/c.265_266delCAinsGC/p.Q89A
@@ -2040,6 +2044,7 @@ SPAC57A10.10c	Y157A,F201A	sla1	sla1-Y157A,F201A		amino_acid_mutation	PMID:289776
 SPAC57A10.10c	1-123,230-298	sla1	sla1RRM		partial_amino_acid_deletion	PMID:14665462	1-123|230-298	False		partial_amino_acid_deletion:multiple_aa|partial_amino_acid_deletion:multiple_aa					I:g.1383070_1383513del444/c.2_370del444/p.M1_K123del123|I:g.1382545_1382751del207/c.688_894del207/p.T230_E298del69
 SPAC57A10.10c	229-298	sla1	sla1deltaC229-298		partial_amino_acid_deletion	PMID:14665462,PMID:14745200	229-298	False		partial_amino_acid_deletion:multiple_aa					I:g.1382548_1382757del210/c.685_894del210/p.L229_E298del70
 SPAC57A10.14	C77Y	sgf11			amino_acid_mutation	PMID:29352077	C77Y	False		amino_acid_mutation:single_aa					I:g.1371842C>T/c.230G>A/p.C77Y
+SPAC57A10.14	Q64*	sgf11	sgf11-Q64*		partial_amino_acid_deletion	PMID:29352077	Q64*	False		nonsense_mutation:stop_codon_star					I:g.1371882G>A/c.190C>T/p.Q64*
 SPAC57A7.04c	Y83A	pabp	pabp-RRM1mut		amino_acid_mutation	PMID:29932902	Y83A	False		amino_acid_mutation:single_aa					I:g.1543111_1543112delTAinsGC/c.247_248delTAinsGC/p.Y83A
 SPAC57A7.04c	F171A	pabp	pabp-RRM2mut		amino_acid_mutation	PMID:29932902	F171A	False		amino_acid_mutation:single_aa					I:g.1543375_1543376delTTinsGC/c.511_512delTTinsGC/p.F171A
 SPAC57A7.04c	Y264A	pabp	pabp-RRM3mut		amino_acid_mutation	PMID:29932902	Y264A	False		amino_acid_mutation:single_aa					I:g.1543654_1543655delTAinsGC/c.790_791delTAinsGC/p.Y264A
@@ -2431,6 +2436,7 @@ SPAC821.08c	1-165	slp1	slp1(166-488)	slp1 166-488	partial_amino_acid_deletion	PM
 SPAC821.08c	W376*	slp1	slp1-362		partial_amino_acid_deletion	PMID:11058086,PMID:15791259,PMID:36108046	W376*	False		nonsense_mutation:stop_codon_star					I:g.995816C>T/c.1127G>A/p.W376*
 SPAC821.08c	160-488	slp1	slp1-N159		partial_amino_acid_deletion	PMID:18331722	160-488	False		partial_amino_acid_deletion:multiple_aa					I:g.995479_996465del987/c.478_1464del987/p.A160_R488del329
 SPAC821.10c	H64A	sod1	sod1-H64A	sod1 H64A	amino_acid_mutation	PMID:28572514	H64A	False		amino_acid_mutation:single_aa					I:g.1003273_1003274delCAinsGC/c.190_191delCAinsGC/p.H64A
+SPAC821.11	G392D	pro1	pro1-1		amino_acid_mutation	PMID:11864600	G392D	False		amino_acid_mutation:single_aa					I:g.1007568G>A/c.1175G>A/p.G392D
 SPAC821.12	M170G	orb6	orb6-as1		amino_acid_mutation	PMID:29290560	M170G	False		amino_acid_mutation:single_aa					I:g.1009258_1009259delATinsGG/c.508_509delATinsGG/p.M170G
 SPAC821.12	M170A	orb6	orb6-as2		amino_acid_mutation	PMID:19646873,PMID:30726745	M170A	False		amino_acid_mutation:single_aa					I:g.1009258_1009259delATinsGC/c.508_509delATinsGC/p.M170A
 SPAC823.12	W324*	vps11	vps11-319		partial_amino_acid_deletion	PMID:19366728	W324*	False		nonsense_mutation:stop_codon_star					I:g.2602212G>A/c.971G>A/p.W324*
@@ -2959,12 +2965,14 @@ SPBC119.02	R90A	ubc4	ubc4-R90A		amino_acid_mutation	PMID:23416107	R90A	False		am
 SPBC119.02	S108A	ubc4	ubc4-S108A		amino_acid_mutation	PMID:23416107	S108A	False		amino_acid_mutation:single_aa					II:g.716104T>G/c.322T>G/p.S108A
 SPBC119.02	S108D	ubc4	ubc4-S108D		amino_acid_mutation	PMID:23416107	S108D	False		amino_acid_mutation:single_aa					II:g.716104_716106delTCAinsGAC/c.322_324delTCAinsGAC/p.S108D
 SPBC119.02	1-87	ubc4	ubc4-delta1-87	deltaubcP1	partial_amino_acid_deletion	PMID:12724408	1-87	False		partial_amino_acid_deletion:multiple_aa					II:g.715335_716045del711/c.3_263del711/p.M1_D87del87
+SPBC119.04	1-75	mei3	mei3-C		partial_amino_acid_deletion	PMID:12664134	1-75	False		partial_amino_acid_deletion:multiple_aa					II:g.719810_720034del225/c.5_229del225/p.S2_M76del75
 SPBC119.04	S29A,T30A,S31A	mei3	mei3-RA3		amino_acid_mutation	PMID:12664134	S29A|T30A|S31A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					II:g.719890T>G/c.85T>G/p.S29A|II:g.719893A>G/c.88A>G/p.T30A|II:g.719896T>G/c.91T>G/p.S31A
 SPBC119.04	K77A,R78A,K80A	mei3	mei3-SM1		amino_acid_mutation	PMID:12664134	K77A|R78A|K80A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					II:g.720034_720035delAAinsGC/c.229_230delAAinsGC/p.K77A|II:g.720037_720038delCGinsGC/c.232_233delCGinsGC/p.R78A|II:g.720043_720044delAAinsGC/c.238_239delAAinsGC/p.K80A
 SPBC119.04	D117A,N120A,E121A	mei3	mei3-SM8		amino_acid_mutation	PMID:12664134	D117A|N120A|E121A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					II:g.720155A>C/c.350A>C/p.D117A|II:g.720163_720164delAAinsGC/c.358_359delAAinsGC/p.N120A|II:g.720167A>C/c.362A>C/p.E121A
-SPBC119.04	(-74)-(-60)	mei3	mei3-promoter-delta14		partial_nucleotide_deletion	PMID:9819418	(-74)-(-60)	False		partial_nucleotide_deletion:usual					II:g.719733_719747del15/c.1-73_1-59del15/.
-SPBC119.04	(-328)-(-251)	mei3	mei3-promoter-delta5		partial_nucleotide_deletion	PMID:9819418	(-328)-(-251)	False		partial_nucleotide_deletion:usual					II:g.719479_719556del78/./.
-SPBC119.04	(-163)-(-113)	mei3	mei3-promoter-delta7		partial_nucleotide_deletion	PMID:9819418	(-163)-(-113)	False		partial_nucleotide_deletion:usual					II:g.719643_719693del51/c.1-163_1-113del51/.
+SPBC119.04	TTACACG(-179)TAATCCC	mei3	mei3-promoter-d3		nucleotide_mutation	PMID:9819418	TTACACG(-179)TAATCCC	False		nucleotide_mutation:multiple_nt					II:g.719628_719633delinsAATCCC/c.1-178_1-173delinsAATCCC/.
+SPBC119.04	(-160)-(-146)	mei3	mei3-promoter-delta14		partial_nucleotide_deletion	PMID:9819418	(-160)-(-146)	False		partial_nucleotide_deletion:usual					II:g.719646_719660del15/c.1-160_1-146del15/.
+SPBC119.04	(-414)-(-244)	mei3	mei3-promoter-delta5		partial_nucleotide_deletion	PMID:9819418	(-414)-(-244)	False		partial_nucleotide_deletion:usual					II:g.719392_719562del171/./.
+SPBC119.04	(-345)-(-244)	mei3	mei3-promoter-delta7		partial_nucleotide_deletion	PMID:9819418	(-345)-(-244)	False		partial_nucleotide_deletion:usual					II:g.719461_719562del102/./.
 SPBC119.04	T30A	mei3	mei3-rxt		amino_acid_mutation	PMID:12664134	T30A	False		amino_acid_mutation:single_aa					II:g.719893A>G/c.88A>G/p.T30A
 SPBC119.04	128-148	mei3	pmei3.14delta1-delta4		partial_amino_acid_deletion	PMID:3034608	128-148	False		partial_amino_acid_deletion:multiple_aa					II:g.720188_720250del63/c.383_445del63/p.F128_R148del21
 SPBC119.04	105-148	mei3	pmei3.14delta5		partial_amino_acid_deletion	PMID:3034608	105-148	False		partial_amino_acid_deletion:multiple_aa					II:g.720118_720249del132/c.313_444del132/p.R105_R148del44
@@ -2982,8 +2990,15 @@ SPBC119.11c	K329*	pac1	pac1-T329		partial_amino_acid_deletion	PMID:7616961	K329*
 SPBC119.11c	87-150	pac1	pac1-deltaA/X		partial_amino_acid_deletion	PMID:7616961	87-150	False		partial_amino_acid_deletion:multiple_aa					II:g.738346_738537del192/c.260_451del192/p.Y87_I150del64
 SPBC119.11c	148-186	pac1	pac1-deltaN/M		partial_amino_acid_deletion	PMID:7616961	148-186	False		partial_amino_acid_deletion:multiple_aa					II:g.738239_738355del117/c.443_559del117/p.M148_T186del39
 SPBC119.11c	152-287	pac1	pac1-deltaX/C		partial_amino_acid_deletion	PMID:7616961	152-287	False		partial_amino_acid_deletion:multiple_aa					II:g.737935_738342del408/c.454_861del408/p.R152_I287del136
+SPBC1198.04c	275-845	zas1	zas1-1-274		partial_amino_acid_deletion	PMID:29735745	275-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177564_179591del2028/c.823_2535del2028/p.V275_D845del571
+SPBC1198.04c	290-845	zas1	zas1-1-289		partial_amino_acid_deletion	PMID:29735745	290-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177559_179541del1983/c.868_2535del1983/p.E290_D845del556
+SPBC1198.04c	361-845	zas1	zas1-1-360		partial_amino_acid_deletion	PMID:29735745	361-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177559_179238del1680/c.1081_2535del1680/p.E361_D845del485
+SPBC1198.04c	471-845	zas1	zas1-1-470		partial_amino_acid_deletion	PMID:29735745	471-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177560_178866del1307/c.1412_2536del1307/p.L471_D845del375
+SPBC1198.04c	591-845	zas1	zas1-1-590		partial_amino_acid_deletion	PMID:29735745	591-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177560_178423del864/c.1771_2535del864/p.K591_D845del255
+SPBC1198.04c	713-845	zas1	zas1-1-712		partial_amino_acid_deletion	PMID:29735745	713-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177559_178004del446/c.2137_2535del446/p.A713_D845del133
 SPBC1198.04c	W761*	zas1	zas1-a1		partial_amino_acid_deletion	PMID:29735745	W761*	False		nonsense_mutation:stop_codon_star					II:g.177859C>T/c.2282G>A/p.W761*
 SPBC1198.04c	K833*	zas1	zas1-aj3		partial_amino_acid_deletion	PMID:29735745	K833*	False		nonsense_mutation:stop_codon_star					II:g.177597T>A/c.2497A>T/p.K833*
+SPBC1198.04c	834-845	zas1	zas1-deltaaj3		partial_amino_acid_deletion	PMID:29735745	834-845	False		partial_amino_acid_deletion:multiple_aa					II:g.177559_177594del36/c.2500_2535del36/p.K834_D845del12
 SPBC1198.04c	E549K	zas1	zas1-w5		amino_acid_mutation	PMID:29735745	E549K	False		amino_acid_mutation:single_aa					II:g.178548C>T/c.1645G>A/p.E549K
 SPBC1198.11c	1-145,365-504	reb1	reb1-146-364		partial_amino_acid_deletion	PMID:18794373	1-145|365-504	False		partial_amino_acid_deletion:multiple_aa|partial_amino_acid_deletion:multiple_aa					II:g.193109_193543del435/c.7_441del435/p.T3_D147del145|II:g.191939_192409del471/c.1093_1512del471/p.R365_N504del140
 SPBC1198.11c	1-145,419-504	reb1	reb1-146-418		partial_amino_acid_deletion	PMID:18794373	1-145|419-504	False		partial_amino_acid_deletion:multiple_aa|partial_amino_acid_deletion:multiple_aa					II:g.193109_193543del435/c.7_441del435/p.T3_D147del145|II:g.191939_192247del309/c.1255_1512del309/p.K419_N504del86
@@ -3443,6 +3458,7 @@ SPBC16D10.03	C100Y	kae1	kae1-C100Y		amino_acid_mutation	PMID:30967422	C100Y	Fals
 SPBC16D10.04c	P956L	dna2	dna2-C1		amino_acid_mutation	PMID:10880469	P956L	False		amino_acid_mutation:single_aa					II:g.3593781G>A/c.2867C>T/p.P956L
 SPBC16D10.04c	L1079S	dna2	dna2-C2		amino_acid_mutation	PMID:10880469,PMID:15485922,PMID:15576681,PMID:18493607,PMID:32692737	L1079S	False		amino_acid_mutation:single_aa					II:g.3593364A>G/c.3236T>C/p.L1079S
 SPBC16D10.04c	E560A	dna2	dna2-E560A		amino_acid_mutation	PMID:22682245	E560A	False		amino_acid_mutation:single_aa					II:g.3594969T>G/c.1679A>C/p.E560A
+SPBC16D10.04c	K960T	dna2	dna2-K960T	dna2-K961T	amino_acid_mutation	PMID:22682245	K960T	False		amino_acid_mutation:single_aa					II:g.3593769T>G/c.2879A>C/p.K960T
 SPBC16D10.04c	L1097S	dna2	dna2-L1097S	dna2-ts|dna2ts	amino_acid_mutation	PMID:22682245,PMID:27729451	L1097S	False		amino_acid_mutation:single_aa					II:g.3593310A>G/c.3290T>C/p.L1097S
 SPBC16D10.04c	S134A	dna2	dna2-S134A	dna2-S135A	amino_acid_mutation	PMID:22682245	S134A	False		amino_acid_mutation:single_aa					II:g.3596248A>C/c.400T>G/p.S134A
 SPBC16D10.04c	S219A	dna2	dna2-S219A	dna2-S220A	amino_acid_mutation	PMID:22682245	S219A	False		amino_acid_mutation:single_aa					II:g.3595992_3595993delAGinsGC/c.655_656delAGinsGC/p.S219A
@@ -3791,6 +3807,7 @@ SPBC19C2.09	L413T	sre1	sre1-L413T		amino_acid_mutation	PMID:23729666	L413T	False
 SPBC19C2.09	L666*	sre1	sre1-L666*		partial_amino_acid_deletion	PMID:28821619	L666*	False		nonsense_mutation:stop_codon_star					II:g.1693824T>A/c.1997T>A/p.L666*
 SPBC19C2.09	L758*	sre1	sre1-L758*		partial_amino_acid_deletion	PMID:28821619	L758*	False		nonsense_mutation:stop_codon_star					II:g.1694100T>A/c.2273T>A/p.L758*
 SPBC19C2.09	M410E	sre1	sre1-M410E		amino_acid_mutation	PMID:23729666	M410E	False		amino_acid_mutation:single_aa					II:g.1693055_1693056delATinsGA/c.1228_1229delATinsGA/p.M410E
+SPBC19C2.09	CACCCCAT(-528)ATACCATA,CAGTCCAC(-485)ATATCATA	sre1	sre1-MP		nucleotide_mutation	PMID:28202541	CACCCCAT(-528)ATACCATA|CAGTCCAC(-485)ATATCATA	False		nucleotide_mutation:multiple_nt|nucleotide_mutation:multiple_nt					II:g.1691300_1691307delinsATACCATA/./.|II:g.1691343_1691350delinsATATCATA/./.
 SPBC19C2.09	441-900	sre1	sre1-N		partial_amino_acid_deletion	PMID:18276645,PMID:27343236	441-900	False		partial_amino_acid_deletion:multiple_aa					II:g.1693149_1694528del1380/c.1322_2701del1380/p.F441_A900del460
 SPBC19C2.09	N408E	sre1	sre1-N408E		amino_acid_mutation	PMID:23729666	N408E	False		amino_acid_mutation:single_aa					II:g.1693049_1693051delAATinsGAG/c.1222_1224delAATinsGAG/p.N408E
 SPBC19C2.09	P288D	sre1	sre1-P288D		amino_acid_mutation	PMID:29083304	P288D	False		amino_acid_mutation:single_aa					II:g.1692689_1692690delCCinsGA/c.862_863delCCinsGA/p.P288D
@@ -4126,6 +4143,7 @@ SPBC26H8.07c	T1566C	nda3	alp12-1828		nucleotide_mutation	PMID:9658169	T1566C	Fal
 SPBC26H8.07c	I100N	nda3	nda3-I100N		amino_acid_mutation	PMID:2274023	I100N	False		amino_acid_mutation:single_aa					II:g.3965409A>T/c.299T>A/p.I100N
 SPBC26H8.07c	G93E	nda3	nda3-KM311	nda3-311|nda3-311cs	amino_acid_mutation	PMID:10418128,PMID:10459013,PMID:10769212,PMID:11694585,PMID:11861765,PMID:11909965,PMID:11950879,PMID:12007420,PMID:12234926,PMID:12546793,PMID:14742702,PMID:15126629,PMID:15371542,PMID:15743909,PMID:15936270,PMID:16467379,PMID:17036054,PMID:18362178,PMID:19217403,PMID:19373772,PMID:20967237,PMID:21540296,PMID:21856157,PMID:2211869,PMID:22119525,PMID:22521786,PMID:24173154,PMID:25987607,PMID:2665944,PMID:27146110,PMID:29742018,PMID:3040264,PMID:6094012,PMID:6887244,PMID:7334057,PMID:8834798,PMID:8876193,PMID:8978687,PMID:9167972,PMID:9200612,PMID:9573052	G93E	False		amino_acid_mutation:single_aa					II:g.3965430C>T/c.278G>A/p.G93E
 SPBC26H8.07c	Y50S	nda3	nda3-TB101		amino_acid_mutation	PMID:33925026	Y50S	False		amino_acid_mutation:single_aa					II:g.3965648T>G/c.149A>C/p.Y50S
+SPBC26H8.07c	T803A,T805C	nda3	nda3noD		nucleotide_mutation	PMID:34798057	T803A|T805C	False		nucleotide_mutation:single_nt|nucleotide_mutation:single_nt					II:g.3965122A>T/c.586T>A/p.S196T|II:g.3965120A>G/c.588T>C/p.S196S
 SPBC26H8.08c	70-90	grn1	grn1-deltaCC		partial_amino_acid_deletion	PMID:16251348	70-90	False		partial_amino_acid_deletion:multiple_aa					II:g.3967843_3967905del63/c.208_270del63/p.I70_E90del21
 SPBC26H8.08c	276-283	grn1	grn1-deltaG1		partial_amino_acid_deletion	PMID:16251348	276-283	False		partial_amino_acid_deletion:multiple_aa					II:g.3967264_3967287del24/c.826_849del24/p.G276_S283delGYPNVGKS
 SPBC26H8.08c	326-329	grn1	grn1-deltaG3		partial_amino_acid_deletion	PMID:16251348	326-329	False		partial_amino_acid_deletion:multiple_aa					II:g.3967126_3967137del12/c.976_987del12/p.D326_G329delDSPG
@@ -4377,8 +4395,10 @@ SPBC31F10.14c	Q643*	hip3	hip3-Q643-stop	supB	partial_amino_acid_deletion	PMID:34
 SPBC31F10.14c	R1303*	hip3	hip3-R1303-stop	supA	partial_amino_acid_deletion	PMID:34580178	R1303*	False		nonsense_mutation:stop_codon_star					II:g.3778764G>A/c.3907C>T/p.R1303*
 SPBC32C12.02	(-1730)-(-1724)	ste11	ste1-promoter(deltaFLEX1)		partial_nucleotide_deletion	PMID:18059475	(-1730)-(-1724)	False		partial_nucleotide_deletion:usual					II:g.3983857_3983863delTAAACAG/c.1-1729_1-1723delTAAACAG/.
 SPBC32C12.02	92-468	ste11	ste11(1-91)	ste91	partial_amino_acid_deletion	PMID:10867006	92-468	False		partial_amino_acid_deletion:multiple_aa					II:g.3985859_3986989del1131/c.274_1404del1131/p.R92_F468del377
+SPBC32C12.02	CCC(-2642)TGA	ste11	ste11-CORE2		nucleotide_mutation	PMID:10982411	CCC(-2642)TGA	False		nucleotide_mutation:multiple_nt					II:g.3982944_3982946delinsTGA/./.
 SPBC32C12.02	(-2141)-(-4)	ste11	ste11-D5'-UTR		partial_nucleotide_deletion	PMID:20605454	(-2141)-(-4)	False		partial_nucleotide_deletion:usual					II:g.3983445_3985582del2138/./.
 SPBC32C12.02	C195A	ste11	ste11-Mb1		nucleotide_mutation	PMID:10982411	C195A	False		nucleotide_mutation:single_nt					II:g.3985780C>A/c.195C>A/p.S65S
+SPBC32C12.02	CCC(-2376)TGA	ste11	ste11-Mb2		nucleotide_mutation	PMID:10982411	CCC(-2376)TGA	False		nucleotide_mutation:multiple_nt					II:g.3983210_3983212delinsTGA/./.
 SPBC32C12.02	C(-2372)G	ste11	ste11-Mb3		nucleotide_mutation	PMID:10982411	C(-2372)G	False		nucleotide_mutation:single_nt					II:g.3983214C>G/./.
 SPBC32C12.02	T173A,S218A	ste11	ste11-T173A,S218A		amino_acid_mutation	PMID:15713656,PMID:8945514	T173A|S218A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					II:g.3986102A>G/c.517A>G/p.T173A|II:g.3986237T>G/c.652T>G/p.S218A
 SPBC32C12.02	T173A,S218A,T305D,T317D	ste11	ste11-T173A,S218A,T305D,T317D		amino_acid_mutation	PMID:15713656	T173A|S218A|T305D|T317D	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					II:g.3986102A>G/c.517A>G/p.T173A|II:g.3986237T>G/c.652T>G/p.S218A|II:g.3986498_3986499delACinsGA/c.913_914delACinsGA/p.T305D|II:g.3986534_3986535delACinsGA/c.949_950delACinsGA/p.T317D
@@ -5912,7 +5932,6 @@ SPCC306.03c	L312I	cnd2			amino_acid_mutation	PMID:31072933	L312I	False		amino_ac
 SPCC306.03c	L312P	cnd2			amino_acid_mutation	PMID:31072933	L312P	False		amino_acid_mutation:single_aa					III:g.411133A>G/c.935T>C/p.L312P
 SPCC306.03c	L316P	cnd2			amino_acid_mutation	PMID:31072933	L316P	False		amino_acid_mutation:single_aa					III:g.411121A>G/c.947T>C/p.L316P
 SPCC306.03c	R634Q	cnd2			amino_acid_mutation	PMID:31072933	R634Q	False		amino_acid_mutation:single_aa					III:g.410167C>T/c.1901G>A/p.R634Q
-SPCC306.03c	T117I	cnd2			amino_acid_mutation	PMID:31072933	T117I	False		amino_acid_mutation:single_aa					III:g.411718G>A/c.350C>T/p.T117I
 SPCC306.03c	V635E	cnd2			amino_acid_mutation	PMID:31072933	V635E	False		amino_acid_mutation:single_aa					III:g.410164A>T/c.1904T>A/p.V635E
 SPCC306.03c	A114T	cnd2	cnd2-1		amino_acid_mutation	PMID:12000964,PMID:22645654,PMID:31072933	A114T	False		amino_acid_mutation:single_aa					III:g.411728C>T/c.340G>A/p.A114T
 SPCC306.03c	S5A,S41A	cnd2	cnd2-2A-1		amino_acid_mutation	PMID:21540296	S5A|S41A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					III:g.412054_412055delAGinsGC/c.13_14delAGinsGC/p.S5A|III:g.411947A>C/c.121T>G/p.S41A
@@ -5923,6 +5942,8 @@ SPCC306.03c	S41E,S52E	cnd2	cnd2-2E-3		amino_acid_mutation	PMID:21540296	S41E|S52
 SPCC306.03c	S5A,S41A,S52A	cnd2	cnd2-3A		amino_acid_mutation	PMID:21633354	S5A|S41A|S52A	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					III:g.412054_412055delAGinsGC/c.13_14delAGinsGC/p.S5A|III:g.411947A>C/c.121T>G/p.S41A|III:g.411914A>C/c.154T>G/p.S52A
 SPCC306.03c	S5E,S41E,S52E	cnd2	cnd2-3E		amino_acid_mutation	PMID:21540296	S5E|S41E|S52E	False		amino_acid_mutation:single_aa|amino_acid_mutation:single_aa|amino_acid_mutation:single_aa					III:g.412053_412055delAGTinsGAG/c.13_15delAGTinsGAG/p.S5E|III:g.411946_411947delTCinsGA/c.121_122delTCinsGA/p.S41E|III:g.411912_411914delTCTinsGAG/c.154_156delTCTinsGAG/p.S52E
 SPCC306.03c	A708V	cnd2	cnd2-A708V		amino_acid_mutation	PMID:25764183	A708V	False		amino_acid_mutation:single_aa					III:g.409945G>A/c.2123C>T/p.A708V
+SPCC306.03c	K318E	cnd2	cnd2-K318E		amino_acid_mutation	PMID:31072933	K318E	False		amino_acid_mutation:single_aa					III:g.411116T>C/c.952A>G/p.K318E
+SPCC306.03c	T117I	cnd2	cnd2-T117I		amino_acid_mutation	PMID:31072933	T117I	False		amino_acid_mutation:single_aa					III:g.411718G>A/c.350C>T/p.T117I
 SPCC306.03c	L103P	cnd2	cnd2-ae9		amino_acid_mutation	PMID:23263988	L103P	False		amino_acid_mutation:single_aa					III:g.411760A>G/c.308T>C/p.L103P
 SPCC306.03c	S85F	cnd2	cnd2-s1		amino_acid_mutation	PMID:23263988	S85F	False		amino_acid_mutation:single_aa					III:g.411814G>A/c.254C>T/p.S85F
 SPCC306.09c	197-551	cap1	cap1-1-196		partial_amino_acid_deletion	PMID:26542710	197-551	False		partial_amino_acid_deletion:multiple_aa					III:g.424550_425614del1065/c.589_1653del1065/p.T197_E551del355
@@ -6025,9 +6046,10 @@ SPCC338.08	T79A	ctp1	ctp1-T79A		amino_acid_mutation	PMID:19804756	T79A	False		am
 SPCC338.08	T89A	ctp1	ctp1-T89A		amino_acid_mutation	PMID:19804756	T89A	False		amino_acid_mutation:single_aa					III:g.1359555T>C/c.265A>G/p.T89A
 SPCC338.08	W288A	ctp1	ctp1-W288A		amino_acid_mutation	PMID:33836577	W288A	False		amino_acid_mutation:single_aa					III:g.1358913_1358914delTGinsGC/c.862_863delTGinsGC/p.W288A
 SPCC338.08	100-120	ctp1	ctp1-delta100-120		partial_amino_acid_deletion	PMID:25580577	100-120	False		partial_amino_acid_deletion:multiple_aa					III:g.1359460_1359522del63/c.298_360del63/p.P100_Q120del21
-SPCC338.08	60-120	ctp1	ctp1-delta60+120		partial_amino_acid_deletion	PMID:25580577	60-120	False		partial_amino_acid_deletion:multiple_aa					III:g.1359461_1359643del183/c.178_360del183/p.S60_Q120del61
+SPCC338.08	60-100	ctp1	ctp1-delta60-100		partial_amino_acid_deletion	PMID:25580577	60-100	False		partial_amino_acid_deletion:multiple_aa					III:g.1359520_1359642del123/c.179_301del123/p.S60_P100del41
+SPCC338.08	60-120	ctp1	ctp1-delta60-120		partial_amino_acid_deletion	PMID:25580577	60-120	False		partial_amino_acid_deletion:multiple_aa					III:g.1359461_1359643del183/c.178_360del183/p.S60_Q120del61
 SPCC338.08	60-80	ctp1	ctp1-delta60-80		partial_amino_acid_deletion	PMID:25580577	60-80	False		partial_amino_acid_deletion:multiple_aa					III:g.1359580_1359642del63/c.178_240del63/p.S60_D80del21
-SPCC338.08	80-120	ctp1	ctp1-delta80+120		partial_amino_acid_deletion	PMID:25580577	80-120	False		partial_amino_acid_deletion:multiple_aa					III:g.1359461_1359583del123/c.238_360del123/p.D80_Q120del41
+SPCC338.08	80-120	ctp1	ctp1-delta80-120		partial_amino_acid_deletion	PMID:25580577	80-120	False		partial_amino_acid_deletion:multiple_aa					III:g.1359461_1359583del123/c.238_360del123/p.D80_Q120del41
 SPCC338.08	1-20	ctp1	ctp1-deltaN20	ctp1-N20|ctp1-Ndelta20	partial_amino_acid_deletion	PMID:30626735	1-20	False		partial_amino_acid_deletion:multiple_aa					III:g.1359760_1359819del60/c.2_61del60/p.M1_G20del20
 SPCC338.08	1-20,L51C	ctp1	ctp1-deltaN20,L51C	ctp1-N20,L51C|ctp1-Ndelta20,L51C	amino_acid_deletion_and_mutation	PMID:30626735	1-20|L51C	False		partial_amino_acid_deletion:multiple_aa|amino_acid_mutation:single_aa					III:g.1359760_1359819del60/c.2_61del60/p.M1_G20del20|III:g.1359667_1359668delTGinsGT/c.152_153delTGinsGT/p.L51C
 SPCC338.08	1-60	ctp1	ctp1-deltaN60	ctp1-N60|ctp1-Ndelta60|ctp1-delta-N60	partial_amino_acid_deletion	PMID:25580577,PMID:30626735	1-60	False		partial_amino_acid_deletion:multiple_aa					III:g.1359640_1359819del180/c.1_180del180/p.M1_S60del60
@@ -6181,6 +6203,7 @@ SPCC576.15c	T275N	ksg1			amino_acid_mutation	PMID:31072933	T275N	False		amino_ac
 SPCC576.15c	Y202C	ksg1			amino_acid_mutation	PMID:31072933	Y202C	False		amino_acid_mutation:single_aa					III:g.2105545T>C/c.605A>G/p.Y202C
 SPCC576.15c	G159E	ksg1	ksg1-208	ksg1-358	amino_acid_mutation	PMID:10071224,PMID:12805221,PMID:14625898,PMID:22976295,PMID:24247430,PMID:35082773	G159E	False		amino_acid_mutation:single_aa					III:g.2105783C>T/c.476G>A/p.G159E
 SPCC576.15c	W540*	ksg1	ksg1-3		partial_amino_acid_deletion	PMID:34534388	W540*	False		nonsense_mutation:stop_codon_star					III:g.2104531C>T/c.1619G>A/p.W540*
+SPCC576.15c	T320R	ksg1	ksg1-T320R		amino_acid_mutation	PMID:31072933	T320R	False		amino_acid_mutation:single_aa					III:g.2105191G>C/c.959C>G/p.T320R
 SPCC576.15c	409-592	ksg1	ksg1delta409-592	ksg1cat|ksg1deltaPH	partial_amino_acid_deletion	PMID:14625898	409-592	False		partial_amino_acid_deletion:multiple_aa					III:g.2104374_2104925del552/c.1225_1776del552/p.T409_V592del184
 SPCC584.02	R19Q	cuf2	cuf2-R19Q	sms5-1	amino_acid_mutation	PMID:23628763	R19Q	False		amino_acid_mutation:single_aa					III:g.1532231G>A/c.56G>A/p.R19Q
 SPCC584.04	D647A	sup35	sup35-D647A		amino_acid_mutation	PMID:19417105	D647A	False		amino_acid_mutation:single_aa					III:g.1537475A>C/c.1940A>C/p.D647A
@@ -6252,6 +6275,7 @@ SPCC622.08c	S122A	hta1	hta1-S121A		amino_acid_mutation	PMID:26804021,PMID:199653
 SPCC622.08c	S129A	hta1	hta1-S129A		amino_acid_mutation	PMID:26368543,PMID:20679485,PMID:21098122,PMID:24806815,PMID:15226425,PMID:25795664	S129A	False		amino_acid_mutation:single_aa					III:g.1411537_1411538delAGinsGC/c.385_386delAGinsGC/p.S129A
 SPCC622.09	G30D	htb1	htb1-377		amino_acid_mutation	PMID:29593117	G30D	False		amino_acid_mutation:single_aa					III:g.1412572G>A/c.89G>A/p.G30D
 SPCC622.09	E35K	htb1	htb1-442		amino_acid_mutation	PMID:29593117	E35K	False		amino_acid_mutation:single_aa					III:g.1412586G>A/c.103G>A/p.E35K
+SPCC622.09	G53D	htb1	htb1-G52D		amino_acid_mutation	PMID:29352077	G53D	False		amino_acid_mutation:single_aa					III:g.1412641G>A/c.158G>A/p.G53D
 SPCC622.09	K120R	htb1	htb1-K119R		amino_acid_mutation	PMID:17363370,PMID:26518661,PMID:27098497,PMID:31837996,PMID:32496538	K120R	False		amino_acid_mutation:single_aa					III:g.1412842A>G/c.359A>G/p.K120R
 SPCC622.10c	S50A	sec5	sec5-S50A		amino_acid_mutation	PMID:30726745	S50A	False		amino_acid_mutation:single_aa					III:g.1416003A>C/c.148T>G/p.S50A
 SPCC622.16c	H297A	epe1	epe1-H297A		amino_acid_mutation	PMID:17948055,PMID:28600551,PMID:30573453,PMID:37279920	H297A	False		amino_acid_mutation:single_aa					III:g.1433656_1433657delCAinsGC/c.889_890delCAinsGC/p.H297A
@@ -6825,6 +6849,8 @@ SPNCRNA.98	T57C,T62C,T90C	srp7	srp7-U57C,U62C,U90C		nucleotide_mutation	PMID:131
 SPNCRNA.98	T70C	srp7	srp7-U70C		nucleotide_mutation	PMID:1315954	T70C	False		nucleotide_mutation:single_nt					I:g.4268731T>C/c.70T>C/.
 SPNCRNA.98	T88G	srp7	srp7-U88G		nucleotide_mutation	PMID:1315954	T88G	False		nucleotide_mutation:single_nt					I:g.4268749T>G/c.88T>G/.
 SPNCRNA.98	T88G,T133C,A135C	srp7	srp7-U88G,U133C,A135C		nucleotide_mutation	PMID:1315954	T88G|T133C|A135C	False		nucleotide_mutation:single_nt|nucleotide_mutation:single_nt|nucleotide_mutation:single_nt					I:g.4268749T>G/c.88T>G/.|I:g.4268794T>C/c.133T>C/.|I:g.4268796A>C/c.135A>C/.
+SPNCRNA.98	T84GCTGCAGC,T88G	srp7	srp7-U88G,delta84-88,omega8nt		nucleotide_insertion_and_mutation	PMID:1315954	T84GCTGCAGC|T88G	False		nucleotide_insertion_and_mutation:multiple_nt|nucleotide_mutation:single_nt					I:g.4268745delinsGCTGCAGC/c.84delinsGCTGCAGC/.|I:g.4268749T>G/c.88T>G/.
+SPNCRNA.98	T88G,T84TTCGA	srp7	srp7-U88G,omegaUCGA		nucleotide_insertion_and_mutation	PMID:1315954	T88G|T84TTCGA	False		nucleotide_mutation:single_nt|nucleotide_insertion:standard					I:g.4268749T>G/c.88T>G/.|I:g.4268745_4268746insTCGA/c.84_85insTCGA/.
 SPNCRNA.98	70-87,137-204	srp7	srp7delta-domIII		partial_nucleotide_deletion	PMID:8041618	70-87|137-204	False		partial_nucleotide_deletion:usual|partial_nucleotide_deletion:usual					I:g.4268733_4268750del18/c.72_89del18/.|I:g.4268798_4268865del68/c.137_204del68/.
 SPNCRNA.98	118-120	srp7	srp7delta118-120		partial_nucleotide_deletion	PMID:1315954	118-120	False		partial_nucleotide_deletion:usual					I:g.4268780_4268782delTGG/c.119_121delTGG/.
 SPNCRNA.98	139-144	srp7	srp7delta139-144		partial_nucleotide_deletion	PMID:1315954	139-144	False		partial_nucleotide_deletion:usual					I:g.4268800_4268805delGTGTAG/c.139_144delGTGTAG/.
