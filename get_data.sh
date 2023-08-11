@@ -75,6 +75,10 @@ echo -e "${GREEN}Downloading protein modification data${NC}"
 curl -k https://www.pombase.org/data/annotations/modifications/pombase-chado.modifications.gz --output data/pombase-chado.modifications.gz
 gzip -fd data/pombase-chado.modifications.gz
 
+# Download mod ontology to check which amino_acids are allowed for which MOD terms
+curl -kL http://purl.obolibrary.org/obo/mod.obo -o data/mod.obo
+python make_mod_dict.py
+
 # Download the pombase genome fasta (for transvar)
 curl -k https://curation.pombase.org/dumps/latest_build/fasta/chromosomes/Schizosaccharomyces_pombe_all_chromosomes.fa.gz -o data/pombe_genome.fa.gz
 gzip -fd data/pombe_genome.fa.gz

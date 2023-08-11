@@ -5,9 +5,10 @@ from refinement_functions import replace_allele_features_with_syntax_rules
 from genome_functions import process_systematic_id
 import pickle
 import re
+import json
 
 
-def check_func(row, genome):
+def check_func(row, genome, pombase_mod_dict):
 
     # Handle multiple transcripts, we pick the first (.1) by default
     try:
@@ -18,7 +19,7 @@ def check_func(row, genome):
     gene = genome[systematic_id]
 
     if 'CDS' not in gene:
-        return 'missing_CDS', ''
+        return 'not_protein_gene', ''
 
     # We create a dummy syntax rule for the aa modifications (single aminoacid not preceded with an aminoacid, followed
     # by number, and optionally followed by another aminoacid -sometimes people would write S123A to indicate that S123
@@ -45,7 +46,18 @@ def check_func(row, genome):
         change_sequence_position_to = correct_name
 
     errors = [check_sequence_single_pos(match_group[0].groups(), gene, 'peptide') for match_group in match_groups]
-    return '|'.join(errors) if any(errors) else '', change_sequence_position_to
+
+    if any(errors):
+        return '|'.join(errors), change_sequence_position_to
+
+    # If there are restriction for this particular MOD, check for those
+    if pombase_mod_dict[row['modification']]:
+        # Get all letters in the sequence_position
+        residues = set(x for x in re.findall('[a-zA-Z]', row['sequence_position']))
+        if any(residue not in pombase_mod_dict[row['modification']] for residue in residues):
+            return 'residue_not_allowed', change_sequence_position_to
+
+    return '', change_sequence_position_to
 
 
 if __name__ == "__main__":
@@ -53,10 +65,13 @@ if __name__ == "__main__":
         genome = pickle.load(ins)
 
     data = pandas.read_csv('data/pombase-chado.modifications', sep='\t', na_filter=False)
+    with open('data/pombase_mod_dict.json', 'r') as ins:
+        pombase_mod_dict = json.load(ins)
+
     data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'taxon', 'date']
     data = data[data['sequence_position'] != '']
 
-    extra_cols = data.apply(check_func, axis=1, result_type='expand', args=[genome])
+    extra_cols = data.apply(check_func, axis=1, result_type='expand', args=[genome, pombase_mod_dict])
     data.loc[:, 'sequence_error'] = extra_cols.loc[:, 0]
     data.loc[:, 'change_sequence_position_to'] = extra_cols.loc[:, 1]
     # data.loc[:, ['sequence_error', 'change_sequence_position_to']] = data.apply(check_func, axis=1, result_type='expand')
@@ -67,7 +82,7 @@ if __name__ == "__main__":
     error_data.to_csv('results/protein_modification_results_errors.tsv', sep='\t', index=False)
 
     # Aggregate the errors
-    sequence_error_data = error_data[~error_data['sequence_error'].isin(['', 'pattern_error', 'missing_CDS'])].copy()
+    sequence_error_data = error_data[~error_data['sequence_error'].isin(['', 'pattern_error', 'not_protein_gene', 'residue_not_allowed'])].copy()
     sequence_error_data.loc[sequence_error_data['change_sequence_position_to'] != '', 'sequence_position'] = sequence_error_data['change_sequence_position_to']
 
     sequence_error_data.loc[:, 'sequence_position'] = sequence_error_data['sequence_position'].apply(str.split, args=',')
