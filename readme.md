@@ -17,23 +17,12 @@ poetry install
 # Activate python environment
 poetry shell
 
-# Download data from PomBase and load the genome (last step takes a while)
-bash get_data.sh
+# Install transvar in the project directory and set up necessary env variables
+bash set_up_transvar.sh
+. transvar_env_vars.sh
 
-# Find errors in alleles and propose fixes (see outputs in results/allele_results*.tsv)
-python perform_qc.py
-
-## (If correcting coordinates)
-# make a list of the alleles that need fixing -> results/alleles_coordinate_change.tsv
-python load_coordinate_changes.py
-# make a dictionary that contains an alignment of old and new sequences -> data/coordinate_changes_dict.json
-python build_alignment_dict.py
-# fix the coordinates -> results/allele_results_after_coordinates.tsv
-python fix_coordinates.py
-## (End of If correcting coordinates)
-
-# Make lists of alleles that can be auto-fixed and those that would require human supervision (results/allele_auto_fix.tsv and results/allele_needs_supervision.tsv)
-python get_allele_autofix.py
+# Run this script (See the comments in the subscripts)
+bash run_analysis.sh
 ```
 
 ## Installing
