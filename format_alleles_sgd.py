@@ -29,6 +29,14 @@ def extract_description_from_allele_name(allele_name):
 
 
 data['description_name'] = data['allele_name'].apply(extract_description_from_allele_name)
+exclude_allele_type = data['allele_type'].str.contains('frameshift')
+data.loc[~exclude_allele_type, 'allele_type'] = 'amino_acid_dummy'
+
+# Merge solutions from different PMIDs that are the same
+groupby_columns = list(data.columns)
+groupby_columns.remove('reference')
+data = data.groupby(groupby_columns, as_index=False).agg({'reference': ','.join})
+
 
 alleles_description_name = data[data['description_name'] != ''].copy()
 alleles_description_name.drop(columns=['allele_description', 'description_semicolon'], inplace=True)

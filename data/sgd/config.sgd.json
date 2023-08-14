@@ -1,0 +1,23 @@
+{
+    "mitochondrial_prefix": "Q0",
+    "mitochondrial_table": 4,
+    "chromosome2file": {
+      "chrI": "chrI",
+        "chrII": "chrII",
+        "chrIII": "chrIII",
+        "chrIV": "chrIV",
+        "chrV": "chrV",
+        "chrVI": "chrVI",
+        "chrVII": "chrVII",
+        "chrVIII": "chrVIII",
+        "chrIX": "chrIX",
+        "chrX": "chrX",
+        "chrXI": "chrXI",
+        "chrXII": "chrXII",
+        "chrXIII": "chrXIII",
+        "chrXIV": "chrXIV",
+        "chrXV": "chrXV",
+        "chrXVI": "chrXVI",
+        "chrmt.embl": "chrmt"
+    }
+}
