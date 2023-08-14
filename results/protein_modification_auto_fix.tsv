@@ -1,126 +1,13 @@
 systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	sequence_error	change_sequence_position_to	auto_fix_comment	solution_index
-SPAC11E3.03	csm1	MOD:00696	Inferred from Direct Assay	S47	added_during(GO:0000089)	PMID:20935472	4896	2015-02-12	S47	S87	old_coords_fix, revision 20110324: join(5286289..5286562,5286606..5286821,5286877..5287055)	
-SPAC17G8.10c	dma1	MOD:01148	Inferred from Direct Assay	K3, K26, K54, K82, K124, K164, K174, K237, K262	added_by(PomBase:SPAC17G8.10c)	PMID:29975113	4896	2018-07-19		K3,K26,K54,K82,K124,K164,K174,K237,K262	syntax_error	
-SPAC17G8.10c	dma1	MOD:00046	Inferred from Direct Assay	S4, S20, S166, S251, S266		PMID:34674264	4896	2022-01-11		S4,S20,S166,S251,S266	syntax_error	
 SPAC1834.03c	hhf1	MOD:00663	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
 SPAC1834.04	hht1	MOD:00663		K14	present_during(GO:0031508)	PMID:14561399	4896	2010-03-11	K14	K15	histone_fix	
-SPAC1834.04	hht1	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
 SPAC1834.04	hht1	MOD:00663	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K4	added_by(PomBase:SPAC637.12c)	PMID:20299449	4896	2014-12-23	K4	K5	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K4	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K4	K5	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_during(GO:0000084)	PMID:20299449	4896	2014-12-23	K56	K57	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K56	added_by(PomBase:SPBC342.06c)	PMID:17369611	4896	2011-08-08	K56	K57	histone_fix	
 SPAC1834.04	hht1	MOD:00663		K9	present_during(GO:0031508)	PMID:14561399	4896	2010-03-11	K9	K10	histone_fix	
-SPAC1834.04	hht1	MOD:00723	Inferred from Direct Assay	K9		PMID:20299449	4896	2014-12-23	K9	K10	histone_fix	
-SPAC1834.04	hht1	MOD:00046	Inferred from Direct Assay	S10	added_by(PomBase:SPCC320.13c),present_during(GO:0000087)	PMID:11792803	4896	2016-10-12	S10	S11	histone_fix	
-SPAC1834.04	hht1	MOD:00696	Inferred from Direct Assay	Y41	present_during(GO:0000087)	PMID:29136238	4896	2018-02-12	Y41	Y42	histone_fix	
-SPAC19G12.06c	hta2	MOD:00046	Inferred from Direct Assay	S121	added_by(PomBase:SPCC1322.12c)	PMID:19965387	4896	2018-03-22	S121	S122	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	added_during(GO:0000084),coincident_with(SO:0001789)	PMID:20661445	4896	2013-08-28	S127	S128	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	added_during(GO:0000084),coincident_with(SO:0001799)	PMID:20661445	4896	2013-08-28	S127	S128	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:0001798)	PMID:20661445	4896	2013-08-28	S127	S128	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	added_during(GO:0000084),coincident_with(SO:0000186),removed_during(GO:0000085)	PMID:20661445	4896	2013-08-28	S127	S128	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:0001789),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S127	S128	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:0001799),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S127	S128	histone_fix	
-SPAC19G12.06c	hta2	MOD:00696	Inferred from Direct Assay	S127	coincident_with(SO:0001798)	PMID:20661445	4896	2019-08-02	S127	S128	histone_fix	
-SPAC20H4.06c	gpl1	MOD:00046	Inferred from Direct Assay	S239, S308, S312		PMID:36361590	4896	2022-11-18		S239,S308,S312	syntax_error	
-SPAC3H1.05	ste24	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S440		PMID:30726745	4896	2019-02-05	S440	S410	old_coords_fix, revision 8148: join(1938900..1939004,1939075..1940394)	
-SPAC4D7.03	pop2	MOD:00047	Inferred from Direct Assay	T657, T666, T669		PMID:36361590	4896	2022-11-28		T657,T666,T669	syntax_error	
 SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S12	?	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
-SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S500	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S500	S484	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
-SPAC6G9.08	ubp6	MOD:00046	Inferred from Direct Assay	S129		PMID:21182284	4896	2014-07-21	S129	S130	old_coords_fix, revision 20110324: 3259704..3261107	
-SPAC6G9.08	ubp6	MOD:00046	Inferred from Direct Assay	S133		PMID:21182284	4896	2014-07-21	S133	S134	old_coords_fix, revision 20110324: 3259704..3261107	
-SPAC6G9.08	ubp6	MOD:00046	Inferred from Direct Assay	S359		PMID:21182284	4896	2014-07-21	S359	S360	old_coords_fix, revision 20110324: 3259704..3261107	
-SPAC6G9.08	ubp6	MOD:00047	Inferred from Direct Assay	T143		PMID:21182284	4896	2014-07-22	T143	T144	old_coords_fix, revision 20110324: 3259704..3261107	
-SPAP8A3.08	cdc4	MOD:00046	Inferred from Direct Assay	S2A		PMID:10364209	4896	2020-12-30	residue_not_allowed	S2	syntax_error	
-SPAP8A3.08	cdc4	MOD:00046	Inferred from Direct Assay	S6A		PMID:10364209	4896	2020-12-30	residue_not_allowed	S6	syntax_error	
-SPBC1105.11c	hht3	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
 SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
-SPBC1105.11c	hht3	MOD:00723	Inferred from Direct Assay	K56	added_by(PomBase:SPBC342.06c)	PMID:17369611	4896	2011-08-08	K56	K57	histone_fix	
 SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	K9	K10	histone_fix	
-SPBC1105.11c	hht3	MOD:00046	Inferred from Direct Assay	S10	added_by(PomBase:SPCC320.13c),present_during(GO:0000087)	PMID:11792803	4896	2016-10-12	S10	S11	histone_fix	
-SPBC1105.11c	hht3	MOD:00696	Inferred from Direct Assay	Y41	present_during(GO:0000087)	PMID:29136238	4896	2018-02-12	Y41	Y42	histone_fix	
 SPBC1105.12	hhf3	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
-SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T104A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29	residue_not_allowed	T104	syntax_error	
-SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T10A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29	residue_not_allowed	T10	syntax_error	
-SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T134A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29	residue_not_allowed	T134	syntax_error	
-SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T374A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29	residue_not_allowed	T374	syntax_error	
-SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T46A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29	residue_not_allowed	T46	syntax_error	
-SPBC14C8.07c	cdc18	MOD:00047	Inferred from Direct Assay	T60A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000082)	PMID:9353247	4896	2018-08-29	residue_not_allowed	T60	syntax_error	
-SPBC16G5.15c	fkh2	MOD:00046	Inferred from Direct Assay	S321A	added_by(PomBase:SPCC24B10.07)	PMID:18235227	4896	2015-12-17	residue_not_allowed	S321	syntax_error	
-SPBC1A4.03c	top2	MOD:00046	Inferred from Direct Assay	S1363, S1364	added_by(PomBase:SPAC23C11.11),present_during(GO:0000278)	PMID:30635402	4896	2019-01-25		S1363,S1364	syntax_error	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S200		PMID:29996109	4896	2018-07-10	S200	S184	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S202		PMID:29996109	4896	2018-07-10	S202	S186	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S202		PMID:33823663	4896	2022-03-08	S202	S186	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S212		PMID:29996109	4896	2018-07-10	S212	S196	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S212		PMID:33823663	4896	2022-03-08	S212	S196	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S224		PMID:29996109	4896	2018-07-10	S224	S208	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S229	present_during(GO:0000087)	PMID:29996109	4896	2018-07-10	S229	S213	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S232		PMID:29996109	4896	2018-07-10	S232	S216	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S237		PMID:29996109	4896	2018-07-10	S237	S221	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S239		PMID:29996109	4896	2018-07-10	S239	S223	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S239		PMID:33823663	4896	2022-03-08	S239	S223	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S309		PMID:29996109	4896	2018-07-10	S309	S293	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S309		PMID:33823663	4896	2022-03-08	S309	S293	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S316		PMID:29996109	4896	2018-07-10	S316	S300	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S337		PMID:29996109	4896	2018-07-10	S337	S321	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S337		PMID:33823663	4896	2022-03-08	S337	S321	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S345		PMID:29996109	4896	2018-07-10	S345	S329	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S345		PMID:33823663	4896	2022-03-08	S345	S329	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S354		PMID:29996109	4896	2018-07-10	S354	S338	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S354		PMID:33823663	4896	2022-03-08	S354	S338	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S376		PMID:29996109	4896	2018-07-10	S376	S360	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S381	present_during(GO:0000087)	PMID:29996109	4896	2018-07-10	S381	S365	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S381		PMID:33823663	4896	2022-03-08	S381	S365	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S383		PMID:29996109	4896	2018-07-10	S383	S367	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S383		PMID:33823663	4896	2022-03-08	S383	S367	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S409		PMID:29996109	4896	2018-07-10	S409	S393	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S411		PMID:29996109	4896	2018-07-10	S411	S395	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S419		PMID:29996109	4896	2018-07-10	S419	S403	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S426		PMID:29996109	4896	2018-07-10	S426	S410	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S434		PMID:33823663	4896	2022-03-08	S434	S418	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S445		PMID:29996109	4896	2018-07-10	S445	S429	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S447		PMID:29996109	4896	2018-07-10	S447	S431	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S455	present_during(GO:0000085)	PMID:29996109	4896	2018-07-10	S455	S439	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T129		PMID:29996109	4896	2018-07-10	T129	T113	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T129		PMID:33823663	4896	2022-03-08	T129	T113	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T257		PMID:29996109	4896	2018-07-10	T257	T241	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T257		PMID:33823663	4896	2022-03-08	T257	T241	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T352		PMID:29996109	4896	2018-07-10	T352	T336	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T352		PMID:33823663	4896	2022-03-08	T352	T336	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T375		PMID:29996109	4896	2018-07-10	T375	T359	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T375		PMID:33823663	4896	2022-03-08	T375	T359	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T439		PMID:29996109	4896	2018-07-10	T439	T423	old_coords_fix, revision 1381: complement(2609038..2610591)	
-SPBC4F6.12	pxl1	MOD:00696	Inferred from Direct Assay	S3, S24, S31, T55, T64, S67, S97, S136, T214	added_by(PomBase:SPBC11B10.09),added_during(GO:0000089),removed_during(GO:0000092)	PMID:34133210	4896	2021-07-07		S3,S24,S31,T55,T64,S67,S97,S136,T214	syntax_error	
 SPBC8D2.03c	hhf2	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
-SPBC8D2.04	hht2	MOD:01148	Inferred from Direct Assay	K14	added_by(PomBase:SPAC23H4.18c)	PMID:31468675	4896	2019-10-02	K14	K15	histone_fix	
 SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
-SPBC8D2.04	hht2	MOD:00723	Inferred from Direct Assay	K56	added_by(PomBase:SPBC342.06c)	PMID:17369611	4896	2011-08-08	K56	K57	histone_fix	
 SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	K9	K10	histone_fix	
-SPBC8D2.04	hht2	MOD:00046	Inferred from Direct Assay	S10	added_by(PomBase:SPCC320.13c),present_during(GO:0000087)	PMID:11792803	4896	2016-10-12	S10	S11	histone_fix	
-SPBC8D2.04	hht2	MOD:00696	Inferred from Direct Assay	Y41	present_during(GO:0000087)	PMID:29136238	4896	2018-02-12	Y41	Y42	histone_fix	
-SPBP23A10.10	ppk32	MOD:00696	Inferred from Direct Assay	S630, S632		PMID:27191590	4896	2016-07-04		S630,S632	syntax_error	
-SPCC162.07	ent1	MOD:00046	Inferred from Direct Assay	S220		PMID:23297348	4896	2014-04-07	S220	S216	old_coords_fix, revision 1899: complement(join(1571648..1573733,1574016..1574050))	
-SPCC188.11	prp45	MOD:00046	Inferred from Direct Assay	S228, S236		PMID:36361590	4896	2022-11-18		S228,S236	syntax_error	
-SPCC338.08	ctp1	MOD:00046	Inferred from Direct Assay	S77, S151	added_by(PomBase:SPAC23C11.11)	PMID:33836577	4896	2021-06-18		S77,S151	syntax_error	
-SPCC338.08	ctp1	MOD:00047	Inferred from Direct Assay	T89, T154, T155	added_by(PomBase:SPAC23C11.11)	PMID:33836577	4896	2021-06-08	|T154|T155	T89,T154,T155	syntax_error	
-SPCC338.17c	rad21	MOD:00046	Inferred from Direct Assay	S163, S164,S165, S174, S209, S216, S219,S223, S226, S444, S507, S544, S545, S553		PMID:28438891	4896	2017-10-28		S163,S164,S165,S174,S209,S216,S219,S223,S226,S444,S507,S544,S545,S553	syntax_error	
-SPCC4E9.01c	rec11	MOD:00696	Inferred from Direct Assay	S10|S22|S43|S150|S439|S496	added_during(GO:0098762)	PMID:25993311	4896	2017-04-11		S10,S22,S43,S150,S439,S496	syntax_error	
-SPCC4E9.01c	rec11	MOD:00696	Inferred from Direct Assay	T60|T70	added_during(GO:0098762)	PMID:25993311	4896	2017-04-11		T60,T70	syntax_error	
-SPCC622.08c	hta1	MOD:00046	Inferred from Direct Assay	S121	added_by(PomBase:SPCC1322.12c)	PMID:19965387	4896	2018-03-22	S121	S122	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0001789)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0001799)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001798)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	added_during(GO:0000084),coincident_with(SO:0000186)	PMID:20661445	4896	2013-08-28	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001789),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001799),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0001798)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
-SPCC622.08c	hta1	MOD:00696	Inferred from Direct Assay	S128	coincident_with(SO:0000186),removed_during(GO:0000085)	PMID:20661445	4896	2019-08-02	S128	S129	histone_fix	
 SPCC622.09	htb1	MOD:01148	Inferred from Direct Assay	K119		PMID:17374714	4896	2007-07-16	K119	K120	histone_fix	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S202A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S202	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S229A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S229	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S244A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S244	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S278A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S278	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	S294A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		S294	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	T393A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		T393	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	T831A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		T831	syntax_error	
-SPCC962.02c	bir1	MOD:00696	Inferred from Direct Assay	T908A	added_by(PomBase:SPBC11B10.09),added_during(GO:0000236)	PMID:20739936	4896	2020-02-11		T908	syntax_error	
