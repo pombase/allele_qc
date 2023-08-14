@@ -33,6 +33,7 @@ jobs:
           bash set_up_transvar.sh
       - name: Update file
         run: |
+          . transvar_env_vars.sh
           bash run_analysis.sh
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v4
