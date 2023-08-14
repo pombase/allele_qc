@@ -1,10 +1,10 @@
 python format_alleles_sgd.py
 
-python load_genome.py --output data/sgd/genome.pickle --config data/sgd/config.sgd.json data/sgd/genome_embl_files/*.embl
+# python load_genome.py --output data/sgd/genome.pickle --config data/sgd/config.sgd.json data/sgd/genome_embl_files/*.embl
 
-# Remove unknown ids (not in gff), or pseudogene (YLL016W)
+# Remove unknown ids (not in gff), or pseudogene (YLL016W), no main feature (YJL018W)
 
-missing_genes="R0010W YSC0029 R0040C YLL016W YSC0032"
+missing_genes="R0010W YSC0029 R0040C YLL016W YSC0032 YJL018W"
 
 for missing_gene in $missing_genes; do
     grep -v $missing_gene data/sgd/alleles_description_name.tsv > data/sgd/alleles_description_name.tsv.tmp

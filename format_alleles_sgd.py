@@ -46,4 +46,4 @@ alleles_description_name.to_csv('data/sgd/alleles_description_name.tsv', sep='\t
 alleles_description_semicolon = data[data['description_semicolon'] != ''].copy()
 alleles_description_semicolon.drop(columns=['allele_description', 'description_name'], inplace=True)
 alleles_description_semicolon.rename(columns={'description_semicolon': 'allele_description'}, inplace=True)
-alleles_description_name.to_csv('data/sgd/alleles_description_semicolon.tsv', sep='\t', index=False)
+alleles_description_semicolon.to_csv('data/sgd/alleles_description_semicolon.tsv', sep='\t', index=False)
