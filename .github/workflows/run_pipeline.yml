@@ -19,13 +19,18 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
-      - name: Install dependencies
+      - name: Install python dependencies
         run: |
           sudo apt-get install subversion -y
           python -m pip install --upgrade pip
           pip install poetry
           poetry config virtualenvs.create false
           poetry install --no-dev
+      - name: Install and set up transvar
+        run: |
+          . transvar_env_vars.sh
+          bash install_transvar_dependencies.sh
+          bash set_up_transvar.sh
       - name: Update file
         run: |
           bash run_analysis.sh
