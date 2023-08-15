@@ -8,5 +8,6 @@
     "mating_type_region": "mating_type_region",
     "mitochondrial": "pMIT",
     "chr_II_telomeric_gap": "telomeric"
-  }
+  },
+  "locus_tag_equivalent": "systematic_id"
 }

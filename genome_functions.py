@@ -152,7 +152,7 @@ def process_systematic_id(systematic_id: str, genome: dict, when_several_transcr
             longest_transcript_systematic_id = systematic_id + '.' + str(i)
         i += 1
     if longest_transcript_systematic_id is None:
-        raise ValueError('Systematic id does not exist')
+        raise ValueError('Systematic id does not exist:', systematic_id)
     else:
         return longest_transcript_systematic_id
 

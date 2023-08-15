@@ -28,17 +28,23 @@ class Formatter(argparse.ArgumentDefaultsHelpFormatter, argparse.RawDescriptionH
     pass
 
 
-with open('config.json') as ins:
-    config = json.load(ins)
-
-filename2chromosome_dict = {v: k for k, v in config['chromosome2file'].items()}
-
 parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('files', metavar='N', type=str, nargs='+',
                     help='files to be read')
 parser.add_argument('--format', default='embl', help='format of the files to be read (for Biopython)')
 parser.add_argument('--output', default='data/genome.pickle', help='output file (using pickle)')
+parser.add_argument('--config', default='config.json', help='configuration file')
+
 args = parser.parse_args()
+
+with open(args.config) as ins:
+    config = json.load(ins)
+
+locus_tag_equivalent = 'locus_tag'
+if 'locus_tag_equivalent' in config:
+    locus_tag_equivalent = config['locus_tag_equivalent']
+
+filename2chromosome_dict = {v: k for k, v in config['chromosome2file'].items()}
 
 
 for f in args.files:
@@ -49,11 +55,11 @@ for f in args.files:
         raise ValueError(f'multiple sequences in file {f}')
     for feature in tqdm(contig.features, desc="Reading sequence features", unit="feature"):
         feature: SeqFeature
-        if 'systematic_id' not in feature.qualifiers:
+        if locus_tag_equivalent not in feature.qualifiers:
             continue
-        gene_id = feature.qualifiers['systematic_id'][0]
+        gene_id = feature.qualifiers[locus_tag_equivalent][0]
         feature_type = feature.type
-        if feature_type in ['intron', 'misc_feature']:
+        if feature_type in ['intron', 'misc_feature', 'exon']:
             continue
 
         if gene_id not in genome:
@@ -64,7 +70,7 @@ for f in args.files:
             contig.id = filename2chromosome_dict[file_name]
             genome[gene_id]['contig'] = contig
 
-        if feature_type in genome[gene_id]:
+        if (feature_type in genome[gene_id]) and feature_type != 'mRNA':
             raise ValueError(f'several features of {feature_type} for {gene_id}')
 
         genome[gene_id][feature_type] = feature
@@ -84,7 +90,7 @@ for f in args.files:
             if genome[gene_id]['peptide'].count('*') > 1:
                 errors.append('multiple stop codons')
             if len(errors):
-                print(gene_id, ','.join(errors), str(feature.qualifiers['product']), sep='\t')
+                print(gene_id, 'CDS errors:', ','.join(errors), sep='\t')
 
 
 with open(args.output, 'wb') as out:

@@ -1,0 +1,424 @@
+systematic_id	gene_name	allele_name	allele_description	change_description_to	sequence_error	description_comes_from	original_description
+Q0085	ATP6	atp6-L186P	L186P		L186	name	Replaces highly conserved leucine, disrupts proton conduction between external side of membrane and c-ring; corresponds to L169P in human MT-ATP6 (m.9032T>C) found in patients with NARP (Neuropathy Ataxia Retinitis Pigmentosa); cells have reduced oxidative phosphorylation capacity, elevated ROS production and hyperpolarization of mitochondrial inner membrane; mutant enzyme assembles correctly, is mostly inactive; intragenic suppressors L186S, H114Q, I118T restore function to varying degrees
+Q0085	ATP6	atp6-T205A	T205A		T205	name	Corresponds to p.T178A mutation in human MT-ATP6 found in patients with left ventricular hypertrabeculation syndrome (LVHT)
+YAL001C	TFC3	tfc3-g349e	g349e	G349E	g349	name	
+YAL005C	SSA1	ssa1-P417L	P417L		P417	name	
+YAL005C	SSA1	ssa1-P417S	P417S		P417	name	
+YAL041W	CDC24	cdc24-G44C	G44C		G44	name	
+YBL003C	HTA2	hta2-tH2A	tH2A	TH2A	t2/H3	name	Mutant lacks the N-terminal 20 residues; expressed in an hta1 hta2 background
+YBL021C	HAP3	hap3-E37R,L24R	E37R,L24R		|L24	name	
+YBL034C	STU1	stu1-5	S88T Q257K T492A F483L Y534H L561S V575A T579S N596I P616L S621T	S88T,Q257K,T492A,F483L,Y534H,L561S,V575A,T579S,N596I,P616L,S621T	||T492||||V575||||	description before semicolon	S88T Q257K T492A F483L Y534H L561S V575A T579S N596I P616L S621T; mutant can be rescued by small molecules guanidine hydrochloride (GdnHCl) or dimethyl sulfoxide (DMSO)
+YBL041W	PRE7	pre7-A71C	A71C		A71	name	
+YBL050W	SEC17	sec17-E34S,E35S,D38S,E73A,D43A,E75A	E34S,E35S,D38S,E73A,D43A,E75A		||||D43|	name	Sec17 6 Acidic to Neutral
+YBL099W	ATP1	ATP1-111	F111V		F111	description before semicolon	F111V
+YBR009C	HHF1	hhf1-K77Q	K77Q		K77	name	
+YBR009C	HHF1	hht1-K65E	K65E		K65	name	
+YBR010W	HHT1	hhf1-K32E	K32E		K32	name	
+YBR010W	HHT1	hhf1-R79A	R79A		R79	name	
+YBR010W	HHT1	hht1-K64A	K64A		K64	name	
+YBR010W	HHT1	hht1-R72A	R72A		R72	name	
+YBR038W	CHS2	chs2-S4E	S4E		S4	name	phosphomimetic mutant S14E S60E S69E S100E
+YBR060C	ORC2	orc2-All-Dp	S16D, S24D, T70D, T174D, S188D, S206D	S16D,S24D,T70D,T174D,S188D,S206D	|S24||||	description before semicolon	S16D, S24D, T70D, T174D, S188D, S206D; CDK consensus phosphoryation sites mutated; phosphomimetic
+YBR088C	POL30	pol30-k168r	k168r	K168R	k168	name	
+YBR088C	POL30	pol30-k183r	k183r	K183R	k183	name	
+YBR088C	POL30	pol30-k196r	k196r	K196R	k196	name	
+YBR088C	POL30	pol30-k210r	k210r	K210R	k210	name	
+YBR088C	POL30	pol30-k217r	k217r	K217R	k217	name	
+YBR088C	POL30	pol30-k242r	k242r	K242R	k242	name	
+YBR088C	POL30	pol30-k253r	k253r	K253R	k253	name	
+YBR123C	TFC1	tfc1-e447k	e447k	E447K	e447	name	
+YBR135W	CKS1	clb2-R366A,R379A,K383A	R366A,R379A,K383A		R366|R379|K383	name	
+YBR158W	AMN1	amn1-D368V	D368V		D368	name	
+YBR160W	CDC28	cdc28-wee	K96T, R97G, K209E, S231G, K223N	K96T,R97G,K209E,S231G,K223N	|||S231|	description before semicolon	K96T, R97G, K209E, S231G, K223N; C-terminal lobe mutated
+YBR170C	NPL4	npl4-2	W769Stop	W769*	W769	description before semicolon	W769Stop
+YBR182C	SMP1	smp1-R110Q,P269Q	R110Q,P269Q		R110|	name	
+YBR198C	TAF5	taf5-(ytafII90ts3-1)	G713E, G714S	G713E,G714S	|G714	description before semicolon	G713E, G714S; WD40 domain
+YBR202W	MCM7	mcm7-(cdc47-1)	C857A, S286Y	C857A,S286Y	C857|	description before semicolon	C857A, S286Y
+YBR249C	ARO4	aro4-G141S	G141S		G141	name	
+YBR275C	RIF1	rif1-F236A,E237A,N242A	F236A,E237A,N242A		||N242	name	
+YBR279W	PAF1	paf1-Q264stop	Q264stop	Q264*	Q264	name	
+YCL032W	STE50	ste50-V288D,D328V	V288D,D328V		|D328	name	V288D, D328V; Ras-association (RA) domain; pheromone signaling defective
+YCL032W	STE50	ste50-V288D,D328V	V288D, D328V	V288D,D328V	|D328	description before semicolon	V288D, D328V; Ras-association (RA) domain; pheromone signaling defective
+YCR002C	CDC10	cdc10-10	C397T, Q133Stop	C397T,Q133*	C397|	description before semicolon	C397T, Q133Stop
+YCR010C	ADY2	ady2-C655G	C655G		C655	name	
+YCR010C	ADY2	ady2-C755G	C755G		C755	name	
+YCR084C	TUP1	tup1-V374A	V374A		V374	name	
+YCR093W	CDC39	cdc39-(not1-2)	S1298L,Q1316STOP	S1298L,Q1316*	S1298|Q1316	description before semicolon	S1298L,Q1316STOP
+YDL003W	MCD1	mcd1-C40aa	C40aa	C40AA	C40	name	N-terminal truncation AA 1-526
+YDL007W	RPT2	rpt2-G2A	Gly2Ala	GLY2ALA	l3/y4	description before semicolon	Gly2Ala
+YDL029W	ARP2	arp2-G302Y	G302Y		G302	name	
+YDL030W	PRP9	prp9-E78K	G232A		G232	description before semicolon	G232A
+YDL037C	BSC1	bsc1-T553A	T553A		T553	name	
+YDL217C	TIM22	tim22-E140A,E190A	E140A,E190A		|E190	name	
+YDL217C	TIM22	tim22-E140A,E190A,K127A,K169A	E140A,E190A,K127A,K169A		|E190||	name	
+YDL220C	CDC13	cdc13-T847M	T847M		T847	name	T847M; C-terminal region mutated; conditional; minimally influenced by the Tmp(-) phenotype, a naturally occurring, telomere-specific, thermolabile activity
+YDL245C	HXT15	hxt15-T577C	T577C		T577	name	
+YDR062W	LCB2	lcb2-M1	Ala377Val	ALA377VAL	l378/a379	description before semicolon	Ala377Val
+YDR069C	DOA4	doa4-C1876T	C1876T		C1876	name	Gln626stop
+YDR069C	DOA4	doa4-C986A	C986A		C986	name	Ser329Stop
+YDR082W	STN1	stn1-101	H6R, F94S, R267L, F275S, I287L, I322F, K402R, R432D	H6R,F94S,R267L,F275S,I287L,I322F,K402R,R432D	|||||||R432	description before semicolon	H6R, F94S, R267L, F275S, I287L, I322F, K402R, R432D
+YDR099W	BMH2	hxk2-Y309STOP	Y309STOP	Y309*	Y309	name	
+YDR118W	APC4	apc4-E584G	E584G		E584	name	
+YDR143C	SAN1	rsp5-C777A	C777A		C777	name	C777A; active-site cysteine mutated; catalytically inactive
+YDR145W	TAF12	taf12-l464a	l464a	L464A	l464	name	
+YDR145W	TAF12	taf12-w486stop	w486stop	W486*	w486	name	
+YDR178W	SDH4	sdh4-D88E	D88E		D88	name	
+YDR178W	SDH4	sdh4-D88K	D88K		D88	name	
+YDR178W	SDH4	sdh4-D88N	D88N		D88	name	
+YDR188W	CCT6	cct6-100	T504E		T504	description before semicolon	T504E; equatorial domain mutated; putative cAMP phosphorylation motif
+YDR188W	CCT6	cct6-2	K9A, K11A	K9A,K11A	|K11	description before semicolon	K9A, K11A; equatorial domain mutated; putative role in complex association
+YDR188W	CCT6	cct6-59	R227A, R229A	R227A,R229A	|R229	description before semicolon	R227A, R229A; apical domain mutated; putative Cct6 specific motif
+YDR188W	CCT6	cct6-69	K246A		K246	description before semicolon	K246A; apical domain mutated; putative role in substrate/co-factor binding
+YDR217C	RAD9	rad9-E1278K	E1278K		E1278	name	
+YDR225W	HTA1	hta1-tH2A	tH2A	TH2A	t2/H3	name	Mutant lacks the N-terminal 20 residues; expressed in an hta1 hta2 background
+YDR268W	MSW1	msw1-hE333K	hE333K	HE333K	h333/E334	name	Humanized allele; residue E333 in yeast corresponds to residue K313 in human; p.Lys313Met allele in human is associated with mitochondrial disease
+YDR268W	MSW1	msw1-hI297V	hI297V	HI297V	h297/I298	name	Humanized allele; residue I297 in yeast corresponds to residue V278 in human; p.Val278Gly allele in human is associated with mitochondrial disease
+YDR283C	GCN2	GCN2-C	M719V, E1537G	M719V,E1537G	M719|E1537	description before semicolon	M719V, E1537G
+YDR301W	CFT1	cft1-(yhh1-13)	V235A, N685H, D695V, E723V, R763G	V235A,N685H,D695V,E723V,R763G	V235|N685|D695|E723|R763	description before semicolon	V235A, N685H, D695V, E723V, R763G
+YDR322C-A	TIM11	tim11-e19A	e19A	E19A	e19	name	insertion of alanine residue after residue 18
+YDR322C-A	TIM11	tim11-eG15L	eG15L	EG15L	e15/G16	name	G15L
+YDR322C-A	TIM11	tim11-eG19L	eG19L	EG19L	e19/G20	name	G19L
+YDR370C	DXO1	dxo1-E260A,D262A	E260A,D262A		|D262	name	E260A, D262A; active site in conserved motif III mutated
+YDR370C	DXO1	dxo1-E260A,D262A	E260A, D262A	E260A,D262A	|D262	description before semicolon	E260A, D262A; active site in conserved motif III mutated
+YDR386W	MUS81	mus81-D/A	D338A, D339A	D338A,D339A	D338|D339	description before semicolon	D338A, D339A; catalytically dead
+YDR394W	RPT3	rpt3-T626A	T626A		T626	name	
+YDR453C	TSA2	tsa2-ΔCR	C199S		C199	description before semicolon	C199S; resolving cysteine (CR) mutated
+YDR454C	GUK1	guk1-7	F58H, A84T, T95A, E127K	F58H,A84T,T95A,E127K	F58|||	description before semicolon	F58H, A84T, T95A, E127K
+YDR461W	MFA1	mfa1-I123M	I123M		I123	name	normal pheromone production
+YDR477W	SNF1	snf1-K48R	K48R		K48	name	
+YDR477W	SNF1	snf1-S634A,S636A	S634A,S636A		S634|S636	name	
+YDR477W	SNF1	snf1-S634A,S636A,S587A	S634A,S636A,S587A		S634|S636|S587	name	
+YDR534C	FIT1	fit1-A1067G	A1067G		A1067	name	
+YEL019C	MMS21	MMS21-ΔC	C183*		C183	description before semicolon	C183*; C-terminal truncation due to a premature stop mutation
+YEL021W	URA3	ura3-I150V	I150V		I150	name	
+YEL021W	URA3	ura3-S160A	S160A		S160	name	
+YEL026W	SNU13	snu13-l67w	l67w	L67W	l67	name	
+YEL049W	PAU2	pau2-T318C	T318C		T318	name	
+YEL053C	MAK10	mak10-E118A	E118A		E118	name	
+YEL053C	MAK10	mak10-E120A	E120A		E120	name	
+YEL053C	MAK10	mak10-E120Q	E120Q		E120	name	
+YEL053C	MAK10	mak10-E29A	E29A		E29	name	
+YEL053C	MAK10	mak10-L27A	L27A		L27	name	
+YEL053C	MAK10	mak10-S28A	S28A		S28	name	
+YEL053C	MAK10	mak10-Y130A	Y130A		Y130	name	
+YEL053C	MAK10	mak10-Y130F	Y130F		Y130	name	
+YEL053C	MAK10	mak10-Y145F	Y145F		Y145	name	
+YEL053C	MAK10	mak10-Y31F	Y31F		Y31	name	
+YEL061C	CIN8	cin8-D528K	D528K		D528	name	
+YEL061C	CIN8	cin8-G522N	G522N		G522	name	
+YEL061C	CIN8	cin8-K516M	K516M		K516	name	
+YEL061C	CIN8	cin8-M526T	M526T		M526	name	
+YEL063C	CAN1	can1-C412T	C412T		C412	name	
+YER009W	NTF2	ntf2-h104y	h104y	H104Y	h104	name	
+YER016W	BIM1	bim1-EBH	T220A, E228A	T220A,E228A	T220|	description before semicolon	T220A, E228A; EB-homology (EBH) domain involved in interacting with short linear sequence motifs of microtubule plus-end tracking proteins is mutated
+YER086W	ILV1	ilv1-92	G635A		G635	description before semicolon	G635A
+YER104W	RTT105	rtt105-EL2A	EL2A		E2/L3	name	E171 and L172 both mutated to alanine
+YER148W	SPT15	spt15-M1	N225stop	N225*	N225	description before semicolon	N225stop
+YER148W	SPT15	spt15-i143n	i143n	I143N	i143	name	
+YER148W	SPT15	spt15-p65s	p65s	P65S	p65	name	
+YER149C	PEA2	pea2-M409L	M409L		M409	name	
+YER169W	RPH1	rph1-S7D	S7D		S7	name	
+YER171W	RAD3	rad3-31	E577stop	E577*	E577	description before semicolon	E577stop
+YER172C	BRR2	brr2-L2120V	L2120V		L2120	name	
+YFL001W	DEG1	deg1-F18S	F18S		F18	name	
+YFL003C	MSH4	msh5-D250A	D250A		D250	name	
+YFL003C	MSH4	msh5-D76A	D76A		D76	name	
+YFL008W	SMC1	smc1-D574Y	D574Y		D574	name	
+YFL026W	STE2	ste2-I145L	I145L		I145	name	mutation causing constitutive activation
+YFL026W	STE2	ste2-S54L,P258L,S259L	S54L,P258L,S259L		S54||	name	mutations S54L, P258L, and S259L; central region of TM6
+YFL031W	HAC1	HAC1-C658G	C658G		C658	name	
+YFL031W	HAC1	HAC1-C658G,G666C	C658G,G666C		C658|G666	name	
+YFL031W	HAC1	HAC1-C666G	C666G		C666	name	
+YFL031W	HAC1	HAC1-G661C,G771A	G661C,G771A		G661|G771	name	
+YFL031W	HAC1	HAC1-G771A,G661C	G771A,G661C		G771|G661	name	
+YFL031W	HAC1	hac1-G212E	G212E		G212	name	
+YFL031W	HAC1	hac1-R193A,R235A	R193A,R235A		R193|R235	name	
+YFL039C	ACT1	act1-L266D	L266D		L266	name	
+YFL048C	EMP47	emp47-Q306E	Q306E		Q306	name	
+YFR004W	RPN11	rpn11-C356T	C356T		C356	name	
+YFR004W	RPN11	rpn11-D116S	D116S		D116	name	C116S; silent mutation
+YGL003C	CDH1	cdh1-m11a	m11a	M11A	m11	name	T12A, S16A, S42A, T157A, S169A, T173A, T176A, S227A, S239A, S418A, S436A; CDK phosphorylation sites mutated
+YGL003C	CDH1	cdh1-m4A	m4A	M4A	m4	name	S16A, S42A, T157A, T173A; CDK phosphorylation sites mutated
+YGL008C	PMA1	pma1-Ser800Ala	Ser800Ala	SER800ALA	e801/r802	name	
+YGL023C	PIB2	pib2-P337A	R337A		R337	description before semicolon	R337A; E motif mutated; TORC1 interaction defective
+YGL023C	PIB2	pib2-R475A,C523S	R475A,C523S		|C523	name	R475A, C523S; FYVE domain (AA 452-525) mutated; zinc and PtdIns3P-binding deficient
+YGL023C	PIB2	pib2-R475A,C523S	R475A, C523S	R475A,C523S	|C523	description before semicolon	R475A, C523S; FYVE domain (AA 452-525) mutated; zinc and PtdIns3P-binding deficient
+YGL030W	RPL30	rpl30-C9T	C9T		C9	name	mutation in 5'-UTR affecting Rpl30p binding site for autoregulation
+YGL037C	PNC1	pnc1-C167A	C2167A		C2167	description before semicolon	C2167A; active site conserved cysteine mutated
+YGL103W	RPL28	rpl28-Q37E	Q37E		Q37	name	
+YGL113W	SLD3	sld3-m21D	m21D	M21D	m21	name	phospho-mimetic allele; twenty-one residues targeted by Rad53 were mutated to aspartic acids to mimic constitutive Sld3 phosphorylation
+YGL116W	CDC20	cdc20-1	R544G		R544	description before semicolon	R544G
+YGL236C	MTO1	mto1-C1409G	C1409G		C1409	name	
+YGL237C	HAP2	hap2-A156S,K166P	A156S,K166P		A156|	name	
+YGL253W	HXK2	hxk2-E193P	E193P		E193	name	
+YGL253W	HXK2	hxk2-G1252C	G1252C		G1252	name	
+YGL253W	HXK2	hxk2-M321R,S322A	M321R,S322A		|S322	name	
+YGL253W	HXK2	hxk2-S14A	S14A		S14	name	Nucleocytoplasmic shuttling of Hxk2p is regulated by phosphorylation and dephosphorylation of serine 14; mutants with a non-phosphorylatable alanine at this position accumulate in the nucleus under low glucose conditions
+YGR116W	SPT6	spt6-140	L635P		L635	description before semicolon	L635P; hyper-recombinogenic mutant
+YGR116W	SPT6	spt6-E1324A	E1324A		E1324	name	
+YGR116W	SPT6	spt6-K1354E	K1354E		K1354	name	
+YGR116W	SPT6	spt6-K1360A	K1360A		K1360	name	
+YGR116W	SPT6	spt6-K1434A	K1434A		K1434	name	
+YGR116W	SPT6	spt6-R1281A	R1281A		R1281	name	
+YGR116W	SPT6	spt6-R1281A,S1283A	R1281A,S1283A		R1281|S1283	name	
+YGR116W	SPT6	spt6-R1281A,S1283A,R1285A	R1281A,S1283A,R1285A		R1281|S1283|R1285	name	
+YGR116W	SPT6	spt6-R1281A,S1284A	R1281A,S1284A		R1281|	name	
+YGR116W	SPT6	spt6-R1281A,S1285A	R1281A,S1285A		R1281|	name	
+YGR116W	SPT6	spt6-R1281E,S1284A,R1285E	R1281E,S1284A,R1285E		R1281||R1285	name	
+YGR116W	SPT6	spt6-R1285A	R1285A		R1285	name	
+YGR116W	SPT6	spt6-S1283A	S1283A		S1283	name	
+YGR253C	PUP2	pup2-T302C	T302C		T302	name	
+YHR005C	GPA1	GPA1-G1406T	G1406T		G1406	name	
+YHR070W	TRM5	trm5-A106V	A106V		A106	name	
+YHR070W	TRM5	trm5-M396V	M396V		M396	name	mutation analogous to human TRMT5 mutation associated with lactic acidosis and skeletal muscle respiratory chain deficiencies
+YHR099W	TRA1	tra1-A2471T	A2471T		A2471	name	
+YHR099W	TRA1	tra1-A96T,G1465D,E2641K,S2645N,V2942K,A3328V	A96T,G1465D,E2641K,S2645N,V2942K,A3328V		||||V2942|	name	
+YHR104W	GRE3	gre3-G136A	G136A		G136	name	Ala46Thr
+YHR104W	GRE3	gre3-G136A	Ala46Thr	ALA46THR	l47/a48	description before semicolon	Ala46Thr
+YHR107C	CDC12	cdc12-6	L391N, E392STOP	L391N,E392*	L391|E392	description before semicolon	L391N, E392STOP; C-terminally truncated; insertion of an adenine into a stretch of seven adenine residues spanning nt 1167 to 1173
+YHR164C	DNA2	dna2-28	R734A		R734	description before semicolon	R734A; nuclease region mutated
+YHR164C	DNA2	dna2-E640A	E640A		E640	name	D640A, I641A, E642A, E643A; residues adjacent to the nuclease active site mutated; endonuclease deficient in the presence of ATP; dominant negative when overexpressed
+YHR165C	PRP8	prp8-T524S	T524S		T524	name	
+YIL022W	TIM44	tim44-804	K59E, Q66R, N240I, P249S, F276S, V397A	K59E,Q66R,N240I,P249S,F276S,V397A	||||F276|V397	description before semicolon	K59E, Q66R, N240I, P249S, F276S, V397A
+YIL046W	MET30	met30-Ser569Phe	Ser569Phe	SER569PHE	e570/r571	name	
+YIL048W	NEO1	neo1-R469F	R469F		R469	name	
+YIL048W	NEO1	neo1-Y22S,S452Q	Y22S,S452Q		Y22|	name	
+YIL106W	MOB1	mob1-55	T85A, Q167R, Y192H	T85A,Q167R,Y192H	||Y192	description before semicolon	T85A, Q167R, Y192H
+YIL144W	NDC80	ndc80-K204E	A610G		A610	description before semicolon	A610G
+YIR019C	FLO11	flo11-C1743T	C1743T		C1743	name	
+YIR019C	FLO11	flo11-G1716A	G1716A		G1716	name	
+YIR019C	FLO11	flo11-G2361A	G2361A		G2361	name	
+YJL029C	VPS53	vps53-Q695R	Q695R		Q695	name	mutation analogous to human mutation associated with progressive cerebello-cerebral atrophy type 2
+YJL050W	MTR4	mtr4-K176A	K176A		K176	name	
+YJL074C	SMC3	smc3-K224E,K225E,R226E	K224E,K225E,R226E		K224|K225|R226	name	
+YJL074C	SMC3	smc3-K423E,K513E,K520E	K423E,K513E,K520E		K423|K513|K520	name	
+YJL081C	ARP4	arp4-g161d	g161d	G161D	g161	name	
+YJL112W	MDV1	mdv1-H540E	H540E		H540	name	H540E; class II mutant
+YJL198W	PHO90	pho90-A2014G	A2014G		A2014	name	
+YJL222W	VTH2	vth2-F477V	F477V		F477	name	
+YJL222W	VTH2	vth2-P708S	P708S		P708	name	
+YJL222W	VTH2	vth2-V478A	V478A		V478	name	
+YJR007W	SUI2	sui2-L84F	L84F		L84	name	
+YJR007W	SUI2	sui2-S51A	S51A		S51	name	S51A; Gcn2p phosphorylation site mutated
+YJR007W	SUI2	sui2-S51D	S51D		S51	name	S51D; Gcn2p phosphorylation site mutated
+YJR007W	SUI2	sui2-Y81S	Y81S		Y81	name	
+YJR048W	CYC1	cyc1-K72A,K73A	K72A,K73A		K72|K73	name	
+YJR048W	CYC1	cyc1-K72A,K79A	K72A,K79A		K72|	name	
+YJR048W	CYC1	cyc1-K73A,K73A,K79A	K73A,K73A,K79A		K73|K73|	name	
+YJR048W	CYC1	cyc1-K73A,K79A	K73A,K79A		K73|	name	
+YJR065C	ARP3	arp3-G15C	G15C		G15	name	ts allele
+YJR065C	ARP3	arp3-G302Y	G302Y		G302	name	ts allele
+YJR065C	ARP3	arp3-H161A	H161A		H161	name	ts allele
+YJR065C	ARP3	arp3-f306g	f306g	F306G	f306	name	
+YJR066W	TOR1	TOR1-S1975R	S1975R		S1975	name	dominant rapamycin resistant
+YJR066W	TOR1	tor1-A1954V	A1954V		A1954	name	
+YJR066W	TOR1	tor1-I1957V	I1957V		I1957	name	
+YJR076C	CDC11	cdc11-1	G29E, I42T	G29E,I42T	|I42	description before semicolon	G29E, I42T; P-loop mutated
+YJR104C	SOD1	sod1-G92A	G92A		G92	name	G92A; equivalent to G93A, a familial ALS disease-associated human SOD1 allele
+YJR104C	SOD1	sod1-S133N	S133N		S133	name	S133N; equivalent to S134N, a familial ALS disease-associated human SOD1 allele
+YJR121W	ATP2	atp2-G1099T	G1099T		G1099	name	
+YJR121W	ATP2	atp2-G325A	G325A		G325	name	V109I
+YJR121W	ATP2	atp2-L124A	L124A		L124	name	L124A; phosphoresistant mutant; Sit4p regulated site
+YJR141W	IPA1	ipa1-C111S, C1114S	C111S, C1114S	C111S,C1114S	|C1114	name	
+YJR144W	MGM101	mgm101-2	D131N		D131	description before semicolon	D131N
+YJR151C	DAN4	dan4-I353T	I353T		I353	name	
+YKL002W	DID4	did4-(vps2*)	E21K,T28A,N31K		E21||N31	description before semicolon	E21K,T28A,N31K
+YKL049C	CSE4	cse4-A111L,I113L	A111L,I113L		A111|I113	name	
+YKL049C	CSE4	cse4-S103G,F105L,D107H	S103G,F105L,D107H		S103|F105|D107	name	
+YKL049C	CSE4	cse4-S88M,G91M	S88M,G91M		S88|G91	name	
+YKL049C	CSE4	cse4-S88M,G91M,S96A,V97S	S88M,G91M,S96A,V97S		S88|G91|S96|	name	
+YKL059C	MPE1	mpe1-1	F8S, Q268K, K337F, K354*	F8S,Q268K,K337F,K354*	F8||K337|K354	description before semicolon	F8S, Q268K, K337F, K354*; nonsense mutation truncates protein by 87 AA
+YKL059C	MPE1	mpe1-L337A	L37A		L37	description before semicolon	L37A; RING finger domain mutated
+YKL108W	SLD2	sld2-All-A	S100A, S128A, T167A, S172A, S208A, T241A	S100A,S128A,T167A,S172A,S208A,T241A	||T167|||	description before semicolon	S100A, S128A, T167A, S172A, S208A, T241A
+YKL110C	KTI12	kti12-K15A	K15A		K15	name	
+YKL110C	KTI12	kti12-K16A	K16A		K16	name	
+YKL114C	APN1	apn1-K352N	K352N		K352	name	
+YKL127W	PGM1	alg9-S230R	S230R		S230	name	
+YKL130C	SHE2	she2-M5A	M5A		M5	name	W215A, I218A, L219A, K222A, L223A; nuclear localization sequence (NLS) mutated; disruption of Srp1p interaction and nuclear import
+YKL141W	SDH3	sdh3-R47C	R47C		R47	name	
+YKL141W	SDH3	sdh3-R47E	R47E		R47	name	
+YKL141W	SDH3	sdh3-R47K	R47K		R47	name	
+YKL165C	MCD4	mcd4-P301L	P301L		P301	name	
+YKL178C	STE3	ste3-IT157S, A176P, K186E, S272T	IT157S, A176P, K186E, S272T	IT157S,A176P,K186E,S272T	I157|||	name	T157S, A176P, K186E, S272T mutations
+YKL178C	STE3	ste3-S109T, L114H	S109T, L114H	S109T,L114H	|L114	name	S109T, L114H mutations
+YKL212W	SAC1	sac1-22	D337N, R425H	D337N,R425H	D337|R425	description before semicolon	D337N, R425H
+YKL212W	SAC1	sac1-KKRD	L621K		L621	description before semicolon	L621K; ER retention signal created
+YKR001C	VPS1	vps1-I227G	I227G		I227	name	Point mutation in GTPase domain, impairs autophagy, corresponds to V235G mutation in human DNM2, found in patients with microcytic anemia
+YKR026C	GCN3	gcn3-V206R	V206R		V206	name	
+YKR038C	KAE1	kae1-hh1	H176L, H180G	H176L,H180G	H176|H180	description before semicolon	H176L, H180G; zinc-binding domain mutated
+YKR038C	KAE1	kae1-hh2	H176A, H180V	H176A,H180V	H176|H180	description before semicolon	H176A, H180V; zinc-binding domain mutated
+YKR038C	KAE1	kae1-hh3	H176V, H180T	H176V,H180T	H176|H180	description before semicolon	H176V, H180T; zinc-binding domain mutated
+YKR063C	LAS1	las1-G4A	G4A		G4	name	
+YKR063C	LAS1	las1-H2D	H2D		H2	name	
+YKR063C	LAS1	las1-H2N	H2N		H2	name	
+YKR063C	LAS1	las1-H2R	H2R		H2	name	
+YKR063C	LAS1	las1-H6A	H6A		H6	name	
+YKR063C	LAS1	las1-H6N	H6N		H6	name	
+YKR063C	LAS1	las1-R1E	R1E		R1	name	
+YKR063C	LAS1	las1-R1K	R1K		R1	name	
+YKR063C	LAS1	las1-T5A	T5A		T5	name	
+YKR063C	LAS1	las1-T5S	T5S		T5	name	
+YKR063C	LAS1	las1-W3F	W3F		W3	name	
+YKR063C	LAS1	las1-W3L	W3L		W3	name	
+YKR091W	SRL3	srl3-K205R	K205R		K205	name	K205R; derived from a polymorphism, where S288C has an Arg residue at amino acid 205 while W303 contains a Lys residue
+YKR091W	SRL3	srl3-K35N	K35N		K35	name	K35N; derived from a polymorphism, where S288C has an Asn residue at amino acid 35 while W303 contains a Lys residue
+YKR101W	SIR1	sir1-202	M472K,L608P		M472|L608	description before semicolon	M472K,L608P
+YLL003W	SFI1	sfi1-120	S857N		S857	description before semicolon	S857N; C-terminal domain mutated; temperature-sensitive allele
+YLL003W	SFI1	sfi1-229	G888*		G888	description before semicolon	G888*; C-terminal domain mutated; temperature-sensitive allele
+YLL003W	SFI1	sfi1-273	R789K		R789	description before semicolon	R789K; C-terminal domain mutated; temperature-sensitive allele
+YLL003W	SFI1	sfi1-65	P858L		P858	description before semicolon	P858L; C-terminal domain mutated; temperature-sensitive allele
+YLL006W	MMM1	mmm1-6	Q215K		Q215	description before semicolon	Q215K
+YLL039C	UBI4	ubi4-E51A,D52A,R53A	E51A,D52A,R53A		||R53	name	
+YLL040C	VPS13	vps13-D2869I	D2869I		D2869	name	
+YLL040C	VPS13	vps13-N4S	N4S		N4	name	
+YLL040C	VPS13	vps13-N6S	N6S		N6	name	
+YLR005W	SSL1	ssl1-t242i	t242i	T242I	t242	name	
+YLR010C	TEN1	ten1-13	K94L		K94	description before semicolon	K94L
+YLR022C	SDO1	sdo1-VMA1-ts	VMA1-ts	VMA1TS	V1/M2/A3	name	insertion VMA1 self splicing intein cassette
+YLR032W	RAD5	rad5-D783E,S791I	D783E,S791I		D783|S791	name	polymorphism found in the S288C strain strainbackground
+YLR035C	MLH2	mlh2-D219G	S219G		S219	description before semicolon	S219G; linker that connects the ATPase domain and the rest of the of N-terminal domain mutated; dominant mutator phenotype
+YLR056W	ERG3	erg3-L344F	L344F		L344	name	
+YLR056W	ERG3	erg3-S181stop	S181stop	S181*	S181	name	
+YLR115W	CFT2	cft2-G145S	G145S		G145	name	
+YLR212C	TUB4	tub4-1	Phe243Ser	PHE243SER	P243/h244/e245	description before semicolon	Phe243Ser
+YLR240W	VPS34	vps34-F863D	F863D		F863	name	
+YLR243W	GPN3	gpn3-1	I58T, H123R, S148L, F150S	I58T,H123R,S148L,F150S	|H123||	description before semicolon	I58T, H123R, S148L, F150S
+YLR275W	SMD2	smd2-V92I	V92I		V92	name	
+YLR291C	GCD7	gcd7-295	A295V		A295	description before semicolon	A295V
+YLR293C	GSP1	gsp1-1568	H50L, Y5N, Y100F	H50L,Y5N,Y100F	|Y5|	description before semicolon	H50L, Y5N, Y100F
+YLR293C	GSP1	gsp1-p162l	p162l	P162L	p162	name	
+YLR310C	CDC25	cdc25-G1459C	G1459C		G1459	name	G1459C; GEF domain mutated
+YLR310C	CDC25	cdc25-T943P	T943P		T943	name	T943P; GEF domain mutated
+YLR355C	ILV5	ilv5-24	E341D		E341	description before semicolon	E341D; C-terminal region mutated
+YLR442C	SIR3	sir3-R102A	R102A		R102	name	
+YLR442C	SIR3	sir3-R102K	R102K		R102	name	
+YLR442C	SIR3	sir3-R95A	R95A		R95	name	
+YLR442C	SIR3	sir3-R95K	R95K		R95	name	
+YLR457C	NBP1	nbp1-5A	L2A, V5A, Y9A, F12A, F13A	L2A,V5A,Y9A,F12A,F13A	||Y9||	description before semicolon	L2A, V5A, Y9A, F12A, F13A; amphipathic in-plane membrane anchor mutated
+YLR457C	NBP1	nbp1-nls1a	nls1a	NLS1A	n1/l2/s3	name	R37Q, R39Q, R40Q, K41N; N-terminal part of bipartite nuclear localization signal mutated
+YML007W	YAP1	yap1-C626F	C626F		C626	name	
+YML014W	TRM9	trm9-(kti1-1)	E160stop	E160*	E160	description before semicolon	E160stop
+YML014W	TRM9	trm9-(kti1-11)	L85stop	L85*	L85	description before semicolon	L85stop
+YML014W	TRM9	trm9-(kti1-9)	A119P		A119	description before semicolon	A119P; mutation of putative AdoMet cofactor binding site
+YML028W	TSA1	tsa1-C170S	C170S		C170	name	mutation of residue essential for maintenance of dimeric form of oxidized Tsa1p
+YML028W	TSA1	tsa1-C47S	C47S		C47	name	mutation of peroxidase active-site residue essential for antioxidant activity in vitro and for maintenance of dimeric form of oxidized Tsa1p
+YML032C	RAD52	rad52-C180A	C180A		C180	name	
+YML032C	RAD52	rad52-K152A	K152A		K152	name	
+YML032C	RAD52	rad52-R70A	R70A		R70	name	
+YML032C	RAD52	rad52-Y81A	Y81A		Y81	name	
+YML032C	RAD52	rad52-Y96A	Y96A		Y96	name	
+YML098W	TAF13	taf13-(taf19-1)	D46G, L63H, L79D, K98M	D46G,L63H,L79D,K98M	|||K98	description before semicolon	D46G, L63H, L79D, K98M
+YMR047C	NUP116	nup116-R1m	R1m	R1M	R1	name	point mutation of conserved residues in the R1 domain shown to be important for scaffold binding; R776A,K777A,K778A,Y785A,K786A,M787A
+YMR047C	NUP116	nup116-R3m	R3m	R3M	R3	name	point mutation of conserved residues in the R3 domain shown to be important for scaffold binding; L858A,I859A,M864A,L865A,I866A
+YMR078C	CTF18	ctf18-D240A,E241A	D240A,E241A		D240|E241	name	
+YMR117C	SPC24	spc24-11	S109P, K171N	S109P,K171N	|K171	description before semicolon	S109P, K171N
+YMR165C	PAH1	pah1-D388A,D400A	D388A,D400A		D388|	name	
+YMR167W	MLH1	mlh1-G761D	G761D		G761	name	
+YMR167W	MLH1	mlh1-R240S,P271L,K333E,N678D,L703P,G761D	R240S,P271L,K333E,N678D,L703P,G761D		R240|P271|K333|N678|L703|G761	name	sequence from S288C strain background
+YMR207C	HFA1	hfa1-K1021E	K1021E		K1021	name	
+YMR234W	RNH1	rnh1-D210N	D210N		D210	name	
+YMR293C	HER2	her2-hP397A	hP397A	HP397A	h397/P398	name	Humanized allele
+YMR293C	HER2	her2-hS109G	hS109G	HS109G	h109/S110	name	Humanized allele
+YMR293C	HER2	her2-hV155T	hV155T	HV155T	h155/V156	name	Humanized allele
+YMR302C	YME2	yme2-7	K327T, N502Y	K327T,N502Y	K327|	description before semicolon	K327T, N502Y
+YNL030W	HHF2	hhf2-A15V	A15V		A15	name	
+YNL030W	HHF2	hhf2-Y100A	Y100A		Y100	name	
+YNL031C	HHT2	hhf2-R40K	R40K		R40	name	
+YNL031C	HHT2	hht2-K36A	K36A		K36	name	
+YNL037C	IDH1	idh1-A108R	A108R		A108	name	mutation of putative isocitrate binding residue
+YNL082W	PMS1	pms1-N41S, S112T, F384V, T400S, T416TCEGT, Y513F, R818K	N41S, S112T, F384V, T400S, T416TCEGT, Y513F, R818K	N41S,S112T,F384V,T400S,T416TCEGT,Y513F,R818K	|S112|||||	name	sequence from SK1 strain background
+YNL082W	PMS1	pms1-S41N, T112S, V384F, S400T, TCEGT416T, F513Y, K818R	S41N, T112S, V384F, S400T, TCEGT416T, F513Y, K818R	S41N,T112S,V384F,S400T,TCEGT416T,F513Y,K818R	S41|T112|V384|S400|C417/E418/G419/T420|F513|K818	name	sequence from S288C strain background
+YNL088W	TOP2	top2-B44	F977L		F977	description before semicolon	F977L
+YNL088W	TOP2	top2-H1012Y	H1012Y		H1012	name	
+YNL110C	NOP15	NOP15-T-279C	T-279C	T279C	T279	name	T to C substitution at nucleotide position -279
+YNL130C	CPT1	cpt1-V255M	V255M		V255	name	
+YNL169C	PSD1	psd1-G489R	G489R		G489	name	
+YNL221C	POP1	pop1-500	N143Y, S176T, C179S, L232M, A413T, I543V, K711R	N143Y,S176T,C179S,L232M,A413T,I543V,K711R	|||L232|||	description before semicolon	N143Y, S176T, C179S, L232M, A413T, I543V, K711R
+YNL244C	SUI1	sui1-(mof2-1)	G105R		G105	description before semicolon	G105R
+YNL244C	SUI1	sui1-1	D81G		D81	description before semicolon	D81G
+YNL262W	POL2	pol2-9	M643I		M643	description before semicolon	M643I
+YNL267W	PIK1	pik1-CCAAX	Q1062C, G1063C, Y1064I	Q1062C,G1063C,Y1064I	||Y1064	description before semicolon	Q1062C, G1063C, Y1064I; replacement C-terminal 5 amino acids with RAS2 CCAAX motif
+YNL268W	LYP1	lyp1-C478T	C478T		C478	name	
+YNL277W	MET2	met2-R301G	R301G		R301	name	
+YNL278W	CAF120	caf120-G1689A	G1689A		G1689	name	
+YNL304W	YPT11	ypt11-G40D	G40D		G40	name	G40D; first GTP-binding and hydrolysis motif mutated; Myo2p binding defective
+YNL304W	YPT11	ypt11-I144N	I144N		I144	name	I144N; Ypt11p effector domain mutated; Myo2p binding defective
+YNL304W	YPT11	ypt11-V246D	V246D		V246	name	V246D; similar to mutations that convert other rab-type GTPases to temperature sensitivity
+YNL312W	RFA2	rfa2-ERK	L96I		L96	description before semicolon	L96I; E97A; R99A; K100A
+YNR016C	ACC1	acc1-AS	S1157A, A1257S	S1157A,A1257S	|A1257	description before semicolon	S1157A, A1257S; Snf1p-phosphorylation site mutated; polymorphic sequence variant at aa 1257 based on S228C, containing a serine rather than an alanine like in AWRI1631
+YNR035C	ARC35	arc35-112	K307A, K310A, R311A	K307A,K310A,R311A	|K310|	description before semicolon	K307A, K310A, R311A
+YNR047W	FPK1	fpk1-D261A	D261A		D261	name	D261A; catalytically-inactive, kinase dead
+YOL012C	HTZ1	htz1-I109T	I109T		I109	name	
+YOL012C	HTZ1	htz1-S111P	S111P		S111	name	
+YOL051W	GAL11	gal11-I541N	I541N		I541	name	
+YOL086C	ADH1	adh1-T45G	T45G		T45	name	
+YOL086C	ADH1	adh1-TMB3000	V58T, S109P, L116S, Q147E, I151V, Y294C	V58T,S109P,L116S,Q147E,I151V,Y294C	V58|S109|L116|Q147|I151|Y294	description before semicolon	V58T, S109P, L116S, Q147E, I151V, Y294C
+YOL090W	MSH2	msh2-D164H	D164H		D164	name	
+YOR033C	EXO1	exo1-G255D	G255D		G255	name	Corresponds to p.G233D variant in human EXO1 found in patients with premature ovarian insufficiency
+YOR043W	WHI2	whi2-C598T	C598T		C598	name	
+YOR049C	RSB1	rsb1-E223A,E225A	E223A,E225A		E223|E225	name	mutations in loop 5
+YOR049C	RSB1	rsb1-R203A	R203A		R203	name	mutation in loop 5
+YOR049C	RSB1	rsb1-R236A	R236A		R236	name	mutation in loop 5
+YOR063W	RPL3	rpl3-R136A	R136A		R136	name	
+YOR063W	RPL3	rpl3-T81A,I282T,A285V	T81A,I282T,A285V		||A285	name	
+YOR083W	WHI5	whi5-7A	S78A, S113A, T114A, S149A, S276A, T281A	S78A,S113A,T114A,S149A,S276A,T281A	||T114|||	description before semicolon	S78A, S113A, T114A, S149A, S276A, T281A; S288A; non-CDK phosphorylation sites mutated
+YOR085W	OST3	ost3-D47A	D47A		D47	name	
+YOR085W	OST3	ost3-D583A	D583A		D583	name	
+YOR085W	OST3	ost3-E45A	E45A		E45	name	
+YOR085W	OST3	ost3-E45D	E45D		E45	name	
+YOR085W	OST3	ost3-E45K	E45K		E45	name	
+YOR085W	OST3	ost3-E45Q	E45Q		E45	name	
+YOR085W	OST3	ost3-K586A	K586A		K586	name	
+YOR085W	OST3	ost3-M590A	M590A		M590	name	
+YOR109W	INP53	inp53-5ptase1	D746A, D748A	D746A,D748A	|D748	description before semicolon	D746A, D748A; 5-phosphatase domain mutated
+YOR117W	RPT5	rpt5-A846T	A846T		A846	name	
+YOR136W	IDH2	idh2-Y142A	Y142A		Y142	name	mutation in putative catalytic site
+YOR140W	SFL1	sfl1-C958T	C958T		C958	name	leads to a truncation of Sfl1 at residue 320
+YOR147W	MDM32	mdm32-S182C,F262L	S182C,F262L		S182|F262	name	S182C (nucleotide C545G) and F262L (nucleotide T786A)
+YOR151C	RPB2	rpb2-E140G	E140G		E140	name	
+YOR204W	DED1	ded1-f144c	f144c	F144C	f144	name	
+YOR211C	MGM1	mgm1-E114A	E114A		E114	name	
+YOR211C	MGM1	mgm1-R78A	R78A		R78	name	
+YOR211C	MGM1	mgm1-R79A	R79A		R79	name	
+YOR244W	ESA1	esa1-L267S	L267S		L267	name	
+YOR244W	ESA1	esa1-R65A	R65A		R65	name	E65A, chromodomain mutated
+YOR294W	RRS1	rrs1-141	S2P,D22G,L66S,T73A,M198V		||||M198	description before semicolon	S2P,D22G,L66S,T73A,M198V
+YOR304W	ISW2	isw2-K227R	K227R		K227	name	
+YOR330C	MIP1	mip1-A630T	A630T		A630	name	
+YOR330C	MIP1	mip1-T809*	T809*		T809	name	Corresponds to human POLG variant p.Thr1053Argfs*6, implicated in Alpers syndrome
+YOR370C	MRS6	MRS6-R3	Gly122Ser	GLY122SER	l123/y124	description before semicolon	Gly122Ser
+YPL022W	RAD1	rad1-R230A,K205A	R230A,K205A		R230|	name	
+YPL043W	NOP4	nop4-S260L	S260L		S260	name	
+YPL085W	SEC16	sec16-A1015T	A1015T		A1015	name	
+YPL093W	NOG1	nog1R27R28A	R27A, R28A	R27A,R28A	|R28	description before semicolon	R27A, R28A
+YPL106C	SSE1	sse1-G198D	G198D		G198	name	
+YPL115C	BEM3	bem3-S3A	S3A		S3	name	S195A, S222A, S254A; phosphorylation sites mutated
+YPL122C	TFB2	tfb2-I378A,T379A,R400A	I378A,T379A,R400A		||R400	name	lethal mutation
+YPL129W	TAF14	taf14-H81A	H81A		H81	name	
+YPL133C	RDS2	rds2-A505G	A505G		A505	name	
+YPL133C	RDS2	rds2-C751G	C751G		C751	name	
+YPL145C	KES1	kes1-E111D	E111D		E111	name	E111D; hydrophic tunnel proximal, structural core mutated
+YPL171C	OYE3	oye3-S296F	S296F		S296	name	
+YPL171C	OYE3	oye3-W116A	W116A		W116	name	
+YPL193W	RSA1	rsa1-W249A	W249A		W249	name	
+YPL194W	DDC1	ddc1-G2361A	G2361A		G2361	name	
+YPL231W	FAS2	fas2-G1257S	G1257S		G1257	name	
+YPL240C	HSP82	hsp82-EK594I	EK594I		E594/K595	name	
+YPL274W	SAM3	sam3-(sfr-5)	S180*		S180	description before semicolon	S180*
+YPR008W	HAA1	haa1-C404T,G1447T	C404T,G1447T		C404|G1447	name	
+YPR033C	HTS1	hts1-V155G	V155G		V155	name	Mutation in catalytic domain, corresponds to p.V155G (c.464T>G) mutation in human HARS1, which is implicated in the dominant axonal peripheral neuropathy Charcot-Marie-Tooth disease type 2W
+YPR054W	SMK1	smk1-D186R	D186R		D186	name	D186R; catalytic residue mutated
+YPR086W	SUA7	sua7-c149r	c149r	C149R	c149	name	
+YPR103W	PRE2	pre2-(prg1-1)	G204D		G204	description before semicolon	G204D
+YPR103W	PRE2	pre2-v214a	v214a	V214A	v214	name	
+YPR161C	SGV1	sgv1-(bur1-23)	Q258R, L326Q, L334Q, K366R, I375K, Y462C, A478V, N509K	Q258R,L326Q,L334Q,K366R,I375K,Y462C,A478V,N509K	Q258|L326|L334|K366|I375|Y462||	description before semicolon	Q258R, L326Q, L334Q, K366R, I375K, Y462C, A478V, N509K; decreased kinase activity
+YPR161C	SGV1	sgv1-(bur1-35)	S45G, F70L, I147T, I200T, E316G, I387T, K470R, V482A, K522R	S45G,F70L,I147T,I200T,E316G,I387T,K470R,V482A,K522R	S45|F70|I147|I200|E316|I387|K470|V482|K522	description before semicolon	S45G, F70L, I147T, I200T, E316G, I387T, K470R, V482A, K522R
+YPR161C	SGV1	sgv1-(bur1-51)	R44G, V49A, A86V, I109T, G235S, Y351H	R44G,V49A,A86V,I109T,G235S,Y351H	R44|V49|A86|I109|G235|Y351	description before semicolon	R44G, V49A, A86V, I109T, G235S, Y351H
+YPR161C	SGV1	sgv1-(bur1-65)	Q177R, P301Q, H361R, K441M, E454G, N458D	Q177R,P301Q,H361R,K441M,E454G,N458D	Q177|P301|H361|K441|E454|N458	description before semicolon	Q177R, P301Q, H361R, K441M, E454G, N458D
+YPR161C	SGV1	sgv1-(bur1-78)	M175V, L179S, L254F, K278E, H361L	M175V,L179S,L254F,K278E,H361L	|L179|L254|K278|H361	description before semicolon	M175V, L179S, L254F, K278E, H361L
+YPR161C	SGV1	sgv1-(bur1-80)	N5S, L155P, K374E, T379A, N550Y	N5S,L155P,K374E,T379A,N550Y	N5|L155|K374|T379|N550	description before semicolon	N5S, L155P, K374E, T379A, N550Y
+YPR161C	SGV1	sgv1-(bur1-85)	D31G, R83G, E95G, Q290L, S534P, R553G, N568D, K585*, S616T	D31G,R83G,E95G,Q290L,S534P,R553G,N568D,K585*,S616T	D31|R83|E95|Q290|S534|R553|N568|K585|S616	description before semicolon	D31G, R83G, E95G, Q290L, S534P, R553G, N568D, K585*, S616T
+YPR161C	SGV1	sgv1-23	Q258R, L326Q, L334Q, K366R, I375K, Y462C, A478V, N509K	Q258R,L326Q,L334Q,K366R,I375K,Y462C,A478V,N509K	Q258|L326|L334|K366|I375|Y462||	description before semicolon	Q258R, L326Q, L334Q, K366R, I375K, Y462C, A478V, N509K
+YPR161C	SGV1	sgv1-35	S45G, F70L, I147T, I200T, E316G, I387T, K470R, V482A, K522R	S45G,F70L,I147T,I200T,E316G,I387T,K470R,V482A,K522R	S45|F70|I147|I200|E316|I387|K470|V482|K522	description before semicolon	S45G, F70L, I147T, I200T, E316G, I387T, K470R, V482A, K522R
+YPR161C	SGV1	sgv1-80	N5S, L155P, K374E, T379A, N550Y	N5S,L155P,K374E,T379A,N550Y	N5|L155|K374|T379|N550	description before semicolon	N5S, L155P, K374E, T379A, N550Y
+YPR192W	AQY1	aqy1-V121M	V121M		V121	name	
