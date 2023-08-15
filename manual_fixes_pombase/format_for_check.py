@@ -10,7 +10,7 @@ def main(input_file):
     data = pandas.read_csv(input_file, sep='\t', na_filter=False)
 
     # merge on systematic_id and allele_name
-    data = pandas.merge(data, all_alleles[['systematic_id', 'allele_name', 'allele_description', 'gene_name', 'allele_synonym']], on=['systematic_id', 'allele_name', 'allele_description'], how='left')
+    data = pandas.merge(data, all_alleles[['systematic_id', 'allele_name', 'allele_description', 'gene_name']], on=['systematic_id', 'allele_name', 'allele_description'], how='left')
 
     for c1, c2 in [('change_description_to', 'allele_description'), ('change_name_to', 'allele_name'), ('change_type_to', 'allele_type')]:
         data.loc[data[c1] != '', c2] = data.loc[data[c1] != '', c1]

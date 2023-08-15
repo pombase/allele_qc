@@ -12,6 +12,8 @@ lib/
 transvar_main_script.py
 __pycache__/
 
+data/alleles_raw.tsv
+
 # Transvar database files
 data/pombe_genome.gtf.*
 data/pombe_genome.fa.fai

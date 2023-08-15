@@ -21,11 +21,9 @@ docker run --rm --workdir /workdir -v $PWD:/workdir quay.io/biocontainers/emblmy
 
 # Split the embl file into individual chromosomes
 
-cp "result copy.embl" result.embl
-
 input_file="result.embl"
 output_files="chrI chrII chrIII chrIV chrIX chrV chrVI chrVII chrVIII chrX chrXI chrXII chrXIII chrXIV chrXV chrXVI chrmt"
-mkdri -p genome_embl_files
+mkdir -p genome_embl_files
 
 for output_file in $output_files; do
     perl -ne 'print; if (m#//#) {last}' result.embl >"genome_embl_files/${output_file}.embl"

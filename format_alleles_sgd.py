@@ -36,7 +36,8 @@ data.loc[~exclude_allele_type, 'allele_type'] = 'amino_acid_dummy'
 groupby_columns = list(data.columns)
 groupby_columns.remove('reference')
 data = data.groupby(groupby_columns, as_index=False).agg({'reference': ','.join})
-
+# For now we use the index as allele_id
+data['allele_id'] = data.index
 
 alleles_description_name = data[data['description_name'] != ''].copy()
 alleles_description_name.drop(columns=['allele_description', 'description_semicolon'], inplace=True)

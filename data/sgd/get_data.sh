@@ -1,1 +1,0 @@
-get_sgd_alleles.py > alleles_raw.tsv

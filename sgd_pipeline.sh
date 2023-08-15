@@ -1,6 +1,15 @@
+set -e
+
+cd data/sgd/
+
+python get_sgd_alleles.py alleles_sgd_raw.tsv
+bash convert_sgd_gff2embl.sh
+
+cd ../..
+
 python format_alleles_sgd.py
 
-# python load_genome.py --output data/sgd/genome.pickle --config data/sgd/config.sgd.json data/sgd/genome_embl_files/*.embl
+python load_genome.py --output data/sgd/genome.pickle --config data/sgd/config.sgd.json data/sgd/genome_embl_files/*.embl
 
 # Remove unknown ids (not in gff), or pseudogene (YLL016W), no main feature (YJL018W)
 
@@ -31,3 +40,4 @@ python allele_qc.py --genome data/sgd/genome.pickle\
 # - Mapping of allele types
 # - Deal with examples like `YBR038W	CHS2	chs2-S4E	S4E		S4	phosphomimetic mutant S14E S60E S69E S100E`
 #   where it seems like S4E is the description.
+# - Use the allele unique identifiers

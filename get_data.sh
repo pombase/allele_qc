@@ -8,14 +8,12 @@ NC='\033[0m' # No Color
 
 echo -e "${GREEN}getting allele data${NC}"
 # Get phenotype annotations from PomBase
-curl -k https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz --output  data/phenotype_annotations.phaf.gz
-gzip -fd data/phenotype_annotations.phaf.gz
+curl -k https://curation.pombase.org/dumps/latest_build/exports/all-allele-details.tsv --output  data/alleles_raw.tsv
 
-# Get unique lines with allele types, and remove deletion and wild-type alleles
-cut -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_pre_format_phaf.tsv
-curl -k https://curation.pombase.org/data/pombe-allele-table.tsv --output data/alleles_pre_format_canto.tsv
-python format_alleles.py
-
+# Replace the first line by the right column names
+echo -ne 'systematic_id\tgene_name\tallele_id\tallele_name\tallele_description\tallele_type\treference\n' > data/alleles.tsv
+tail -n +2 data/alleles_raw.tsv|sort|uniq|grep -v $'\t'deletion|grep -v wild_type >> data/alleles.tsv
+rm data/alleles_raw.tsv
 
 echo -e "${GREEN}Getting contig files${NC}"
 # Get genome sequence with annotations

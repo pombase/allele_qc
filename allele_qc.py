@@ -87,7 +87,7 @@ if __name__ == '__main__':
 
     extra_cols = allele_data.apply(lambda row: check_fun(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides, syntax_rules_disruption, allowed_types), axis=1, result_type='expand')
     output_data = pandas.concat([allele_data, extra_cols], axis=1)
-    column_order = ['systematic_id', 'allele_description', 'gene_name', 'allele_name', 'allele_synonym', 'allele_type', 'reference', 'allele_parts', 'needs_fixing', 'change_description_to', 'rules_applied', 'pattern_error', 'invalid_error', 'sequence_error', 'change_type_to']
+    column_order = ['systematic_id', 'gene_name', 'allele_id', 'allele_name', 'allele_description', 'allele_type', 'reference', 'allele_parts', 'needs_fixing', 'change_description_to', 'rules_applied', 'pattern_error', 'invalid_error', 'sequence_error', 'change_type_to']
     output_data = output_data[column_order]
 
     print_warnings(output_data[(output_data['needs_fixing'] == True) & (output_data['pattern_error'] == '') & (output_data['allele_type'].str.contains('nucleot') | output_data['allele_type'].str.contains('amino'))])

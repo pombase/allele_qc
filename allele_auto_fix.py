@@ -162,7 +162,7 @@ autofixed_data.loc[type_error, 'auto_fix_comment'] = 'type_error'
 autofixed_data.loc[syntax_error & type_error, 'auto_fix_comment'] = 'syntax_and_type_error'
 
 autofixed_data['change_name_to'] = autofixed_data.apply(apply_name_fix, axis=1)
-autofixed_data = autofixed_data[['systematic_id', 'allele_description', 'allele_name', 'allele_type', 'change_description_to', 'change_name_to', 'change_type_to', 'auto_fix_comment', 'sequence_error', 'solution_index', 'allele_parts', 'rules_applied', 'reference']].copy()
+autofixed_data = autofixed_data[['systematic_id', 'allele_id', 'allele_name', 'allele_description', 'allele_type', 'change_description_to', 'change_name_to', 'change_type_to', 'auto_fix_comment', 'sequence_error', 'solution_index', 'allele_parts', 'rules_applied', 'reference']].copy()
 autofixed_data.sort_values(['systematic_id', 'allele_name'], inplace=True)
 
 autofixed_data.to_csv('results/allele_auto_fix.tsv', sep='\t', index=False)
@@ -184,7 +184,7 @@ id_cols = set(errors_cannot_fix.columns) - error_cols
 
 errors_cannot_fix = errors_cannot_fix.melt(id_vars=id_cols, value_vars=error_cols, var_name='error_type', value_name='error_info')
 errors_cannot_fix = errors_cannot_fix[errors_cannot_fix['error_info'] != '']
-errors_cannot_fix = errors_cannot_fix[['systematic_id', 'allele_name', 'allele_description', 'error_type', 'error_info']].copy()
+errors_cannot_fix = errors_cannot_fix[['systematic_id', 'allele_id', 'allele_name', 'allele_description', 'error_type', 'error_info']].copy()
 
 errors_cannot_fix.sort_values(['systematic_id', 'allele_name'], inplace=True)
 
