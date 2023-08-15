@@ -61,3 +61,15 @@ amino_acid_insertion_and_deletion	A123-AVVVV,196-245	A123AVVVV,196-245
 amino_acid_insertion_and_mutation	A123-AVVVV,A421V	A123AVVVV,A421V
 
 unknown	unknown				unknown
+
+## ctd alleles
+
+partial_amino_acid_deletion	CTD-delta
+partial_amino_acid_deletion	CTD-delta(r1-r12-2)
+partial_amino_acid_deletion	CTD-delta(r1-r12)
+
+amino_acid_mutation	CTD-Y1F(r1-r12)
+amino_acid_mutation	CTD-Y1F(r1-r12),Y2F
+amino_acid_mutation	CTD-Y1F(r1-r12), Y2F	CTD-Y1F(r1-r12),Y2F
+
+

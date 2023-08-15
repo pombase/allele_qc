@@ -1,6 +1,8 @@
 from genome_functions import get_nt_at_gene_coord, gene_coords2genome_coords
 import copy
 from Bio.Seq import reverse_complement
+from ctd_support import ctd_apply_syntax, ctd_convert_to_normal_variant, ctd_further_check
+from ctd_support import ctd_mutation_regex, ctd_deletion_regex
 
 allowed_types_dict = {
     frozenset({'amino_acid_mutation'}): 'amino_acid_mutation',
@@ -285,6 +287,7 @@ disruption_grammar = [
 multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
 multi_aa_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
+# ctd_repetition_regex = r'\(r(\d+)-r(\d+)(?:(-\d)+)?\)'
 
 
 def multi_aa_format_for_transvar(g: list[str], gg=None):
@@ -311,7 +314,7 @@ aminoacid_grammar = [
         'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'further_check': lambda g: g[0] != g[2],
+        'further_check': lambda g, gg: g[0] != g[2],
         'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}{g[2]}'
     },
     {
@@ -321,7 +324,7 @@ aminoacid_grammar = [
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # It is only a mutation if the number of aminoacids before and after is the same
-        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2]),
+        'further_check': lambda g, gg: (len(g[0]) == len(g[2])) & (g[0] != g[2]),
         'format_for_transvar': multi_aa_format_for_transvar
     },
     {
@@ -331,7 +334,7 @@ aminoacid_grammar = [
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
-        'further_check': lambda g: len(g[0]) > len(g[2]),
+        'further_check': lambda g, gg: len(g[0]) > len(g[2]),
         'format_for_transvar': multi_aa_format_for_transvar
     },
     {
@@ -341,7 +344,7 @@ aminoacid_grammar = [
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
         # We don't want to account insertions here
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0])),
+        'further_check': lambda g, gg: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0])),
         'format_for_transvar': multi_aa_format_for_transvar
     },
     {
@@ -350,7 +353,7 @@ aminoacid_grammar = [
         'regex': multi_aa_regex,
         'apply_syntax': multi_aa_apply_syntax,
         'check_sequence': multi_aa_check_sequence,
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0])),
+        'further_check': lambda g, gg: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0])),
         'format_for_transvar': insertion_aa_format_for_transvar
     },
     {
@@ -384,7 +387,29 @@ aminoacid_grammar = [
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
         'format_for_transvar': lambda g, gg: f'p.{g[0]}del',
+    },
+    {
+        'type': 'amino_acid_mutation',
+        'rule_name': 'CTD',
+        'regex': f'(CTD-(?:{ctd_mutation_regex},?\s?)+)$',
+        'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
+        'further_check': ctd_further_check
+    },
+    {
+        'type': 'partial_amino_acid_deletion',
+        'rule_name': 'CTD',
+        'regex': f'(CTD-(?:{ctd_deletion_regex},?\s?)+)$',
+        'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
+        'further_check': ctd_further_check
+    },
+    {
+        'type': 'amino_acid_deletion_and_mutation',
+        'rule_name': 'CTD',
+        'regex': f'(CTD-(?:(?:{ctd_mutation_regex}|{ctd_deletion_regex}),?\s?)+)$',
+        'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
+        'further_check': ctd_further_check
     }
+
 ]
 
 
@@ -467,7 +492,7 @@ nucleotide_grammar = [
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
         # It is only a mutation if the number of nts before and after is the same
-        'further_check': lambda g: (len(g[0]) == len(g[2])) & (g[0] != g[2]),
+        'further_check': lambda g, gg: (len(g[0]) == len(g[2])) & (g[0] != g[2]),
         'format_for_transvar': multi_nt_format_for_transvar,
     },
     {
@@ -477,7 +502,7 @@ nucleotide_grammar = [
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
         # TODO: Here we could even check that a partial deletion has not been written using this syntax: e.g. AVTGLA123AA, but probably rare enough.
-        'further_check': lambda g: len(g[0]) > len(g[2]),
+        'further_check': lambda g, gg: len(g[0]) > len(g[2]),
         'format_for_transvar': multi_nt_format_for_transvar,
     },
     {
@@ -487,7 +512,7 @@ nucleotide_grammar = [
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
         # We don't want to account insertions here
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0])),
+        'further_check': lambda g, gg: (len(g[0]) < len(g[2])) & (not g[2].startswith(g[0])),
         'format_for_transvar': multi_nt_format_for_transvar,
     },
     {
@@ -496,7 +521,7 @@ nucleotide_grammar = [
         'regex': multi_nt_regex,
         'apply_syntax': multi_nt_apply_syntax,
         'check_sequence': multi_nt_check_sequence,
-        'further_check': lambda g: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0])),
+        'further_check': lambda g, gg: (len(g[0]) < len(g[2])) & (g[2].startswith(g[0])),
         'format_for_transvar': insertion_nt_format_for_transvar,
     },
     {

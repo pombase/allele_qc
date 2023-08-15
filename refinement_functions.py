@@ -18,7 +18,7 @@ def replace_substring_by_match_group(input_str: str, match_group: tuple[re.Match
     return list(filter(lambda x: x != '', this_list))
 
 
-def replace_allele_features_with_syntax_rules(syntax_rules: list[SyntaxRule], input_list: list[str, re.Match], match_groups: list[tuple[re.Match, SyntaxRule]]) -> list[Union[str, tuple[re.Match, SyntaxRule]]]:
+def replace_allele_features_with_syntax_rules(syntax_rules: list[SyntaxRule], input_list: list[str, re.Match], match_groups: list[tuple[re.Match, SyntaxRule]], gene: dict) -> list[Union[str, tuple[re.Match, SyntaxRule]]]:
     """
     Looks for matches to the regex patterns in `regex_patterns` in the strings in `input_list`,
     if `matches` is an empty list. If `matches` is not empty, it uses those matches.
@@ -48,7 +48,7 @@ def replace_allele_features_with_syntax_rules(syntax_rules: list[SyntaxRule], in
         # If matches are not provided, we find them with regex, not only the match, but also we check the syntax rule further_check function.
         if len(match_groups) == 0:
             for syntax_rule in syntax_rules:
-                match_groups += [(match, syntax_rule) for match in re.finditer(syntax_rule.regex, allele_substring) if syntax_rule.further_check(match.groups())]
+                match_groups += [(match, syntax_rule) for match in re.finditer(syntax_rule.regex, allele_substring) if syntax_rule.further_check(match.groups(), gene)]
             # We sort the matches, to replace the longest matching ones first.
             match_groups.sort(key=lambda match_group: len(match_group[0].group()), reverse=True)
 
@@ -57,7 +57,7 @@ def replace_allele_features_with_syntax_rules(syntax_rules: list[SyntaxRule], in
                 this_list = replace_substring_by_match_group(allele_substring, match_group)
                 # Recursion
                 this_list = replace_allele_features_with_syntax_rules(
-                    syntax_rules, this_list, match_groups)
+                    syntax_rules, this_list, match_groups, gene)
                 break
         else:
             # If none of the matches is in the allele_substring, we just return it as is.
@@ -99,7 +99,7 @@ def check_allele_description(allele_description, syntax_rules: list[SyntaxRule],
     example from test_data/allele_expected_results.tsv
     """
 
-    result = replace_allele_features_with_syntax_rules(syntax_rules, [allele_description], [])
+    result = replace_allele_features_with_syntax_rules(syntax_rules, [allele_description], [], gene)
     allele_parts = get_allele_parts_from_result(result)
 
     # Extract the matched and unmatched elements

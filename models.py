@@ -14,10 +14,10 @@ class SyntaxRule(BaseModel):
     regex: str
     apply_syntax: Callable[[list[str]], str] = lambda g: ''
     check_sequence: Callable[[list[str], dict], str] = lambda g, gg: ''
-    further_check: Callable[[list[str]], bool] = lambda g: True
+    further_check: Callable[[list[str], dict], bool] = lambda g, gg: True
     format_for_transvar: Callable[[list[str]], dict] = lambda g, gg: None
 
-    def get_groups(self, allele_sub_string: str) -> list[str]:
+    def get_groups(self, allele_sub_string: str, gene: dict) -> list[str]:
         """
         Match an allele description with the regex of this syntax rule (should match entire string), and further_checks.
         Returns the match.groups().
@@ -27,7 +27,7 @@ class SyntaxRule(BaseModel):
             raise ValueError(f'allele_substring {allele_sub_string} does not match regex of {self.type}:{self.rule_name}')
 
         groups = match.groups()
-        if self.further_check(groups):
+        if self.further_check(groups, gene):
             return groups
         raise ValueError(f'allele_substring {allele_sub_string} does not match further_check rule {self.type}:{self.rule_name}')
 
