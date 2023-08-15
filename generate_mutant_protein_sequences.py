@@ -152,13 +152,16 @@ def main():
     # We keep all protein variants (even if they were not described at the protein level)
     allele_data = allele_data[allele_data['transvar_coordinates'].str.contains('/p.')].copy()
     allele_data['variant_sequence'] = allele_data.apply(lambda row: process_row(row, genome), axis=1)
+    seq_records = list()
+    for i, row in allele_data.iterrows():
+        sequence_name = f'{row["systematic_id"]}|{row["allele_name"]}'
+        sequence_description = f'{row["allele_type"]}|{row["allele_description"]}'
+        # We trim the stop codon
+        seq_records.append(SeqRecord(Seq(row['variant_sequence']), id=sequence_name, description=sequence_description))
+    # Sort by id
+    seq_records = sorted(seq_records, key=lambda x: x.id)
     with open('results/all_protein_variant_sequences.fasta', 'w') as out_file:
-        for i, row in allele_data.iterrows():
-            sequence_name = f'{row["systematic_id"]}|{row["allele_name"]}'
-            sequence_description = f'{row["allele_type"]}|{row["allele_description"]}'
-            # We trim the stop codon
-            seq_record = SeqRecord(Seq(row['variant_sequence']), id=sequence_name, description=sequence_description)
-            SeqIO.write(seq_record, out_file, 'fasta')
+        SeqIO.write(seq_records, out_file, 'fasta')
 
 
 if __name__ == '__main__':
