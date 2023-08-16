@@ -13,7 +13,14 @@ curl -k https://curation.pombase.org/dumps/latest_build/exports/all-allele-detai
 # Replace the first line by the right column names
 echo -ne 'systematic_id\tgene_name\tallele_id\tallele_name\tallele_description\tallele_type\treference\n' > data/alleles.tsv
 tail -n +2 data/alleles_raw.tsv|sort|uniq|grep -v $'\t'deletion|grep -v wild_type >> data/alleles.tsv
-rm data/alleles_raw.tsv
+
+# Download phaf and canto alleles to filter out the ones without annotations
+curl -k https://curation.pombase.org/data/pombe-allele-table.tsv --output data/alleles_canto.tsv
+curl -k https://www.pombase.org/data/annotations/Phenotype_annotations/phenotype_annotations.pombase.phaf.gz --output  data/phenotype_annotations.phaf.gz
+gzip -fd data/phenotype_annotations.phaf.gz
+cut -f 2,4,9,10,11,12,18 data/phenotype_annotations.phaf|sort|uniq|grep -v $'\t'deletion|grep -v wild_type > data/alleles_phaf.tsv
+python filter_alleles_pombase.py data/alleles.tsv data/alleles_canto.tsv data/alleles_phaf.tsv
+rm data/alleles_raw.tsv data/alleles_canto.tsv data/alleles_phaf.tsv
 
 echo -e "${GREEN}Getting contig files${NC}"
 # Get genome sequence with annotations

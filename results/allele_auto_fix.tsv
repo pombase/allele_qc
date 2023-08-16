@@ -1,41 +1,12 @@
 systematic_id	allele_id	allele_name	allele_description	allele_type	change_description_to	change_name_to	change_type_to	auto_fix_comment	sequence_error	solution_index	allele_parts	rules_applied	reference
-SPAC10F6.09c	SPAC10F6.09c:allele-38	psm3-QQ	K105Q K106Q	amino_acid_mutation	K105Q,K106Q			syntax_error			K105Q|K106Q	amino_acid_mutation:single_aa|amino_acid_mutation:single_aa	PMID:33176147
-SPAC11H11.01	SPAC11H11.01:allele-2	sst6-Q207STOP	Q207->stop	nonsense_mutation	Q207*		partial_amino_acid_deletion	syntax_and_type_error			Q207->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC1296.01c	SPAC1296.01c:allele-2	SPAC1296.01c-Q175STOP	Q175->stop	nonsense_mutation	Q175*		partial_amino_acid_deletion	syntax_and_type_error			Q175->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC13C5.03	SPAC13C5.03:allele-6	tht1-D543*	D543->stop	nonsense_mutation	D543*		partial_amino_acid_deletion	syntax_and_type_error			D543->stop	nonsense_mutation:stop_codon_text	PMID:9442101
-SPAC140.02	SPAC140.02:allele-8	gar2::ura4+	gar2::ura4+	disruption	gar2::ura4			syntax_error			gar2::ura4+	disruption:usual	PMID:7596817,PMID:9211982
-SPAC1565.08	SPAC1565.08:allele-11	cdc48-A439T	A439T	amino_acid_mutation	A433T	cdc48-A433T		old_coords_fix, revision 8148: join(1306439..1306512,1306569..1308942)	A439		A439T	amino_acid_mutation:single_aa	PMID:28552615
-SPAC17G6.05c	SPAC17G6.05c:allele-2	bro1-E644STOP	E644->stop	nonsense_mutation	E644*		partial_amino_acid_deletion	syntax_and_type_error			E644->stop	nonsense_mutation:stop_codon_text	PMID:34028542
+SPAC140.02	SPAC140.02:allele-9	gar2::ura4+	gar2::ura4+	disruption	gar2::ura4			syntax_error			gar2::ura4+	disruption:usual	PMID:7596817,PMID:9211982
 SPAC18G6.02c	SPAC18G6.02c:allele-15	chp1-alpha-mut1	KKRKK71NEHG	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			KKRKK71NEHG	amino_acid_deletion_and_mutation:multiple_aa	PMID:22727667
-SPAC19A8.05c	SPAC19A8.05c:allele-7	sst4-Q202STOP	Q202->stop	nonsense_mutation	Q202*		partial_amino_acid_deletion	syntax_and_type_error			Q202->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC19A8.05c	SPAC19A8.05c:allele-6	sst4-W170STOP	W170->stop	nonsense_mutation	W170*		partial_amino_acid_deletion	syntax_and_type_error			W170->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC22F3.13	SPAC22F3.13:allele-3	tsc1-Q688STOP	Q688STOP	nonsense_mutation	Q688*		partial_amino_acid_deletion	syntax_and_type_error			Q688STOP	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC25G10.04c	SPAC25G10.04c:allele-5	rec10-133	Q729->stop	amino_acid_mutation	Q729*		partial_amino_acid_deletion	syntax_and_type_error			Q729->stop	nonsense_mutation:stop_codon_text	PMID:28469148
-SPAC3H1.10	SPAC3H1.10:allele-12	pcs2-N147D	N147D	nonsense_mutation			amino_acid_mutation	type_error			N147D	amino_acid_mutation:single_aa	PMID:34028542
-SPAC4G8.05	SPAC4G8.05:allele-2	ppk14-R148STOP	R148->stop	nonsense_mutation	R148*		partial_amino_acid_deletion	syntax_and_type_error			R148->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC57A10.14	SPAC57A10.14:allele-3	sgf11-Q64->stop	Q64->stop	nonsense_mutation	Q64*		partial_amino_acid_deletion	syntax_and_type_error			Q64->stop	nonsense_mutation:stop_codon_text	PMID:29352077
-SPAC630.03	SPAC630.03:allele-8	arp3-L155C	L155C	amino_acid_insertion			amino_acid_mutation	type_error			L155C	amino_acid_mutation:single_aa	PMID:21676862
-SPAC630.13c	SPAC630.13c:allele-4	tsc2-L636STOP	L636STOP	nonsense_mutation	L636*		partial_amino_acid_deletion	syntax_and_type_error			L636STOP	nonsense_mutation:stop_codon_text	PMID:34028542
-SPAC8C9.03	SPAC8C9.03:allele-5	cgs1-180	L86->stop	amino_acid_mutation	L86*		partial_amino_acid_deletion	syntax_and_type_error			L86->stop	nonsense_mutation:stop_codon_text	PMID:15189983
-SPAC977.10	SPAC977.10:allele-119	nhe1-REL6	EIEKSIYE390QSSGNSHIKE	amino_acid_mutation			amino_acid_insertion_and_mutation	type_error			EIEKSIYE390QSSGNSHIKE	amino_acid_insertion_and_mutation:multiple_aa	PMID:30996236
-SPBC215.05	SPBC215.05:allele-3	gpd1-G4BS	TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_mutation			nucleotide_insertion_and_mutation	type_error			TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_insertion_and_mutation:multiple_nt	PMID:25122751
-SPBC28F2.12	SPBC28F2.12:allele-16	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			CTD-P3A(r2-r29-2)	amino_acid_mutation:CTD	PMID:32282918,PMID:33579781,PMID:34389684
-SPBC28F2.12	SPBC28F2.12:allele-14	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation	CTD-S2A(r1-r12),delta(r13-r29)			syntax_error			CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation:CTD	PMID:22144909
-SPBC28F2.12	SPBC28F2.12:allele-7	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	amino_acid_mutation	CTD-S2A(r5-r29),S7A(r5-r29)			syntax_error			CTD-S2A(r5-r29)S7A(r5-r29)	amino_acid_mutation:CTD	PMID:22771993
-SPBC32C12.02	SPBC32C12.02:allele-18	ste11-promoter mutant	-194--229	partial_nucleotide_deletion	(-229)-(-194)			syntax_error			-194--229	partial_nucleotide_deletion:usual	PMID:10982411
-SPBC3H7.13	SPBC3H7.13:allele-2	csc1::ura4+	csc1::ura4+	disruption	csc1::ura4			syntax_error			csc1::ura4+	disruption:usual	PMID:23874188
-SPBC428.08c	SPBC428.08c:allele-17	clr4-alpha-mut	KRRKR58NEHG	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			KRRKR58NEHG	amino_acid_deletion_and_mutation:multiple_aa	PMID:22727667
-SPBC4B4.06	SPBC4B4.06:allele-2	vps25-W113STOP	W113->stop	nonsense_mutation	W113*		partial_amino_acid_deletion	syntax_and_type_error			W113->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPBC8D2.03c	SPBC8D2.03c:allele-7	hhf2-K12R	K12R	amino_acid_mutation	K13R			histone_fix	K12		K12R	amino_acid_mutation:single_aa	PMID:30992049
-SPBC8D2.03c	SPBC8D2.03c:allele-8	hhf2-K16R	K16R	amino_acid_mutation	K17R			histone_fix	K16		K16R	amino_acid_mutation:single_aa	PMID:30992049
-SPBC8D2.03c	SPBC8D2.03c:allele-5	hhf2-K5R	K5R	amino_acid_mutation	K6R			histone_fix	K5		K5R	amino_acid_mutation:single_aa	PMID:30992049
-SPBC8D2.03c	SPBC8D2.03c:allele-6	hhf2-K8R	K8R	amino_acid_mutation	K9R			histone_fix	K8		K8R	amino_acid_mutation:single_aa	PMID:30992049
-SPBP35G2.14	SPBP35G2.14:allele-5	puf2-Q40STOP	Q40->stop	nonsense_mutation	Q40*		partial_amino_acid_deletion	syntax_and_type_error			Q40->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPBP35G2.14	SPBP35G2.14:allele-6	puf2-Y416STOP	Y416->stop	nonsense_mutation	Y416*		partial_amino_acid_deletion	syntax_and_type_error			Y416->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPCC18B5.03	SPCC18B5.03:allele-14	wee1::ura4+		disruption	wee1::ura4			syntax_error			wee1::ura4+	disruption:usual	PMID:7957098
-SPCC23B6.01c	SPCC23B6.01c:allele-2	osh6-S117STOP	S117->stop	nonsense_mutation	S117*		partial_amino_acid_deletion	syntax_and_type_error			S117->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPCC338.08	SPCC338.08:allele-63	slr9-1	R162->stop	nonsense_mutation	R162*		partial_amino_acid_deletion	syntax_and_type_error			R162->stop	nonsense_mutation:stop_codon_text	PMID:18378696
-SPCC4G3.15c	SPCC4G3.15c:allele-2	not2-E31STOP	E31->stop	nonsense_mutation	E31*		partial_amino_acid_deletion	syntax_and_type_error			E31->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPCC584.15c	SPCC584.15c:allele-2	aly3-R457STOP	R457->stop	amino_acid_mutation	R457*		partial_amino_acid_deletion	syntax_and_type_error			R457->stop	nonsense_mutation:stop_codon_text	PMID:34028542
-SPCC645.07	SPCC645.07:allele-12	rgf1-Nes2*	L1149A,I1151*	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			L1149A|I1151*	amino_acid_mutation:single_aa|nonsense_mutation:stop_codon_star	PMID:24478458
+SPAC977.10	SPAC977.10:allele-94	nhe1-REL6	EIEKSIYE390QSSGNSHIKE	amino_acid_mutation			amino_acid_insertion_and_mutation	type_error			EIEKSIYE390QSSGNSHIKE	amino_acid_insertion_and_mutation:multiple_aa	PMID:30996236
+SPBC215.05	SPBC215.05:allele-2	gpd1-G4BS	TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_mutation			nucleotide_insertion_and_mutation	type_error			TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_insertion_and_mutation:multiple_nt	PMID:25122751
+SPBC28F2.12	SPBC28F2.12:allele-12	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			CTD-P3A(r2-r29-2)	amino_acid_mutation:CTD	PMID:32282918,PMID:33579781,PMID:34389684
+SPBC28F2.12	SPBC28F2.12:allele-20	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation	CTD-S2A(r1-r12),delta(r13-r29)			syntax_error			CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation:CTD	PMID:22144909
+SPBC28F2.12	SPBC28F2.12:allele-5	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	amino_acid_mutation	CTD-S2A(r5-r29),S7A(r5-r29)			syntax_error			CTD-S2A(r5-r29)S7A(r5-r29)	amino_acid_mutation:CTD	PMID:22771993
+SPBC3H7.13	SPBC3H7.13:allele-3	csc1::ura4+	csc1::ura4+	disruption	csc1::ura4			syntax_error			csc1::ura4+	disruption:usual	PMID:23874188
+SPBC428.08c	SPBC428.08c:allele-7	clr4-alpha-mut	KRRKR58NEHG	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			KRRKR58NEHG	amino_acid_deletion_and_mutation:multiple_aa	PMID:22727667
+SPCC18B5.03	SPCC18B5.03:allele-20	wee1::ura4+		disruption	wee1::ura4			syntax_error			wee1::ura4+	disruption:usual	PMID:7957098
 SPCC757.07c	SPCC757.07c:allele-3	ctt1-G4BS	ATGACGT(-428)CGGAAGACTCTCCTCCG	nucleotide_mutation			nucleotide_insertion_and_mutation	type_error			ATGACGT(-428)CGGAAGACTCTCCTCCG	nucleotide_insertion_and_mutation:multiple_nt	PMID:25122751
