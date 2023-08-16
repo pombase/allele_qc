@@ -458,8 +458,8 @@ async def protein_modification_coordinates(systematic_id: str = Query(example="S
 async def convert_ctd_description_to_normal_description(ctd_description: str = Query(example="CTD-S2A(r1-r6-2),S7A")):
     return PlainTextResponse(ctd_convert_to_normal_variant(ctd_description))
 
-@ app.get("/convert_ctd_position_to_position_list", response_model=list[str])
+@ app.get("/convert_ctd_position_to_position_list", response_class=PlainTextResponse)
 async def convert_ctd_position_to_position_list(ctd_description: str = Query(example="CTD-S2")):
     # A bit of a hack, but better than using another function entirely, we append a triptophan (not in the repeats),
     # to be able to use the variant function, and then we remove it.
-    return ctd_convert_to_normal_variant(ctd_description + 'W').replace('W', '').split(',')
+    return PlainTextResponse(ctd_convert_to_normal_variant(ctd_description + 'W').replace('W', ''))
