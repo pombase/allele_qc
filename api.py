@@ -11,7 +11,8 @@ from allele_fixes import multi_shift_fix, old_coords_fix, primer_mutagenesis as 
 from common_autofix_functions import apply_histone_fix
 from protein_modification_qc import check_func as check_modification_description
 from protein_modification_transvar import get_transvar_coordinates as get_transvar_coordinates_modification, format_for_transvar as format_for_transvar_modification
-from allele_transvar import get_transvar_coordinates as get_transvar_coordinates_allele, format_for_transvar as format_for_transvar_allele
+from allele_transvar import get_transvar_coordinates as get_transvar_coordinates_allele, format_transvar_input_list as format_for_transvar_allele
+from ctd_support import ctd_convert_to_normal_variant
 import re
 from typing import Optional
 from Bio import SeqIO
@@ -417,14 +418,14 @@ async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC35
     out_list = list()
     for allele_part, rule_applied in zip(check_allele_resp.allele_parts.split('|'), check_allele_resp.rules_applied.split('|')):
         input_dict = {'systematic_id': systematic_id, 'allele_description': allele_description, 'allele_type': allele_type, 'allele_name': allele_name, 'allele_parts': allele_part, 'rules_applied': rule_applied}
-        input_dict['transvar_input'] = format_for_transvar_allele(input_dict, genome, syntax_rules_aminoacids, syntax_rules_nucleotides)
+        input_dict['transvar_input_list'] = format_for_transvar_allele(input_dict, genome, syntax_rules_aminoacids, syntax_rules_nucleotides)
         # Can give errors for certain transcripts, e.g. it was giving error for frame-shifted transcripts such as SPAC688.08 S1137
         try:
             out_list.append(get_transvar_coordinates_allele(input_dict, db, genome, []))
         except ValueError as e:
             raise HTTPException(400, str(e))
 
-    return '|'.join(out_list)
+    return PlainTextResponse('|'.join(sum(out_list, [])))
 
 
 @ app.get("/protein_modification_transvar_coordinates", response_class=PlainTextResponse)
@@ -451,4 +452,14 @@ async def protein_modification_coordinates(systematic_id: str = Query(example="S
         except ValueError as e:
             raise HTTPException(400, str(e))
 
-    return '|'.join(out_list)
+    return PlainTextResponse('|'.join(out_list))
+
+@ app.get("/convert_ctd_description_to_normal_description", response_class=PlainTextResponse)
+async def convert_ctd_description_to_normal_description(ctd_description: str = Query(example="CTD-S2A(r1-r6-2),S7A")):
+    return PlainTextResponse(ctd_convert_to_normal_variant(ctd_description))
+
+@ app.get("/convert_ctd_position_to_position_list", response_class=PlainTextResponse)
+async def convert_ctd_position_to_position_list(ctd_description: str = Query(example="CTD-S2")):
+    # A bit of a hack, but better than using another function entirely, we append a triptophan (not in the repeats),
+    # to be able to use the variant function, and then we remove it.
+    return PlainTextResponse(ctd_convert_to_normal_variant(ctd_description + 'W').replace('W', ''))

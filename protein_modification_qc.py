@@ -29,7 +29,7 @@ def check_func(row, genome, allowed_mod_dict):
         rule_name='dummy',
         regex=f'(?<!{aa})({aa})(\d+){aa}?',
     )
-    result = replace_allele_features_with_syntax_rules([dummy_rule], [row['sequence_position']], [])
+    result = replace_allele_features_with_syntax_rules([dummy_rule], [row['sequence_position']], [], gene)
 
     # Extract the matched and unmatched elements
     match_groups: list[tuple[re.Match, SyntaxRule]] = list(filter(lambda x: type(x) != str, result))

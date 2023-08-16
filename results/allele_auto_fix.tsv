@@ -19,6 +19,9 @@ SPAC630.13c	SPAC630.13c:allele-4	tsc2-L636STOP	L636STOP	nonsense_mutation	L636*	
 SPAC8C9.03	SPAC8C9.03:allele-5	cgs1-180	L86->stop	amino_acid_mutation	L86*		partial_amino_acid_deletion	syntax_and_type_error			L86->stop	nonsense_mutation:stop_codon_text	PMID:15189983
 SPAC977.10	SPAC977.10:allele-119	nhe1-REL6	EIEKSIYE390QSSGNSHIKE	amino_acid_mutation			amino_acid_insertion_and_mutation	type_error			EIEKSIYE390QSSGNSHIKE	amino_acid_insertion_and_mutation:multiple_aa	PMID:30996236
 SPBC215.05	SPBC215.05:allele-3	gpd1-G4BS	TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_mutation			nucleotide_insertion_and_mutation	type_error			TTACGTCA(-324)CGGAAGACTCTCCTCCG	nucleotide_insertion_and_mutation:multiple_nt	PMID:25122751
+SPBC28F2.12	SPBC28F2.12:allele-16	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	amino_acid_insertion_and_mutation			amino_acid_mutation	type_error			CTD-P3A(r2-r29-2)	amino_acid_mutation:CTD	PMID:32282918,PMID:33579781,PMID:34389684
+SPBC28F2.12	SPBC28F2.12:allele-14	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation	CTD-S2A(r1-r12),delta(r13-r29)			syntax_error			CTD-S2A(r1-r12)delta(r13-r29)	amino_acid_deletion_and_mutation:CTD	PMID:22144909
+SPBC28F2.12	SPBC28F2.12:allele-7	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	amino_acid_mutation	CTD-S2A(r5-r29),S7A(r5-r29)			syntax_error			CTD-S2A(r5-r29)S7A(r5-r29)	amino_acid_mutation:CTD	PMID:22771993
 SPBC32C12.02	SPBC32C12.02:allele-18	ste11-promoter mutant	-194--229	partial_nucleotide_deletion	(-229)-(-194)			syntax_error			-194--229	partial_nucleotide_deletion:usual	PMID:10982411
 SPBC3H7.13	SPBC3H7.13:allele-2	csc1::ura4+	csc1::ura4+	disruption	csc1::ura4			syntax_error			csc1::ura4+	disruption:usual	PMID:23874188
 SPBC428.08c	SPBC428.08c:allele-17	clr4-alpha-mut	KRRKR58NEHG	amino_acid_mutation			amino_acid_deletion_and_mutation	type_error			KRRKR58NEHG	amino_acid_deletion_and_mutation:multiple_aa	PMID:22727667
