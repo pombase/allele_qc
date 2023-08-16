@@ -10,7 +10,7 @@ from tqdm import tqdm
 tqdm.pandas()
 
 
-def format_for_transvar(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides) -> str:
+def format_transvar_input_list(row, genome, syntax_rules_aminoacids, syntax_rules_nucleotides) -> list[str]:
 
     # Transvar uses only gene_ids, while the allele_qc uses a mix to handle multi-transcripts
     gene_systematic_id = row['systematic_id']
@@ -25,10 +25,10 @@ def format_for_transvar(row, genome, syntax_rules_aminoacids, syntax_rules_nucle
         syntax_rule = find_rule(syntax_rules_nucleotides, *row['rules_applied'].split(':'))
         prefix = chromosome
 
-    capture_groups = syntax_rule.get_groups(row['allele_parts'])
-    transvar_input = '{}:{}'.format(prefix, syntax_rule.format_for_transvar(capture_groups, gene))
+    capture_groups = syntax_rule.get_groups(row['allele_parts'], gene)
+    transvar_input_list = ['{}:{}'.format(prefix, x) for x in syntax_rule.format_for_transvar(capture_groups, gene)]
 
-    return transvar_input
+    return transvar_input_list
 
 
 def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], gene_id: str, transcript_id: str) -> TransvarAnnotation:
@@ -46,20 +46,24 @@ def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], g
 
 
 def get_transvar_coordinates(row, db, genome, exclude_transcripts):
-    # print(row['systematic_id'], '<<<>>>', row['transvar_input'])
+    # print(row['systematic_id'], '<<<>>>', row['transvar_input_list'])
     allele_qc_id = handle_systematic_id_for_allele_qc(row['systematic_id'], row['allele_name'], genome)
     transcript_id = None if (allele_qc_id == row['systematic_id']) else allele_qc_id
     try:
-        transvar_annotation_list = parse_transvar_string(get_transvar_str_annotation('panno' if 'amino_acid' in row['allele_type'] else 'ganno', row['transvar_input'], db))
-        return get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id)
+        transvar_output = list()
+        for var in row['transvar_input_list']:
+            transvar_annotation_list = parse_transvar_string(get_transvar_str_annotation('panno' if 'amino_acid' in row['allele_type'] else 'ganno', var, db))
+            transvar_output.append(get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id))
+        return transvar_output
     except ValueError as e:
         if e.args[0] == 'no_valid_transcript_found' and row['systematic_id'] in exclude_transcripts:
-            return ''
+            return []
         else:
             raise e
 
+
 def main(genome_file, allele_results_file, exclude_transcripts_file, output_file):
-    
+
     with open(genome_file, 'rb') as ins:
         genome = pickle.load(ins)
 
@@ -84,13 +88,13 @@ def main(genome_file, allele_results_file, exclude_transcripts_file, output_file
     data_exploded = data_exploded.explode(['allele_parts', 'rules_applied'])
 
     # Apply transvar to each allele_parts
-    data_exploded['transvar_input'] = data_exploded.apply(format_for_transvar, axis=1, args=(genome, syntax_rules_aminoacids, syntax_rules_nucleotides))
+    data_exploded['transvar_input_list'] = data_exploded.apply(format_transvar_input_list, axis=1, args=(genome, syntax_rules_aminoacids, syntax_rules_nucleotides))
 
     anno_db = get_anno_db()
     print('Running transvar on variants... (will take a while)')
     data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, genome, exclude_transcripts), axis=1)
 
-    aggregated_data = data_exploded[['systematic_id', 'allele_description', 'allele_type', 'transvar_coordinates']].groupby(['systematic_id', 'allele_description', 'allele_type'], as_index=False).agg({'transvar_coordinates': '|'.join})
+    aggregated_data = data_exploded[['systematic_id', 'allele_description', 'allele_type', 'transvar_coordinates']].groupby(['systematic_id', 'allele_description', 'allele_type'], as_index=False).agg({'transvar_coordinates': lambda x: '|'.join(sum(x, []))})
 
     data.merge(aggregated_data, on=['systematic_id', 'allele_description', 'allele_type'], how='left').to_csv(output_file, sep='\t', index=False)
 

@@ -37,29 +37,7 @@ SPBC14C8.01c	SPBC14C8.01c:allele-19	cut2-N121	delta122-301	pattern_error	delta1
 SPBC1734.08	SPBC1734.08:allele-3	hse1-G253C	G253C-primary_transcript	pattern_error	-primary_transcript
 SPBC19G7.01c	SPBC19G7.01c:allele-3	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
 SPBC28F2.12	SPBC28F2.12:allele-25	rpb1-CTD-(S5)3(S5A)11	CTD-S5A(r7-r18),∆(r19-29)	pattern_error	CTD-,(r7-r1,),∆(r1,)
-SPBC28F2.12	SPBC28F2.12:allele-16	rpb1-CTD-P3A(r2-r29-2)	CTD-P3A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
-SPBC28F2.12	SPBC28F2.12:allele-15	rpb1-CTD-P6A(r2-r29-2)	CTD-P6A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
-SPBC28F2.12	SPBC28F2.12:allele-12	rpb1-CTD-S2A	CTD-S2A	pattern_error	CTD-
-SPBC28F2.12	SPBC28F2.12:allele-27	rpb1-CTD-S2A(5-16),CTDdelta(17-29)	CTD-S2A(r5-r16),delta(r17-r29)	pattern_error	CTD-,(r5-r1,),delta(r1,-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-14	rpb1-CTD-S2A(r1-r12)delta(r13-r29)	CTD-S2A(r1-r12)delta(r13-r29)	pattern_error	CTD-,(r1-r1,)delta(r1,-r,)
-SPBC28F2.12	SPBC28F2.12:allele-7	rpb1-CTD-S2A(r5-r29)S7A(r5-r29)	CTD-S2A(r5-r29)S7A(r5-r29)	pattern_error	CTD-,(r5-r2,),(r5-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-18	rpb1-CTD-S2A,S7A	CTD-S2A,S7A	pattern_error	CTD-
-SPBC28F2.12	SPBC28F2.12:allele-28	rpb1-CTD-S2E(r5-r16)	CTD-S2E(r5-r16)	pattern_error	CTD-,(r5-r1,)
-SPBC28F2.12	SPBC28F2.12:allele-21	rpb1-CTD-S5A	CTD-S5A	pattern_error	CTD-
-SPBC28F2.12	SPBC28F2.12:allele-17	rpb1-CTD-S5A(r2-r29-2)	CTD-S5A(r2-r29-2)	pattern_error	CTD-,(r,-r,)
-SPBC28F2.12	SPBC28F2.12:allele-10	rpb1-CTD-S7A	CTD-S7A	pattern_error	CTD-
-SPBC28F2.12	SPBC28F2.12:allele-8	rpb1-CTD-S7A(r5-r29)	CTD-S7A(r5-r29)	pattern_error	CTD-,(r5-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-5	rpb1-CTD-T4A	CTD-T4A	pattern_error	CTD-
-SPBC28F2.12	SPBC28F2.12:allele-23	rpb1-CTD-T4A(r5-r29)	CTD-T4A(r5-r29)	pattern_error	CTD-,(r5-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-24	rpb1-CTD-T4A,S7A(r5-r29)	CTD-T4A,S7A(r5-r29)	pattern_error	CTD-,(r5-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-30	rpb1-CTD-T4E(r5-r29)	CTD-T4E(r5-r29)	pattern_error	CTD-,(r5-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-11	rpb1-CTD-Y1F	CTD-Y1F	pattern_error	CTD-
-SPBC28F2.12	SPBC28F2.12:allele-29	rpb1-CTD-delta(r11-r29)	CTD-delta(r11-r29)	pattern_error	CTD-delta(r,-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-32	rpb1-CTD-delta(r17-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-34	rpb1-CTD-delta(r19-r29)	CTD-delta(r17-r29)	pattern_error	CTD-delta(r1,-r2,)
-SPBC28F2.12	SPBC28F2.12:allele-33	rpb1-CTD-delta(r19-r29),S7A	CTD-delta(r19-r29),S7A	pattern_error	CTD-delta(r1,-r2,),
 SPBC28F2.12	SPBC28F2.12:allele-26	rpb1-P3.P3A	(CDT)P3A(alternating)	pattern_error	(CDT),(alternating)
-SPBC28F2.12	SPBC28F2.12:allele-6	rpb1-S2A(r5-r29)	CTD-S2A(r5-r29)	pattern_error	CTD-,(r5-r2,)
 SPBC29A10.14	SPBC29A10.14:allele-10	rec8-17A	unknown	pattern_error	unknown
 SPBC2D10.06	SPBC2D10.06:allele-4	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	pattern_error	lacks the N-terminal 80% of the rep1 coding region
 SPBC2F12.13	SPBC2F12.13:allele-12	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus

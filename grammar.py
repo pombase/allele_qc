@@ -1,7 +1,7 @@
 from genome_functions import get_nt_at_gene_coord, gene_coords2genome_coords
 import copy
 from Bio.Seq import reverse_complement
-from ctd_support import ctd_apply_syntax, ctd_convert_to_normal_variant, ctd_further_check
+from ctd_support import ctd_apply_syntax, ctd_convert_to_normal_variant, ctd_further_check, ctd_format_for_transvar
 from ctd_support import ctd_mutation_regex, ctd_deletion_regex
 
 allowed_types_dict = {
@@ -287,24 +287,23 @@ disruption_grammar = [
 multi_aa_regex = f'(?<=\\b)({aa}+)-?(\d+)-?({aa}+)(?=\\b)'
 multi_aa_apply_syntax = lambda g: ''.join(g).upper()
 multi_aa_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide')
-# ctd_repetition_regex = r'\(r(\d+)-r(\d+)(?:(-\d)+)?\)'
 
 
-def multi_aa_format_for_transvar(g: list[str], gg=None):
+def multi_aa_format_for_transvar(g: list[str], gg=None) -> list[str]:
     # First aminoacid + first position
     first_residue = g[0][0] + g[1]
     # Last aminoacid + last position
     last_residue = g[0][-1] + str(int(g[1]) + len(g[0]) - 1)
 
-    return f'p.{first_residue}_{last_residue}delins{g[2]}'
+    return [f'p.{first_residue}_{last_residue}delins{g[2]}']
 
 
-def insertion_aa_format_for_transvar(g: list[str], gg=None):
+def insertion_aa_format_for_transvar(g: list[str], gg=None) -> list[str]:
     # Last aminoacid + last position
     last_pos = int(g[1]) + len(g[0]) - 1
     last_residue = g[0][-1] + str(last_pos)
 
-    return f'p.{last_residue}_{last_pos + 1}ins{g[2][1:]}'
+    return [f'p.{last_residue}_{last_pos + 1}ins{g[2][1:]}']
 
 
 aminoacid_grammar = [
@@ -315,7 +314,7 @@ aminoacid_grammar = [
         'apply_syntax': lambda g: ''.join(g).upper(),
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
         'further_check': lambda g, gg: g[0] != g[2],
-        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}{g[2]}'
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}{g[1]}{g[2]}']
     },
     {
         'type': 'amino_acid_mutation',
@@ -362,7 +361,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)[^a-zA-Z0-9]*(?i:ochre|stop|amber|opal)',
         'apply_syntax': lambda g: ''.join(g).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}*'
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}{g[1]}*']
     },
     {
         'type': 'nonsense_mutation',
@@ -370,7 +369,7 @@ aminoacid_grammar = [
         'regex': f'({aa})(\d+)(\*)',
         'apply_syntax': lambda g: ''.join(g[:2]).upper() + '*',
         'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
-        'format_for_transvar': lambda g, gg: f'p.{g[0]}{g[1]}*'
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}{g[1]}*']
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -378,7 +377,7 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)\s*[-–]\s*(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: '-'.join(sorted(g, key=int)).upper(),
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
-        'format_for_transvar': lambda g, gg: f'p.{g[0]}_{g[1]}del',
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}_{g[1]}del'],
     },
     {
         'type': 'partial_amino_acid_deletion',
@@ -386,28 +385,31 @@ aminoacid_grammar = [
         'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
-        'format_for_transvar': lambda g, gg: f'p.{g[0]}del',
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}del'],
     },
     {
         'type': 'amino_acid_mutation',
         'rule_name': 'CTD',
         'regex': f'(CTD-(?:{ctd_mutation_regex},?\s?)+)$',
         'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
-        'further_check': ctd_further_check
+        'further_check': ctd_further_check,
+        'format_for_transvar': ctd_format_for_transvar
     },
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'CTD',
         'regex': f'(CTD-(?:{ctd_deletion_regex},?\s?)+)$',
         'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
-        'further_check': ctd_further_check
+        'further_check': ctd_further_check,
+        'format_for_transvar': ctd_format_for_transvar
     },
     {
         'type': 'amino_acid_deletion_and_mutation',
         'rule_name': 'CTD',
         'regex': f'(CTD-(?:(?:{ctd_mutation_regex}|{ctd_deletion_regex}),?\s?)+)$',
         'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
-        'further_check': ctd_further_check
+        'further_check': ctd_further_check,
+        'format_for_transvar': ctd_format_for_transvar
     }
 
 ]
@@ -426,53 +428,53 @@ multi_nt_apply_syntax = lambda g: (''.join(format_negatives(g, [1]))).upper().re
 multi_nt_check_sequence = lambda g, gg: check_sequence_multiple_pos(g, gg, 'dna')
 
 
-def multi_nt_format_for_transvar(g: list[str], gene: dict) -> str:
+def multi_nt_format_for_transvar(g: list[str], gene: dict) -> list[str]:
     # There might be parenthesis around negative numbers
     gene_pos = int(g[1].replace('(', '').replace(')', ''))
     # First aminoacid + first position
     first_genome_pos, strand = gene_coords2genome_coords(gene_pos, gene)
     last_genome_pos, _ = gene_coords2genome_coords(gene_pos + len(g[0]) - 1, gene)
     if strand == 1:
-        return f'g.{first_genome_pos}_{last_genome_pos}del{g[0]}ins{g[2]}'
-    return f'g.{last_genome_pos}_{first_genome_pos}del{reverse_complement(g[0])}ins{reverse_complement(g[2])}'
+        return [f'g.{first_genome_pos}_{last_genome_pos}del{g[0]}ins{g[2]}']
+    return [f'g.{last_genome_pos}_{first_genome_pos}del{reverse_complement(g[0])}ins{reverse_complement(g[2])}']
 
 
-def single_nt_format_for_transvar(g: list[str], gene: dict) -> str:
+def single_nt_format_for_transvar(g: list[str], gene: dict) -> list[str]:
     # There might be parenthesis around negative numbers
     gene_pos = int(g[1].replace('(', '').replace(')', ''))
     # First aminoacid + first position
     genome_pos, strand = gene_coords2genome_coords(gene_pos, gene)
 
     if strand == 1:
-        return f'g.{genome_pos}{g[0]}>{g[2]}'
-    return f'g.{genome_pos}{reverse_complement(g[0])}>{reverse_complement(g[2])}'
+        return [f'g.{genome_pos}{g[0]}>{g[2]}']
+    return [f'g.{genome_pos}{reverse_complement(g[0])}>{reverse_complement(g[2])}']
 
 
-def insertion_nt_format_for_transvar(g: list[str], gene: dict) -> str:
+def insertion_nt_format_for_transvar(g: list[str], gene: dict) -> list[str]:
     # Last nt + last position (it could be written AV23AVLLLL, not ideal maybe, but it passes the regex)
     gene_last_pos = int(g[1].replace('(', '').replace(')', '')) + len(g[0]) - 1
     genome_pos, strand = gene_coords2genome_coords(gene_last_pos, gene)
 
     if strand == 1:
-        return f'g.{genome_pos}_{genome_pos+1}ins{g[2][1:]}'
-    return f'g.{genome_pos - 1}_{genome_pos}ins{reverse_complement(g[2][1:])}'
+        return [f'g.{genome_pos}_{genome_pos+1}ins{g[2][1:]}']
+    return [f'g.{genome_pos - 1}_{genome_pos}ins{reverse_complement(g[2][1:])}']
 
 
-def deletion_nt_format_single_for_transvar(g: list[str], gene: dict) -> str:
+def deletion_nt_format_single_for_transvar(g: list[str], gene: dict) -> list[str]:
     gene_pos = int(g[0].replace('(', '').replace(')', ''))
     genome_pos, strand = gene_coords2genome_coords(gene_pos, gene)
-    return f'g.{genome_pos}del'
+    return [f'g.{genome_pos}del']
 
 
-def deletion_nt_format_multi_for_transvar(g: list[str], gene: dict) -> str:
+def deletion_nt_format_multi_for_transvar(g: list[str], gene: dict) -> list[str]:
     gene_pos_start = int(g[0].replace('(', '').replace(')', ''))
     gene_pos_end = int(g[1].replace('(', '').replace(')', ''))
     genome_pos_start, strand = gene_coords2genome_coords(gene_pos_start, gene)
     genome_pos_end, _ = gene_coords2genome_coords(gene_pos_end, gene)
 
     if strand == 1:
-        return f'g.{genome_pos_start}_{genome_pos_end}del'
-    return f'g.{genome_pos_end}_{genome_pos_start}del'
+        return [f'g.{genome_pos_start}_{genome_pos_end}del']
+    return [f'g.{genome_pos_end}_{genome_pos_start}del']
 
 
 nucleotide_grammar = [

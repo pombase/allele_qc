@@ -15,7 +15,7 @@ class SyntaxRule(BaseModel):
     apply_syntax: Callable[[list[str]], str] = lambda g: ''
     check_sequence: Callable[[list[str], dict], str] = lambda g, gg: ''
     further_check: Callable[[list[str], dict], bool] = lambda g, gg: True
-    format_for_transvar: Callable[[list[str]], dict] = lambda g, gg: None
+    format_for_transvar: Callable[[list[str], dict], list[str]] = lambda g, gg: []
 
     def get_groups(self, allele_sub_string: str, gene: dict) -> list[str]:
         """
