@@ -29,7 +29,7 @@ jobs:
       - name: Install and set up transvar
         run: |
           . transvar_env_vars.sh
-          bash install_transvar_dependencies.sh
+          apt install -y samtools tabix
           bash set_up_transvar.sh
       - name: Update file
         run: |
