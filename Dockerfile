@@ -21,6 +21,6 @@ COPY ./*.sh /api/
 COPY ./config.json /api/
 COPY ./data /api/data
 
-RUN bash install_transvar_dependencies.sh
+RUN apt install -y samtools tabix
 
 CMD ["bash", "docker_start.sh"]
