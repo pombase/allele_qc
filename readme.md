@@ -27,6 +27,8 @@ bash run_analysis.sh
 
 ## Installing
 
+### Python dependencies
+
 To install the dependencies, we used poetry (see [poetry installation instructions](https://python-poetry.org/docs/)).
 
 In the source directory run:
@@ -42,6 +44,31 @@ poetry shell
 ```
 
 Now when you call `python`, it will be the one from the `.venv`.
+
+### Other dependencies and setting up transvar
+
+This project uses [transvar](https://github.com/zwdzwd/transvar). This requires to install some binaries.
+
+```bash
+
+# If you have linux and you want to install them globally
+sudo apt install -y samtools tabix
+
+# If you want to install them locally (see the content of the script)
+# > basically downloads the libs and uses make to build the necessary bin files, then deletes all unnecesary source code
+bash install_transvar_dependencies_locally.sh
+
+```
+
+Then, regardless of whether you are using local or global installation of `samtools` and `tabix`:
+
+```bash
+# Env vars (see script)
+. transvar_env_vars.sh
+
+# Build the transvar database, and test that it works
+bash set_up_transvar.sh
+```
 
 ## Getting the data
 
