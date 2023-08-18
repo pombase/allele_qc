@@ -6,11 +6,10 @@ import pickle
 import json
 import re
 from common_autofix_functions import apply_multi_shift_fix, apply_old_coords_fix, apply_histone_fix, get_preferred_fix, apply_name_fix
-import os
 import argparse
 
 
-def main(genome_file, coordinate_changes_file, allele_results_errors_file, output_dir):
+def main(genome_file, coordinate_changes_file, allele_results_file, output_dir):
     with open(genome_file, 'rb') as ins:
         genome = pickle.load(ins)
 
@@ -20,11 +19,25 @@ def main(genome_file, coordinate_changes_file, allele_results_errors_file, outpu
     syntax_rules = [SyntaxRule.parse_obj(r) for r in aminoacid_grammar]
     syntax_rules_dict = {f'{r.type}:{r.rule_name}': r for r in syntax_rules}
 
-    data = pandas.read_csv(allele_results_errors_file, sep='\t', na_filter=False)
+    data = pandas.read_csv(allele_results_file, sep='\t', na_filter=False)
 
-    # We only want alleles with sequence errors, with mutations described at the aminoacid level
-    aminoacid_alleles_with_sequence_errors = (data['sequence_error'] != '') & (data['rules_applied'].str.contains('amino_acid') | data['rules_applied'].str.contains('nonsense'))
-    data_subset = data.loc[aminoacid_alleles_with_sequence_errors, ['systematic_id', 'allele_description', 'allele_name', 'reference', 'change_description_to', 'rules_applied', 'sequence_error']]
+    # We only want aminoacid alleles. We don't remove the ones without errors yet, because if there are errors in a session
+    # for a given allele, other positions may be silent errors (residue matches by chance). We therefore aggregate both with and without errors
+    # We exclude CTDs from the fixing, because they would be too complicated to include (they may contain commas, for instance)
+    # Same (for now) for alleles that have
+
+    aminoacid_alleles = (data['rules_applied'].str.contains('amino_acid') | data['rules_applied'].str.contains('nonsense')) & ~data['rules_applied'].str.contains('CTD')
+
+    # Extra filter for multi_aa until a cleaner solution is found (see https://github.com/pombase/allele_qc/issues/102)
+    for exclude in ['amino_acid_deletion_and_mutation:multiple_aa', 'amino_acid_insertion_and_mutation:multiple_aa']:
+        exclude_rows = data['rules_applied'].str.contains(exclude)
+        if any(exclude_rows):
+            print(f'Excluding {sum(exclude_rows)} rows with {exclude}, see https://github.com/pombase/allele_qc/issues/102')
+            print('\n'.join(data.loc[exclude_rows, 'allele_description']))
+        aminoacid_alleles = aminoacid_alleles & ~exclude_rows
+    aminoacid_alleles = aminoacid_alleles & ~data['rules_applied'].str.contains('multi_aa')
+
+    data_subset = data.loc[aminoacid_alleles, ['systematic_id', 'allele_description', 'allele_name', 'reference', 'change_description_to', 'rules_applied', 'sequence_error']]
 
     # Explode the references
     data_subset.loc[:, 'reference'] = data_subset['reference'].apply(str.split, args=[','])
@@ -38,10 +51,12 @@ def main(genome_file, coordinate_changes_file, allele_results_errors_file, outpu
     data_subset['allele_description_exploded'] = data_subset['allele_description'].copy()
 
     # Explode
-    cols2explode = ['allele_description_exploded', 'rules_applied', 'sequence_error']
-    for explode_column, sep in zip(cols2explode, [',', '|', '|']):
-        data_subset.loc[:, explode_column] = data_subset[explode_column].apply(str.split, args=[sep])
-    data_subset = data_subset.explode(cols2explode)
+    data_subset.loc[:, 'allele_description_exploded'] = data_subset['allele_description_exploded'].apply(str.split, args=[','])
+    data_subset.loc[:, 'rules_applied'] = data_subset['rules_applied'].apply(str.split, args=['|'])
+
+    # Hack to be able to explode sequence error when it's empty
+    data_subset.loc[:, 'sequence_error'] = data_subset.apply(lambda x: ['' for i in x['rules_applied']] if x['sequence_error'] == '' else x['sequence_error'].split('|'), axis=1)
+    data_subset = data_subset.explode(['allele_description_exploded', 'rules_applied', 'sequence_error'])
 
     # Explode again the multiple_aa
     multi_aa = data_subset['rules_applied'] == 'amino_acid_mutation:multiple_aa'
@@ -62,10 +77,12 @@ def main(genome_file, coordinate_changes_file, allele_results_errors_file, outpu
     # Drop duplicates that may have arised when splitting allele description at either step
     data_subset.drop(columns=['rules_applied', 'allele_description', 'allele_description_exploded'], inplace=True)
     data_subset.drop_duplicates(inplace=True)
-    print(data_subset.columns)
-    # Aggregate by publication and systematic id
-    aggregated_data = data_subset.groupby(['systematic_id', 'reference'], as_index=False).agg({'allele_description_exploded2': ','.join})
 
+    # Aggregate by publication and systematic id
+    aggregated_data = data_subset.groupby(['systematic_id', 'reference'], as_index=False).agg({'allele_description_exploded2': ','.join, 'sequence_error': any})
+
+    # Here is where we filter for those that have sequence errors
+    aggregated_data = aggregated_data.loc[aggregated_data['sequence_error'], :]
     print('applying fixes...')
     extra_cols = aggregated_data.apply(apply_old_coords_fix, axis=1, result_type='expand', args=[coordinate_changes_dict, 'allele_description_exploded2'])
     aggregated_data.loc[:, 'old_coords_fix'] = extra_cols.iloc[:, 0]
@@ -101,6 +118,9 @@ def main(genome_file, coordinate_changes_file, allele_results_errors_file, outpu
 
     data2merge = aggregated_data_with_fixes.explode(['allele_description_exploded2', 'auto_fix_to'])
     data_for_fixing = data_for_fixing.merge(data2merge[['systematic_id', 'reference', 'allele_description_exploded2', 'auto_fix_to', 'auto_fix_comment', 'solution_index']], on=['systematic_id', 'reference', 'allele_description_exploded2'])
+
+    # Here we filter again for those that have sequence errors
+    data_for_fixing = data_for_fixing.loc[data_for_fixing['sequence_error'] != '', :]
 
     # Aggregate the multiple_aa, they only differ on the columns allele_description_exploded2 and auto_fix_to, so we aggregate on everything else
     # We also drop allele_description_exploded and allele_description_exploded2 and rules_applied after the aggregation, no longer needed
@@ -191,9 +211,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
     parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
     parser.add_argument('--coordinate_changes_dict', default='data/coordinate_changes_dict.json')
-    parser.add_argument('--allele_results_errors', default='results/allele_results_errors.tsv')
+    parser.add_argument('--allele_results', default='results/allele_results.tsv')
     parser.add_argument('--output_dir', default='results/', help='output directory, will create files allele_auto_fix.tsv, allele_cannot_fix_sequence_errors.tsv, allele_cannot_fix_other_errors.tsv')
 
     args = parser.parse_args()
 
-    main(args.genome, args.coordinate_changes_dict, args.allele_results_errors, args.output_dir)
+    main(args.genome, args.coordinate_changes_dict, args.allele_results, args.output_dir)

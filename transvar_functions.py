@@ -56,7 +56,8 @@ def get_anno_db() -> AnnoDB:
     """
     annotation_parser = argparse.ArgumentParser(description=__doc__)
     parser_add_annotation(annotation_parser)
-    annotation_args = annotation_parser.parse_args(['--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa'])
+    # annotation_args = annotation_parser.parse_args(['--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa'])
+    annotation_args = annotation_parser.parse_args(['--ensembl', 'data/sgd/features.gtf.transvardb', '--reference', 'data/sgd/genome_sequence.fsa'])
     config = read_config()
     return AnnoDB(annotation_args, config)
 
@@ -90,7 +91,8 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str, db:
     p.set_defaults(func=partial(main_one, db=db, at='p'))
 
     # We set the -v argument to 2 (verbose), to raise errors
-    args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa', '-v', '2'])
+    # args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/pombe_genome.gtf.transvardb', '--reference', 'data/pombe_genome.fa', '-v', '2'])
+    args = parser.parse_args([variant_type, '-i', variant_description, '--ensembl', 'data/sgd/features.gtf.transvardb', '--reference', 'data/sgd/genome_sequence.fsa', '-v', '2'])
 
     # We include this to pause on errors
     args.suspend = True
@@ -112,7 +114,7 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str, db:
         # and info = 'no_valid_transcript_found'. Maybe there is a special case where the info is different?
         transvar_fields_first_row = output_str.split('\n')[1].split('\t')
         if transvar_fields_first_row[-3] == '././.':
-            if transvar_fields_first_row[-1] == 'no_valid_transcript_found':
+            if (transvar_fields_first_row[-1] == 'no_valid_transcript_found') and not variant_description.startswith('Q00'):
                 raise ValueError('no_valid_transcript_found')
             else:
                 raise ValueError('Unknown error: ', transvar_fields_first_row[-1])

@@ -37,6 +37,7 @@ def apply_old_coords_fix(row, coordinate_changes_dict, target_column):
 
 # These are histone proteins that typically did not count the methionine
 histones = ['SPBC1105.11c', 'SPBC1105.12', 'SPAC1834.03c', 'SPAC1834.04', 'SPAC19G12.06c', 'SPBC8D2.03c', 'SPBC8D2.04', 'SPCC622.08c', 'SPCC622.09', 'SPBC11B10.10c', 'SPBC1105.17']
+histones += ['YBL002W', 'YBL003C', 'YBR009C', 'YBR010W', 'YDR224C', 'YDR225W', 'YKL049C', 'YNL030W', 'YNL031C', 'YOL012C']
 
 
 def apply_histone_fix(row, genome, target_column):

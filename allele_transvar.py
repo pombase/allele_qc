@@ -46,7 +46,7 @@ def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], g
 
 
 def get_transvar_coordinates(row, db, genome, exclude_transcripts):
-    # print(row['systematic_id'], '<<<>>>', row['transvar_input_list'])
+
     allele_qc_id = handle_systematic_id_for_allele_qc(row['systematic_id'], row['allele_name'], genome)
     transcript_id = None if (allele_qc_id == row['systematic_id']) else allele_qc_id
     try:
@@ -56,6 +56,9 @@ def get_transvar_coordinates(row, db, genome, exclude_transcripts):
             transvar_output.append(get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id))
         return transvar_output
     except ValueError as e:
+        # Hacky temp fix for sgd data
+        print('skipping transcript {} for {}'.format(row['systematic_id'], row['allele_name']))
+        return []
         if e.args[0] == 'no_valid_transcript_found' and row['systematic_id'] in exclude_transcripts:
             return []
         else:
@@ -74,6 +77,16 @@ def main(genome_file, allele_results_file, exclude_transcripts_file, output_file
     syntax_rules_nucleotides = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]
 
     data = pandas.read_csv(allele_results_file, sep='\t', na_filter=False)
+
+    # Hacky sgd fix mentioned in https://github.com/pombase/allele_qc/issues/103
+    if 'sgd' in allele_results_file:
+        # Ammend wrong type:
+        wrong_type = (data['change_type_to'] != '') & \
+                     (data['pattern_error'] == '') & \
+                     (data['invalid_error'] == '') & \
+                     (data['sequence_error'] == '')
+        data.loc[wrong_type, 'allele_type'] = data.loc[wrong_type, 'change_type_to']
+        data.loc[wrong_type, 'needs_fixing'] = False
 
     # Remove all errors
     data = data[~data['needs_fixing']].copy()

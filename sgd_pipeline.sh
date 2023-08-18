@@ -7,6 +7,7 @@
 # curl -kL https://raw.githubusercontent.com/pombase/genome_changelog/master/sgd/all_previous_seqs.tsv -o all_previous_seqs.tsv
 # curl http://sgd-archive.yeastgenome.org/sequence/S288C_reference/orf_protein/orf_trans_all.fasta.gz -o current_protein_seqs.fasta.gz
 # gzip -fd current_protein_seqs.fasta.gz
+# cat current_protein_seqs.fasta |grep '>'|cut -d' ' -f1|cut -c 2- > protein_coding_sgd.txt
 
 # cd ../..
 
@@ -36,10 +37,30 @@
 #                     --output    results/sgd/allele_description_semicolon_qc.tsv
 
 
-python allele_auto_fix.py --genome data/sgd/genome.pickle\
-                          --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
-                          --allele_results_errors results/sgd/allele_description_name_qc_errors.tsv\
-                          --output_dir    results/sgd/description_name
+# python allele_auto_fix.py --genome data/sgd/genome.pickle\
+#                           --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
+#                           --allele_results results/sgd/allele_description_name_qc.tsv\
+#                           --output_dir    results/sgd/description_name
+
+# python allele_auto_fix.py --genome data/sgd/genome.pickle\
+#                         --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
+#                         --allele_results results/sgd/allele_description_semicolon_qc.tsv\
+#                         --output_dir    results/sgd/description_semicolon
+
+# cat results/sgd/*/allele_auto_fix.tsv|grep _fix > results/sgd/allele_qc_fixed.tsv
+
+
+python allele_transvar.py\
+    --genome data/sgd/genome.pickle\
+    --allele_results results/sgd/allele_description_name_qc.tsv\
+    --exclude_transcripts data/frame_shifted_transcripts.tsv\
+    --output results/sgd/description_name/allele_description_name_transvar.tsv
+
+python allele_transvar.py\
+    --genome data/sgd/genome.pickle\
+    --allele_results results/sgd/allele_description_semicolon_qc.tsv\
+    --exclude_transcripts data/frame_shifted_transcripts.tsv\
+    --output results/sgd/description_semicolon/allele_description_semicolon_transvar.tsv
 
 # TODO
 # - Error with YSC0029, present in alleles, but missing in the genome gff

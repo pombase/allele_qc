@@ -73,7 +73,8 @@ def check_value_at_pos(indicated_value, pos, gene, seq_type):
         def get_value_at_pos(p):
             return get_nt_at_gene_coord(p, gene, gene['contig'])
 
-    if get_value_at_pos(pos) == indicated_value:
+    # Very important to be case-insensitive
+    if get_value_at_pos(pos).upper() == indicated_value.upper():
         return ''
 
     if pos < 0:

@@ -129,7 +129,8 @@ def multi_shift_fix(seq, targets):
     targets = ['A3', 'V4', '8']
     returns ['A1,V2'] # Because position 10 does not exist
     """
-
+    if 'G71V' in targets:
+        print(targets)
     all_indexes = list()
     for target in targets:
         all_indexes.extend([(int(i) - 1) for i in re.findall(r'\d+', target)])
