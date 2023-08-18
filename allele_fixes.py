@@ -70,7 +70,7 @@ def old_coords_fix(coordinate_changes, targets):
         new_sequence = new_alignment.replace('-', '')
         old_sequence = old_alignment.replace('-', '')
 
-        this_revision = {'revision': prev_coord['revision'], 'location': prev_coord['old_coord'], 'values': list()}
+        this_revision = {'revision': prev_coord['revision'], 'location': prev_coord['old_coord'] if 'old_coord' in prev_coord else '', 'values': list()}
         # remap the coordinates
         for t in targets:
             # The position must exist in the old sequence

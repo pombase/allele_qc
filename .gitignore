@@ -25,3 +25,4 @@ results/all_protein_variant_sequences.fasta
 
 data/sgd/genome_embl_files
 data/sgd/genome.pickle
+data/sgd/current_protein_seqs.fasta

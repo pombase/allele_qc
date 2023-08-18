@@ -6,8 +6,7 @@ The input is a coordinate changes file generated with https://github.com/pombase
 The dictionary structure, where keys are the systematic_id of genes:
 
 "SPAC23E2.02": [{
-        "new_revision": "new_revision",
-        "old_revision": "old_revision",
+        "revision": "revision",
         "new_coord": "join(446770..449241,449295..450530)",
         "old_coord": "join(446491..446513,446679..449241,449295..450530)",
         "new_alignment": "--------------------------------------MNTSENDP ... GYNGTRY*",
@@ -48,6 +47,9 @@ parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
 parser.add_argument('--genome', default='data/genome.pickle')
 parser.add_argument('--coords', default='data/only_modified_coordinates.tsv')
 parser.add_argument('--output', default='data/coordinate_changes_dict.json')
+parser.add_argument('--old_genomes', default='data/old_genome_versions/*/*.contig')
+parser.add_argument('--genome_sequence_changes', default='data/genome_sequence_changes.tsv')
+
 args = parser.parse_args()
 
 
@@ -109,12 +111,12 @@ def choose_old_genome(previous_coordinate, latest_genome_seq, old_genomes_dict, 
 
 
 # Load info about changes in genome sequence
-genome_seq_changes = pandas.read_csv('data/genome_sequence_changes.tsv', sep='\t', na_filter=False, dtype=str)
+genome_seq_changes = pandas.read_csv(args.genome_sequence_changes, sep='\t', na_filter=False, dtype=str)
 # We skip current versions
 genome_seq_changes = genome_seq_changes[genome_seq_changes['chromosome'].duplicated()].copy()
 
 print('\033[0;32mreading old genomes...\033[0m')
-old_genomes_dict = read_old_genomes(glob.glob('data/old_genome_versions/*/*.contig'), 'embl')
+old_genomes_dict = read_old_genomes(glob.glob(args.old_genomes), 'embl')
 print('\033[0;32mold genomes read\033[0m')
 
 with open(args.genome, 'rb') as ins:
