@@ -1,0 +1,27 @@
+systematic_id	allele_id	allele_name	allele_description	allele_type	change_description_to	change_name_to	change_type_to	auto_fix_comment	sequence_error	solution_index	allele_parts	rules_applied	reference
+YBR010W	719	hht1-R72A	R72A	amino_acid_dummy	R73A		amino_acid_mutation	histone_fix	R72		R72A	amino_acid_mutation:single_aa	PMID:33843274
+YEL061C	3694	cin8-D528K	D528K	amino_acid_dummy	D490K	cin8-D490K	amino_acid_mutation	multi_shift_fix	D528		D528K	amino_acid_mutation:single_aa	PMID:34387192
+YEL061C	3695	cin8-G522N	G522N	amino_acid_dummy	G484N	cin8-G484N	amino_acid_mutation	multi_shift_fix	G522		G522N	amino_acid_mutation:single_aa	PMID:34387192
+YEL061C	3696	cin8-K516M	K516M	amino_acid_dummy	K478M	cin8-K478M	amino_acid_mutation	multi_shift_fix	K516		K516M	amino_acid_mutation:single_aa	PMID:34387192
+YEL061C	3697	cin8-M526T	M526T	amino_acid_dummy	M488T	cin8-M488T	amino_acid_mutation	multi_shift_fix	M526		M526T	amino_acid_mutation:single_aa	PMID:34387192
+YKR063C	8662	las1-G4A	G4A	amino_acid_dummy	G132A	las1-G132A	amino_acid_mutation	multi_shift_fix	G4		G4A	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8663	las1-H2D	H2D	amino_acid_dummy	H130D	las1-H130D	amino_acid_mutation	multi_shift_fix	H2		H2D	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8664	las1-H2N	H2N	amino_acid_dummy	H130N	las1-H130N	amino_acid_mutation	multi_shift_fix	H2		H2N	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8665	las1-H2R	H2R	amino_acid_dummy	H130R	las1-H130R	amino_acid_mutation	multi_shift_fix	H2		H2R	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8666	las1-H6A	H6A	amino_acid_dummy	H134A	las1-H134A	amino_acid_mutation	multi_shift_fix	H6		H6A	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8667	las1-H6N	H6N	amino_acid_dummy	H134N	las1-H134N	amino_acid_mutation	multi_shift_fix	H6		H6N	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8668	las1-R1E	R1E	amino_acid_dummy	R129E	las1-R129E	amino_acid_mutation	multi_shift_fix	R1		R1E	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8669	las1-R1K	R1K	amino_acid_dummy	R129K	las1-R129K	amino_acid_mutation	multi_shift_fix	R1		R1K	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8670	las1-T5A	T5A	amino_acid_dummy	T133A	las1-T133A	amino_acid_mutation	multi_shift_fix	T5		T5A	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8671	las1-T5S	T5S	amino_acid_dummy	T133S	las1-T133S	amino_acid_mutation	multi_shift_fix	T5		T5S	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8672	las1-W3F	W3F	amino_acid_dummy	W131F	las1-W131F	amino_acid_mutation	multi_shift_fix	W3		W3F	amino_acid_mutation:single_aa	PMID:32220933
+YKR063C	8673	las1-W3L	W3L	amino_acid_dummy	W131L	las1-W131L	amino_acid_mutation	multi_shift_fix	W3		W3L	amino_acid_mutation:single_aa	PMID:32220933
+YNL304W	11804	ypt11-G40D	G40D	amino_acid_dummy	G102D	ypt11-G102D	amino_acid_mutation	old_coords_fix, revision 051111: 	G40		G40D	amino_acid_mutation:single_aa	PMID:12391144,PMID:18595704
+YNL304W	11805	ypt11-I144N	I144N	amino_acid_dummy	I206N	ypt11-I206N	amino_acid_mutation	old_coords_fix, revision 051111: 	I144		I144N	amino_acid_mutation:single_aa	PMID:12391144
+YNL304W	11815	ypt11-V246D	V246D	amino_acid_dummy	V308D	ypt11-V308D	amino_acid_mutation	old_coords_fix, revision 051111: 	V246		V246D	amino_acid_mutation:single_aa	PMID:12391144
+YOL012C	12037	htz1-I109T	I109T	amino_acid_dummy	I110T		amino_acid_mutation	histone_fix	I109		I109T	amino_acid_mutation:single_aa	PMID:24098487
+YOL012C	12038	htz1-S111P	S111P	amino_acid_dummy	S112P		amino_acid_mutation	histone_fix	S111		S111P	amino_acid_mutation:single_aa	PMID:24098487
+YOR211C	12809	mgm1-E114A	E114A	amino_acid_dummy	E93A	mgm1-E93A	amino_acid_mutation	old_coords_fix, revision 061006: 	E114		E114A	amino_acid_mutation:single_aa	PMID:31764998
+YOR211C	12829	mgm1-R78A	R78A	amino_acid_dummy	R57A	mgm1-R57A	amino_acid_mutation	old_coords_fix, revision 061006: 	R78		R78A	amino_acid_mutation:single_aa	PMID:31764998
+YOR211C	12830	mgm1-R79A	R79A	amino_acid_dummy	R58A	mgm1-R58A	amino_acid_mutation	old_coords_fix, revision 061006: 	R79		R79A	amino_acid_mutation:single_aa	PMID:31764998
+YOR330C	13107	mip1-A630T	A630T	amino_acid_dummy	A604T	mip1-A604T	amino_acid_mutation	old_coords_fix, revision 051202: 	A630		A630T	amino_acid_mutation:single_aa	PMID:32303542

@@ -183,7 +183,7 @@ See also the script itself. We consider that alleles of genes for which coordina
 In order to convert from old coordinates to new coordinates, we build a sequence alignment of both sequences (see docstring). Run:
 
 ```
-python build_alignment_dict.py
+python build_alignment_dict_from_genome.py
 ```
 
 Finally, run and see docstring:

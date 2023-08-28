@@ -25,3 +25,7 @@ results/all_protein_variant_sequences.fasta
 
 data/sgd/genome_embl_files
 data/sgd/genome.pickle
+data/sgd/current_protein_seqs.fasta
+data/sgd/features.gtf.*
+data/sgd/genome_sequence.fsa.fai
+data/sgd/protein_coding_sgd.txt

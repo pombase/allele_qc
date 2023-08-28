@@ -378,6 +378,7 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
 @ app.get("/ganno", summary='Variant described at the genome level (gDNA)', response_model=list[TransvarAnnotation])
 async def ganno(variant_description: str = Query(example="II:g.178497T>A", description='Variant described at the genome level (gDNA)')) -> list[TransvarAnnotation]:
     try:
+        db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
         return parse_transvar_string(get_transvar_str_annotation('ganno', variant_description))
     except Exception as e:
         raise HTTPException(400, str(e))
@@ -386,6 +387,7 @@ async def ganno(variant_description: str = Query(example="II:g.178497T>A", descr
 @ app.get("/canno", summary='Variant described at the coding DNA level (cDNA)', response_model=list[TransvarAnnotation])
 async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", description='Variant described at the coding DNA level (cDNA)')) -> list[TransvarAnnotation]:
     try:
+        db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
         return parse_transvar_string(get_transvar_str_annotation('canno', variant_description))
     except Exception as e:
         raise HTTPException(400, str(e))
@@ -394,6 +396,7 @@ async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", d
 @ app.get("/panno", summary='Variant described at the protein level', response_model=list[TransvarAnnotation])
 async def panno(variant_description: str = Query(example="SPBC1198.04c:p.N3A", description='Variant described at the protein level')) -> list[TransvarAnnotation]:
     try:
+        db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
         return parse_transvar_string(get_transvar_str_annotation('panno', variant_description))
     except Exception as e:
         raise HTTPException(400, str(e))
@@ -413,7 +416,7 @@ async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC35
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
 
-    db = get_anno_db()
+    db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
 
     out_list = list()
     for allele_part, rule_applied in zip(check_allele_resp.allele_parts.split('|'), check_allele_resp.rules_applied.split('|')):
@@ -440,7 +443,7 @@ async def protein_modification_coordinates(systematic_id: str = Query(example="S
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
 
-    db = get_anno_db()
+    db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
 
     out_list = list()
     for sequence_position_i in sequence_position.split(','):

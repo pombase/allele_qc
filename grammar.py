@@ -73,7 +73,8 @@ def check_value_at_pos(indicated_value, pos, gene, seq_type):
         def get_value_at_pos(p):
             return get_nt_at_gene_coord(p, gene, gene['contig'])
 
-    if get_value_at_pos(pos) == indicated_value:
+    # Very important to be case-insensitive
+    if get_value_at_pos(pos).upper() == indicated_value.upper():
         return ''
 
     if pos < 0:
@@ -170,7 +171,7 @@ aminoacid_grammar_old = [
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'single_aa',
-        'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
+        'regex': f'(?<!{aa}|\d)(\d+)(?!{aa}|\d)(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
     },
@@ -248,7 +249,7 @@ nucleotide_grammar_old = [
     {
         'type': 'partial_nucleotide_deletion',
         'rule_name': 'single_nt',
-        'regex': f'(?<!{nt}){num}(?!{nt})',
+        'regex': f'(?<!{nt}|\d){num}(?!{nt}|\d)',
         'apply_syntax': lambda g: format_negatives(g, [0])[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
     },
@@ -382,7 +383,7 @@ aminoacid_grammar = [
     {
         'type': 'partial_amino_acid_deletion',
         'rule_name': 'single_aa',
-        'regex': f'(?<!{aa})(\d+)(?!{aa})(?:\s+Δaa)?',
+        'regex': f'(?<!{aa}|\d)(\d+)(?!{aa}|\d)(?:\s+Δaa)?',
         'apply_syntax': lambda g: g[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups, gene, 'peptide'),
         'format_for_transvar': lambda g, gg: [f'p.{g[0]}del'],
@@ -537,7 +538,7 @@ nucleotide_grammar = [
     {
         'type': 'partial_nucleotide_deletion',
         'rule_name': 'single_nt',
-        'regex': f'(?<!{nt}){num}(?!{nt})',
+        'regex': f'(?<!{nt}|\d){num}(?!{nt}|\d)',
         'apply_syntax': lambda g: format_negatives(g, [0])[0],
         'check_sequence': lambda groups, gene: check_multiple_positions_dont_exist(groups[:1], gene, 'dna'),
         'format_for_transvar': deletion_nt_format_single_for_transvar,
