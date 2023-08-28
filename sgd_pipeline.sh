@@ -1,53 +1,63 @@
-# set -e
+set -e
 
-# cd data/sgd/
+cd data/sgd/
 
-# python get_sgd_alleles.py alleles_sgd_raw.tsv
-# bash convert_sgd_gff2embl.sh
-# curl -kL https://raw.githubusercontent.com/pombase/genome_changelog/master/sgd/all_previous_seqs.tsv -o all_previous_seqs.tsv
-# curl http://sgd-archive.yeastgenome.org/sequence/S288C_reference/orf_protein/orf_trans_all.fasta.gz -o current_protein_seqs.fasta.gz
-# gzip -fd current_protein_seqs.fasta.gz
-# cat current_protein_seqs.fasta |grep '>'|cut -d' ' -f1|cut -c 2- > protein_coding_sgd.txt
+# Use intermine to get the latest SGD alleles.
+# TODO: include unique identifier
+python get_sgd_alleles.py alleles_sgd_raw.tsv
 
-# cd ../..
+# TODO: download the latest genome
+# convert the gff to embl, using emblmygff3 docker image (see translation*.json), which are used for the transformation
+bash convert_sgd_gff2embl.sh
 
-# python format_alleles_sgd.py
+# Download all previous protein sequence (visit the repo), as well as the current protein sequences, to make the dictionary.
+curl -kL https://raw.githubusercontent.com/pombase/all_previous_sgd_peptide_sequences/master/all_previous_seqs.tsv -o all_previous_seqs.tsv
+curl http://sgd-archive.yeastgenome.org/sequence/S288C_reference/orf_protein/orf_trans_all.fasta.gz -o current_protein_seqs.fasta.gz
+gzip -fd current_protein_seqs.fasta.gz
 
-# python load_genome.py --output data/sgd/genome.pickle --config data/sgd/config.sgd.json data/sgd/genome_embl_files/*.embl
+cd ../..
 
-# # Remove unknown ids (not in gff), or pseudogene (YLL016W), no main feature (YJL018W)
+# Extract allele descriptions from their name or description field.
+# TODO: use a description field provided by SGD, this applies also to all commands below
+# that use _description_name or description_semicolon
+python format_alleles_sgd.py
 
-# missing_genes="R0010W YSC0029 R0040C YLL016W YSC0032 YJL018W"
+# Load the genome to a pickle file
+python load_genome.py --output data/sgd/genome.pickle --config data/sgd/config.sgd.json data/sgd/genome_embl_files/*.embl
 
-# for missing_gene in $missing_genes; do
-#     grep -v $missing_gene data/sgd/alleles_description_name.tsv > data/sgd/alleles_description_name.tsv.tmp
-#     mv data/sgd/alleles_description_name.tsv.tmp data/sgd/alleles_description_name.tsv
+# Remove unknown ids (not in gff), or pseudogene (YLL016W), no main feature (YJL018W)
+# TODO: Check why these are missing
+missing_genes="R0010W YSC0029 R0040C YLL016W YSC0032 YJL018W"
 
-#     grep -v $missing_gene data/sgd/alleles_description_semicolon.tsv > data/sgd/alleles_description_semicolon.tsv.tmp
-#     mv data/sgd/alleles_description_semicolon.tsv.tmp data/sgd/alleles_description_semicolon.tsv
-# done
+for missing_gene in $missing_genes; do
+    grep -v $missing_gene data/sgd/alleles_description_name.tsv > data/sgd/alleles_description_name.tsv.tmp
+    mv data/sgd/alleles_description_name.tsv.tmp data/sgd/alleles_description_name.tsv
 
-
-# python allele_qc.py --genome data/sgd/genome.pickle\
-#                     --alleles data/sgd/alleles_description_name.tsv\
-#                     --output    results/sgd/allele_description_name_qc.tsv
-
-# python allele_qc.py --genome data/sgd/genome.pickle\
-#                     --alleles data/sgd/alleles_description_semicolon.tsv\
-#                     --output    results/sgd/allele_description_semicolon_qc.tsv
+    grep -v $missing_gene data/sgd/alleles_description_semicolon.tsv > data/sgd/alleles_description_semicolon.tsv.tmp
+    mv data/sgd/alleles_description_semicolon.tsv.tmp data/sgd/alleles_description_semicolon.tsv
+done
 
 
-# python allele_auto_fix.py --genome data/sgd/genome.pickle\
-#                           --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
-#                           --allele_results results/sgd/allele_description_name_qc.tsv\
-#                           --output_dir    results/sgd/description_name
+python allele_qc.py --genome data/sgd/genome.pickle\
+                    --alleles data/sgd/alleles_description_name.tsv\
+                    --output    results/sgd/allele_description_name_qc.tsv
 
-# python allele_auto_fix.py --genome data/sgd/genome.pickle\
-#                         --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
-#                         --allele_results results/sgd/allele_description_semicolon_qc.tsv\
-#                         --output_dir    results/sgd/description_semicolon
+python allele_qc.py --genome data/sgd/genome.pickle\
+                    --alleles data/sgd/alleles_description_semicolon.tsv\
+                    --output    results/sgd/allele_description_semicolon_qc.tsv
 
-# cat results/sgd/*/allele_auto_fix.tsv|grep _fix > results/sgd/allele_qc_fixed.tsv
+
+python allele_auto_fix.py --genome data/sgd/genome.pickle\
+                          --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
+                          --allele_results results/sgd/allele_description_name_qc.tsv\
+                          --output_dir    results/sgd/description_name
+
+python allele_auto_fix.py --genome data/sgd/genome.pickle\
+                        --coordinate_changes_dict data/sgd/coordinate_changes_dict.json\
+                        --allele_results results/sgd/allele_description_semicolon_qc.tsv\
+                        --output_dir    results/sgd/description_semicolon
+
+cat results/sgd/*/allele_auto_fix.tsv|grep _fix > results/sgd/allele_qc_fixed.tsv
 
 
 python allele_transvar.py\

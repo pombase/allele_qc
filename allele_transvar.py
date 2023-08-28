@@ -45,7 +45,7 @@ def get_transvar_annotation_coordinates(annotations: list[TransvarAnnotation], g
     return '{}/./.'.format(annotations[0].coordinates.split('/')[0])
 
 
-def get_transvar_coordinates(row, db, genome, exclude_transcripts):
+def get_transvar_coordinates(row, db, genome, exclude_transcripts, sgd_mode=False):
 
     allele_qc_id = handle_systematic_id_for_allele_qc(row['systematic_id'], row['allele_name'], genome)
     transcript_id = None if (allele_qc_id == row['systematic_id']) else allele_qc_id
@@ -56,16 +56,17 @@ def get_transvar_coordinates(row, db, genome, exclude_transcripts):
             transvar_output.append(get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id))
         return transvar_output
     except ValueError as e:
-        # Hacky temp fix for sgd data
-        print('skipping transcript {} for {}'.format(row['systematic_id'], row['allele_name']))
-        return []
-        if e.args[0] == 'no_valid_transcript_found' and row['systematic_id'] in exclude_transcripts:
+        # For now we skip the transcripts that don't work, but we should address this
+        if sgd_mode:
+            print('skipping transcript {} for {}'.format(row['systematic_id'], row['allele_name']))
+            return []
+        elif e.args[0] == 'no_valid_transcript_found' and row['systematic_id'] in exclude_transcripts:
             return []
         else:
             raise e
 
 
-def main(genome_file, allele_results_file, exclude_transcripts_file, output_file):
+def main(genome_file, allele_results_file, exclude_transcripts_file, output_file, sgd_mode):
 
     with open(genome_file, 'rb') as ins:
         genome = pickle.load(ins)
@@ -78,8 +79,7 @@ def main(genome_file, allele_results_file, exclude_transcripts_file, output_file
 
     data = pandas.read_csv(allele_results_file, sep='\t', na_filter=False)
 
-    # Hacky sgd fix mentioned in https://github.com/pombase/allele_qc/issues/103
-    if 'sgd' in allele_results_file:
+    if sgd_mode:
         # Ammend wrong type:
         wrong_type = (data['change_type_to'] != '') & \
                      (data['pattern_error'] == '') & \
@@ -122,6 +122,8 @@ if __name__ == '__main__':
     parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
     parser.add_argument('--output', default='results/allele_results_transvar.tsv')
 
+    parser.add_argument('--sgd_mode', type=bool, default=False, help='Skip transcripts that don\'t work and fix allele types, this arg should be removed in the future.')
+
     args = parser.parse_args()
 
-    main(args.genome, args.allele_results, args.exclude_transcripts, args.output)
+    main(args.genome, args.allele_results, args.exclude_transcripts, args.output, args.sgd_mode)

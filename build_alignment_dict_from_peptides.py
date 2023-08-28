@@ -1,7 +1,7 @@
 """
 Build a dictionary of alignments based on current and all previous peptide coordinates.
 
-The input is the all_previous_seqs.tsv file generated in the sgd folder of https://github.com/pombase/genome_changelog
+The input is the all_previous_seqs.tsv file generated in https://github.com/pombase/all_previous_sgd_peptide_sequences
 
 The dictionary structure, where keys are the systematic_id of genes:
 
