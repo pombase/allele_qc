@@ -105,7 +105,7 @@ def main(genome_file, allele_results_file, exclude_transcripts_file, output_file
 
     anno_db = get_anno_db(transvardb, genome_fasta)
     print('Running transvar on variants... (will take a while)')
-    data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, genome, exclude_transcripts), axis=1)
+    data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, genome, exclude_transcripts, sgd_mode), axis=1)
 
     aggregated_data = data_exploded[['systematic_id', 'allele_description', 'allele_type', 'transvar_coordinates']].groupby(['systematic_id', 'allele_description', 'allele_type'], as_index=False).agg({'transvar_coordinates': lambda x: '|'.join(sum(x, []))})
 
