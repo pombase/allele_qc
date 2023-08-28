@@ -26,8 +26,9 @@ with open('data/mod.obo', 'r') as ins:
                 term_dict[key] = [value]
             else:
                 term_dict[key].append(value)
-        if term_dict['id'][0] not in all_mods_in_pombase:
-            continue
+        # This can be used to skip the mods that are not in annotations already, but we don't do it.
+        # if term_dict['id'][0] not in all_mods_in_pombase:
+        #     continue
 
         allowed_mod_dict[term_dict['id'][0]] = ""
         if 'Origin' in term_dict:
