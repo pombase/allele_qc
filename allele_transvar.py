@@ -66,7 +66,7 @@ def get_transvar_coordinates(row, db, genome, exclude_transcripts, sgd_mode=Fals
             raise e
 
 
-def main(genome_file, allele_results_file, exclude_transcripts_file, output_file, sgd_mode):
+def main(genome_file, allele_results_file, exclude_transcripts_file, output_file, sgd_mode, transvardb, genome_fasta):
 
     with open(genome_file, 'rb') as ins:
         genome = pickle.load(ins)
@@ -103,7 +103,7 @@ def main(genome_file, allele_results_file, exclude_transcripts_file, output_file
     # Apply transvar to each allele_parts
     data_exploded['transvar_input_list'] = data_exploded.apply(format_transvar_input_list, axis=1, args=(genome, syntax_rules_aminoacids, syntax_rules_nucleotides))
 
-    anno_db = get_anno_db()
+    anno_db = get_anno_db(transvardb, genome_fasta)
     print('Running transvar on variants... (will take a while)')
     data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, genome, exclude_transcripts), axis=1)
 
@@ -120,10 +120,12 @@ if __name__ == '__main__':
     parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
     parser.add_argument('--allele_results', default='results/allele_results.tsv')
     parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
+    parser.add_argument('--genome_fasta', default='data/pombe_genome.fa')
+    parser.add_argument('--transvardb', default='data/pombe_genome.gtf.transvardb')
     parser.add_argument('--output', default='results/allele_results_transvar.tsv')
 
     parser.add_argument('--sgd_mode', type=bool, default=False, help='Skip transcripts that don\'t work and fix allele types, this arg should be removed in the future.')
 
     args = parser.parse_args()
 
-    main(args.genome, args.allele_results, args.exclude_transcripts, args.output, args.sgd_mode)
+    main(args.genome, args.allele_results, args.exclude_transcripts, args.output, args.sgd_mode, args.transvardb, args.genome_fasta)

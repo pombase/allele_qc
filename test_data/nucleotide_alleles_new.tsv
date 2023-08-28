@@ -49,11 +49,11 @@ partial_nucleotide_deletion	123-(-140)	(-140)-123
 
 ## nucleotide_insertion:usual -> some of these descriptions are no longer allowed, they could be confusing with minus symbols
 
-nucleotide_insertion	A123-AAAATT				A1,-AAAATT
-nucleotide_insertion	A123-AAAAUU				A1,-AAAAUU
-nucleotide_insertion	A(-123)-AAAATT				A(-,3)-AAAATT
-nucleotide_insertion	A123-AA				A1,-AA
-nucleotide_insertion	A(-123)-AA				A(-,3)-AA
+nucleotide_insertion	A123-AAAATT				A123-AAAATT
+nucleotide_insertion	A123-AAAAUU				A123-AAAAUU
+nucleotide_insertion	A(-123)-AAAATT				A(-123)-AAAATT
+nucleotide_insertion	A123-AA				A123-AA
+nucleotide_insertion	A(-123)-AA				A(-123)-AA
 nucleotide_insertion	A-123-AA	A123AA
 nucleotide_insertion	A-123AA	A(-123)AA
 

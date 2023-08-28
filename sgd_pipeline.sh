@@ -64,13 +64,17 @@ python allele_transvar.py\
     --genome data/sgd/genome.pickle\
     --allele_results results/sgd/allele_description_name_qc.tsv\
     --exclude_transcripts data/frame_shifted_transcripts.tsv\
-    --output results/sgd/description_name/allele_description_name_transvar.tsv
+    --output results/sgd/description_name/allele_description_name_transvar.tsv\
+    --genome_fasta data/sgd/genome_sequence.fsa\
+    --transvardb data/sgd/features.gtf.transvardb
 
 python allele_transvar.py\
     --genome data/sgd/genome.pickle\
     --allele_results results/sgd/allele_description_semicolon_qc.tsv\
     --exclude_transcripts data/frame_shifted_transcripts.tsv\
-    --output results/sgd/description_semicolon/allele_description_semicolon_transvar.tsv
+    --output results/sgd/description_semicolon/allele_description_semicolon_transvar.tsv\
+    --genome_fasta data/sgd/genome_sequence.fsa\
+    --transvardb data/sgd/features.gtf.transvardb
 
 # TODO
 # - Error with YSC0029, present in alleles, but missing in the genome gff
