@@ -71,7 +71,7 @@ def main(genome_file, protein_modification_results_file, exclude_transcripts_fil
     # Apply transvar syntax to each sequence position
     data_exploded['transvar_input'] = data_exploded.apply(format_for_transvar, axis=1, args=(genome,))
 
-    anno_db = get_anno_db()
+    anno_db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
     print('Running transvar on protein modifications... (will take a while)')
     data_exploded['transvar_coordinates'] = data_exploded.progress_apply(get_transvar_coordinates, args=(anno_db, genome, exclude_transcripts), axis=1)
 
