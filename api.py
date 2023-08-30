@@ -218,7 +218,7 @@ async def root():
 async def check_allele(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description),
                        allele_description: str = Query(example="V123A,PLR-140-AAA,150-600"),
                        allele_type: AlleleType = Query(example="partial_amino_acid_deletion"),
-                       allele_name: str = Query(example='aat1-blah', description=allele_name_description)):
+                       allele_name: str = Query(example='aat1-blah', description=allele_name_description, default='')):
 
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
@@ -406,7 +406,7 @@ async def panno(variant_description: str = Query(example="SPBC1198.04c:p.N3A", d
 async def allele_transvar_coordinates(systematic_id: str = Query(example="SPBC359.03c", description=systematic_id_description),
                                       allele_description: str = Query(example="A3V,SEA23PPP,150-200"),
                                       allele_type: AlleleType = Query(example="amino_acid_deletion_and_mutation"),
-                                      allele_name: str = Query(example="aat1-1", description=allele_name_description)):
+                                      allele_name: str = Query(example="aat1-1", description=allele_name_description, default='')):
 
     check_allele_resp = await check_allele(systematic_id, allele_description, allele_type)
 
