@@ -379,7 +379,7 @@ async def get_residue_at_position(systematic_id: str = Query(example='SPAPB1A10.
 async def ganno(variant_description: str = Query(example="II:g.178497T>A", description='Variant described at the genome level (gDNA)')) -> list[TransvarAnnotation]:
     try:
         db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
-        return parse_transvar_string(get_transvar_str_annotation('ganno', variant_description))
+        return parse_transvar_string(get_transvar_str_annotation('ganno', variant_description, db))
     except Exception as e:
         raise HTTPException(400, str(e))
 
@@ -388,7 +388,7 @@ async def ganno(variant_description: str = Query(example="II:g.178497T>A", descr
 async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", description='Variant described at the coding DNA level (cDNA)')) -> list[TransvarAnnotation]:
     try:
         db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
-        return parse_transvar_string(get_transvar_str_annotation('canno', variant_description))
+        return parse_transvar_string(get_transvar_str_annotation('canno', variant_description, db))
     except Exception as e:
         raise HTTPException(400, str(e))
 
@@ -397,7 +397,7 @@ async def canno(variant_description: str = Query(example="SPAC3F10.09:c.5A>T", d
 async def panno(variant_description: str = Query(example="SPBC1198.04c:p.N3A", description='Variant described at the protein level')) -> list[TransvarAnnotation]:
     try:
         db = get_anno_db('data/pombe_genome.gtf.transvardb', 'data/pombe_genome.fa')
-        return parse_transvar_string(get_transvar_str_annotation('panno', variant_description))
+        return parse_transvar_string(get_transvar_str_annotation('panno', variant_description, db))
     except Exception as e:
         raise HTTPException(400, str(e))
 

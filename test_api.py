@@ -219,3 +219,16 @@ class TransvarEntryPointsTest(unittest.TestCase):
 
         response = client.get('/protein_modification_transvar_coordinates', params={'systematic_id': 'SPAC688.08', 'sequence_position': 'S1137'})
         self.assertEqual(response.status_code, 400)
+
+    def test_anno_entry_points(self):
+        response = client.get('/ganno', params={'variant_description': 'II:g.178497T>A'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.json()), 3)
+
+        response = client.get('/panno', params={'variant_description': 'SPBC1198.04c:p.N3A'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.json()), 2)
+
+        response = client.get('/canno', params={'variant_description': 'SPAC3F10.09:c.5A>T'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.json()), 1)
