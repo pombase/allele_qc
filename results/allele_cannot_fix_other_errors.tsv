@@ -1,21 +1,22 @@
 systematic_id	allele_id	allele_name	allele_description	error_type	error_info
-SPAC1006.08	SPAC1006.08:allele-3	41X-GFP-etd1-D9	Overexpression of etd1-D9	pattern_error	Overexpression of etd1-D9
+SPAC1006.08	SPAC1006.08:allele-5	41X-GFP-etd1-D9	Overexpression of etd1-D9	pattern_error	Overexpression of etd1-D9
 SPAC105.02c	SPAC105.02c:allele-3	ank1(1-155)	aa156-170 deleted	pattern_error	aa1, deleted
-SPAC13C5.07	SPAC13C5.07:allele-17	mre11-TBD	fusion of Nbs1 residues 554-613 (Tel1 binding domain) to C-terminus of Mre11	pattern_error	fusion of Nbs1 residues , (Tel1 binding domain) to C-terminus of Mre11
-SPAC1610.03c	SPAC1610.03c:allele-15	meu5-E33	T386G-primary_transcript	pattern_error	-primary_transcript
+SPAC13C5.07	SPAC13C5.07:allele-18	mre11-TBD	fusion of Nbs1 residues 554-613 (Tel1 binding domain) to C-terminus of Mre11	pattern_error	fusion of Nbs1 residues , (Tel1 binding domain) to C-terminus of Mre11
+SPAC140.02	SPAC140.02:allele-3	gar2::ura4+	Gar2 aa 1-163,Ura4 aa 1-39	pattern_error	Gar2 aa 1-163,Ura4 aa 1-39
+SPAC1610.03c	SPAC1610.03c:allele-2	meu5-E33	T386G-primary_transcript	pattern_error	-primary_transcript
 SPAC19G12.02c	SPAC19G12.02c:allele-2	pms1-16	insertion of marker at HindIII site 1517bp downstream of start codon	pattern_error	insertion of marker at HindIII site 1517bp downstream of start codon
 SPAC1D4.12	SPAC1D4.12:allele-6	rad15delta::LEU2	rad15delta::LEU2(nt483-1668)	pattern_error	rad15delta::LEU2(nt483-1668)
-SPAC1F3.02c	SPAC1F3.02c:allele-3	mkh1-frameshift	227-CTATGTTCAAG	pattern_error	-CTATGTTCAAG
+SPAC1F3.02c	SPAC1F3.02c:allele-2	mkh1-frameshift	227-CTATGTTCAAG	pattern_error	-CTATGTTCAAG
 SPAC1F8.02c	SPAC1F8.02c:allele-2	shu1-M1 GATA box mutant	-127AGATA-122,-136AGATAA-131,-136TGATAA-141 ->GCCGTC	pattern_error	-127AGATA-,,-136AGATAA-,,-136TGATAA-, ->GCCGTC
-SPAC20G4.02c	SPAC20G4.02c:allele-3	fus1::ura4+	ura4+@AA270	pattern_error	ura4+@AA270
-SPAC20G8.05c	SPAC20G8.05c:allele-30	cdc15-27A	non-phosphorylatable	pattern_error	non-phosphorylatable
-SPAC20G8.05c	SPAC20G8.05c:allele-29	cdc15-27D	phospho-mimetic	pattern_error	phospho-mimetic
-SPAC25G10.04c	SPAC25G10.04c:allele-10	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
-SPAC2G11.12	SPAC2G11.12:allele-10	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
+SPAC20G4.02c	SPAC20G4.02c:allele-2	fus1::ura4+	ura4+@AA270	pattern_error	ura4+@AA270
+SPAC20G8.05c	SPAC20G8.05c:allele-12	cdc15-27A	non-phosphorylatable	pattern_error	non-phosphorylatable
+SPAC20G8.05c	SPAC20G8.05c:allele-11	cdc15-27D	phospho-mimetic	pattern_error	phospho-mimetic
+SPAC25G10.04c	SPAC25G10.04c:allele-8	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
+SPAC2G11.12	SPAC2G11.12:allele-5	rad12-hd	helicase domain::ura4	pattern_error	helicase domain::ura4
 SPAC343.13	SPAC343.13:allele-2	gta2-T-intron	212-T-primary_transcript	pattern_error	-T-primary_transcript
-SPAC56E4.04c	SPAC56E4.04c:allele-3	Pcut6MUT	disrupted Cbf11 binding site in promoter (GTGGGA to cTcGag)	pattern_error	disrupted Cbf, binding site in promoter (GTGGGA to cTcGag)
+SPAC56E4.04c	SPAC56E4.04c:allele-5	Pcut6MUT	disrupted Cbf11 binding site in promoter (GTGGGA to cTcGag)	pattern_error	disrupted Cbf, binding site in promoter (GTGGGA to cTcGag)
 SPAC6F12.03c	SPAC6F12.03c:allele-4	stx8(A+G)	152-224 substituted by a hinge of A+G	pattern_error	 substituted by a hinge of A+G
-SPAC6F6.17	SPAC6F6.17:allele-9	rif1::ura4+	ura4+ @ 5' HindIII site	pattern_error	ura4+ @ 5' HindIII site
+SPAC6F6.17	SPAC6F6.17:allele-3	rif1::ura4+	ura4+ @ 5' HindIII site	pattern_error	ura4+ @ 5' HindIII site
 SPAC7D4.04	SPAC7D4.04:allele-11	atg11(522-583)F526AY527A	522-583,F526AY527A	pattern_error	,F526AY527A
 SPAPB2B4.03	SPAPB2B4.03:allele-8	Pcig2-96--12-LacZ	cig2-96---12-LacZ fusion	pattern_error	cig2-,--,-LacZ fusion
 SPAPB2B4.03	SPAPB2B4.03:allele-10	Pcig2-mut1	cig2 promoter region -64--44-LacZ fusion	pattern_error	cig2 promoter region ,-LacZ fusion
@@ -23,37 +24,37 @@ SPAPB2B4.03	SPAPB2B4.03:allele-11	Pcig2delta-147--40-LacZ	cig2-170--148,-39-+1-L
 SPAPB2B4.03	SPAPB2B4.03:allele-5	nmt1-cig2-I	cig2-3000-1912	pattern_error	cig2
 SPAPB2B4.03	SPAPB2B4.03:allele-4	nmt1-cig2-II	cig2-3000-1880	pattern_error	cig2
 SPAPB2B4.03	SPAPB2B4.03:allele-3	nmt1-cig2-III	cig2 -3000--1248	pattern_error	cig2 
-SPBC14C8.01c	SPBC14C8.01c:allele-9	cut2-N121	delta122-301	pattern_error	delta1
+SPBC14C8.01c	SPBC14C8.01c:allele-11	cut2-N121	delta122-301	pattern_error	delta1
+SPBC1718.06	SPBC1718.06:allele-3	msp1deltaMIS	???	pattern_error	???
 SPBC19G7.01c	SPBC19G7.01c:allele-3	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
-SPBC28F2.12	SPBC28F2.12:allele-10	rpb1-CTD-Y1F	rpb1-CTD-Y1F	pattern_error	rpb,-
-SPBC29A10.14	SPBC29A10.14:allele-22	rec8-17A	unknown	pattern_error	unknown
+SPBC29A10.14	SPBC29A10.14:allele-26	rec8-17A	unknown	pattern_error	unknown
 SPBC2D10.06	SPBC2D10.06:allele-4	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	pattern_error	lacks the N-terminal 80% of the rep1 coding region
-SPBC2F12.13	SPBC2F12.13:allele-3	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
+SPBC2F12.13	SPBC2F12.13:allele-7	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
 SPBC3D6.10	SPBC3D6.10:allele-2	apn2::ura4+	nt56-1496	pattern_error	nt56-1496
 SPBC725.06c	SPBC725.06c:allele-2	ppk31--579-T (5'-UTR-uORF)	-579-T	pattern_error	-T
-SPCC11E10.07c	SPCC11E10.07c:allele-3	tif221-2	frameshift at L43	pattern_error	frameshift at L43
+SPCC11E10.07c	SPCC11E10.07c:allele-4	tif221-2	frameshift at L43	pattern_error	frameshift at L43
 SPCC1259.03	SPCC1259.03:allele-2	pa12delta::ura4+	ura4+@AA39	pattern_error	ura4+@AA39
 SPCC1393.08	SPCC1393.08:allele-3	fil1-uORFs_mutated	6 uORFs in 5'-UTR mutated	pattern_error	 uORFs in ,'-UTR mutated
 SPCC162.04c	SPCC162.04c:allele-4	wtf13-poison	M1X,M12X	pattern_error	M1X,M12X
-SPCC188.02	SPCC188.02:allele-4	par1-CD	CD fusion	pattern_error	CD fusion
+SPCC188.02	SPCC188.02:allele-11	par1-CD	CD fusion	pattern_error	CD fusion
 SPCC188.06c	SPCC188.06c:allele-35	srp54::LEU2	disruption	pattern_error	disruption
-SPCC18B5.03	SPCC18B5.03:allele-7	wee1-112	unknown opal	pattern_error	unknown opal
+SPCC18B5.03	SPCC18B5.03:allele-5	wee1-112	unknown opal	pattern_error	unknown opal
 SPCC285.07c	SPCC285.07c:allele-5	wtf18+rep	332LGNAFGG	pattern_error	332LGNAFGG
 SPCC285.07c	SPCC285.07c:allele-3	wtf18-2	exon 6 of wtf18-2 is identical to the last exon of wtf13	pattern_error	exon , of wtf1, is identical to the last exon of wtf13
 SPCC330.05c	SPCC330.05c:allele-1	ura4-D18	unknown	pattern_error	unknown
-SPCC338.08	SPCC338.08:allele-71	ctp1-30	I110N with frameshift at T197 truncating at position 208	pattern_error	I110N with frameshift at T197 truncating at position 208
+SPCC338.08	SPCC338.08:allele-58	ctp1-30	I110N with frameshift at T197 truncating at position 208	pattern_error	I110N with frameshift at T197 truncating at position 208
 SPCC613.04c	SPCC613.04c:allele-4	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
 SPNCRNA.103	SPNCRNA.103:allele-7	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	pattern_error	CU32967,.,:g.33962T>C,CU32967,.,:g.33960T>C,CU32967,.,:g.33955T>C,CU32967,.,:g.33950A>G
 SPNCRNA.1343	SPNCRNA.1343:allele-3	nc-1343-Adelta	????	pattern_error	????
 SPNCRNA.1343	SPNCRNA.1343:allele-4	nc-1343-Bdelta	????	pattern_error	????
 SPNCRNA.1710	SPNCRNA.1710:allele-1	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
-SPNCRNA.1712	SPNCRNA.1712:allele-3	nc-pho1-DSR	DSR domain mutated	pattern_error	DSR domain mutated
-SPNCRNA.1712	SPNCRNA.1712:allele-2	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	peptide sequence missing
-SPNCRNA.214	SPNCRNA.214:allele-6	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
-SPNCRNA.214	SPNCRNA.214:allele-3	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
-SPNCRNA.214	SPNCRNA.214:allele-4	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
-SPNCRNA.214	SPNCRNA.214:allele-7	ter1-m2	AAGGAA_882-887_TTCCTT	pattern_error	AAGGAA_,_TTCCTT
-SPNCRNA.214	SPNCRNA.214:allele-1	ter1-m3	TTT_823-825_CCC	pattern_error	TTT_,_CCC
-SPNCRNA.214	SPNCRNA.214:allele-2	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
+SPNCRNA.1712	SPNCRNA.1712:allele-2	nc-pho1-DSR	DSR domain mutated	pattern_error	DSR domain mutated
+SPNCRNA.1712	SPNCRNA.1712:allele-1	nc-pho1-dual-PAS-mut	ATTTTT-342-CTCGAG,AATAAA-568-GGCGGG	invalid_error	peptide sequence missing
+SPNCRNA.214	SPNCRNA.214:allele-8	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
+SPNCRNA.214	SPNCRNA.214:allele-6	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
+SPNCRNA.214	SPNCRNA.214:allele-7	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
+SPNCRNA.214	SPNCRNA.214:allele-9	ter1-m2	AAGGAA_882-887_TTCCTT	pattern_error	AAGGAA_,_TTCCTT
+SPNCRNA.214	SPNCRNA.214:allele-4	ter1-m3	TTT_823-825_CCC	pattern_error	TTT_,_CCC
+SPNCRNA.214	SPNCRNA.214:allele-5	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
 SPNCRNA.9001	SPNCRNA.9001:allele-4	prt2delta-1	231 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
 SPNCRNA.9001	SPNCRNA.9001:allele-5	prt2delta-2	749 nt promoter and transcription start site deletion	pattern_error	 nt promoter and transcription start site deletion
