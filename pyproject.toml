@@ -13,7 +13,7 @@ openpyxl = "^3.0.10"
 fastapi = "^0.87.0"
 uvicorn = {extras = ["standard"], version = "^0.19.0"}
 regex = "^2022.10.31"
-requests = "^2.28.2"
+requests = "^2.31.0"
 httpx = "^0.24.0"
 transvar = "^2.5.10.20211024"
 tqdm = "^4.65.1"
