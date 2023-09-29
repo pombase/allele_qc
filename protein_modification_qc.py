@@ -1,3 +1,23 @@
+"""
+Runs the analysis pipeline for protein modifications, idenfifying sequence or syntax errors and aggregating them.
+
+Inputs:
+    - data/pombase-chado.modifications: the protein modification data from PomBase
+    - data/genome.pickle: the genome data from PomBase (see load_genome.py)
+    - data/allowed_mod_dict.json: the allowed modifications for each modification type
+
+Outputs:
+    - results/protein_modification_results.tsv: the results of the analysis
+    - results/protein_modification_results_errors.tsv: the errors found in the analysis (a subset of the previous file)
+    - results/protein_modification_results_errors_aggregated.tsv: the aggregated errors found in the analysis (used in protein_modification_auto_fix.py)
+
+The extra columns of the output are:
+    - sequence_error: the residues that are incorrect, separated by "|"
+    - change_sequence_position_to: the sequence position that the error should be changed to (only fixes syntax errors)
+
+For now it works for PomBase data with the default paths, but it can be easily adapted to other data sources.
+"""
+
 import pandas
 from models import SyntaxRule
 from grammar import check_sequence_single_pos, aa
@@ -9,6 +29,17 @@ import json
 
 
 def check_func(row, genome, allowed_mod_dict):
+    """
+    Checks if the sequence position is correct, and if not, returns the errors, two values:
+    The first one can be:
+        - '': no error
+        - 'systematic_id not in genome': the sequence position is not correct
+        - 'pattern_error': the sequence position does not match the pattern
+        - 'not_protein_gene': the gene is not a protein coding gene
+        - 'residue_not_allowed': the residue is not allowed for this modification
+
+    The second one is normally empty, but if the sequence_position has syntax errors, it contains the corrected sequence_position
+    """
 
     # Handle multiple transcripts, we pick the first (.1) by default
     try:

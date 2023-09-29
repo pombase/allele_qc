@@ -17,9 +17,10 @@ poetry install
 # Activate python environment
 poetry shell
 
-# Install transvar in the project directory and set up necessary env variables
-bash set_up_transvar.sh
+# Set up the necessary transvar variables (you must have installed transvar, see next section)
 . transvar_env_vars.sh
+bash set_up_transvar.sh
+
 
 # Run this script (See the comments in the subscripts)
 bash run_analysis.sh

@@ -71,9 +71,9 @@ if __name__ == '__main__':
         pass
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--alleles', default='data/alleles.tsv')
-    parser.add_argument('--output', default='results/allele_results.tsv')
+    parser.add_argument('--genome', default='data/genome.pickle', help='input: genome dictionary built from contig files.')
+    parser.add_argument('--alleles', default='data/alleles.tsv', help='input allele dataset')
+    parser.add_argument('--output', default='results/allele_results.tsv', help='output file, also creates two extra files with the extension _errors.tsv and _errors_summarised.tsv')
     args = parser.parse_args()
 
     with open(args.genome, 'rb') as ins:
