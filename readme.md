@@ -129,24 +129,16 @@ allowed_types = {
 
 This is convenient because it allows to represent the fact that an allele that contains only the types of mutations indicated by a frozenset in the dictionary is of that type, e.g., if it has only `amino_acid_mutation`, it is of type `amino_acid_mutation`, if it contains `amino_acid_mutation` and `partial_amino_acid_deletion`, it is of type `amino_acid_deletion_and_mutation`.
 
-### Running the analysis
+### Config file
 
-> **NOTE**: This requires having successfully ran `get_data.sh`. If no arguments are provided, the analysis scripts read the required files from their default locations, but you can provide different input and output files as arguments (see the docstrings in the scripts).
+See `config.json`, the variables included there are self-explaining. See also `data/sgd/config.sgd.json` for SGD.
 
-The main step of the analysis is:
-
-```
-python perform_qc.py
-```
-
-Takes the allele file as input (by default `data/alleles.tsv`), and generates a new file (by default `results/allele_results.tsv`) that contains the following new columns:
-
-### New columns in allele file
+### New columns in allele file after analysis
 
 * `allele_parts`: the substrings of the `allele_description` that match regex patterns in the grammar, separated by `|` characters. For example `E325A G338D` would result in `E325A|G338D`.
 * `needs_fixing`: `True` or `False` depending on whether the allele needs fixing.
 * `change_description_to`: if the correct nomenclature differs from `allele_description`, `change_description_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
-* `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP-120-AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
+* `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP120AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
 * `pattern_error`: contains the parts of the allele that are not picked up by any regular expression in the grammar.
 * `invalid_error`: if the systematic_id or sequence of a gene product is missing.
 * `sequence_error`: contains an error if the indicated position does not exist or if the aminoacid indicated at a certain position is not correct. Values to be homogenised in the future.
@@ -160,44 +152,11 @@ Takes the allele file as input (by default `data/alleles.tsv`), and generates a 
   * `old_coords_fix, revision xxx: gene_coordinates`: if using old gene coordinates the error is fixed, the fix is accepted. This type of fix takes max priority, as it is in principle more reliable.
 * `solution_index`: Normally empty, but if more than one solution has been found to a sequence error, they have the index of the solution.
 
-### Optional - Coordinate changes
+### Optional - Using old coordinta changes for fixes
 
-Some of the alleles for which `sequence_error`s are found might result from residue coordinates refering to previous gene structures. E.g. if the starting methionine has been changed, all residue coordinates are shifted. To fix this case, we use a genome change log produced with https://github.com/pombase/genome_changelog. Essentially, a tsv file with changes to gene structures. We only do this attempt of fixing for alleles that have mutations in the aminoacid sequence. For DNA sequence, since the probability of getting the right nucleotide by chance is ~25%, we cannot be sure it is safe to switch coordinates even if that gives the right nucleotide.
+Some of the alleles for which `sequence_error`s are found might result from residue coordinates refering to previous gene structures. E.g. if the starting methionine has been changed, all residue coordinates are shifted. To fix this case, we use a genome change log produced with https://github.com/pombase/genome_changelog (for PomBase, see  `build_alignment_dict_from_genome.py`). For DNA sequence, since the probability of getting the right nucleotide by chance is ~25%, we cannot be sure it is safe to switch coordinates even if that gives the right nucleotide.
 
-To make a table of the affected alleles, run:
-
-```
-python load_coordinate_changes.py
-```
-
-See also the script itself. We consider that alleles of genes for which coordinates were changed can be affected if they are found in publications where sequence errors were found for alleles of the same gene. E.g. for a given gene, a partial deletion allele `30-50` may not give a sequence error by itself. However, if it is in a session with an allele `A58V`, which does give an error, then it will be considered. Then, there are some publications in which only partial deletions exist, in which it may be not possible to tell whether sequence errors exist. For those we cannot know and they are labelled as ambiguous by the script. The script also generates a text file `results/systematic_ids_excluded_coordinate_changes.txt`, for genes of which the sequence coordinates were changed more than once. These will be excluded from the below dictionary.
-
-In order to convert from old coordinates to new coordinates, we build a sequence alignment of both sequences (see docstring). Run:
-
-```
-python build_alignment_dict_from_genome.py
-```
-
-Finally, run and see docstring:
-
-```
-python fix_coordinates.py
-```
-
-### Summarising results
-
-Finally, you can generate two files, one with alleles with errors that can be auto-corrected, and one that may require human input to make the decission.
-
-Run and see docstring:
-
-```
-python get_allele_autofix.py
-```
-
-
-## TODO
-
-document mitochondrial pre_fix
+For sgd data, we use a method that uses only the protein sequences: https://github.com/pombase/all_previous_sgd_peptide_sequences, see `build_alignment_dict_from_peptides.py`.
 
 ## Running the API in Docker
 
