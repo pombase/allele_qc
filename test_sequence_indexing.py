@@ -3,7 +3,7 @@ These tests only work with PomBase data.
 """
 import unittest
 import pickle
-from grammar import get_nt_at_gene_coord
+from genome_functions import get_nt_at_gene_coord
 from Bio.SeqIO import parse
 
 with open('data/genome.pickle', 'rb') as ins:

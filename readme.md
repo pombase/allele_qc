@@ -71,29 +71,17 @@ Then, regardless of whether you are using local or global installation of `samto
 bash set_up_transvar.sh
 ```
 
-## Getting the data
+## What the pipeline does
 
-To download the data from PomBase, run:
+The best thing is to look at the script `run_analysis.sh`, the subscripts are well documented.
 
-```
-bash get_data.sh
-```
-> **NOTE**: This calls a python script, so remember to also run `poetry shell` before this script. The script uses curl, so if using windows you might have to adapt
+### Defining syntax rules in a grammar
 
-This creates the folder `data` and:
-
-* Downloads alleles from PomBase to `data/alleles.tsv` (columns are self-explaining).
-* Downloads `.contig` files from latest PomBase release.
-* Downloads the `fasta` sequence files from the latest PomBase release.
-* Creates a "genome dictionary" (see `load_genome.py`) and stores it in the file `data/genome.pickle`.
-
-## Analysis
-
-### Defining syntax rules
+These are used to interpret the allele descriptions, check that the sequence residues they refer to are correct, and to format the description correctly/
 
 We define "syntax rules" representing the syntax of a type of mutation as dictionaries in a python list that we call a "grammar". The dictionaries are parsed into `SyntaxRule` objects (see [models.py](models.py)).
 
-A full grammar can be found in [grammar.py](grammar.py). Below an example of a rule to represent several single aminoacid mutations, in the form of `VP-120-AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
+A full grammar can be found in [grammar.py](grammar.py), and the best is to go through that example and the tests to understand how it works. Below an example of a rule to represent several single aminoacid mutations, in the form of `VP120AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
 
 ```python
 aa = 'GPAVLIMCFYWHKRQNEDST'
@@ -102,11 +90,12 @@ aa = f'[{aa}]'
 
 {
         'type': 'amino_acid_mutation',
-        'rule_name': 'multiple_aa',
-        # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
-        'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
-        'apply_syntax': lambda g: '-'.join(g).upper(),
-        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
+        'rule_name': 'single_aa',
+        'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
+        'apply_syntax': lambda g: ''.join(g).upper(),
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'further_check': lambda g, gg: g[0] != g[2],
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}{g[1]}{g[2]}']
     },
 ```
 
@@ -114,15 +103,17 @@ aa = f'[{aa}]'
 * `rule_name`: `type` + `rule_name` should be unique, it identifies the rule matching a particular mutation.
 * `regex`: a regular expression with a pattern that represents a permisive syntax pattern for this type of mutation.
   * Note the use of `{aa}` inside the python f string to represent any aminoacid.
-  * The pattern is permissive, because it will match the right syntax `VP-120-AA`, but also `VP120AA`)
+  * The pattern is a regex, so it can be permissive
+  * The capture groups of the regex are passed to the functions below as a first argument.
 * `apply_syntax`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns the correctly-formatted mutation.
-  * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP-120-AA`.
+  * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP120AA`.
   * The function can be defined inline using `lambda`, or outside of the dictionary.
-* `check_sequence`: a function that takes two arguments:
+* `check_sequence`: a function that takes the two arguments below and checks whether the sequence position indicates exist (the index is within the boundaries of the sequence), and contain the indicated residue. If sequence is correct, should return empty string, otherwise, the residue or residues that are incorrect, see the examples in `grammar.py` and the tests.
   * A tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`
   * A "gene dictionary", see `load_genome.py`
+* `further_check`: takes the same argument as above, and is used as an extra check on top of matching the `regex` pattern. In this example, it checks that the parts before and after the number are different (e.g. `VP120VP` will not be matched by this grammar rule, even if it matches the pattern).
+* `format_for_transvar`: takes the same arguments as above, and returns the transvar formatted variant.
 
-    The function verifies that the proposed mutation is compatible with gene DNA or peptide sequence, and returns an error string otherwise (see examples in `grammar.py`).
 
 ### Defining allele categories
 

@@ -84,6 +84,9 @@ gzip -fd data/pombase-chado.modifications.gz
 curl -kL http://purl.obolibrary.org/obo/mod.obo -o data/mod.obo
 python make_mod_dict.py
 
-# Download the pombase genome fasta (for transvar)
+# Download the pombase genome fasta and gtf files (for transvar)
 curl -k https://curation.pombase.org/dumps/latest_build/fasta/chromosomes/Schizosaccharomyces_pombe_all_chromosomes.fa.gz -o data/pombe_genome.fa.gz
 gzip -fd data/pombe_genome.fa.gz
+
+# TODO
+# curl -k path/to/gtf_file/in/nightly/release -o data/pombe_genome.gtf

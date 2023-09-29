@@ -1,6 +1,8 @@
 """
 Uses transvar to represent the modification positions in standard genomic coordinates.
 
+Removes all lines with sequence errors.
+
 """
 
 import pandas

@@ -7,6 +7,8 @@ results/allele_results_errors.tsv
 
 Only the subset of alleles that needs fixing, only the columns 'allele_description' and 'change_description_to'.
 results/allele_results_errors_summarised.tsv
+
+The extra columns created are described in the readme.md.
 """
 
 from models import SyntaxRule, AllowedTypes

@@ -209,9 +209,9 @@ if __name__ == '__main__':
         pass
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--coordinate_changes_dict', default='data/coordinate_changes_dict.json')
-    parser.add_argument('--allele_results', default='results/allele_results.tsv')
+    parser.add_argument('--genome', default='data/genome.pickle', help='input: genome dictionary built from contig files (see load_genome.py).')
+    parser.add_argument('--coordinate_changes_dict', default='data/coordinate_changes_dict.json', help='input: protein modification dictionary (see build_alignment_dict_from_genome.py -PomBase- or build_alignment_dict_from_peptides.py -SGD- )')
+    parser.add_argument('--allele_results', default='results/allele_results.tsv', help='input: file output by allele_qc.py')
     parser.add_argument('--output_dir', default='results/', help='output directory, will create files allele_auto_fix.tsv, allele_cannot_fix_sequence_errors.tsv, allele_cannot_fix_other_errors.tsv')
 
     args = parser.parse_args()
