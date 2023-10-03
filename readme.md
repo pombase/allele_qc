@@ -17,9 +17,10 @@ poetry install
 # Activate python environment
 poetry shell
 
-# Install transvar in the project directory and set up necessary env variables
-bash set_up_transvar.sh
+# Set up the necessary transvar variables (you must have installed transvar, see next section)
 . transvar_env_vars.sh
+bash set_up_transvar.sh
+
 
 # Run this script (See the comments in the subscripts)
 bash run_analysis.sh
@@ -70,29 +71,17 @@ Then, regardless of whether you are using local or global installation of `samto
 bash set_up_transvar.sh
 ```
 
-## Getting the data
+## What the pipeline does
 
-To download the data from PomBase, run:
+The best thing is to look at the script `run_analysis.sh`, the subscripts are well documented.
 
-```
-bash get_data.sh
-```
-> **NOTE**: This calls a python script, so remember to also run `poetry shell` before this script. The script uses curl, so if using windows you might have to adapt
+### Defining syntax rules in a grammar
 
-This creates the folder `data` and:
-
-* Downloads alleles from PomBase to `data/alleles.tsv` (columns are self-explaining).
-* Downloads `.contig` files from latest PomBase release.
-* Downloads the `fasta` sequence files from the latest PomBase release.
-* Creates a "genome dictionary" (see `load_genome.py`) and stores it in the file `data/genome.pickle`.
-
-## Analysis
-
-### Defining syntax rules
+These are used to interpret the allele descriptions, check that the sequence residues they refer to are correct, and to format the description correctly/
 
 We define "syntax rules" representing the syntax of a type of mutation as dictionaries in a python list that we call a "grammar". The dictionaries are parsed into `SyntaxRule` objects (see [models.py](models.py)).
 
-A full grammar can be found in [grammar.py](grammar.py). Below an example of a rule to represent several single aminoacid mutations, in the form of `VP-120-AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
+A full grammar can be found in [grammar.py](grammar.py), and the best is to go through that example and the tests to understand how it works. Below an example of a rule to represent several single aminoacid mutations, in the form of `VP120AA` (Valine and Proline in position 120 and 121 replaced by Alanines).
 
 ```python
 aa = 'GPAVLIMCFYWHKRQNEDST'
@@ -101,11 +90,12 @@ aa = f'[{aa}]'
 
 {
         'type': 'amino_acid_mutation',
-        'rule_name': 'multiple_aa',
-        # This is only valid for cases with two aminoacids or more (not to clash with amino_acid_insertion:usual)
-        'regex': f'(?<!\d)({aa}{aa}+)-?(\d+)-?({aa}+)(?!\d)',
-        'apply_syntax': lambda g: '-'.join(g).upper(),
-        'check_sequence': lambda g, gg: check_sequence_multiple_pos(g, gg, 'peptide'),
+        'rule_name': 'single_aa',
+        'regex': f'(?<=\\b)({aa})(\d+)({aa})(?=\\b)',
+        'apply_syntax': lambda g: ''.join(g).upper(),
+        'check_sequence': lambda g, gg: check_sequence_single_pos(g, gg, 'peptide'),
+        'further_check': lambda g, gg: g[0] != g[2],
+        'format_for_transvar': lambda g, gg: [f'p.{g[0]}{g[1]}{g[2]}']
     },
 ```
 
@@ -113,15 +103,17 @@ aa = f'[{aa}]'
 * `rule_name`: `type` + `rule_name` should be unique, it identifies the rule matching a particular mutation.
 * `regex`: a regular expression with a pattern that represents a permisive syntax pattern for this type of mutation.
   * Note the use of `{aa}` inside the python f string to represent any aminoacid.
-  * The pattern is permissive, because it will match the right syntax `VP-120-AA`, but also `VP120AA`)
+  * The pattern is a regex, so it can be permissive
+  * The capture groups of the regex are passed to the functions below as a first argument.
 * `apply_syntax`: a function that takes a tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`, and returns the correctly-formatted mutation.
-  * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP-120-AA`.
+  * In the example `VP120AA`, the groups are `('VP', '120', 'AA')`, and the function returns `VP120AA`.
   * The function can be defined inline using `lambda`, or outside of the dictionary.
-* `check_sequence`: a function that takes two arguments:
+* `check_sequence`: a function that takes the two arguments below and checks whether the sequence position indicates exist (the index is within the boundaries of the sequence), and contain the indicated residue. If sequence is correct, should return empty string, otherwise, the residue or residues that are incorrect, see the examples in `grammar.py` and the tests.
   * A tuple of `re.Match[str]`, representing a match in a string to the pattern described in `regex`
   * A "gene dictionary", see `load_genome.py`
+* `further_check`: takes the same argument as above, and is used as an extra check on top of matching the `regex` pattern. In this example, it checks that the parts before and after the number are different (e.g. `VP120VP` will not be matched by this grammar rule, even if it matches the pattern).
+* `format_for_transvar`: takes the same arguments as above, and returns the transvar formatted variant.
 
-    The function verifies that the proposed mutation is compatible with gene DNA or peptide sequence, and returns an error string otherwise (see examples in `grammar.py`).
 
 ### Defining allele categories
 
@@ -137,24 +129,16 @@ allowed_types = {
 
 This is convenient because it allows to represent the fact that an allele that contains only the types of mutations indicated by a frozenset in the dictionary is of that type, e.g., if it has only `amino_acid_mutation`, it is of type `amino_acid_mutation`, if it contains `amino_acid_mutation` and `partial_amino_acid_deletion`, it is of type `amino_acid_deletion_and_mutation`.
 
-### Running the analysis
+### Config file
 
-> **NOTE**: This requires having successfully ran `get_data.sh`. If no arguments are provided, the analysis scripts read the required files from their default locations, but you can provide different input and output files as arguments (see the docstrings in the scripts).
+See `config.json`, the variables included there are self-explaining. See also `data/sgd/config.sgd.json` for SGD.
 
-The main step of the analysis is:
-
-```
-python perform_qc.py
-```
-
-Takes the allele file as input (by default `data/alleles.tsv`), and generates a new file (by default `results/allele_results.tsv`) that contains the following new columns:
-
-### New columns in allele file
+### New columns in allele file after analysis
 
 * `allele_parts`: the substrings of the `allele_description` that match regex patterns in the grammar, separated by `|` characters. For example `E325A G338D` would result in `E325A|G338D`.
 * `needs_fixing`: `True` or `False` depending on whether the allele needs fixing.
 * `change_description_to`: if the correct nomenclature differs from `allele_description`, `change_description_to` contains the right syntax. E.g. for `E325A G338D` contains `E325A,G338D`.
-* `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP-120-AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
+* `rules_applied`: for each of the allele_parts, the syntax rule `type` and `name` as `|`-delimited `type:name`. E.g. for `VP120AA,E325A` contains `amino_acid_mutation:multiple_aa|amino_acid_mutation:single_aa`.
 * `pattern_error`: contains the parts of the allele that are not picked up by any regular expression in the grammar.
 * `invalid_error`: if the systematic_id or sequence of a gene product is missing.
 * `sequence_error`: contains an error if the indicated position does not exist or if the aminoacid indicated at a certain position is not correct. Values to be homogenised in the future.
@@ -168,44 +152,11 @@ Takes the allele file as input (by default `data/alleles.tsv`), and generates a 
   * `old_coords_fix, revision xxx: gene_coordinates`: if using old gene coordinates the error is fixed, the fix is accepted. This type of fix takes max priority, as it is in principle more reliable.
 * `solution_index`: Normally empty, but if more than one solution has been found to a sequence error, they have the index of the solution.
 
-### Optional - Coordinate changes
+### Optional - Using old coordinta changes for fixes
 
-Some of the alleles for which `sequence_error`s are found might result from residue coordinates refering to previous gene structures. E.g. if the starting methionine has been changed, all residue coordinates are shifted. To fix this case, we use a genome change log produced with https://github.com/pombase/genome_changelog. Essentially, a tsv file with changes to gene structures. We only do this attempt of fixing for alleles that have mutations in the aminoacid sequence. For DNA sequence, since the probability of getting the right nucleotide by chance is ~25%, we cannot be sure it is safe to switch coordinates even if that gives the right nucleotide.
+Some of the alleles for which `sequence_error`s are found might result from residue coordinates refering to previous gene structures. E.g. if the starting methionine has been changed, all residue coordinates are shifted. To fix this case, we use a genome change log produced with https://github.com/pombase/genome_changelog (for PomBase, see  `build_alignment_dict_from_genome.py`). For DNA sequence, since the probability of getting the right nucleotide by chance is ~25%, we cannot be sure it is safe to switch coordinates even if that gives the right nucleotide.
 
-To make a table of the affected alleles, run:
-
-```
-python load_coordinate_changes.py
-```
-
-See also the script itself. We consider that alleles of genes for which coordinates were changed can be affected if they are found in publications where sequence errors were found for alleles of the same gene. E.g. for a given gene, a partial deletion allele `30-50` may not give a sequence error by itself. However, if it is in a session with an allele `A58V`, which does give an error, then it will be considered. Then, there are some publications in which only partial deletions exist, in which it may be not possible to tell whether sequence errors exist. For those we cannot know and they are labelled as ambiguous by the script. The script also generates a text file `results/systematic_ids_excluded_coordinate_changes.txt`, for genes of which the sequence coordinates were changed more than once. These will be excluded from the below dictionary.
-
-In order to convert from old coordinates to new coordinates, we build a sequence alignment of both sequences (see docstring). Run:
-
-```
-python build_alignment_dict_from_genome.py
-```
-
-Finally, run and see docstring:
-
-```
-python fix_coordinates.py
-```
-
-### Summarising results
-
-Finally, you can generate two files, one with alleles with errors that can be auto-corrected, and one that may require human input to make the decission.
-
-Run and see docstring:
-
-```
-python get_allele_autofix.py
-```
-
-
-## TODO
-
-document mitochondrial pre_fix
+For sgd data, we use a method that uses only the protein sequences: https://github.com/pombase/all_previous_sgd_peptide_sequences, see `build_alignment_dict_from_peptides.py`.
 
 ## Running the API in Docker
 

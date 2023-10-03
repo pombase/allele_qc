@@ -1,3 +1,24 @@
+"""
+Tries to apply a series of fixes to the protein modification data (see functions apply_*_fix), and outputs the results.
+
+Inputs:
+    - results/protein_modification_results_errors_aggregated.tsv: the aggregated errors found in the analysis (created by protein_modification_auto_fix.py)
+    - data/genome.pickle: the genome data from PomBase (see load_genome.py)
+    - data/coordinate_changes_dict.json: the coordinate changes dictionary from PomBase (see build_alignment_dict_from_genome.py)
+    - results/protein_modification_results_errors.tsv: the errors found in the analysis (created by protein_modification_auto_fix.py)
+
+Outputs:
+    - results/protein_modification_auto_fix.tsv: the data with the fixes applied
+    - results/protein_modification_cannot_fix_sequence_errors.tsv: the sequence errors that could not be fixed (sequence errors)
+    - results/protein_modification_cannot_fix_other_errors.tsv: the syntax errors that could not be fixed (pattern errors)
+    - results/protein_modification_auto_fix_info.tsv: contains all possible fixes (does not prioritise which one to pick). This is not committed or used
+      anywhere, but it can be useful to track unexpected outcomes.
+
+The extra columns generated in the results file are described in the readme.
+
+For now it works for PomBase data with the default paths, but it can be easily adapted to other data sources.
+"""
+
 import json
 import pickle
 import pandas

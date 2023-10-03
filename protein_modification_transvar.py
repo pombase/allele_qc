@@ -1,3 +1,10 @@
+"""
+Uses transvar to represent the modification positions in standard genomic coordinates.
+
+Removes all lines with sequence errors.
+
+"""
+
 import pandas
 import pickle
 import argparse
@@ -87,10 +94,10 @@ if __name__ == '__main__':
         pass
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--protein_modification_results', default='results/protein_modification_results.tsv')
-    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
-    parser.add_argument('--output', default='results/protein_modification_results_transvar.tsv')
+    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files (see load_genome.py).')
+    parser.add_argument('--protein_modification_results', default='results/protein_modification_results.tsv', help='output of protein_modification_qc.py')
+    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv', help='transcripts to exclude from transvar because they are known to be problematic')
+    parser.add_argument('--output', default='results/protein_modification_results_transvar.tsv', help='output file')
 
     args = parser.parse_args()
     main(args.genome, args.protein_modification_results, args.exclude_transcripts, args.output)

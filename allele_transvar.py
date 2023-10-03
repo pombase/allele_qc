@@ -1,3 +1,10 @@
+"""
+Uses transvar to represent the allele modifications in standard variant nomenclature.
+
+Removes all lines with sequence errors (needs_fixing == True).
+
+"""
+
 import pandas
 import pickle
 import argparse
@@ -117,12 +124,12 @@ if __name__ == '__main__':
         pass
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--allele_results', default='results/allele_results.tsv')
-    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv')
-    parser.add_argument('--genome_fasta', default='data/pombe_genome.fa')
-    parser.add_argument('--transvardb', default='data/pombe_genome.gtf.transvardb')
-    parser.add_argument('--output', default='results/allele_results_transvar.tsv')
+    parser.add_argument('--genome', default='data/genome.pickle', help='input: genome dictionary built from contig files. (see load_genome.py)')
+    parser.add_argument('--allele_results', default='results/allele_results.tsv', help='input: output of allele_qc.py')
+    parser.add_argument('--exclude_transcripts', default='data/frame_shifted_transcripts.tsv', help='input: transcripts to exclude from transvar because they are known to be problematic')
+    parser.add_argument('--genome_fasta', default='data/pombe_genome.fa', help='input: genome fasta file used by transvar')
+    parser.add_argument('--transvardb', default='data/pombe_genome.gtf.transvardb', help='input: path of transvardb file')
+    parser.add_argument('--output', default='results/allele_results_transvar.tsv', help='output: file with extra column with transvar coordinates')
 
     parser.add_argument('--sgd_mode', type=bool, default=False, help='Skip transcripts that don\'t work and fix allele types, this arg should be removed in the future.')
 

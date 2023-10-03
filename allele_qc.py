@@ -7,6 +7,8 @@ results/allele_results_errors.tsv
 
 Only the subset of alleles that needs fixing, only the columns 'allele_description' and 'change_description_to'.
 results/allele_results_errors_summarised.tsv
+
+The extra columns created are described in the readme.md.
 """
 
 from models import SyntaxRule, AllowedTypes
@@ -71,9 +73,9 @@ if __name__ == '__main__':
         pass
 
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=Formatter)
-    parser.add_argument('--genome', default='data/genome.pickle', help='genome dictionary built from contig files.')
-    parser.add_argument('--alleles', default='data/alleles.tsv')
-    parser.add_argument('--output', default='results/allele_results.tsv')
+    parser.add_argument('--genome', default='data/genome.pickle', help='input: genome dictionary built from contig files.')
+    parser.add_argument('--alleles', default='data/alleles.tsv', help='input allele dataset')
+    parser.add_argument('--output', default='results/allele_results.tsv', help='output file, also creates two extra files with the extension _errors.tsv and _errors_summarised.tsv')
     args = parser.parse_args()
 
     with open(args.genome, 'rb') as ins:
