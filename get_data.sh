@@ -24,13 +24,12 @@ rm data/alleles_raw.tsv data/alleles_canto.tsv data/alleles_phaf.tsv
 
 echo -e "${GREEN}Getting contig files${NC}"
 # Get genome sequence with annotations
-curl -k https://www.pombase.org/releases/latest/pombe-embl/chromosome1.contig --output  data/chromosome1.contig
-curl -k https://www.pombase.org/releases/latest/pombe-embl/chromosome2.contig --output  data/chromosome2.contig
-curl -k https://www.pombase.org/releases/latest/pombe-embl/chromosome3.contig --output  data/chromosome3.contig
-curl -k https://www.pombase.org/releases/latest/pombe-embl/mating_type_region.contig --output  data/mating_type_region.contig
-curl -k https://www.pombase.org/releases/latest/pombe-embl/pMIT.contig --output  data/pMIT.contig
-curl -k https://www.pombase.org/releases/latest/pombe-embl/telomeric.contig --output  data/telomeric.contig
-
+curl -k https://curation.pombase.org/dumps/latest_build/pombe-embl/chromosome1.contig --output  data/chromosome1.contig
+curl -k https://curation.pombase.org/dumps/latest_build/pombe-embl/chromosome2.contig --output  data/chromosome2.contig
+curl -k https://curation.pombase.org/dumps/latest_build/pombe-embl/chromosome3.contig --output  data/chromosome3.contig
+curl -k https://curation.pombase.org/dumps/latest_build/pombe-embl/mating_type_region.contig --output  data/mating_type_region.contig
+curl -k https://curation.pombase.org/dumps/latest_build/pombe-embl/pMIT.contig --output  data/pMIT.contig
+curl -k https://curation.pombase.org/dumps/latest_build/pombe-embl/telomeric.contig --output  data/telomeric.contig
 
 # Store the genome as a dictionary using pickle
 echo -e "${GREEN}Loading the genome${NC}"
