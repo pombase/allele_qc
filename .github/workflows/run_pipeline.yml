@@ -40,4 +40,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: updated to last revision
-          file_pattern: "*.tsv *.json *.contig genome.pickle"
+          file_pattern: "*.tsv *.json *.contig *genome.pickle"
