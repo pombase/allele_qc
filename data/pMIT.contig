@@ -220,6 +220,7 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20070727"
+FT                   /primary_name="cob1-I1"
 FT   intron          10859..13384
 FT                   /note="group II intron"
 FT                   /systematic_id="SPMIT.05"
