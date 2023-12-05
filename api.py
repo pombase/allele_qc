@@ -131,16 +131,16 @@ def get_modification_user_friendly_fields(obj: CheckModificationResponse, allowe
 def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> CheckAlleleDescriptionResponse:
     new_obj = obj.copy()
     if obj.allele_parts:
-        new_obj.allele_parts = f'We identified {len(obj.allele_parts.split("|"))} parts in the allele description, which are: {obj.allele_parts.replace("|",", ")}'
+        new_obj.allele_parts = f'We identified {len(obj.allele_parts.split("|"))} parts in the allele description, which are: "{obj.allele_parts.replace("|",", ")}"'
     if obj.change_description_to:
-        new_obj.change_description_to = f'There is a syntax error in the allele description, it should be changed to: {obj.change_description_to}'
+        new_obj.change_description_to = f'There is a syntax error in the allele description, it should be changed to: "{obj.change_description_to}"'
     if obj.rules_applied:
         reformatted_rules = ', '.join(r.split(':')[0] for r in obj.rules_applied.split('|'))
-        new_obj.rules_applied = f'We identified that the allele parts correspond to the following types of mutations: {reformatted_rules}'
+        new_obj.rules_applied = f'We identified that the allele parts correspond to the following types of mutations: "{reformatted_rules}"'
     if obj.pattern_error:
-        new_obj.pattern_error = f'The following parts of the allele description do not follow the existing syntax: {obj.pattern_error}'
+        new_obj.pattern_error = f'The following parts of the allele description do not follow the existing syntax: "{obj.pattern_error}"'
     if obj.invalid_error:
-        new_obj.invalid_error = f'Invalid error: {obj.invalid_error}'
+        new_obj.invalid_error = f'Invalid error: "{obj.invalid_error}"'
     if obj.sequence_error:
         positions_dont_exist = list()
         residues_dont_match = list()
@@ -154,11 +154,11 @@ def get_allele_user_friendly_fields(obj: CheckAlleleDescriptionResponse) -> Chec
                 positions_dont_exist.append(e)
         out_str = ''
         if len(positions_dont_exist):
-            out_str = out_str + f'The following sequence positions don\'t exist: {",".join(positions_dont_exist)}'
+            out_str = out_str + f'The following sequence positions don\'t exist: "{",".join(positions_dont_exist)}"'
         if len(residues_dont_match):
             if len(positions_dont_exist):
                 out_str = out_str + '\n'
-            out_str = out_str + f'The following sequence positions don\'t contain the indicated residues: {",".join(residues_dont_match)}'
+            out_str = out_str + f'The following sequence positions don\'t contain the indicated residues: "{",".join(residues_dont_match)}"'
         new_obj.sequence_error = out_str
     if obj.change_type_to:
         new_obj.change_type_to = f'The indicated allele_type is not correct based on the existing mutations, it should be changed to {obj.change_type_to}'
