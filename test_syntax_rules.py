@@ -80,6 +80,10 @@ class SyntaxRulesTest(unittest.TestCase):
         groups = syntax_rule.get_groups('CTD-delta(r1-r12-2),Y1F(r1-r12),Y2F', genome['SPBC28F2.12'])
         self.assertEqual(groups, ('CTD-delta(r1-r12-2),Y1F(r1-r12),Y2F', ))
 
+        syntax_rule = find_rule(syntax_rules, 'amino_acid_deletion_and_mutation', 'CTD')
+        groups = syntax_rule.get_groups('CTD_S2', genome['SPBC28F2.12'])
+        self.assertEqual(groups, ('CTD_S2', ))
+
     def test_class_methods_nucleotides(self):
 
         syntax_rules = [SyntaxRule.parse_obj(r) for r in nucleotide_grammar]

@@ -1,6 +1,6 @@
 import copy
 from ctd_support import ctd_apply_syntax, ctd_further_check, ctd_format_for_transvar
-from ctd_support import ctd_mutation_regex, ctd_deletion_regex
+from ctd_support import ctd_mutation_regex, ctd_deletion_regex, ctd_abbreviations
 from grammar_funs_and_vars import aa, nt, num, multi_nt_regex, multi_nt_apply_syntax, multi_nt_check_sequence, \
     multi_aa_regex, multi_aa_apply_syntax, multi_aa_check_sequence, \
     multi_aa_format_for_transvar, insertion_aa_format_for_transvar, multi_nt_format_for_transvar, \
@@ -145,7 +145,7 @@ aminoacid_grammar = [
     {
         'type': 'amino_acid_deletion_and_mutation',
         'rule_name': 'CTD',
-        'regex': f'(CTD-(?:(?:{ctd_mutation_regex}|{ctd_deletion_regex}),?\s?)+)$',
+        'regex': f'(CTD-(?:(?:{ctd_mutation_regex}|{ctd_deletion_regex}),?\s?)+|{ctd_abbreviations})$',
         'apply_syntax': lambda g: ctd_apply_syntax(g[0]),
         'further_check': ctd_further_check,
         'format_for_transvar': ctd_format_for_transvar

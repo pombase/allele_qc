@@ -9,6 +9,8 @@ ctd_repetition_regex_with_groups = r'\(r(\d+)-r(\d+)(?:-(\d+))?\)'
 ctd_mutation_regex = f'{aa}\d+{aa}(?:{ctd_repetition_regex})?'
 ctd_deletion_regex = f'(?:delta|\u0394|∆)(?:{ctd_repetition_regex})?'
 
+ctd_abbreviations = f'(?:CTD_S2|CTD_T4|CTD_S5|CTD_S7)'
+
 # This dictionary has keys that are the systematic IDs of the genes that have CTDs,
 # the value is a dictionary with:
 # - positions: a dictionary with keys that are the residues of the canonical repeat
