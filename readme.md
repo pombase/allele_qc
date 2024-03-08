@@ -55,6 +55,9 @@ This project uses [transvar](https://github.com/zwdzwd/transvar). This requires 
 # If you have linux and you want to install them globally
 sudo apt install -y samtools tabix
 
+# Installing globally in mac
+brew install htslib samtools
+
 # If you want to install them locally (see the content of the script)
 # > basically downloads the libs and uses make to build the necessary bin files, then deletes all unnecesary source code
 bash install_transvar_dependencies_locally.sh
