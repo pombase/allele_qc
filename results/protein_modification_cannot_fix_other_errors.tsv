@@ -1,7 +1,11 @@
 systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPAC2F3.15)	PMID:19328067	4896	2009-07-12	pattern_error
+SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPAC2F3.15)	PMID:19328067	4896	2024-03-05	pattern_error
+SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S2	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2024-03-05	pattern_error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC19F8.07)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00696	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2009-07-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPAC24B11.06c)	PMID:33410907	4896	2021-01-12	pattern_error
 SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	removed_by(PomBase:SPAC3G9.04)	PMID:33410907	4896	2021-01-22	pattern_error
+SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC19F8.07)	PMID:19328067	4896	2024-03-05	pattern_error
+SPBC28F2.12	rpb1	MOD:00046	Inferred from Direct Assay	CTD_S5	added_by(PomBase:SPBC32H8.10)	PMID:19328067	4896	2024-03-05	pattern_error
