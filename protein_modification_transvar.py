@@ -15,6 +15,20 @@ from tqdm import tqdm
 tqdm.pandas()
 
 
+def expand_CTD_abbreviations(sequence_position: str) -> str:
+    """Expand CTD abbreviations to all positions"""
+
+    abbreviations = {
+        "CTD_S2": "S1559,S1566,S1579,S1586,S1593,S1600,S1607,S1614,S1621,S1628,S1635,S1642,S1649,S1656,S1663,S1670,S1677,S1684,S1691,S1698,S1705,S1712,S1719,S1726,S1733,S1740,S1747",
+        "CTD_T4": "T1554,T1567,T1581,T1588,T1595,T1602,T1609,T1616,T1623,T1630,T1637,T1644,T1651,T1658,T1665,T1672,T1679,T1686,T1693,T1700,T1707,T1714,T1721,T1728,T1735,T1742,T1749",
+        "CTD_S5": "S1555,S1562,S1568,S1575,S1582,S1589,S1596,S1603,S1610,S1617,S1624,S1631,S1638,S1645,S1652,S1659,S1666,S1673,S1680,S1687,S1694,S1701,S1708,S1715,S1722,S1729,S1736,S1743,S1750",
+        "CTD_S7": "S1557,S1577,S1584,S1591,S1598,S1605,S1612,S1619,S1626,S1633,S1640,S1647,S1654,S1661,S1668,S1675,S1682,S1689,S1696,S1703,S1710,S1717,S1724,S1731,S1738,S1745,S1752"
+    }
+    for key in abbreviations:
+        sequence_position = sequence_position.replace(key, abbreviations[key])
+    return sequence_position
+
+
 def format_for_transvar(row, genome):
 
     # Transvar uses only gene_ids, while the pipeline uses a mix to handle multi-transcripts
@@ -42,6 +56,7 @@ def get_transvar_coordinates(row, db, genome, exclude_transcripts):
     # print(row['systematic_id'], '<<<>>>', row['transvar_input'])
     qc_id = process_systematic_id(row['systematic_id'], genome, 'first')
     transcript_id = None if (qc_id == row['systematic_id']) else qc_id
+
     try:
         transvar_annotation_list = parse_transvar_string(get_transvar_str_annotation('panno', row['transvar_input'], db))
         return get_transvar_annotation_coordinates(transvar_annotation_list, row['systematic_id'], transcript_id)
@@ -68,6 +83,9 @@ def main(genome_file, protein_modification_results_file, exclude_transcripts_fil
     # Use corrected sequence position if available
     data['exploded_sequence_position'] = data['sequence_position']
     data.loc[data['change_sequence_position_to'] != '', 'exploded_sequence_position'] = data['change_sequence_position_to']
+
+    # Expand CTD abbreviations
+    data['exploded_sequence_position'] = data['sequence_position'].apply(expand_CTD_abbreviations)
 
     # Explode the sequence_position and the rules_applied
     data_exploded = data[['systematic_id', 'sequence_position', 'exploded_sequence_position']].copy()

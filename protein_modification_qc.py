@@ -59,8 +59,17 @@ def check_func(row, genome, allowed_mod_dict):
         type='dummy',
         rule_name='dummy',
         regex=f'(?<!{aa})({aa})(\d+){aa}?',
+        apply_syntax=lambda x: f'{x[0]}{x[1]}',
     )
-    result = replace_allele_features_with_syntax_rules([dummy_rule], [row['sequence_position']], [], gene)
+    # Special abbreviations for CTD modifications
+    ctd_rule = SyntaxRule(
+        type='ctd_abbreviations',
+        rule_name='ctd_abbreviations',
+        regex='(CTD_S2|CTD_T4|CTD_S5|CTD_S7)',
+        apply_syntax=lambda x: x[0]
+    )
+
+    result = replace_allele_features_with_syntax_rules([dummy_rule, ctd_rule], [row['sequence_position']], [], gene)
 
     # Extract the matched and unmatched elements
     match_groups: list[tuple[re.Match, SyntaxRule]] = list(filter(lambda x: type(x) != str, result))
@@ -70,13 +79,28 @@ def check_func(row, genome, allowed_mod_dict):
     if len(unmatched):
         return 'pattern_error', ''
 
-    correct_name = ','.join(''.join(match_group[0].groups()) for match_group in match_groups)
+    correct_name_list = list()
+    for match_group in match_groups:
+        groups_from_match = match_group[0].groups()
+        syntax_rule = match_group[1]
+        correct_name_list.append(syntax_rule.apply_syntax(groups_from_match))
+
+    correct_name = ','.join(correct_name_list)
 
     change_sequence_position_to = ''
     if correct_name != row['sequence_position']:
         change_sequence_position_to = correct_name
 
-    errors = [check_sequence_single_pos(match_group[0].groups(), gene, 'peptide') for match_group in match_groups]
+    # Error handling ommitted for CTD
+    errors = list()
+    for match_group in match_groups:
+        if match_group[1].rule_name == 'ctd_abbreviations':
+            if systematic_id == 'SPBC28F2.12':
+                continue
+            else:
+                errors.append('no_ctd')
+        else:
+            errors.append(check_sequence_single_pos(match_group[0].groups(), gene, 'peptide'))
 
     if any(errors):
         return '|'.join(errors), change_sequence_position_to
@@ -84,7 +108,9 @@ def check_func(row, genome, allowed_mod_dict):
     # If there are restriction for this particular MOD, check for those
     if allowed_mod_dict[row['modification']]:
         # Get all letters in the sequence_position
-        residues = set(x for x in re.findall('[a-zA-Z]', row['sequence_position']))
+        # We use ([A-Za-z])(?=\d) instead of [A-Za-z] so that CTD abbreviations such as CTD_S2
+        # are also supported
+        residues = set(x for x in re.findall('([A-Za-z])(?=\d)', row['sequence_position']))
         if any(residue not in allowed_mod_dict[row['modification']] for residue in residues):
             return 'residue_not_allowed', change_sequence_position_to
 
