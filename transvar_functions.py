@@ -110,7 +110,7 @@ def get_transvar_str_annotation(variant_type: str, variant_description: str, db:
         transvar_fields_first_row = output_str.split('\n')[1].split('\t')
         if transvar_fields_first_row[-3] == '././.':
             if (transvar_fields_first_row[-1] == 'no_valid_transcript_found') and not variant_description.startswith('Q00'):
-                raise ValueError('no_valid_transcript_found')
+                raise ValueError('no_valid_transcript_found', variant_description)
             else:
                 raise ValueError('Unknown error: ', transvar_fields_first_row[-1])
 
