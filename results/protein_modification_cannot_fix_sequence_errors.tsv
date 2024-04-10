@@ -34,6 +34,7 @@ SPAC26A3.04	rpl2002	MOD:01148	mass spectrometry evidence	K136		PMID:26412298	489
 SPAC26H5.10c	tif51	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S75,S87		PMID:30726745	4896	2019-02-05	|S87
 SPAC27F1.09c	prp10	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S90		PMID:29996109	4896	2018-07-10	S90
 SPAC27F1.09c	prp10	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T156		PMID:29996109	4896	2018-07-10	T156
+SPAC31A2.05c	mis4	MOD:00696	Inferred from Direct Assay	S192	added_by(PomBase:SPAC23C11.16)	PMID:38448160	4896	2024-03-21	S192
 SPAC31A2.14	bun107	MOD:00046	Inferred from Direct Assay	S790		PMID:21182284	4896	2014-07-21	S790
 SPAC31A2.14	bun107	MOD:00046	Inferred from Direct Assay	S793		PMID:21182284	4896	2014-07-21	S793
 SPAC3F10.13	ucp6	MOD:00046	Inferred from Direct Assay	S43		PMID:21182284	4896	2014-07-21	S43
@@ -109,9 +110,9 @@ SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used i
 SPBC25B2.07c	mmb1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T462		PMID:30726745	4896	2019-02-05	T462
 SPBC25B2.07c	mmb1	MOD:00048	tryptic phosphopeptide mapping assay evidence used in automatic assertion	Y455	affected_by(PomBase:SPAC821.12)	PMID:30726745	4896	2019-02-05	Y455
 SPBC25D12.05	trm1	MOD:01149	mass spectrometry evidence	K456		PMID:26537787	4896	2020-11-06	K456
+SPBC25D12.05	trm1	MOD:00046	experimental evidence	S524	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S524
 SPBC25D12.05	trm1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S524		PMID:30726745	4896	2019-02-05	S524
 SPBC25D12.05	trm1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S524		PMID:33823663	4896	2022-03-08	S524
-SPBC25D12.05	trm1	MOD:00046	experimental evidence	S524	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S524
 SPBC25D12.05	trm1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S66		PMID:30726745	4896	2019-02-05	S66
 SPBC25D12.05	trm1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S66		PMID:33823663	4896	2022-03-08	S66
 SPBC25D12.05	trm1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S69		PMID:25720772	4896	2016-06-27	S69
@@ -161,12 +162,12 @@ SPCC162.07	ent1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in 
 SPCC162.07	ent1	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T647		PMID:30726745	4896	2019-02-05	T647
 SPCC16C4.17	mug123	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S228,S101		PMID:30726745	4896	2019-02-05	S228|
 SPCC1739.11c	cdc11	MOD:00046	Inferred from Direct Assay	S12		PMID:22419817	4896	2013-08-22	S12
+SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8654750	4896	2011-10-10	L23
+SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8654750	4896	2011-10-10	L23
+SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8654750	4896	2011-10-10	L23
 SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:9191272	4896	2011-10-10	L23
-SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8736868	4896	2011-10-10	L23
 SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8861202	4896	2011-10-19	L23
-SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8654750	4896	2011-10-10	L23
-SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8654750	4896	2011-10-10	L23
-SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8654750	4896	2011-10-10	L23
+SPCC1795.06	map2	MOD:01641	Inferred from Direct Assay	L23	removed_by(PomBase:SPAC1296.03c)	PMID:8736868	4896	2011-10-10	L23
 SPCC18B5.11c	cds1	MOD:00696	Inferred from Direct Assay	T121		PMID:24663817	4896	2020-03-09	T121
 SPCC18B5.11c	cds1	MOD:00047	Inferred from Direct Assay	T334	added_by(PomBase:SPCC18B5.11c)	PMID:19357077	4896	2014-02-04	T334
 SPCC18B5.11c	cds1	MOD:00047	Inferred from Direct Assay	T379	added_by(PomBase:SPCC18B5.11c)	PMID:19357077	4896	2014-02-04	T379
