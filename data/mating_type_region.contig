@@ -11,7 +11,7 @@ FT                   /note="H3 homology box"
 FT   misc_feature    3260..3394
 FT                   /note="H2 Homology box"
 FT   CDS             complement(3354..3710)
-FT                   /product="silenced P-specific trancription factor Pc"
+FT                   /product="silenced P-specific transcription factor Pc"
 FT                   /protein_id="CAA30482.1"
 FT                   /systematic_id="SPMTR.01"
 FT                   /primary_name="mat2-Pc"
