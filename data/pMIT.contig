@@ -156,7 +156,8 @@ FT                   /transl_table=4
 FT                   /protein_id="QDP17086.1"
 FT                   /primary_name="cox3"
 FT                   /systematic_id="SPMIT.04"
-FT                   /product="cytochrome c oxidase subunit 3"
+FT                   /product="cytochrome c oxidase subunit 3 (cytochrome a3
+FT                   subunit)"
 FT                   /colour=2
 FT                   /controlled_curation="term=orthologous to S. cerevisiae
 FT                   Q0275; date=20070727"
