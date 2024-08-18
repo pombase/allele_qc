@@ -49,14 +49,14 @@ FT                   gap-filling sequence is between 1613 bp and 19493 bp in
 FT                   this registered sequence"
 FT                   /db_xref="taxon:4896"
 FT   CDS             complement(1479..3197)
-FT                   /product="amino acid transmembrane transporter (predicted)"
+FT                   /product="plasma membrane amino acid transmembrane
+FT                   transporter"
 FT                   /systematic_id="SPBC460.01c"
 FT                   /protein_id="BAG68901.1"
 FT                   /controlled_curation="term=orthologous to S. cerevisiae
 FT                   YBR068C and YBR069C and YCL025C and YDR046C and YDR508C
-FT                   and YGR191W and YKR039W and YNL268W and
-FT                   YNL270C and YOL020W;
-FT                   date=20090715"
+FT                   and YGR191W and YKR039W and YNL268W and YNL270C and
+FT                   YOL020W; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in eukaryotes; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
