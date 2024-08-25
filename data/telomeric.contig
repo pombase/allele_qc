@@ -53,10 +53,6 @@ FT                   /product="plasma membrane amino acid transmembrane
 FT                   transporter"
 FT                   /systematic_id="SPBC460.01c"
 FT                   /protein_id="BAG68901.1"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   YBR068C and YBR069C and YCL025C and YDR046C and YDR508C
-FT                   and YGR191W and YKR039W and YNL268W and YNL270C and
-FT                   YOL020W; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in eukaryotes; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -74,8 +70,6 @@ FT   CDS             complement(join(8856..9365,9651..9803))
 FT                   /product="translation elongation factor, glutathione
 FT                   S-transferase (predicted)"
 FT                   /protein_id="BAG68902.1"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   YGR201C and YKL081W and YPL048W; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in eukaryotes; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -107,8 +101,6 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20090715"
 FT                   /controlled_curation="term=warning, new gene;
 FT                   db_xref=PMID:18727152; date=20110408"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   YBR293W and YMR088C; date=20110415"
 FT                   /controlled_curation="term=gene expression, RNA level;
 FT                   annotation_extension=during(GO:0072690);
 FT                   qualifier=present; evidence=ECO:0000108;
@@ -119,8 +111,6 @@ FT                   /product="sulfonate/alpha-ketoglutarate dioxygenase
 FT                   (predicted)"
 FT                   /protein_id="BAG68904.1"
 FT                   /systematic_id="SPBC460.04c"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   YLL057C; date=20090715"
 FT                   /controlled_curation="term=TfdA family; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20090716"
@@ -136,8 +126,6 @@ FT                   /product="transmembrane transporter (predicted)"
 FT                   /colour=7
 FT                   /systematic_id="SPBC460.05"
 FT                   /protein_id="BAG68905.1"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   YJR152W and YLR004C; date=20090715"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20090716"
 FT                   /controlled_curation="term=species distribution, conserved

@@ -72,8 +72,6 @@ FT                   /primary_name="cox1"
 FT                   /systematic_id="SPMIT.01"
 FT                   /product="cytochrome c oxidase subunit 1"
 FT                   /colour=2
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0045; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20100820"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -111,8 +109,6 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in metazoa; date=20100827"
 FT                   /controlled_curation="term=species distribution,
 FT                   predominantly single copy (one to one); date=20100827"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0110 and Q0115 and Q0120 and Q0255; date=20110719"
 FT                   /controlled_curation="term=warning, intronic ORF;
 FT                   date=20110719"
 FT   intron          6844..7924
@@ -139,8 +135,6 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in metazoa; date=20100827"
 FT                   /controlled_curation="term=species distribution,
 FT                   predominantly single copy (one to one); date=20100827"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0060 and Q0065 and Q0075; date=20110719"
 FT                   /controlled_curation="term=warning, intronic ORF;
 FT                   date=20110719"
 FT   3'UTR           8793..8817
@@ -159,8 +153,6 @@ FT                   /systematic_id="SPMIT.04"
 FT                   /product="cytochrome c oxidase subunit 3 (cytochrome a3
 FT                   subunit)"
 FT                   /colour=2
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0275; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20100820"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -192,8 +184,6 @@ FT                   /synonym="cytb"
 FT                   /systematic_id="SPMIT.05"
 FT                   /product="cytochrome b, Cob1"
 FT                   /colour=2
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0105; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in eukaryotes; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -204,6 +194,8 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in vertebrates; date=20090507"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20140321"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20240822"
 FT   CDS             <10859..13282
 FT                   /codon_start=1
 FT                   /protein_id="QDP17088.1"
@@ -215,8 +207,6 @@ FT                   encoded)"
 FT                   /colour=2
 FT                   /controlled_curation="term=genome organization, protein in
 FT                   cob intron; cv=genome_org; date=20070727"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0050 and Q0055; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20070727"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -260,8 +250,6 @@ FT                   /protein_id="QDP17089.1"
 FT                   /primary_name="atp6"
 FT                   /systematic_id="SPMIT.07"
 FT                   /colour=7
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0085; date=20070911"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20100820"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -294,10 +282,6 @@ FT                   /product="mitochondrial ribosomal protein subunit S3"
 FT                   /colour=7
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20070727"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0140; date=20070727"
-FT                   /controlled_curation="term=human MRPS24 ortholog;
-FT                   date=20210309"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in metazoa;  date=20210213"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -319,10 +303,6 @@ FT                   /systematic_id="SPMIT.09"
 FT                   /colour=7
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in fungi; date=20070212"
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0080; date=20071118"
-FT                   /controlled_curation="term=human MT-ATP8 ortholog;
-FT                   date=20180822"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in vertebrates;  date=20180822"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -331,6 +311,8 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in metazoa;  date=20180822"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in eukaryotes only;  date=20180822"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20240822"
 FT   3'UTR           17063..17077
 FT                   /systematic_id="SPMIT.09"
 FT                   /db_xref="PMID:29954949"
@@ -361,8 +343,6 @@ FT                   /primary_name="atp9"
 FT                   /systematic_id="SPMIT.10"
 FT                   /product="F1-FO ATP synthase membrane subunit, Atp9"
 FT                   /colour=2
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0130; date=20080204"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20100820"
 FT                   /controlled_curation="term=species distribution, conserved
@@ -373,6 +353,8 @@ FT                   /controlled_curation="term=species distribution, conserved
 FT                   in metazoa; date=20100820"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in vertebrates; date=20100820"
+FT                   /controlled_curation="term=species distribution,
+FT                   predominantly single copy (one to one); date=20240822"
 FT   3'UTR           18033..18046
 FT                   /systematic_id="SPMIT.10"
 FT                   /db_xref="PMID:29954949"
@@ -400,8 +382,6 @@ FT                   /primary_name="cox2"
 FT                   /systematic_id="SPMIT.11"
 FT                   /product="cytochrome c oxidase subunit 2"
 FT                   /colour=2
-FT                   /controlled_curation="term=orthologous to S. cerevisiae
-FT                   Q0250; date=20070911"
 FT                   /controlled_curation="term=species distribution, conserved
 FT                   in bacteria; date=20100820"
 FT                   /controlled_curation="term=species distribution, conserved
