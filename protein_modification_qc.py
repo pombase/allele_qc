@@ -121,7 +121,7 @@ if __name__ == "__main__":
     with open('data/genome.pickle', 'rb') as ins:
         genome = pickle.load(ins)
 
-    data = pandas.read_csv('data/pombase-chado.modifications', sep='\t', na_filter=False, header=None)
+    data = pandas.read_csv('data/pombase-chado.modifications', sep='\t', na_filter=False)
     with open('data/allowed_mod_dict.json', 'r') as ins:
         allowed_mod_dict = json.load(ins)
 
