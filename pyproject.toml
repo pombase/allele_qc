@@ -1,3 +1,6 @@
+[project]
+name = "allele_qc"
+
 [tool.poetry]
 authors = ["Manuel Lera Ramirez <manulera14@gmail.com>"]
 description = ""
