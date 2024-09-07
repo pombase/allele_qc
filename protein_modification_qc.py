@@ -58,7 +58,7 @@ def check_func(row, genome, allowed_mod_dict):
     dummy_rule = SyntaxRule(
         type='dummy',
         rule_name='dummy',
-        regex=f'(?<!{aa})({aa})(\d+){aa}?',
+        regex=r'(?<!{aa})({aa})(\d+){aa}?',
         apply_syntax=lambda x: f'{x[0]}{x[1]}',
     )
     # Special abbreviations for CTD modifications
@@ -74,7 +74,7 @@ def check_func(row, genome, allowed_mod_dict):
     # Extract the matched and unmatched elements
     match_groups: list[tuple[re.Match, SyntaxRule]] = list(filter(lambda x: type(x) != str, result))
     # The regex excludes non-digit non-letter characters
-    unmatched = list(filter(lambda x: type(x) == str and not re.match('^[^a-zA-Z\d]+$', x), result))
+    unmatched = list(filter(lambda x: type(x) == str and not re.match(r'^[^a-zA-Z\d]+$', x), result))
 
     if len(unmatched):
         return 'pattern_error', ''
@@ -110,7 +110,7 @@ def check_func(row, genome, allowed_mod_dict):
         # Get all letters in the sequence_position
         # We use ([A-Za-z])(?=\d) instead of [A-Za-z] so that CTD abbreviations such as CTD_S2
         # are also supported
-        residues = set(x for x in re.findall('([A-Za-z])(?=\d)', row['sequence_position']))
+        residues = set(x for x in re.findall(r'([A-Za-z])(?=\d)', row['sequence_position']))
         if any(residue not in allowed_mod_dict[row['modification']] for residue in residues):
             return 'residue_not_allowed', change_sequence_position_to
 
