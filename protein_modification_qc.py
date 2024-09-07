@@ -58,7 +58,7 @@ def check_func(row, genome, allowed_mod_dict):
     dummy_rule = SyntaxRule(
         type='dummy',
         rule_name='dummy',
-        regex=r'(?<!{aa})({aa})(\d+){aa}?',
+        regex=fr'(?<!{aa})({aa})(\d+){aa}?',
         apply_syntax=lambda x: f'{x[0]}{x[1]}',
     )
     # Special abbreviations for CTD modifications
