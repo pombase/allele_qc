@@ -3,6 +3,7 @@ SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	
 SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
 SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	K9	K10	histone_fix	
 SPBC1105.12	hhf3	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
+SPBC336.10c	tif512	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S87		PMID:30726745	4896	2019-02-05	S87	S75	old_coords_fix, revision 8404: complement(2758761..2759270)	
 SPBC8D2.03c	hhf2	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
 SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
 SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	K9	K10	histone_fix	
