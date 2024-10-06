@@ -1,142 +1,142 @@
 systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	error
-SPAC1002.09c	dld1	MOD:00689	sequence similarity evidence used in manual assertion	C84,89		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC11E3.13c	gas5	MOD:00689	sequence similarity evidence used in manual assertion	C214,353		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC11E3.13c	gas5	MOD:00689	sequence similarity evidence used in manual assertion	C232,264		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC11E3.13c	gas5	MOD:00689	sequence similarity evidence used in manual assertion	C70,99		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC15E1.09	grx2	MOD:00689	sequence similarity evidence used in manual assertion	C26,29		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC1783.07c	pap1	MOD:00689	experimental evidence used in manual assertion	C278,501		PMID:15165244	4896	2024-10-01	pattern_error
-SPAC1783.07c	pap1	MOD:00689	sequence similarity evidence used in manual assertion	C285,532		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC17A5.04c	mde10	MOD:00689	sequence similarity evidence used in manual assertion	C246,254		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC17A5.04c	mde10	MOD:00689	sequence similarity evidence used in manual assertion	C374,394		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC17C9.09c	tim13	MOD:00689	sequence similarity evidence used in manual assertion	C45,68		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC17C9.09c	tim13	MOD:00689	sequence similarity evidence used in manual assertion	C49,64		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC17H9.14c	pdi2	MOD:00689	match to sequence model evidence used in manual assertion	C170,173		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC17H9.14c	pdi2	MOD:00689	match to sequence model evidence used in manual assertion	C51,54		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C212,345		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C230,261		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C367,419		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C376,439		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C395,400		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C70,99		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C627,880		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C776,789		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C799,822		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C806,815		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C844,851		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC1F5.02	pdi1	MOD:00689	match to sequence model evidence used in manual assertion	C385,388		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC1F5.02	pdi1	MOD:00689	match to sequence model evidence used in manual assertion	C51,54		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC1F7.05	cdc22	MOD:00689	sequence similarity evidence used in manual assertion	C218,444		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC222.03c	tim10	MOD:00689	sequence similarity evidence used in manual assertion	C39,64		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC222.03c	tim10	MOD:00689	sequence similarity evidence used in manual assertion	C43,60		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC227.18	lys3	MOD:00689	sequence similarity evidence used in manual assertion	C205,249		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC22E12.09c	krp1	MOD:00689	sequence similarity evidence used in manual assertion	C216,363		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC22E12.09c	krp1	MOD:00689	sequence similarity evidence used in manual assertion	C308,338		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC23D3.14c	aah2	MOD:00689	sequence similarity evidence used in manual assertion	C176,191		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC23D3.14c	aah2	MOD:00689	sequence similarity evidence used in manual assertion	C267,311		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC23D3.14c	aah2	MOD:00689	sequence similarity evidence used in manual assertion	C56,64		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC23H4.04	slm3	MOD:00689	sequence similarity evidence used in manual assertion	C129,234		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC24C9.13c	mrp10	MOD:00689	match to sequence model evidence used in manual assertion	C30,63		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC24C9.13c	mrp10	MOD:00689	match to sequence model evidence used in manual assertion	C40,53		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C171,184		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C260,304		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C454,488		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C52,60		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC2E1P3.04	cao1	MOD:00689	sequence similarity evidence used in manual assertion	C340,366		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C33,50		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C44,60		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C76,93		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C87,103		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC2E1P5.01c	mns1	MOD:00689	sequence similarity evidence used in manual assertion	C330,373		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC3A12.16c	tim17	MOD:00689	sequence similarity evidence used in manual assertion	C11,78		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC3C7.11c	cnx1	MOD:00689	sequence similarity evidence used in manual assertion	C132,163		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC3C7.11c	cnx1	MOD:00689	sequence similarity evidence used in manual assertion	C326,332		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC3G6.08	erv1	MOD:00689	match to sequence model evidence used in manual assertion	C122,125		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC3G6.08	erv1	MOD:00689	match to sequence model evidence used in manual assertion	C153,170		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC4F10.20	grx1	MOD:00689	sequence similarity evidence used in manual assertion	C25,28		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC4F10.22	cmc4	MOD:00689	match to sequence model evidence used in manual assertion	C14,25		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC4F10.22	cmc4	MOD:00689	match to sequence model evidence used in manual assertion	C4,35		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC57A10.11c	mia40	MOD:00689	sequence similarity evidence used in manual assertion	C199,201		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC57A10.11c	mia40	MOD:00689	match to sequence model evidence used in manual assertion	C210,243		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC57A10.11c	mia40	MOD:00689	match to sequence model evidence used in manual assertion	C220,233		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC7D4.07c	trx1	MOD:00689	match to sequence model evidence used in manual assertion	C30,33		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC821.10c	sod1	MOD:00689	sequence similarity evidence used in manual assertion	C58,147		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC869.07c	mel1	MOD:00689	sequence similarity evidence used in manual assertion	C126,156		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC869.07c	mel1	MOD:00689	sequence similarity evidence used in manual assertion	C45,77		PMID:36408920	4896	2024-10-01	pattern_error
-SPAC959.05c	pdi4	MOD:00689	match to sequence model evidence used in manual assertion	C209,212		PMID:36408920	4896	2024-10-01	pattern_error
-SPAP14E8.04	oma1	MOD:00689	sequence similarity evidence used in manual assertion	C265,321		PMID:36408920	4896	2024-10-01	pattern_error
-SPAPB17E12.11	ost3	MOD:00689	sequence similarity evidence used in manual assertion	C65,68		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC1105.05	exg1	MOD:00689	sequence similarity evidence used in manual assertion	C295,406		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC119.18	mdm35	MOD:00689	match to sequence model evidence used in manual assertion	C19,38		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC119.18	mdm35	MOD:00689	match to sequence model evidence used in manual assertion	C9,48		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC11B10.07c	ivn1	MOD:00689	sequence similarity evidence used in manual assertion	C166,181		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC11B10.07c	ivn1	MOD:00689	sequence similarity evidence used in manual assertion	C75,111		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC12D12.07c	trx2	MOD:00689	match to sequence model evidence used in manual assertion	C59,62		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC146.04	erv2	MOD:00689	match to sequence model evidence used in manual assertion	C138,155		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C229,314		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C495,539		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C52,60		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C690,724		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16A3.16	coa5	MOD:00689	match to sequence model evidence used in manual assertion	C21,53		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16A3.16	coa5	MOD:00689	match to sequence model evidence used in manual assertion	C32,43		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16C6.08c	qcr6	MOD:00689	sequence similarity evidence used in manual assertion	C157,204		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16C6.08c	qcr6	MOD:00689	sequence similarity evidence used in manual assertion	C173,190		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC16H5.06	rip1	MOD:00689	match to sequence model evidence used in manual assertion	C177,193		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC1718.06	msp1	MOD:00689	sequence similarity evidence used in manual assertion	C802,811		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC1773.02c	bcp1	MOD:00689	sequence similarity evidence used in manual assertion	C89,94		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC1773.11c	mug89	MOD:00689	sequence similarity evidence used in manual assertion	C188,203		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC1773.11c	mug89	MOD:00689	sequence similarity evidence used in manual assertion	C81,134		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC17A3.07	pgr1	MOD:00689	sequence similarity evidence used in manual assertion	C46,51		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC1A4.08c	cct3	MOD:00689	sequence similarity evidence used in manual assertion	C364,370		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC21D10.07	cmc1	MOD:00689	match to sequence model evidence used in manual assertion	C13,44		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC21D10.07	cmc1	MOD:00689	match to sequence model evidence used in manual assertion	C23,34		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC24C6.13	coa6	MOD:00689	match to sequence model evidence used in manual assertion	C15,56		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC24C6.13	coa6	MOD:00689	match to sequence model evidence used in manual assertion	C25,45		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC25H2.04c	tim22	MOD:00689	sequence similarity evidence used in manual assertion	C46,119		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC26H8.14c	cox17	MOD:00689	match to sequence model evidence used in manual assertion	C31,62		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC26H8.14c	cox17	MOD:00689	match to sequence model evidence used in manual assertion	C41,52		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C211,350		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C235,266		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C374,427		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C383,449		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C402,409		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C69,98		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC32F12.03c	gpx1	MOD:00689	sequence similarity evidence used in manual assertion	C36,82		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC337.07c	ecm14	MOD:00689	sequence similarity evidence used in manual assertion	C317,337		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC342.03	gas4	MOD:00689	sequence similarity evidence used in manual assertion	C211,350		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC342.03	gas4	MOD:00689	sequence similarity evidence used in manual assertion	C229,260		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC342.03	gas4	MOD:00689	sequence similarity evidence used in manual assertion	C68,97		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC3F6.03	trr1	MOD:00689	sequence similarity evidence used in manual assertion	C142,145		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C114,296		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C358,361		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C68,355		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C78,83		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC530.09c	mrl1	MOD:00689	match to sequence model evidence used in manual assertion	C147,183		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC530.09c	mrl1	MOD:00689	match to sequence model evidence used in manual assertion	C163,195		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC530.09c	mrl1	MOD:00689	match to sequence model evidence used in manual assertion	C44,87		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC530.12c	pdf1	MOD:00689	sequence similarity evidence used in manual assertion	C106,138		PMID:36408920	4896	2024-10-01	pattern_error
-SPBC577.08c	txl1	MOD:00689	match to sequence model evidence used in manual assertion	C31,34		PMID:36408920	4896	2024-10-01	pattern_error
-SPBP4H10.19c		MOD:00689	sequence similarity evidence used in manual assertion	C118,149		PMID:36408920	4896	2024-10-01	pattern_error
-SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1442.08c	cox12	MOD:00689	match to sequence model evidence used in manual assertion	C33,65		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1442.08c	cox12	MOD:00689	match to sequence model evidence used in manual assertion	C43,54		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C154,325		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C389,392		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C88,386		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C98,103		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1672.04c	cox19	MOD:00689	match to sequence model evidence used in manual assertion	C31,62		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC1672.04c	cox19	MOD:00689	match to sequence model evidence used in manual assertion	C41,52		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC24B10.05	tim9	MOD:00689	sequence similarity evidence used in manual assertion	C35,59		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC24B10.05	tim9	MOD:00689	sequence similarity evidence used in manual assertion	C39,55		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC4B3.20	cmc2	MOD:00689	match to sequence model evidence used in manual assertion	C24,56		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC4B3.20	cmc2	MOD:00689	match to sequence model evidence used in manual assertion	C34,46		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC550.01c	coa4	MOD:00689	match to sequence model evidence used in manual assertion	C27,57		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC550.01c	coa4	MOD:00689	match to sequence model evidence used in manual assertion	C37,47		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC63.02c	aah3	MOD:00689	sequence similarity evidence used in manual assertion	C172,188		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC63.02c	aah3	MOD:00689	sequence similarity evidence used in manual assertion	C263,306		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC63.02c	aah3	MOD:00689	sequence similarity evidence used in manual assertion	C51,59		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC757.12	aah1	MOD:00689	sequence similarity evidence used in manual assertion	C172,187		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC757.12	aah1	MOD:00689	sequence similarity evidence used in manual assertion	C263,306		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC757.12	aah1	MOD:00689	sequence similarity evidence used in manual assertion	C51,59		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC825.02	gbs1	MOD:00689	match to sequence model evidence used in manual assertion	C431,460		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC825.02	gbs1	MOD:00689	match to sequence model evidence used in manual assertion	C445,472		PMID:36408920	4896	2024-10-01	pattern_error
-SPCC825.02	gbs1	MOD:00689	sequence similarity evidence used in manual assertion	C86,108		PMID:36408920	4896	2024-10-01	pattern_error
+SPAC1002.09c	dld1	MOD:00689	sequence similarity evidence used in manual assertion	C84,89		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC11E3.13c	gas5	MOD:00689	sequence similarity evidence used in manual assertion	C214,353		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC11E3.13c	gas5	MOD:00689	sequence similarity evidence used in manual assertion	C232,264		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC11E3.13c	gas5	MOD:00689	sequence similarity evidence used in manual assertion	C70,99		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC15E1.09	grx2	MOD:00689	sequence similarity evidence used in manual assertion	C26,29		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC1783.07c	pap1	MOD:00689	experimental evidence used in manual assertion	C278,501		PMID:15165244	4896	2024-10-04	pattern_error
+SPAC1783.07c	pap1	MOD:00689	sequence similarity evidence used in manual assertion	C285,532		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC17A5.04c	mde10	MOD:00689	sequence similarity evidence used in manual assertion	C246,254		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC17A5.04c	mde10	MOD:00689	sequence similarity evidence used in manual assertion	C374,394		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC17C9.09c	tim13	MOD:00689	sequence similarity evidence used in manual assertion	C45,68		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC17C9.09c	tim13	MOD:00689	sequence similarity evidence used in manual assertion	C49,64		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC17H9.14c	pdi2	MOD:00689	match to sequence model evidence used in manual assertion	C170,173		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC17H9.14c	pdi2	MOD:00689	match to sequence model evidence used in manual assertion	C51,54		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C212,345		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C230,261		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C367,419		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C376,439		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C395,400		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19B12.02c	gas1	MOD:00689	sequence similarity evidence used in manual assertion	C70,99		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C627,880		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C776,789		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C799,822		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C806,815		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC19G12.10c	cpy1	MOD:00689	sequence similarity evidence used in manual assertion	C844,851		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC1F5.02	pdi1	MOD:00689	match to sequence model evidence used in manual assertion	C385,388		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC1F5.02	pdi1	MOD:00689	match to sequence model evidence used in manual assertion	C51,54		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC1F7.05	cdc22	MOD:00689	sequence similarity evidence used in manual assertion	C218,444		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC222.03c	tim10	MOD:00689	sequence similarity evidence used in manual assertion	C39,64		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC222.03c	tim10	MOD:00689	sequence similarity evidence used in manual assertion	C43,60		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC227.18	lys3	MOD:00689	sequence similarity evidence used in manual assertion	C205,249		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC22E12.09c	krp1	MOD:00689	sequence similarity evidence used in manual assertion	C216,363		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC22E12.09c	krp1	MOD:00689	sequence similarity evidence used in manual assertion	C308,338		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC23D3.14c	aah2	MOD:00689	sequence similarity evidence used in manual assertion	C176,191		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC23D3.14c	aah2	MOD:00689	sequence similarity evidence used in manual assertion	C267,311		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC23D3.14c	aah2	MOD:00689	sequence similarity evidence used in manual assertion	C56,64		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC23H4.04	slm3	MOD:00689	sequence similarity evidence used in manual assertion	C129,234		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC24C9.13c	mrp10	MOD:00689	match to sequence model evidence used in manual assertion	C30,63		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC24C9.13c	mrp10	MOD:00689	match to sequence model evidence used in manual assertion	C40,53		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C171,184		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C260,304		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C454,488		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC25H1.09	mde5	MOD:00689	sequence similarity evidence used in manual assertion	C52,60		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC2E1P3.04	cao1	MOD:00689	sequence similarity evidence used in manual assertion	C340,366		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C33,50		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C44,60		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C76,93		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC2E1P3.05c	cbm1	MOD:00689	sequence similarity evidence used in manual assertion	C87,103		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC2E1P5.01c	mns1	MOD:00689	sequence similarity evidence used in manual assertion	C330,373		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC3A12.16c	tim17	MOD:00689	sequence similarity evidence used in manual assertion	C11,78		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC3C7.11c	cnx1	MOD:00689	sequence similarity evidence used in manual assertion	C132,163		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC3C7.11c	cnx1	MOD:00689	sequence similarity evidence used in manual assertion	C326,332		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC3G6.08	erv1	MOD:00689	match to sequence model evidence used in manual assertion	C122,125		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC3G6.08	erv1	MOD:00689	match to sequence model evidence used in manual assertion	C153,170		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC4F10.20	grx1	MOD:00689	sequence similarity evidence used in manual assertion	C25,28		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC4F10.22	cmc4	MOD:00689	match to sequence model evidence used in manual assertion	C14,25		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC4F10.22	cmc4	MOD:00689	match to sequence model evidence used in manual assertion	C4,35		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC57A10.11c	mia40	MOD:00689	sequence similarity evidence used in manual assertion	C199,201		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC57A10.11c	mia40	MOD:00689	match to sequence model evidence used in manual assertion	C210,243		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC57A10.11c	mia40	MOD:00689	match to sequence model evidence used in manual assertion	C220,233		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC7D4.07c	trx1	MOD:00689	match to sequence model evidence used in manual assertion	C30,33		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC821.10c	sod1	MOD:00689	sequence similarity evidence used in manual assertion	C58,147		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC869.07c	mel1	MOD:00689	sequence similarity evidence used in manual assertion	C126,156		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC869.07c	mel1	MOD:00689	sequence similarity evidence used in manual assertion	C45,77		PMID:36408920	4896	2024-10-04	pattern_error
+SPAC959.05c	pdi4	MOD:00689	match to sequence model evidence used in manual assertion	C209,212		PMID:36408920	4896	2024-10-04	pattern_error
+SPAP14E8.04	oma1	MOD:00689	sequence similarity evidence used in manual assertion	C265,321		PMID:36408920	4896	2024-10-04	pattern_error
+SPAPB17E12.11	ost3	MOD:00689	sequence similarity evidence used in manual assertion	C65,68		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC1105.05	exg1	MOD:00689	sequence similarity evidence used in manual assertion	C295,406		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC119.18	mdm35	MOD:00689	match to sequence model evidence used in manual assertion	C19,38		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC119.18	mdm35	MOD:00689	match to sequence model evidence used in manual assertion	C9,48		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC11B10.07c	ivn1	MOD:00689	sequence similarity evidence used in manual assertion	C166,181		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC11B10.07c	ivn1	MOD:00689	sequence similarity evidence used in manual assertion	C75,111		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC12D12.07c	trx2	MOD:00689	match to sequence model evidence used in manual assertion	C59,62		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC146.04	erv2	MOD:00689	match to sequence model evidence used in manual assertion	C138,155		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C229,314		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C495,539		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C52,60		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16A3.13	meu7	MOD:00689	sequence similarity evidence used in manual assertion	C690,724		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16A3.16	coa5	MOD:00689	match to sequence model evidence used in manual assertion	C21,53		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16A3.16	coa5	MOD:00689	match to sequence model evidence used in manual assertion	C32,43		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16C6.08c	qcr6	MOD:00689	sequence similarity evidence used in manual assertion	C157,204		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16C6.08c	qcr6	MOD:00689	sequence similarity evidence used in manual assertion	C173,190		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC16H5.06	rip1	MOD:00689	match to sequence model evidence used in manual assertion	C177,193		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC1718.06	msp1	MOD:00689	sequence similarity evidence used in manual assertion	C802,811		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC1773.02c	bcp1	MOD:00689	sequence similarity evidence used in manual assertion	C89,94		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC1773.11c	mug89	MOD:00689	sequence similarity evidence used in manual assertion	C188,203		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC1773.11c	mug89	MOD:00689	sequence similarity evidence used in manual assertion	C81,134		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC17A3.07	pgr1	MOD:00689	sequence similarity evidence used in manual assertion	C46,51		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC1A4.08c	cct3	MOD:00689	sequence similarity evidence used in manual assertion	C364,370		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC21D10.07	cmc1	MOD:00689	match to sequence model evidence used in manual assertion	C13,44		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC21D10.07	cmc1	MOD:00689	match to sequence model evidence used in manual assertion	C23,34		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC24C6.13	coa6	MOD:00689	match to sequence model evidence used in manual assertion	C15,56		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC24C6.13	coa6	MOD:00689	match to sequence model evidence used in manual assertion	C25,45		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC25H2.04c	tim22	MOD:00689	sequence similarity evidence used in manual assertion	C46,119		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC26H8.14c	cox17	MOD:00689	match to sequence model evidence used in manual assertion	C31,62		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC26H8.14c	cox17	MOD:00689	match to sequence model evidence used in manual assertion	C41,52		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C211,350		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C235,266		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C374,427		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C383,449		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C402,409		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC29A10.08	gas2	MOD:00689	sequence similarity evidence used in manual assertion	C69,98		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC32F12.03c	gpx1	MOD:00689	sequence similarity evidence used in manual assertion	C36,82		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC337.07c	ecm14	MOD:00689	sequence similarity evidence used in manual assertion	C317,337		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC342.03	gas4	MOD:00689	sequence similarity evidence used in manual assertion	C211,350		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC342.03	gas4	MOD:00689	sequence similarity evidence used in manual assertion	C229,260		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC342.03	gas4	MOD:00689	sequence similarity evidence used in manual assertion	C68,97		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC3F6.03	trr1	MOD:00689	sequence similarity evidence used in manual assertion	C142,145		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C114,296		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C358,361		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C68,355		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC4F6.16c	ero11	MOD:00689	sequence similarity evidence used in manual assertion	C78,83		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC530.09c	mrl1	MOD:00689	match to sequence model evidence used in manual assertion	C147,183		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC530.09c	mrl1	MOD:00689	match to sequence model evidence used in manual assertion	C163,195		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC530.09c	mrl1	MOD:00689	match to sequence model evidence used in manual assertion	C44,87		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC530.12c	pdf1	MOD:00689	sequence similarity evidence used in manual assertion	C106,138		PMID:36408920	4896	2024-10-04	pattern_error
+SPBC577.08c	txl1	MOD:00689	match to sequence model evidence used in manual assertion	C31,34		PMID:36408920	4896	2024-10-04	pattern_error
+SPBP4H10.19c		MOD:00689	sequence similarity evidence used in manual assertion	C118,149		PMID:36408920	4896	2024-10-04	pattern_error
+SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1442.08c	cox12	MOD:00689	match to sequence model evidence used in manual assertion	C33,65		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1442.08c	cox12	MOD:00689	match to sequence model evidence used in manual assertion	C43,54		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C154,325		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C389,392		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C88,386		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1450.14c	ero12	MOD:00689	sequence similarity evidence used in manual assertion	C98,103		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1672.04c	cox19	MOD:00689	match to sequence model evidence used in manual assertion	C31,62		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC1672.04c	cox19	MOD:00689	match to sequence model evidence used in manual assertion	C41,52		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC24B10.05	tim9	MOD:00689	sequence similarity evidence used in manual assertion	C35,59		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC24B10.05	tim9	MOD:00689	sequence similarity evidence used in manual assertion	C39,55		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC4B3.20	cmc2	MOD:00689	match to sequence model evidence used in manual assertion	C24,56		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC4B3.20	cmc2	MOD:00689	match to sequence model evidence used in manual assertion	C34,46		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC550.01c	coa4	MOD:00689	match to sequence model evidence used in manual assertion	C27,57		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC550.01c	coa4	MOD:00689	match to sequence model evidence used in manual assertion	C37,47		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC63.02c	aah3	MOD:00689	sequence similarity evidence used in manual assertion	C172,188		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC63.02c	aah3	MOD:00689	sequence similarity evidence used in manual assertion	C263,306		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC63.02c	aah3	MOD:00689	sequence similarity evidence used in manual assertion	C51,59		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC757.12	aah1	MOD:00689	sequence similarity evidence used in manual assertion	C172,187		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC757.12	aah1	MOD:00689	sequence similarity evidence used in manual assertion	C263,306		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC757.12	aah1	MOD:00689	sequence similarity evidence used in manual assertion	C51,59		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC825.02	gbs1	MOD:00689	match to sequence model evidence used in manual assertion	C431,460		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC825.02	gbs1	MOD:00689	match to sequence model evidence used in manual assertion	C445,472		PMID:36408920	4896	2024-10-04	pattern_error
+SPCC825.02	gbs1	MOD:00689	sequence similarity evidence used in manual assertion	C86,108		PMID:36408920	4896	2024-10-04	pattern_error
