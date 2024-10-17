@@ -1,10 +1,10 @@
-systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	sequence_error	change_sequence_position_to	auto_fix_comment	solution_index
-SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S12	?	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
-SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
-SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	K9	K10	histone_fix	
-SPBC1105.12	hhf3	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
-SPBC336.10c	tif512	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S87		PMID:30726745	4896	2019-02-05	S87	S75	old_coords_fix, revision 8404: complement(2758761..2759270)	
-SPBC8D2.03c	hhf2	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	K20	K21	histone_fix	
-SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	K4	K5	histone_fix	
-SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	K9	K10	histone_fix	
-SPCC622.09	htb1	MOD:01148	Inferred from Direct Assay	K119		PMID:17374714	4896	2007-07-16	K119	K120	histone_fix	
+systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	assigned_by	sequence_error	change_sequence_position_to	auto_fix_comment	solution_index
+SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	PomBase	S12	?	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
+SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	PomBase	K4	K5	histone_fix	
+SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	PomBase	K9	K10	histone_fix	
+SPBC1105.12	hhf3	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	PomBase	K20	K21	histone_fix	
+SPBC336.10c	tif512	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S87		PMID:30726745	4896	2019-02-05	PomBase	S87	S75	old_coords_fix, revision 8404: complement(2758761..2759270)	
+SPBC8D2.03c	hhf2	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	PomBase	K20	K21	histone_fix	
+SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	PomBase	K4	K5	histone_fix	
+SPBC8D2.04	hht2	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	PomBase	K9	K10	histone_fix	
+SPCC622.09	htb1	MOD:01148	Inferred from Direct Assay	K119		PMID:17374714	4896	2007-07-16	PomBase	K119	K120	histone_fix	
