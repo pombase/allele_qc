@@ -125,7 +125,7 @@ if __name__ == "__main__":
     with open('data/allowed_mod_dict.json', 'r') as ins:
         allowed_mod_dict = json.load(ins)
 
-    data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'taxon', 'date']
+    data.columns = ['systematic_id', 'primary_name', 'modification', 'evidence', 'sequence_position', 'annotation_extension', 'reference', 'taxon', 'date', 'assigned_by']
     data = data[data['sequence_position'] != '']
 
     extra_cols = data.apply(check_func, axis=1, result_type='expand', args=[genome, allowed_mod_dict])
