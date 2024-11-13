@@ -1,2 +1,14 @@
 systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	assigned_by	error
-SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2024-11-05	UniProt	pattern_error
+SPAC1F3.06c	spo15	MOD:00046	high throughput evidence used in manual assertion	T102	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPAC22E12.05c	rer1	MOD:00046	high throughput evidence used in manual assertion	T100	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPAC25G10.07c	cut7	MOD:00046	high throughput evidence used in manual assertion	T1011	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPAC513.05	ams1	MOD:00046	high throughput evidence used in manual assertion	T10	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPAPYUK71.03c	tcb3	MOD:00046	high throughput evidence used in manual assertion	T100	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPBC146.13c	myo1	MOD:00046	high throughput evidence used in manual assertion	T1037	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPBC24C6.06	gpa1	MOD:00046	high throughput evidence used in manual assertion	T11	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPBC31E1.01c	atg2	MOD:00046	high throughput evidence used in manual assertion	T1030	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPBC3E7.01	fab1	MOD:00046	high throughput evidence used in manual assertion	S868,870	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	pattern_error
+SPBC582.03	cdc13	MOD:00046	high throughput evidence used in manual assertion	T105	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPBP4H10.07		MOD:00046	high throughput evidence used in manual assertion	T108,T119	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
+SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2024-11-12	UniProt	pattern_error
+SPCC16C4.07	scw1	MOD:00046	high throughput evidence used in manual assertion	S298,S325,370	decreased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	pattern_error
