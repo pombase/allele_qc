@@ -11,5 +11,5 @@ SPBC3E7.01	fab1	MOD:00046	high throughput evidence used in manual assertion	870	
 SPBC582.03	cdc13	MOD:00046	high throughput evidence used in manual assertion	T105	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
 SPBP4H10.07		MOD:00046	high throughput evidence used in manual assertion	T108	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
 SPBP4H10.07		MOD:00046	high throughput evidence used in manual assertion	T119	increased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	residue_not_allowed
-SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2024-12-24	UniProt	pattern_error
+SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2024-12-28	UniProt	pattern_error
 SPCC16C4.07	scw1	MOD:00046	high throughput evidence used in manual assertion	370	decreased_during(GO:0007127)	PMID:39367033	4896	2024-11-07	PomBase	pattern_error
