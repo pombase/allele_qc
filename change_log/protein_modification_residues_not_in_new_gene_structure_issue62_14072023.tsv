@@ -1,3 +1,4 @@
+systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	sequence_error	change_sequence_position_to	auto_fix_comment
 SPAC3H1.05	ste24	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S12		PMID:30726745	4896	2019-02-05	S12	?	old_coords_fix, revision 8148: join(1938900..1939004,1939075..1940394)	
 SPAC57A7.12	ssz1	MOD:00046	experimental evidence	S12	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	S12	?	old_coords_fix, revision 8148: complement(join(1515089..1516663,1516789..1516914))	
 SPBC2F12.10	mrpl35	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T13		PMID:33823663	4896	2022-03-08	T13	?	old_coords_fix, revision 20110324: complement(1719551..1720663)	
