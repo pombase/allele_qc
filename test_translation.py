@@ -20,7 +20,7 @@ class TranslationTest(unittest.TestCase):
 
     def test_translations(self):
         # Get peptide data from pombase
-        response = requests.get('https://www.pombase.org/releases/latest/fasta/feature_sequences/peptide.fa.gz')
+        response = requests.get('https://www.pombase.org/nightly_update/fasta/feature_sequences/peptide.fa.gz')
         data = gzip.decompress(response.content).decode()
         for seq in SeqIO.parse(io.StringIO(data), 'fasta'):
             seq: SeqRecord
