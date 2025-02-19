@@ -1,4 +1,6 @@
 revision	user	date	chromosome	systematic_id	primary_name	feature_type	added_or_removed	value
+10513	vw253	2025-02-12	I	SPAC144.11	rps1102	CDS	added	4674612..4675070
+10513	vw253	2025-02-12	I	SPAC144.11	rps1102	CDS	removed	complement(4674612..4675070)
 10412	vw253	2025-01-17	I	SPAC144.11	rps1102	CDS	added	complement(4674612..4675070)
 10412	vw253	2025-01-17	I	SPAC144.11	rps1102	CDS	removed	4674612..4675070
 9820	vw253	2024-06-26	I	SPSNORNA.18	snoU24	snoRNA	added	complement(5369613..5369691)

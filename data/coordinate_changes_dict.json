@@ -244,11 +244,11 @@
     ],
     "SPAC144.11": [
         {
-            "revision": "10412",
-            "new_coord": "complement(4674612..4675070)",
-            "old_coord": "4674612..4675070",
-            "new_alignment": "LEFTKLFGTLGVLNDTENVKTNGLAQRTALTNSDNITLVDTESRRDMGSQVLVTLLITIVLGNKVQILTTDDDGTVHLGRNNSTSQNTTTDGYLTNKRALLVNILTVDSFGRGLESQTDILVPTTSSALLGVLEDVGLLLEGTLTLNDKLGSH---------------------------------------------------------------------------------------------------------------------------------------------------------",
-            "old_alignment": "---------------------------------------------------------------------------------------------------------------------------------------------------------MATELVVQSERAFQKQPHIFQNAKKGAGRRWYKDVGLGFKTPAEAIYGEYVDKKCPFVGQVSIRGRILTGTVVSTKMHRTIIIRREYLHFIPKYNRYEKRHKNLAAHVSPAFRINEGDVVTVGQCRPLSKTVRFNVLRVVKHTEGPKQFGKF*"
+            "revision": "10513",
+            "new_coord": "4674612..4675070",
+            "old_coord": "complement(4674612..4675070)",
+            "new_alignment": "MATELVVQSERAFQKQPHIFQNAKKGAGRRWYKDVGLGFKTPAEAIYGEYVDKKCPFVGQVSIRGRILTGTVVSTKMHRTIIIRREYLHFIPKYNRYEKRHKNLAAHVSPAFRINEGDVVTVGQCRPLSKTVRFNVLRVVKHTEGPKQFGKF*---------------------------------------------------------------------------------------------------------------------------------------------------------",
+            "old_alignment": "---------------------------------------------------------------------------------------------------------------------------------------------------------LEFTKLFGTLGVLNDTENVKTNGLAQRTALTNSDNITLVDTESRRDMGSQVLVTLLITIVLGNKVQILTTDDDGTVHLGRNNSTSQNTTTDGYLTNKRALLVNILTVDSFGRGLESQTDILVPTTSSALLGVLEDVGLLLEGTLTLNDKLGSH"
         }
     ],
     "SPAC144.17c": [
