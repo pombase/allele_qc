@@ -1,15 +1,22 @@
 systematic_id	primary_name	modification	evidence	sequence_position	annotation_extension	reference	taxon	date	assigned_by	error
+SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S190		PMID:30726745	4896	2019-02-05	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S256	present_during(GO:0072713)	PMID:18257517	4896	2014-04-30	PomBase	not_protein_gene
+SPBC887.14c	pfh1	MOD:00046	experimental evidence	S256	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S256		PMID:25720772	4896	2016-06-27	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S256		PMID:33823663	4896	2022-03-08	PomBase	not_protein_gene
+SPBC887.14c	pfh1	MOD:00046	experimental evidence	S259	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S259		PMID:25720772	4896	2016-06-27	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S259		PMID:33823663	4896	2022-03-08	PomBase	not_protein_gene
+SPBC887.14c	pfh1	MOD:00046	experimental evidence	S288	present_during(GO:0000087)	PMID:21712547	4896	2011-06-28	PomBase	not_protein_gene
+SPBC887.14c	pfh1	MOD:00046	experimental evidence	S288		PMID:24763107	4896	2014-04-23	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S288	present_during(GO:0000087)	PMID:29996109	4896	2018-07-10	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S764	present_during(GO:0072713)	PMID:18257517	4896	2014-04-30	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S764		PMID:25720772	4896	2016-06-27	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S764		PMID:29996109	4896	2018-07-10	PomBase	not_protein_gene
+SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S764		PMID:30726745	4896	2019-02-05	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S80		PMID:25720772	4896	2016-06-27	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S80		PMID:29996109	4896	2018-07-10	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S81		PMID:25720772	4896	2016-06-27	PomBase	not_protein_gene
 SPBC887.14c	pfh1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S81		PMID:29996109	4896	2018-07-10	PomBase	not_protein_gene
-SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2025-04-29	UniProt	pattern_error
+SPBC887.14c	pfh1	MOD:00048	tryptic phosphopeptide mapping assay evidence used in automatic assertion	Y222		PMID:30726745	4896	2019-02-05	PomBase	not_protein_gene
+SPBPJ4664.02		MOD:00818	match to sequence model evidence used in manual assertion	?3944		PMID:36408920	4896	2025-05-03	UniProt	pattern_error
