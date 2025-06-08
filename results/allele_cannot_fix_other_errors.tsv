@@ -1,142 +1,142 @@
 systematic_id	allele_id	allele_name	allele_description	error_type	error_info
 SPAC12G12.04	SPAC12G12.04:allele-2	mcp60-	disruption	pattern_error	disruption
-SPAC144.03	SPAC144.03:allele-6	ade2::URA3	disruption	pattern_error	disruption
-SPAC144.13c	SPAC144.13c:allele-11	srw1::ura4	disruption	pattern_error	disruption
+SPAC144.03	SPAC144.03:allele-7	ade2::URA3	disruption	pattern_error	disruption
+SPAC144.13c	SPAC144.13c:allele-4	srw1::ura4	disruption	pattern_error	disruption
 SPAC14C4.06c	SPAC14C4.06c:allele-2	nab2::kanMX6	disruption	pattern_error	disruption
-SPAC1610.03c	SPAC1610.03c:allele-6	crp79::ura4+(nt375-1953)	disruption	pattern_error	disruption
-SPAC1610.03c	SPAC1610.03c:allele-2	meu5-E33	T386G-primary_transcript	pattern_error	-primary_transcript
+SPAC1610.03c	SPAC1610.03c:allele-5	crp79::ura4+(nt375-1953)	disruption	pattern_error	disruption
+SPAC1610.03c	SPAC1610.03c:allele-15	meu5-E33	T386G-primary_transcript	pattern_error	-primary_transcript
 SPAC1834.08	SPAC1834.08:allele-3	mak1::ura4	disruption	pattern_error	disruption
-SPAC18G6.03	SPAC18G6.03:allele-6	ypt3delta::ura4+	disruption	pattern_error	disruption
-SPAC1952.07	SPAC1952.07:allele-6	rad1::ura4+	disruption	pattern_error	disruption
-SPAC1B2.05	SPAC1B2.05:allele-4	mcm5delta::his3+	disruption	pattern_error	disruption
+SPAC18G6.03	SPAC18G6.03:allele-5	ypt3delta::ura4+	disruption	pattern_error	disruption
+SPAC1952.07	SPAC1952.07:allele-15	rad1::ura4+	disruption	pattern_error	disruption
+SPAC1B2.05	SPAC1B2.05:allele-5	mcm5delta::his3+	disruption	pattern_error	disruption
 SPAC1D4.12	SPAC1D4.12:allele-6	rad15delta::LEU2	rad15delta::LEU2(nt483-1668)	pattern_error	rad15delta::LEU2(nt483-1668)
 SPAC1F3.02c	SPAC1F3.02c:allele-3	mkh1-frameshift	227-CTATGTTCAAG	pattern_error	-CTATGTTCAAG
-SPAC20G4.02c	SPAC20G4.02c:allele-18	fus1::ura4+	ura4+@AA270	pattern_error	ura4+@AA270
-SPAC23C4.12	SPAC23C4.12:allele-4	hhp2::m-TN3-LEU2	disruption	pattern_error	disruption
-SPAC24B11.06c	SPAC24B11.06c:allele-20	sty1::ura4	disruption	pattern_error	disruption
+SPAC20G4.02c	SPAC20G4.02c:allele-45	fus1::ura4+	ura4+@AA270	pattern_error	ura4+@AA270
+SPAC23C4.12	SPAC23C4.12:allele-11	hhp2::m-TN3-LEU2	disruption	pattern_error	disruption
+SPAC24B11.06c	SPAC24B11.06c:allele-16	sty1::ura4	disruption	pattern_error	disruption
 SPAC24C9.07c	SPAC24C9.07c:allele-2	bgs2::his3	disruption	pattern_error	disruption
-SPAC24H6.05	SPAC24H6.05:allele-12	cdc25-	disruption	pattern_error	disruption
-SPAC24H6.05	SPAC24H6.05:allele-7	cdc25::ura4	disruption	pattern_error	disruption
-SPAC25G10.04c	SPAC25G10.04c:allele-2	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
+SPAC24H6.05	SPAC24H6.05:allele-6	cdc25-	disruption	pattern_error	disruption
+SPAC24H6.05	SPAC24H6.05:allele-3	cdc25::ura4	disruption	pattern_error	disruption
+SPAC25G10.04c	SPAC25G10.04c:allele-4	rec10-155::LEU2	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus	pattern_error	deletes aa 691-791 and adds IVVIMGGMLE at C-terminus
 SPAC25G10.05c	SPAC25G10.05c:allele-3	his1::ura4	disruption	pattern_error	disruption
-SPAC27E2.09	SPAC27E2.09:allele-3	mak2::LEU2	disruption	pattern_error	disruption
-SPAC29B12.10c	SPAC29B12.10c:allele-2	pgt1::KanMX4	disruption	pattern_error	disruption
+SPAC27E2.09	SPAC27E2.09:allele-7	mak2::LEU2	disruption	pattern_error	disruption
+SPAC29B12.10c	SPAC29B12.10c:allele-3	pgt1::KanMX4	disruption	pattern_error	disruption
 SPAC2F3.03c	SPAC2F3.03c:allele-2	rpa51delta::ura4+	disruption	pattern_error	disruption
-SPAC2G11.12	SPAC2G11.12:allele-9	rad12-hd	helicase-domain::ura4	pattern_error	helicase-domain::ura4
-SPAC2G11.12	SPAC2G11.12:allele-11	rqh1::ura4	disruption	pattern_error	disruption
-SPAC31A2.15c	SPAC31A2.15c:allele-2	dcc1::ura4+(nt180)	disruption	pattern_error	disruption
+SPAC2G11.12	SPAC2G11.12:allele-5	rad12-hd	helicase-domain::ura4	pattern_error	helicase-domain::ura4
+SPAC2G11.12	SPAC2G11.12:allele-9	rqh1::ura4	disruption	pattern_error	disruption
+SPAC31A2.15c	SPAC31A2.15c:allele-3	dcc1::ura4+(nt180)	disruption	pattern_error	disruption
 SPAC343.13	SPAC343.13:allele-2	gta2-T-intron	212-T-primary_transcript	pattern_error	-T-primary_transcript
 SPAC3G6.06c	SPAC3G6.06c:allele-4	rad2::ura4+	disruption	pattern_error	disruption
 SPAC458.05	SPAC458.05:allele-3	pik3::ura4	disruption	pattern_error	disruption
-SPAC4A8.05c	SPAC4A8.05c:allele-14	myp2::his7	disruption	pattern_error	disruption
-SPAC4G9.04c	SPAC4G9.04c:allele-2	pcf11-degron	disruption	pattern_error	disruption
-SPAC57A10.02	SPAC57A10.02:allele-17	cdr2-D1	disruption	pattern_error	disruption
+SPAC4A8.05c	SPAC4A8.05c:allele-3	myp2::his7	disruption	pattern_error	disruption
+SPAC4G9.04c	SPAC4G9.04c:allele-3	pcf11-degron	disruption	pattern_error	disruption
+SPAC57A10.02	SPAC57A10.02:allele-29	cdr2-D1	disruption	pattern_error	disruption
 SPAC5D6.12	SPAC5D6.12:allele-2	mtf2::kanMX6	disruption	pattern_error	disruption
 SPAC5H10.13c	SPAC5H10.13c:allele-2	gmh2::ura4	disruption	pattern_error	disruption
-SPAC644.16	SPAC644.16:allele-3	rna15-degron	disruption	pattern_error	disruption
-SPAC664.01c	SPAC664.01c:allele-16	swi6::his1	disruption	pattern_error	disruption
+SPAC644.16	SPAC644.16:allele-2	rna15-degron	disruption	pattern_error	disruption
+SPAC664.01c	SPAC664.01c:allele-29	swi6::his1	disruption	pattern_error	disruption
 SPAC664.02c	SPAC664.02c:allele-2	arp8::ura4+	disruption	pattern_error	disruption
 SPAC6F12.03c	SPAC6F12.03c:allele-4	stx8(A+G)	152-224 substituted by a hinge of A+G	pattern_error	 substituted by a hinge of A+G
-SPAC6F12.17	SPAC6F12.17:allele-7	rna14::disruption	disruption	pattern_error	disruption
-SPAC6F6.17	SPAC6F6.17:allele-3	rif1::ura4+	ura4+ @ 5' HindIII site	pattern_error	ura4+ @ 5' HindIII site
-SPAC8C9.03	SPAC8C9.03:allele-7	cgs1::ura4	disruption	pattern_error	disruption
-SPAC8C9.14	SPAC8C9.14:allele-5	prr1::his7	disruption	pattern_error	disruption
-SPAC8C9.14	SPAC8C9.14:allele-3	prr1::ura4	disruption	pattern_error	disruption
-SPAC9G1.03c	SPAC9G1.03c:allele-3	rpl3001::kanMX6	disruption	pattern_error	disruption
-SPBC106.19	SPBC106.19:allele-2	ppr10::KanMX6	disruption	pattern_error	disruption
+SPAC6F12.17	SPAC6F12.17:allele-6	rna14::disruption	disruption	pattern_error	disruption
+SPAC6F6.17	SPAC6F6.17:allele-4	rif1::ura4+	ura4+ @ 5' HindIII site	pattern_error	ura4+ @ 5' HindIII site
+SPAC8C9.03	SPAC8C9.03:allele-4	cgs1::ura4	disruption	pattern_error	disruption
+SPAC8C9.14	SPAC8C9.14:allele-7	prr1::his7	disruption	pattern_error	disruption
+SPAC8C9.14	SPAC8C9.14:allele-5	prr1::ura4	disruption	pattern_error	disruption
+SPAC9G1.03c	SPAC9G1.03c:allele-2	rpl3001::kanMX6	disruption	pattern_error	disruption
+SPBC106.19	SPBC106.19:allele-3	ppr10::KanMX6	disruption	pattern_error	disruption
 SPBC1105.04c	SPBC1105.04c:allele-3	cbp1::ura4	disruption	pattern_error	disruption
 SPBC119.11c	SPBC119.11c:allele-3	pac1delta::ura4+	disruption	pattern_error	disruption
-SPBC11C11.02	SPBC11C11.02:allele-14	imp2::ura4	disruption	pattern_error	disruption
+SPBC11C11.02	SPBC11C11.02:allele-9	imp2::ura4	disruption	pattern_error	disruption
 SPBC11C11.08	SPBC11C11.08:allele-2	srp1::ura4	disruption	pattern_error	disruption
-SPBC12D12.04c	SPBC12D12.04c:allele-4	pck2::LEU2	disruption	pattern_error	disruption
+SPBC12D12.04c	SPBC12D12.04c:allele-3	pck2::LEU2	disruption	pattern_error	disruption
 SPBC13E7.08c	SPBC13E7.08c:allele-3	leo1::Hermes	disruption	pattern_error	disruption
-SPBC16A3.11	SPBC16A3.11:allele-5	eso1delta-rad30	disruption	pattern_error	disruption
-SPBC1703.10	SPBC1703.10:allele-3	ypt1delta::ura4+	disruption	pattern_error	disruption
-SPBC1703.14c	SPBC1703.14c:allele-4	top1::swi3	disruption	pattern_error	disruption
-SPBC1718.06	SPBC1718.06:allele-4	msp1deltaMIS	???	pattern_error	???
-SPBC1734.02c	SPBC1734.02c:allele-51	cdc27-R5	1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT	pattern_error	-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT
-SPBC1734.14c	SPBC1734.14c:allele-3	suc1::leu	disruption	pattern_error	disruption
-SPBC19C2.05	SPBC19C2.05:allele-6	ran1::LEU2	disruption	pattern_error	disruption
+SPBC16A3.11	SPBC16A3.11:allele-3	eso1delta-rad30	disruption	pattern_error	disruption
+SPBC1703.10	SPBC1703.10:allele-2	ypt1delta::ura4+	disruption	pattern_error	disruption
+SPBC1703.14c	SPBC1703.14c:allele-5	top1::swi3	disruption	pattern_error	disruption
+SPBC1718.06	SPBC1718.06:allele-8	msp1deltaMIS	???	pattern_error	???
+SPBC1734.02c	SPBC1734.02c:allele-40	cdc27-R5	1101-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT	pattern_error	-CATAAAGAAAAGGAGCCTCTCTTGCCAAAGGAGGAGAAGTTGTCTGAGCAAGCAAAGAGAGAGCGCGATGATCTGAAAAATATTATGCAGCTAGAAGATGAATCAGTATCTACCACTAGCGTTCACGATTCTGAAGATGATAATTTAGATTCTAATAATTTCCAATTGGAAAT
+SPBC1734.14c	SPBC1734.14c:allele-4	suc1::leu	disruption	pattern_error	disruption
+SPBC19C2.05	SPBC19C2.05:allele-5	ran1::LEU2	disruption	pattern_error	disruption
 SPBC19C7.09c	SPBC19C7.09c:allele-2	uvde::LEU2+	disruption	pattern_error	disruption
-SPBC19G7.01c	SPBC19G7.01c:allele-3	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
-SPBC211.04c	SPBC211.04c:allele-6	mcm6delta::his3+	disruption	pattern_error	disruption
-SPBC216.05	SPBC216.05:allele-31	rad3::ura4+	disruption	pattern_error	disruption
-SPBC216.06c	SPBC216.06c:allele-5	swi1-1	disruption	pattern_error	disruption
-SPBC21B10.05c	SPBC21B10.05c:allele-2	wat1::kanR	disruption	pattern_error	disruption
-SPBC21H7.07c	SPBC21H7.07c:allele-3	his5::ura4	disruption	pattern_error	disruption
-SPBC25B2.02c	SPBC25B2.02c:allele-3	mam1-A221	disruption	pattern_error	disruption
-SPBC25D12.03c	SPBC25D12.03c:allele-8	mcm7delta::his3+	disruption	pattern_error	disruption
+SPBC19G7.01c	SPBC19G7.01c:allele-6	msh2-30	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon	pattern_error	removing 242 bps at the very 5’ end of the msh2 coding sequence plus an additional 299 bps upstream of the start codon
+SPBC211.04c	SPBC211.04c:allele-4	mcm6delta::his3+	disruption	pattern_error	disruption
+SPBC216.05	SPBC216.05:allele-40	rad3::ura4+	disruption	pattern_error	disruption
+SPBC216.06c	SPBC216.06c:allele-3	swi1-1	disruption	pattern_error	disruption
+SPBC21B10.05c	SPBC21B10.05c:allele-4	wat1::kanR	disruption	pattern_error	disruption
+SPBC21H7.07c	SPBC21H7.07c:allele-4	his5::ura4	disruption	pattern_error	disruption
+SPBC25B2.02c	SPBC25B2.02c:allele-2	mam1-A221	disruption	pattern_error	disruption
+SPBC25D12.03c	SPBC25D12.03c:allele-4	mcm7delta::his3+	disruption	pattern_error	disruption
 SPBC26H8.10	SPBC26H8.10:allele-17	dis3::LEU2	disruption	pattern_error	disruption
-SPBC29A10.05	SPBC29A10.05:allele-2	exo1-1::ura4	disruption	pattern_error	disruption
-SPBC29A10.15	SPBC29A10.15:allele-8	orc1delta::ura4+	disruption	pattern_error	disruption
-SPBC29A3.14c	SPBC29A3.14c:allele-6	trt1delta::his3+	disruption	pattern_error	disruption
-SPBC29B5.01	SPBC29B5.01:allele-8	atf1::ura4	disruption	pattern_error	disruption
+SPBC29A10.05	SPBC29A10.05:allele-3	exo1-1::ura4	disruption	pattern_error	disruption
+SPBC29A10.15	SPBC29A10.15:allele-5	orc1delta::ura4+	disruption	pattern_error	disruption
+SPBC29A3.14c	SPBC29A3.14c:allele-3	trt1delta::his3+	disruption	pattern_error	disruption
+SPBC29B5.01	SPBC29B5.01:allele-22	atf1::ura4	disruption	pattern_error	disruption
 SPBC2D10.06	SPBC2D10.06:allele-4	rep1::ura4	lacks the N-terminal 80% of the rep1 coding region	pattern_error	lacks the N-terminal 80% of the rep1 coding region
-SPBC2F12.13	SPBC2F12.13:allele-4	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
+SPBC2F12.13	SPBC2F12.13:allele-3	klp5-del	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus	pattern_error	short deletion with a frameshift at codon 772,resulting in a different 772–814 C-terminus
 SPBC3D6.10	SPBC3D6.10:allele-2	apn2::ura4+	nt56-1496	pattern_error	nt56-1496
-SPBC3E7.08c	SPBC3E7.08c:allele-4	rad13::ura4+	disruption	pattern_error	disruption
-SPBC3H7.15	SPBC3H7.15:allele-6	hhp1::ura4	disruption	pattern_error	disruption
-SPBC3H7.15	SPBC3H7.15:allele-3	hhp1::ura4+(nt544)	disruption	pattern_error	disruption
-SPBC4.04c	SPBC4.04c:allele-25	mcm2delta::his3+	disruption	pattern_error	disruption
+SPBC3E7.08c	SPBC3E7.08c:allele-3	rad13::ura4+	disruption	pattern_error	disruption
+SPBC3H7.15	SPBC3H7.15:allele-24	hhp1::ura4	disruption	pattern_error	disruption
+SPBC3H7.15	SPBC3H7.15:allele-23	hhp1::ura4+(nt544)	disruption	pattern_error	disruption
+SPBC4.04c	SPBC4.04c:allele-29	mcm2delta::his3+	disruption	pattern_error	disruption
 SPBC4C3.10c	SPBC4C3.10c:allele-2	mts8-1	disruption	pattern_error	disruption
-SPBC4F6.06	SPBC4F6.06:allele-6	kin1::LEU2	disruption	pattern_error	disruption
-SPBC530.14c	SPBC530.14c:allele-7	dsk1::ura4	disruption	pattern_error	disruption
+SPBC4F6.06	SPBC4F6.06:allele-5	kin1::LEU2	disruption	pattern_error	disruption
+SPBC530.14c	SPBC530.14c:allele-3	dsk1::ura4	disruption	pattern_error	disruption
 SPBC646.14c	SPBC646.14c:allele-5	orc5::ura4+(nt246-993)	disruption	pattern_error	disruption
 SPBC660.14	SPBC660.14:allele-5	mik1::ura4+	disruption	pattern_error	disruption
-SPBC776.02c	SPBC776.02c:allele-8	dis2delta::ura4+	disruption	pattern_error	disruption
-SPBC887.10	SPBC887.10:allele-6	mcs4::his7	disruption	pattern_error	disruption
-SPBC887.14c	SPBC887.14c:allele-15	pfh1-K338E	K338E	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-6	pfh1-K338R	K338R	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-4	pfh1-KA	K338A	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-9	pfh1-L430A	L430A	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-2	pfh1-L430P	L430P	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-10	pfh1-L430V	L430V	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-8	pfh1-delta21	428-448	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-12	pfh1-m1	M1A	invalid_error	peptide sequence missing
-SPBC887.14c	SPBC887.14c:allele-13	pfh1-m21	M21A	invalid_error	peptide sequence missing
-SPBC902.02c	SPBC902.02c:allele-2	ctf18::ura4+(nt1603)	disruption	pattern_error	disruption
+SPBC776.02c	SPBC776.02c:allele-6	dis2delta::ura4+	disruption	pattern_error	disruption
+SPBC887.10	SPBC887.10:allele-7	mcs4::his7	disruption	pattern_error	disruption
+SPBC887.14c	SPBC887.14c:allele-5	pfh1-K338E	K338E	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-4	pfh1-K338R	K338R	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-2	pfh1-KA	K338A	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-11	pfh1-L430A	L430A	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-12	pfh1-L430P	L430P	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-13	pfh1-L430V	L430V	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-10	pfh1-delta21	428-448	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-14	pfh1-m1	M1A	invalid_error	peptide sequence missing
+SPBC887.14c	SPBC887.14c:allele-15	pfh1-m21	M21A	invalid_error	peptide sequence missing
+SPBC902.02c	SPBC902.02c:allele-3	ctf18::ura4+(nt1603)	disruption	pattern_error	disruption
 SPBP16F5.03c	SPBP16F5.03c:allele-2	tra1-ATG	ATG(1-3)TAA	pattern_error	ATG(1-3)TAA
-SPCC11E10.07c	SPCC11E10.07c:allele-3	tif221-2	frameshift at L43	pattern_error	frameshift at L43
+SPCC11E10.07c	SPCC11E10.07c:allele-4	tif221-2	frameshift at L43	pattern_error	frameshift at L43
 SPCC11E10.08	SPCC11E10.08:allele-7	rik1::LEU2	disruption	pattern_error	disruption
 SPCC1223.02	SPCC1223.02:allele-2	nmt1::ura4	disruption	pattern_error	disruption
 SPCC1259.03	SPCC1259.03:allele-2	rpa12delta::ura4+	ura4+@AA39	pattern_error	ura4+@AA39
-SPCC1259.13	SPCC1259.13:allele-16	chk1::ura4+	disruption	pattern_error	disruption
+SPCC1259.13	SPCC1259.13:allele-18	chk1::ura4+	disruption	pattern_error	disruption
 SPCC1393.08	SPCC1393.08:allele-3	fil1-uORFs_mutated	6 uORFs in 5'-UTR mutated	pattern_error	 uORFs in ,'-UTR mutated
-SPCC162.04c	SPCC162.04c:allele-5	wtf13-poison	M1X,M12X	pattern_error	M1X,M12X
+SPCC162.04c	SPCC162.04c:allele-4	wtf13-poison	M1X,M12X	pattern_error	M1X,M12X
 SPCC1682.02c	SPCC1682.02c:allele-2	mcm3delta::his3+	disruption	pattern_error	disruption
-SPCC16A11.17	SPCC16A11.17:allele-9	mcm4delta::his3+	disruption	pattern_error	disruption
-SPCC1840.01c	SPCC1840.01c:allele-8	mog1::ura4	disruption	pattern_error	disruption
+SPCC16A11.17	SPCC16A11.17:allele-7	mcm4delta::his3+	disruption	pattern_error	disruption
+SPCC1840.01c	SPCC1840.01c:allele-3	mog1::ura4	disruption	pattern_error	disruption
 SPCC188.06c	SPCC188.06c:allele-35	srp54::LEU2	disruption	pattern_error	disruption
 SPCC1884.02	SPCC1884.02:allele-2	nic1-1	disruption	pattern_error	disruption
-SPCC18B5.03	SPCC18B5.03:allele-8	wee1-112	unknown opal	pattern_error	unknown opal
-SPCC18B5.03	SPCC18B5.03:allele-13	wee1::ura4+	disruption	pattern_error	disruption
-SPCC18B5.11c	SPCC18B5.11c:allele-61	cds1::ura4	disruption	pattern_error	disruption
-SPCC1902.01	SPCC1902.01:allele-5	gaf1-ZF:ura4	disruption	pattern_error	disruption
-SPCC306.04c	SPCC306.04c:allele-12	set1::Kan	disruption	pattern_error	disruption
-SPCC31H12.05c	SPCC31H12.05c:allele-5	sds21::LEU2	disruption	pattern_error	disruption
+SPCC18B5.03	SPCC18B5.03:allele-12	wee1-112	unknown opal	pattern_error	unknown opal
+SPCC18B5.03	SPCC18B5.03:allele-19	wee1::ura4+	disruption	pattern_error	disruption
+SPCC18B5.11c	SPCC18B5.11c:allele-63	cds1::ura4	disruption	pattern_error	disruption
+SPCC1902.01	SPCC1902.01:allele-3	gaf1-ZF:ura4	disruption	pattern_error	disruption
+SPCC306.04c	SPCC306.04c:allele-11	set1::Kan	disruption	pattern_error	disruption
+SPCC31H12.05c	SPCC31H12.05c:allele-4	sds21::LEU2	disruption	pattern_error	disruption
 SPCC330.05c	SPCC330.05c:allele-7	ura4::lacZ	disruption	pattern_error	disruption
-SPCC4G3.02	SPCC4G3.02:allele-3	aph1-PR1319::ura4	disruption	pattern_error	disruption
-SPCC4G3.08	SPCC4G3.08:allele-14	psk1-	disruption	pattern_error	disruption
-SPCC550.13	SPCC550.13:allele-36	dfp1delta::ura4+	disruption	pattern_error	disruption
+SPCC4G3.02	SPCC4G3.02:allele-2	aph1-PR1319::ura4	disruption	pattern_error	disruption
+SPCC4G3.08	SPCC4G3.08:allele-9	psk1-	disruption	pattern_error	disruption
+SPCC550.13	SPCC550.13:allele-10	dfp1delta::ura4+	disruption	pattern_error	disruption
 SPCC5E4.03c	SPCC5E4.03c:allele-3	taf72::ura4+	disruption	pattern_error	disruption
-SPCC613.04c	SPCC613.04c:allele-4	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
-SPCC74.06	SPCC74.06:allele-2	mak3::kanR	disruption	pattern_error	disruption
+SPCC613.04c	SPCC613.04c:allele-5	rng3::ura4+	lacking AA330-655	pattern_error	lacking AA330-655
+SPCC74.06	SPCC74.06:allele-3	mak3::kanR	disruption	pattern_error	disruption
 SPNCRNA.103	SPNCRNA.103:allele-2	sme2(9-528)	II:complement(339484..340003)	pattern_error	II:complement(339484..340003)
-SPNCRNA.103	SPNCRNA.103:allele-8	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	pattern_error	CU32967,.,:g.33962T>C,CU32967,.,:g.33960T>C,CU32967,.,:g.33955T>C,CU32967,.,:g.33950A>G
+SPNCRNA.103	SPNCRNA.103:allele-7	sme2-m	CU329671.1:g.33962T>C,CU329671.1:g.33960T>C,CU329671.1:g.33955T>C,CU329671.1:g.33950A>G	pattern_error	CU32967,.,:g.33962T>C,CU32967,.,:g.33960T>C,CU32967,.,:g.33955T>C,CU32967,.,:g.33950A>G
 SPNCRNA.1303	SPNCRNA.1303:allele-1	SPNCRNA.1303(93-419)	II:63695..64021	pattern_error	II:,..
 SPNCRNA.1501	SPNCRNA.1501:allele-1	SPNCRNA.1501(1098-2471)	II:2301759..2303132	pattern_error	II:,..
 SPNCRNA.1559	SPNCRNA.1559:allele-2	SPNCRNA.1559(365-735)	II:2886001..2886371	pattern_error	II:,..
 SPNCRNA.1624	SPNCRNA.1624:allele-3	SPNCRNA.1624(15-1422)	II:3620593..3622000	pattern_error	II:,..
 SPNCRNA.1651	SPNCRNA.1651:allele-1	SPNCRNA.1651((-9)-95)	II:3962690..3962794	pattern_error	II:,..
-SPNCRNA.1698	SPNCRNA.1698:allele-3	nc-tgp1::ura4+	disruption	pattern_error	disruption
+SPNCRNA.1698	SPNCRNA.1698:allele-1	nc-tgp1::ura4+	disruption	pattern_error	disruption
 SPNCRNA.1710	SPNCRNA.1710:allele-1	adh1AS-deltapromoter	III:1593402-1593818	pattern_error	III:
-SPNCRNA.214	SPNCRNA.214:allele-29	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
-SPNCRNA.214	SPNCRNA.214:allele-27	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
-SPNCRNA.214	SPNCRNA.214:allele-28	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
-SPNCRNA.214	SPNCRNA.214:allele-30	ter1-m2	AAGGAA_882-887_TTCCTT	pattern_error	AAGGAA_,_TTCCTT
-SPNCRNA.214	SPNCRNA.214:allele-25	ter1-m3	TTT_823-825_CCC	pattern_error	TTT_,_CCC
-SPNCRNA.214	SPNCRNA.214:allele-26	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
-SPNCRNA.214	SPNCRNA.214:allele-21	ter1::his3	disruption	pattern_error	disruption
+SPNCRNA.214	SPNCRNA.214:allele-8	ter1-m1	AATTTGG_813-820_TTAAACC	pattern_error	AATTTGG_,_TTAAACC
+SPNCRNA.214	SPNCRNA.214:allele-6	ter1-m1,m3	AATTTGG_813-820_TTAAACC,TTT_823-825_CCC	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CCC
+SPNCRNA.214	SPNCRNA.214:allele-7	ter1-m1,m4	AATTTGG_813-820_TTAAACC,TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	AATTTGG_,_TTAAACC,TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
+SPNCRNA.214	SPNCRNA.214:allele-9	ter1-m2	AAGGAA_882-887_TTCCTT	pattern_error	AAGGAA_,_TTCCTT
+SPNCRNA.214	SPNCRNA.214:allele-4	ter1-m3	TTT_823-825_CCC	pattern_error	TTT_,_CCC
+SPNCRNA.214	SPNCRNA.214:allele-5	ter1-m4	TTT_822-824_CTC,TGT_838-840_CTC,ACA_888-890_GAG	pattern_error	TTT_,_CTC,TGT_,_CTC,ACA_,_GAG
+SPNCRNA.214	SPNCRNA.214:allele-27	ter1::his3	disruption	pattern_error	disruption
 SPNCRNA.388	SPNCRNA.388:allele-1	SPNCRNA.388(75-1575)	II:2115667..2117167	pattern_error	II:,..
 SPNCRNA.627	SPNCRNA.627:allele-2	SPNCRNA.627(606-995)	I:238509..238898	pattern_error	I:,..
 SPNCRNA.628	SPNCRNA.628:allele-3	SPNCRNA.628(732-1573)	I:239730..240571	pattern_error	I:,..
@@ -147,5 +147,5 @@ SPNCRNA.941	SPNCRNA.941:allele-2	SPNCRNA.941(145-922)	I:3846893..3847670	pattern
 SPNCRNA.98	SPNCRNA.98:allele-120	srp7.1	disruption	pattern_error	disruption
 SPNCRNA.996	SPNCRNA.996:allele-2	SPNCRNA.996((-74)-487)	I:4531070..4531631	pattern_error	I:,..
 SPSNORNA.53	SPSNORNA.53:allele-1	snR88::kanR(nt-249)	disruption	pattern_error	disruption
-SPSNRNA.01	SPSNRNA.01:allele-26	snu1::LEU2	disruption	pattern_error	disruption
-SPSNRNA.04	SPSNRNA.04:allele-3	snu4::LEU2	disruption	pattern_error	disruption
+SPSNRNA.01	SPSNRNA.01:allele-20	snu1::LEU2	disruption	pattern_error	disruption
+SPSNRNA.04	SPSNRNA.04:allele-10	snu4::LEU2	disruption	pattern_error	disruption
