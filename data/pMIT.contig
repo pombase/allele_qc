@@ -330,7 +330,7 @@ FT                   /product="tRNA Arginine (ucg), mitochondrial"
 FT                   /note="tRNA-Arg(ucg)"
 FT                   /systematic_id="SPMITTRNAARG.02"
 FT   tRNA            17544..17615
-FT                   /product="tRNA Isoleucine (cau), mitochondrial"
+FT                   /product="tRNA Isoleucine (gau), mitochondrial"
 FT                   /systematic_id="SPMITTRNAILE.02"
 FT   tRNA            17637..17718
 FT                   /product="tRNA Serine (uga), mitochondrial"
