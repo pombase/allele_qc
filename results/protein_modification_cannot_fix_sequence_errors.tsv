@@ -76,8 +76,8 @@ SPBC13G1.05	emp65	MOD:00046	high throughput evidence used in manual assertion	S9
 SPBC16A3.18	cip1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S145		PMID:30726745	4896	2019-02-05	PomBase	S145
 SPBC16A3.18	cip1	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S147		PMID:30726745	4896	2019-02-05	PomBase	S147
 SPBC16E9.16c	lsd90	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S734		PMID:33823663	4896	2022-03-08	PomBase	S734
-SPBC16E9.16c	lsd90	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S738	in_presence_of(CHEBI:84327),increased_during(GO:0032007)	PMID:33823663	4896	2022-03-08	PomBase	S738
 SPBC16E9.16c	lsd90	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S738		PMID:33823663	4896	2022-03-08	PomBase	S738
+SPBC16E9.16c	lsd90	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S738	in_presence_of(CHEBI:84327),increased_during(GO:0032007)	PMID:33823663	4896	2022-03-08	PomBase	S738
 SPBC16E9.16c	lsd90	MOD:00047	tryptic phosphopeptide mapping assay evidence used in automatic assertion	T737		PMID:33823663	4896	2022-03-08	PomBase	T737
 SPBC16G5.15c	fkh2	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S134		PMID:30726745	4896	2019-02-05	PomBase	S134
 SPBC16G5.15c	fkh2	MOD:00046	tryptic phosphopeptide mapping assay evidence used in automatic assertion	S181		PMID:30726745	4896	2019-02-05	PomBase	S181
