@@ -18,8 +18,8 @@ SPAPB1E7.05	gde1	MOD:00047	high throughput evidence used in manual assertion	T73
 SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K4		PB_REF:0000001	4896	2010-03-11	PomBase	K4	K5	histone_fix	
 SPBC1105.11c	hht3	MOD:00427	Inferred from Sequence or Structural Similarity	K9		PB_REF:0000001	4896	2010-03-11	PomBase	K9	K10	histone_fix	
 SPBC1105.12	hhf3	MOD:00427	Inferred from Sequence or Structural Similarity	K20		PB_REF:0000001	4896	2010-03-11	PomBase	K20	K21	histone_fix	
-SPBC13A2.02	nup82	MOD:00046	high throughput evidence used in manual assertion	S560	removed_during(GO:0006995)	PMID:39705284	4896	2025-04-04	PomBase	S560	S555	old_coords_fix, revision 8406: 3400603..3403014	
 SPBC13A2.02	nup82	MOD:00046	high throughput evidence used in manual assertion	S560	removed_during(GO:0000747)	PMID:39705284	4896	2025-04-04	PomBase	S560	S555	old_coords_fix, revision 8406: 3400603..3403014	
+SPBC13A2.02	nup82	MOD:00046	high throughput evidence used in manual assertion	S560	removed_during(GO:0006995)	PMID:39705284	4896	2025-04-04	PomBase	S560	S555	old_coords_fix, revision 8406: 3400603..3403014	
 SPBC16A3.01	spn3	MOD:00046	high throughput evidence used in manual assertion	S326	removed_during(GO:0006995)	PMID:39705284	4896	2025-04-04	PomBase	S326	S287	old_coords_fix, revision 8406: complement(join(4299042..4299794,4299858..4300036,4300263..4300569))	
 SPBC16A3.01	spn3	MOD:00046	high throughput evidence used in manual assertion	S332	removed_during(GO:0006995)	PMID:39705284	4896	2025-04-04	PomBase	S332	S293	old_coords_fix, revision 8406: complement(join(4299042..4299794,4299858..4300036,4300263..4300569))	
 SPBC16A3.01	spn3	MOD:00046	high throughput evidence used in manual assertion	S342	removed_during(GO:0006995)	PMID:39705284	4896	2025-04-04	PomBase	S342	S303	old_coords_fix, revision 8406: complement(join(4299042..4299794,4299858..4300036,4300263..4300569))	
