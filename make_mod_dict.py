@@ -17,7 +17,7 @@ with open('data/mod.obo', 'r') as ins:
     for i in re.finditer(regex, full_file):
         term_dict = dict()
         for element in i.group().split('\n')[1:]:
-            key, value = re.match(r'^(\w+): (.+)$', element).groups()
+            key, value = re.match(r'^(\w+):\s*(.+)$', element).groups()
             subvalue_match = re.match(r'^(\w+): "(.+)"$', value)
             if subvalue_match:
                 value = subvalue_match.group(2)
