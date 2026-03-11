@@ -51,9 +51,6 @@ FT                   /systematic_id="SPMTR.01"
 FT   promoter        3800..3820
 FT                   /SO="SO:0001858"
 FT                   /db_xref="PMID:7975894"
-FT                   /controlled_curation="term=misc, guanosine base is
-FT                   required for functionality; db_xref=PMID:7975894;
-FT                   date=20120720"
 FT                   /note="matPi promoter"
 FT   5'UTR           3861..3888
 FT                   /note="Pi transcription initiation site"
