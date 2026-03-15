@@ -16,30 +16,6 @@ FT                   /protein_id="CAA30482.1"
 FT                   /systematic_id="SPMTR.01"
 FT                   /primary_name="mat2-Pc"
 FT                   /colour=2
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   qualifier=present;
-FT                   annotation_extension=during(GO:0072690),occurs_in(CL:0002675);
-FT                   evidence=ECO:0005653; db_xref=PMID:2792737; date=20120217"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   qualifier=increased;
-FT                   annotation_extension=during(GO:0006995),occurs_in(CL:0002675);
-FT                   evidence=ECO:0005653; db_xref=PMID:2792737; date=20120217"
-FT                   /controlled_curation="term=warning, this gene is located
-FT                   in the silent mating type region mat2 and is therefore not
-FT                   expressed. It is only transcribed when at the mat1 locus,
-FT                   which is the mating type configuration of h+ cells. The S.
-FT                   pombe reference strain is h- mating type and express h-
-FT                   specific mating genes from the mat1 locus. The silenced
-FT                   mat2 genes are therefore annotated with mat1 h+ specific
-FT                   information"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690);
-FT                   qualifier=present; evidence=ECO:0000110;
-FT                   db_xref=PMID:2900761; date=20140618"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995);
-FT                   qualifier=increased; evidence=ECO:0000110;
-FT                   db_xref=PMID:2900761; date=20140618"
 FT                   /synonym="mat-Pc"
 FT                   /synonym="matPc"
 FT                   /synonym="mat2Pc"
@@ -61,59 +37,6 @@ FT                   /protein_id="CAA30483.1"
 FT                   /systematic_id="SPMTR.02"
 FT                   /primary_name="mat2-Pi"
 FT                   /colour=2
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995),occurs_in(CL:0002675);
-FT                   qualifier=increased; evidence=ECO:0005653;
-FT                   db_xref=PMID:2792737; date=20120217"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690),occurs_in(CL:0002675);
-FT                   qualifier=absent; evidence=ECO:0005653;
-FT                   db_xref=PMID:2792737; date=20120217"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995),during(GO:0042149),occurs_in(CL:0002675);
-FT                   qualifier=increased; evidence=ECO:0005653;
-FT                   db_xref=PMID:8001162; date=20120221"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995);
-FT                   qualifier=increased; evidence=ECO:0005653;
-FT                   db_xref=PMID:7651414; date=20120224"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995);
-FT                   qualifier=present; evidence=ECO:0005653;
-FT                   db_xref=PMID:1435723; date=20130219"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690); qualifier=absent;
-FT                   evidence=ECO:0005653; db_xref=PMID:1435723; date=20130219"
-FT                   /controlled_curation="term=warning, this gene is located
-FT                   in the silent mating type region mat2 and is therefore not
-FT                   expressed. It is only transcribed when at the mat1 locus,
-FT                   which is the mating type configuration of h+ cells. The S.
-FT                   pombe reference strain is h- mating type and express h-
-FT                   specific mating genes from the mat1 locus. The silenced
-FT                   mat2 genes are therefore annotated with mat1 h+ specific
-FT                   information"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690); qualifier=absent;
-FT                   evidence=ECO:0000110; db_xref=PMID:2900761; date=20140618"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995);
-FT                   qualifier=increased; evidence=ECO:0000110;
-FT                   db_xref=PMID:2900761; date=20140618"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995);
-FT                   qualifier=increased; evidence=ECO:0005653;
-FT                   db_xref=PMID:2300054; date=20140618"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690); qualifier=absent;
-FT                   evidence=ECO:0005653; db_xref=PMID:2300054; date=20140618"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0006995);
-FT                   qualifier=increased; evidence=ECO:0005653;
-FT                   db_xref=PMID:15713656; date=20141202"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690); qualifier=absent;
-FT                   evidence=ECO:0005653; db_xref=PMID:15713656;
-FT                   date=20141202"
 FT                   /synonym="mat-Pi"
 FT                   /synonym="matPi"
 FT                   /synonym="mat-Pm"
@@ -135,12 +58,6 @@ FT                   /systematic_id="SPMTR.03"
 FT                   /colour=2
 FT                   /primary_name="mat3-Mi"
 FT                   /synonym="mat3-Mm"
-FT                   /controlled_curation="term=warning, this is a duplication
-FT                   of SPBC1711.01c, made to create an intact mating type
-FT                   region contig, as it is partially deleted in the reference
-FT                   strain. This mating type region is not transcribed, only
-FT                   the copy present at the mat1 locus is, see mat1-Mi for the
-FT                   expressed copy in the reference strain"
 FT   misc_feature    15609..16735
 FT                   /note="mat-3M"
 FT   gene            15856..16401
@@ -149,12 +66,6 @@ FT                   factor Mc"
 FT                   /systematic_id="SPMTR.04"
 FT                   /colour=2
 FT                   /primary_name="mat3-Mc"
-FT                   /controlled_curation="term=warning, this is a duplication
-FT                   of SPBC1711.02, made to create an intact mating type
-FT                   region contig, as it is partially deleted in the reference
-FT                   strain. This mating type region is not transcribed, only
-FT                   the copy present at the mat1 locus is, see mat1-Mi for the
-FT                   expressed copy in the reference strain"
 FT   misc_feature    16736..16794
 FT                   /note="H1 homology box"
 FT   misc_feature    18009..20128

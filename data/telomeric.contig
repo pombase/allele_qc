@@ -53,39 +53,11 @@ FT                   /product="plasma membrane amino acid transmembrane
 FT                   transporter"
 FT                   /systematic_id="SPBC460.01c"
 FT                   /protein_id="BAG68901.1"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in eukaryotes; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in bacteria; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in metazoa; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in vertebrates; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in fungi; date=20090715"
-FT                   /controlled_curation="term=warning, new gene;
-FT                   db_xref=PMID:18727152; date=20110408"
 FT                   /colour=7
 FT   CDS             complement(join(8856..9365,9651..9803))
 FT                   /product="translation elongation factor, glutathione
 FT                   S-transferase (predicted)"
 FT                   /protein_id="BAG68902.1"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in eukaryotes; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in eukaryotes only; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in metazoa; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in vertebrates; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in fungi; date=20090715"
-FT                   /controlled_curation="term=thioredoxin family;
-FT                   date=20090715"
-FT                   /controlled_curation="term=warning, new gene;
-FT                   db_xref=PMID:18727152; date=20110408"
-FT                   /controlled_curation="term=species distribution, faster
-FT                   evolving duplicate; date=20120814"
 FT                   /systematic_id="SPBC460.02c"
 FT                   /colour=7
 FT   CDS             11641..13344
@@ -93,51 +65,18 @@ FT                   /product="vacuolar amino acid uptake transporter"
 FT                   /protein_id="BAG68903.1"
 FT                   /colour=2
 FT                   /systematic_id="SPBC460.03"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in eukaryotes; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in bacteria; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in fungi; date=20090715"
-FT                   /controlled_curation="term=warning, new gene;
-FT                   db_xref=PMID:18727152; date=20110408"
-FT                   /controlled_curation="term=gene expression, RNA level;
-FT                   annotation_extension=during(GO:0072690);
-FT                   qualifier=present; evidence=ECO:0000108;
-FT                   db_xref=PMID:20944394; date=20120924"
 FT                   /primary_name="vba2"
 FT   CDS             complement(14073..15248)
 FT                   /product="sulfonate/alpha-ketoglutarate dioxygenase
 FT                   (predicted)"
 FT                   /protein_id="BAG68904.1"
 FT                   /systematic_id="SPBC460.04c"
-FT                   /controlled_curation="term=TfdA family; date=20090715"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in fungi; date=20090716"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in bacteria; date=20090716"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in eukaryotes; date=20090716"
-FT                   /controlled_curation="term=warning, new gene;
-FT                   db_xref=PMID:18727152; date=20110408"
 FT                   /colour=7
 FT   CDS             16470..18062
 FT                   /product="transmembrane transporter (predicted)"
 FT                   /colour=7
 FT                   /systematic_id="SPBC460.05"
 FT                   /protein_id="BAG68905.1"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in bacteria; date=20090716"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in fungi; date=20090716"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in eukaryotes; date=20090716"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in vertebrates; date=20090716"
-FT                   /controlled_curation="term=species distribution, conserved
-FT                   in metazoa; date=20090716"
-FT                   /controlled_curation="term=warning, new gene;
-FT                   db_xref=PMID:18727152; date=20110408"
 SQ   Sequence 20000 BP; 6678 A; 3186 C; 3448 G; 6688 T; 0 other;
      caattgtaaa ccatattggt ataataacat gatattgtta aaagaaaagt tgaagtatgc        60
      agctagcagc agaattttga aaagctagat agtacagtag atggtttcaa ttcttgctat       120
