@@ -1,4 +1,8 @@
 revision	user	date	chromosome	systematic_id	primary_name	feature_type	added_or_removed	value
+11757	vw253	2026-03-20	I	SPAC977.04		CDS	added	34292..34816
+11757	vw253	2026-03-20	I	SPAC977.04		CDS	removed	34349..34816
+11757	vw253	2026-03-20	II	SPBC530.06c	clu1	CDS	added	complement(join(799142..802651,802839..802851))
+11757	vw253	2026-03-20	II	SPBC530.06c	clu1	CDS	removed	complement(join(799142..800838,800840..802651,802839..802851))
 11505	vw253	2026-01-11	I	SPAC212.06c		CDS	added	18072..18554
 11505	vw253	2026-01-11	I	SPAC212.06c		CDS	removed	join(18072..18306,18349..18557)
 10787	pascal	2025-04-24	II	SPBC887.14c.2	pfh1	CDS	added	complement(join(3567730..3568892,3568934..3570128))
