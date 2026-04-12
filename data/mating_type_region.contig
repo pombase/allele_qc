@@ -51,7 +51,7 @@ FT   misc_feature    15417..15473
 FT                   /note="H3 homology box"
 FT   misc_feature    15474..15608
 FT                   /note="H2 homology box"
-FT   gene            complement(15593..15721)
+FT   misc_feature    complement(15593..15721)
 FT                   /note="NOTE:equivalent to SPBC1711.01c"
 FT                   /product="duplicated M-specific trancription factor Mi"
 FT                   /systematic_id="SPMTR.03"
@@ -60,7 +60,7 @@ FT                   /primary_name="mat3-Mi"
 FT                   /synonym="mat3-Mm"
 FT   misc_feature    15609..16735
 FT                   /note="mat-3M"
-FT   gene            15856..16401
+FT   misc_feature    15856..16401
 FT                   /product="duplicated silenced M-specific trancription
 FT                   factor Mc"
 FT                   /systematic_id="SPMTR.04"
