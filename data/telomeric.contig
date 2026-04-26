@@ -53,7 +53,7 @@ FT                   /product="plasma membrane amino acid transmembrane
 FT                   transporter"
 FT                   /systematic_id="SPBC460.01c"
 FT                   /protein_id="BAG68901.1"
-FT                   /colour=7
+FT                   /colour=10
 FT   CDS             complement(join(8856..9365,9651..9803))
 FT                   /product="translation elongation factor, glutathione
 FT                   S-transferase (predicted)"
@@ -73,8 +73,8 @@ FT                   /protein_id="BAG68904.1"
 FT                   /systematic_id="SPBC460.04c"
 FT                   /colour=7
 FT   CDS             16470..18062
-FT                   /product="transmembrane transporter (predicted)"
-FT                   /colour=7
+FT                   /product="transmembrane transporter"
+FT                   /colour=10
 FT                   /systematic_id="SPBC460.05"
 FT                   /protein_id="BAG68905.1"
 SQ   Sequence 20000 BP; 6678 A; 3186 C; 3448 G; 6688 T; 0 other;
