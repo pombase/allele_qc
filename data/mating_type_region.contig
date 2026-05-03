@@ -32,7 +32,7 @@ FT   5'UTR           3861..3888
 FT                   /note="Pi transcription initiation site"
 FT                   /systematic_id="SPMTR.02"
 FT   CDS             3889..4368
-FT                   /product="silenced P-specific trancription factor Pi"
+FT                   /product="silenced P-specific transcription factor Pi"
 FT                   /protein_id="CAA30483.1"
 FT                   /systematic_id="SPMTR.02"
 FT                   /primary_name="mat2-Pi"
